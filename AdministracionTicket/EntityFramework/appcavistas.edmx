@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ModeloVistas.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModeloVistasStoreContainer">
+          <EntitySet Name="V_DATOS_UBICACION" EntityType="ModeloVistas.Store.V_DATOS_UBICACION" store:Type="Views" store:Schema="APPCA" store:Name="V_DATOS_UBICACION">
+            <DefiningQuery>SELECT 
+      "V_DATOS_UBICACION"."IDDETALLE_SUCURSAL_OFICINA" AS "IDDETALLE_SUCURSAL_OFICINA", 
+      "V_DATOS_UBICACION"."NOMBRE_OFICINA" AS "NOMBRE_OFICINA", 
+      "V_DATOS_UBICACION"."NOMBRE" AS "NOMBRE", 
+      "V_DATOS_UBICACION"."NOMBRE_MPIO" AS "NOMBRE_MPIO"
+      FROM "APPCA"."V_DATOS_UBICACION" "V_DATOS_UBICACION"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_SUCURSAL" EntityType="ModeloVistas.Store.V_SUCURSAL" store:Type="Views" store:Schema="APPCA" store:Name="V_SUCURSAL">
+            <DefiningQuery>SELECT 
+      "V_SUCURSAL"."IDSUCURSAL" AS "IDSUCURSAL", 
+      "V_SUCURSAL"."NOMBRE" AS "NOMBRE", 
+      "V_SUCURSAL"."IDMUNICIPIO" AS "IDMUNICIPIO"
+      FROM "APPCA"."V_SUCURSAL" "V_SUCURSAL"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'APPCA.V_DATOS_UBICACION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="V_DATOS_UBICACION">
+          <Key>
+            <PropertyRef Name="IDDETALLE_SUCURSAL_OFICINA" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="IDDETALLE_SUCURSAL_OFICINA" Type="number" Nullable="false" />
+          <Property Name="NOMBRE_OFICINA" Type="varchar2" MaxLength="30" />
+          <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="30" />
+          <Property Name="NOMBRE_MPIO" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'APPCA.V_SUCURSAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="V_SUCURSAL">
+          <Key>
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="IDMUNICIPIO" />
+          </Key>
+          <Property Name="IDSUCURSAL" Type="number" />
+          <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="30" />
+          <Property Name="IDMUNICIPIO" Type="number" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'APPCA.V_GESTIONES_OFICINA' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="V_GESTIONES_OFICINA">
+        <Property Name="CODIGO" Type="varchar2" MaxLength="5" />
+        <Property Name="NOMBRE" Type="varchar2" MaxLength="45" />
+        <Property Name="IDOFICINA" Type="number" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'APPCA.V_OFICINAS_SUCURSAL' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="V_OFICINAS_SUCURSAL">
+        <Property Name="IDOFICINA" Type="number" />
+        <Property Name="NOMBRE_OFICINA" Type="varchar2" MaxLength="30" />
+        <Property Name="IDSUCURSAL" Type="number" />
+      </EntityType>-->
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModeloVistas" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EntidadesVistas" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="V_DATOS_UBICACION" EntityType="ModeloVistas.V_DATOS_UBICACION" />
+          <EntitySet Name="V_SUCURSAL" EntityType="ModeloVistas.V_SUCURSAL" />
+        </EntityContainer>
+        <EntityType Name="V_DATOS_UBICACION">
+          <Key>
+            <PropertyRef Name="IDDETALLE_SUCURSAL_OFICINA" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="IDDETALLE_SUCURSAL_OFICINA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NOMBRE_OFICINA" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="NOMBRE_MPIO" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="V_SUCURSAL">
+          <Key>
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="IDMUNICIPIO" />
+          </Key>
+          <Property Name="IDSUCURSAL" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="IDMUNICIPIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModeloVistasStoreContainer" CdmEntityContainer="EntidadesVistas">
+          <EntitySetMapping Name="V_DATOS_UBICACION">
+            <EntityTypeMapping TypeName="ModeloVistas.V_DATOS_UBICACION">
+              <MappingFragment StoreEntitySet="V_DATOS_UBICACION">
+                <ScalarProperty Name="IDDETALLE_SUCURSAL_OFICINA" ColumnName="IDDETALLE_SUCURSAL_OFICINA" />
+                <ScalarProperty Name="NOMBRE_OFICINA" ColumnName="NOMBRE_OFICINA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="NOMBRE_MPIO" ColumnName="NOMBRE_MPIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_SUCURSAL">
+            <EntityTypeMapping TypeName="ModeloVistas.V_SUCURSAL">
+              <MappingFragment StoreEntitySet="V_SUCURSAL">
+                <ScalarProperty Name="IDSUCURSAL" ColumnName="IDSUCURSAL" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="IDMUNICIPIO" ColumnName="IDMUNICIPIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="appcavistas">
+        <EntityTypeShape EntityType="ModeloVistas.V_DATOS_UBICACION" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloVistas.V_SUCURSAL" Width="1.5" PointX="4.25" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
