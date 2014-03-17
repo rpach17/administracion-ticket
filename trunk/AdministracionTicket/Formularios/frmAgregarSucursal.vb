@@ -14,16 +14,15 @@
             Exit Sub
         End If
 
-        Dim suc As New SUCURSALES() With _
-            {
-                .IDEMPRESA = NOMBREComboBox.SelectedValue, _
-                .NOMBRE = txtNombreS.Text, _
-                .DIRECCION = txtDireccionS.Text, _
-                .IDMUNICIPIO = IdMunicipio, _
-                .LATITUD = Val(txtLatitud.Text), _
-                .LONGITUD = Val(txtLongitud.Text)
-            }
-        EntityTablas.AgregarSucursal(suc)
+        EntityTablas.AgregarSucursal(New SUCURSALES() With _
+        {
+            .IDEMPRESA = NOMBREComboBox.SelectedValue, _
+            .NOMBRE = txtNombreS.Text, _
+            .DIRECCION = txtDireccionS.Text, _
+            .IDMUNICIPIO = IdMunicipio, _
+            .LATITUD = Val(txtLatitud.Text), _
+            .LONGITUD = Val(txtLongitud.Text)
+        })
 
         txtNombreS.Text = Nothing
         txtDireccionS.Text = Nothing
