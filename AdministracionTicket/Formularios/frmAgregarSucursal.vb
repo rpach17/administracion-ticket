@@ -24,10 +24,7 @@
             .LONGITUD = Val(txtLongitud.Text)
         })
 
-        txtNombreS.Text = Nothing
-        txtDireccionS.Text = Nothing
-        txtLongitud.Text = Nothing
-        txtLatitud.Text = Nothing
+        LimpiarControles(txtNombreS, txtDireccionS, txtLongitud, txtLatitud)
         txtNombreS.Focus()
 
         MsgBox("Sucursal agregada correctamente", MsgBoxStyle.Information, "Sucursal")

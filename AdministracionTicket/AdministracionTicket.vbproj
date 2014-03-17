@@ -76,6 +76,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Complementos\ModuloProcedimientos.vb" />
     <Compile Include="DAO\EntityTablas.vb" />
     <Compile Include="EntityFramework\appcaInsertGestionesVentanilla.Designer.vb">
       <AutoGen>True</AutoGen>
