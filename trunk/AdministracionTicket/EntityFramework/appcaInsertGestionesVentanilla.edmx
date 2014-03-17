@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ModeloGestionesVentanillas.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModeloGestionesVentanillasStoreContainer">
+          <EntitySet Name="GESTIONES_VENTANILLAS" EntityType="ModeloGestionesVentanillas.Store.GESTIONES_VENTANILLAS" store:Type="Tables" Schema="APPCA" />
+        </EntityContainer>
+        <EntityType Name="GESTIONES_VENTANILLAS">
+          <Key>
+            <PropertyRef Name="IDVENTANILLA" />
+            <PropertyRef Name="IDDETALLE_GESTION_OFICINA" />
+          </Key>
+          <Property Name="IDVENTANILLA" Type="number" Nullable="false" />
+          <Property Name="IDDETALLE_GESTION_OFICINA" Type="number" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModeloGestionesVentanillas" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EntidadesInsert" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GESTIONES_VENTANILLAS" EntityType="ModeloGestionesVentanillas.GESTIONES_VENTANILLAS" />
+        </EntityContainer>
+        <EntityType Name="GESTIONES_VENTANILLAS">
+          <Key>
+            <PropertyRef Name="IDVENTANILLA" />
+            <PropertyRef Name="IDDETALLE_GESTION_OFICINA" />
+          </Key>
+          <Property Name="IDVENTANILLA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDDETALLE_GESTION_OFICINA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModeloGestionesVentanillasStoreContainer" CdmEntityContainer="EntidadesInsert">
+          <EntitySetMapping Name="GESTIONES_VENTANILLAS">
+            <EntityTypeMapping TypeName="ModeloGestionesVentanillas.GESTIONES_VENTANILLAS">
+              <MappingFragment StoreEntitySet="GESTIONES_VENTANILLAS">
+                <ScalarProperty Name="IDVENTANILLA" ColumnName="IDVENTANILLA" />
+                <ScalarProperty Name="IDDETALLE_GESTION_OFICINA" ColumnName="IDDETALLE_GESTION_OFICINA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="appcaInsertGestionesVentanilla">
+        <EntityTypeShape EntityType="ModeloGestionesVentanillas.GESTIONES_VENTANILLAS" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583331" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

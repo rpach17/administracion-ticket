@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AdministracionTicket", "AdministracionTicket\AdministracionTicket.vbproj", "{1931EA5A-53F7-49D2-83D1-A45232357BEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1931EA5A-53F7-49D2-83D1-A45232357BEB}.Debug|x86.ActiveCfg = Debug|x86
+		{1931EA5A-53F7-49D2-83D1-A45232357BEB}.Debug|x86.Build.0 = Debug|x86
+		{1931EA5A-53F7-49D2-83D1-A45232357BEB}.Release|x86.ActiveCfg = Release|x86
+		{1931EA5A-53F7-49D2-83D1-A45232357BEB}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal
