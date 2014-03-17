@@ -27,9 +27,9 @@ Partial Class frmOficinas
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(323, 87)
+        Me.Button1.Location = New System.Drawing.Point(201, 78)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(366, 160)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
@@ -38,7 +38,7 @@ Partial Class frmOficinas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(487, 319)
+        Me.ClientSize = New System.Drawing.Size(803, 309)
         Me.Controls.Add(Me.Button1)
         Me.Name = "frmOficinas"
         Me.Text = "frmOficinas"
