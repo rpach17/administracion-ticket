@@ -26,15 +26,16 @@ Partial Class frmOficinas
         Me.dgvOficinas = New System.Windows.Forms.DataGridView()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Nuevo = New System.Windows.Forms.ToolStripButton()
-        Me.txtOficina = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Guardar = New System.Windows.Forms.ToolStripButton()
-        Me.Eliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Guardar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.Actualizar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Eliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.txtOficina = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Cancelar = New System.Windows.Forms.ToolStripButton()
         CType(Me.dgvOficinas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -52,7 +53,7 @@ Partial Class frmOficinas
         '
         Me.ToolStrip1.AutoSize = False
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Nuevo, Me.ToolStripSeparator1, Me.Guardar, Me.ToolStripSeparator2, Me.Actualizar, Me.ToolStripSeparator3, Me.Eliminar, Me.ToolStripSeparator4})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Nuevo, Me.ToolStripSeparator1, Me.Actualizar, Me.ToolStripSeparator2, Me.Guardar, Me.Cancelar, Me.ToolStripSeparator3, Me.Eliminar, Me.ToolStripSeparator4})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(441, 48)
@@ -68,24 +69,10 @@ Partial Class frmOficinas
         Me.Nuevo.Size = New System.Drawing.Size(36, 45)
         Me.Nuevo.Text = "Nueva Oficina"
         '
-        'txtOficina
+        'ToolStripSeparator1
         '
-        Me.txtOficina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtOficina.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOficina.Location = New System.Drawing.Point(87, 51)
-        Me.txtOficina.Name = "txtOficina"
-        Me.txtOficina.Size = New System.Drawing.Size(240, 26)
-        Me.txtOficina.TabIndex = 2
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 54)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 20)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Nombre:"
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 48)
         '
         'Guardar
         '
@@ -95,20 +82,6 @@ Partial Class frmOficinas
         Me.Guardar.Name = "Guardar"
         Me.Guardar.Size = New System.Drawing.Size(36, 45)
         Me.Guardar.Text = "Guardar"
-        '
-        'Eliminar
-        '
-        Me.Eliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Eliminar.Image = CType(resources.GetObject("Eliminar.Image"), System.Drawing.Image)
-        Me.Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Eliminar.Name = "Eliminar"
-        Me.Eliminar.Size = New System.Drawing.Size(36, 45)
-        Me.Eliminar.Text = "Eliminar Oficna"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 48)
         '
         'ToolStripSeparator2
         '
@@ -129,10 +102,47 @@ Partial Class frmOficinas
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 48)
         '
+        'Eliminar
+        '
+        Me.Eliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Eliminar.Image = CType(resources.GetObject("Eliminar.Image"), System.Drawing.Image)
+        Me.Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Eliminar.Name = "Eliminar"
+        Me.Eliminar.Size = New System.Drawing.Size(36, 45)
+        Me.Eliminar.Text = "Eliminar Oficna"
+        '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 48)
+        '
+        'txtOficina
+        '
+        Me.txtOficina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtOficina.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOficina.Location = New System.Drawing.Point(87, 51)
+        Me.txtOficina.Name = "txtOficina"
+        Me.txtOficina.Size = New System.Drawing.Size(240, 26)
+        Me.txtOficina.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 54)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(69, 20)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Nombre:"
+        '
+        'Cancelar
+        '
+        Me.Cancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Cancelar.Image = CType(resources.GetObject("Cancelar.Image"), System.Drawing.Image)
+        Me.Cancelar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Cancelar.Name = "Cancelar"
+        Me.Cancelar.Size = New System.Drawing.Size(36, 45)
+        Me.Cancelar.Text = "Cancelar"
         '
         'frmOficinas
         '
@@ -165,4 +175,5 @@ Partial Class frmOficinas
     Friend WithEvents Actualizar As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents Cancelar As System.Windows.Forms.ToolStripButton
 End Class
