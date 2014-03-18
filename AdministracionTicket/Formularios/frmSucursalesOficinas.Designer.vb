@@ -25,16 +25,16 @@ Partial Class frmSucursalesOficinas
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSucursalesOficinas))
         Me.lblAccion = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtBuscarSucursal = New System.Windows.Forms.TextBox()
         Me.dgvSucursales = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.btnQuitar = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.cboOficicinas = New System.Windows.Forms.ComboBox()
         Me.dgvOficinas = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -65,6 +65,19 @@ Partial Class frmSucursalesOficinas
         Me.Panel1.Size = New System.Drawing.Size(383, 365)
         Me.Panel1.TabIndex = 15
         '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.Gray
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(0, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(383, 40)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Sucursales"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -94,19 +107,6 @@ Partial Class frmSucursalesOficinas
         Me.dgvSucursales.Size = New System.Drawing.Size(361, 282)
         Me.dgvSucursales.TabIndex = 7
         '
-        'Label2
-        '
-        Me.Label2.BackColor = System.Drawing.Color.Gray
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(0, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(383, 40)
-        Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Sucursales"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.Label3)
@@ -118,6 +118,19 @@ Partial Class frmSucursalesOficinas
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(319, 365)
         Me.Panel2.TabIndex = 16
+        '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.Color.Gray
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(0, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(319, 40)
+        Me.Label3.TabIndex = 19
+        Me.Label3.Text = "Oficinas"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnQuitar
         '
@@ -156,24 +169,11 @@ Partial Class frmSucursalesOficinas
         Me.dgvOficinas.Size = New System.Drawing.Size(240, 243)
         Me.dgvOficinas.TabIndex = 8
         '
-        'Label3
-        '
-        Me.Label3.BackColor = System.Drawing.Color.Gray
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(0, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(319, 40)
-        Me.Label3.TabIndex = 19
-        Me.Label3.Text = "Oficinas"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'frmSucursalesOficinas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(722, 414)
+        Me.ClientSize = New System.Drawing.Size(722, 422)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblAccion)
