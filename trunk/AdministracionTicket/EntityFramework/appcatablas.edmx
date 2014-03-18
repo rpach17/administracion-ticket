@@ -206,7 +206,7 @@
           <Key>
             <PropertyRef Name="IDVENTANILLA" />
           </Key>
-          <Property Name="IDVENTANILLA" Type="number" Nullable="false" />
+          <Property Name="IDVENTANILLA" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IDDETALLE_SUCURSAL_OFICINA" Type="number" Nullable="false" />
           <Property Name="NUMERO_VENTANILLA" Type="number" Nullable="false" />
         </EntityType>
@@ -598,7 +598,7 @@
           <Key>
             <PropertyRef Name="IDVENTANILLA" />
           </Key>
-          <Property Name="IDVENTANILLA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDVENTANILLA" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDDETALLE_SUCURSAL_OFICINA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="NUMERO_VENTANILLA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="DETALLE_SUCURSAL_OFICINA" Relationship="ModeloTablas.VENTANILLAS_FK1" FromRole="VENTANILLAS" ToRole="DETALLE_SUCURSAL_OFICINA" />

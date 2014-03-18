@@ -51,4 +51,17 @@ Module ModuloFunciones
             Return Nothing
         End Try
     End Function
+
+    Public Function BuscarEnGrid(ByVal grid As DataGridView, ByVal col As Integer, ByVal dato As Object) As Boolean
+        Dim indice As Integer = 0
+
+        For Each Row As DataGridViewRow In grid.Rows
+            If grid.Rows(indice).Cells(col).Value = dato Then
+                grid.Rows(indice).Selected = True
+                Return True
+            End If
+            indice += 1
+        Next Row
+        Return False
+    End Function
 End Module

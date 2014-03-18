@@ -193,4 +193,75 @@
     End Sub
 #End Region
 
+#Region "Gestion de ventanillas"
+
+    Public Shared Sub CargarCombos(ByVal cbo As ComboBox, Optional ByVal ID As Integer = 0)
+        Select Case cbo.Name
+            Case "cboPais"
+                Dim paises = (From p In ctx.PAIS.ToList() Select p).ToList()
+                cbo.DataSource = paises
+                cbo.DisplayMember = "NOMBRE"
+                cbo.ValueMember = "IDPAIS"
+            Case "cboDepto"
+                Dim deptos = (From dept In ctx.DEPARTAMENTOS.ToList() Where dept.IDPAIS = ID Select dept).ToList()
+                cbo.DataSource = deptos
+                cbo.DisplayMember = "NOMBRE_DEPTO"
+                cbo.ValueMember = "IDDEPARTAMENTO"
+                cbo.SelectedValue = -1
+            Case "cboMunicipio"
+                Dim munic = (From mun In ctx.MUNICIPIOS.ToList() Where mun.IDDEPARTAMENTO = ID Select mun).ToList()
+                cbo.DataSource = munic
+                cbo.DisplayMember = "NOMBRE_MPIO"
+                cbo.ValueMember = "IDMUNICIPIO"
+                cbo.SelectedValue = -1
+            Case "cboSucursales"
+                Dim sucur = (From su In ctx.SUCURSALES.ToList() Where su.IDMUNICIPIO = ID Select su).ToList()
+                cbo.DataSource = sucur
+                cbo.DisplayMember = "NOMBRE"
+                cbo.ValueMember = "IDSUCURSAL"
+                cbo.SelectedValue = -1
+            Case "cboOficinas"
+                Dim ofic = (From ofi In ctx.DETALLE_SUCURSAL_OFICINA.ToList()
+                            Where ofi.IDSUCURSAL = ID
+                            Select ofi.IDDETALLE_SUCURSAL_OFICINA, ofi.OFICINAS.NOMBRE_OFICINA).ToList()
+
+                cbo.DataSource = ofic
+                cbo.DisplayMember = "NOMBRE_OFICINA"
+                cbo.ValueMember = "IDDETALLE_SUCURSAL_OFICINA"
+                cbo.SelectedValue = -1
+        End Select
+    End Sub
+
+    Public Shared Sub CargarVentanillas(ByVal grid As DataGridView, ByVal ID As Integer)
+        Dim vent = (From ve In ctx.VENTANILLAS.ToList()
+                    Where ve.IDDETALLE_SUCURSAL_OFICINA = ID
+                    Select ve.IDVENTANILLA, Ventanilla = ve.NUMERO_VENTANILLA).ToList()
+
+        grid.DataSource = vent
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub AgregarVentanilla(ByVal ventanilla As VENTANILLAS)
+        ctx.VENTANILLAS.AddObject(ventanilla)
+        ctx.SaveChanges()
+    End Sub
+
+    Public Shared Sub CargarGestionesNoAsignadas(ByVal grid As DataGridView, ByVal ido As Integer, ByVal idv As Integer)
+        Dim lista As List(Of Decimal) = New List(Of Decimal)
+
+        Using ctx2 As New EntidadesInsert
+            Dim ges1 = (From gv In ctx2.GESTIONES_VENTANILLAS Where gv.IDVENTANILLA = idv Select gv.IDDETALLE_GESTION_OFICINA).ToList()
+            lista = ges1
+        End Using
+
+        Dim ges2 = (From g In ctx.DETALLE_OFICINA_GESTIONES
+                       Where g.IDOFICINA = ido AndAlso Not lista.Contains(g.IDDETALLE_OFICINA_GESTION)
+                       Select g.IDDETALLE_OFICINA_GESTION, g.GESTIONES.NOMBRE).ToList()
+
+        grid.DataSource = ges2
+        grid.Columns(0).Visible = False
+    End Sub
+
+#End Region
+
 End Class
