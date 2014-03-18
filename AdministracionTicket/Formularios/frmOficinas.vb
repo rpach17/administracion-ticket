@@ -49,6 +49,7 @@
             End With
             Nuevo.Enabled = False
             Actualizar.Enabled = False
+            dgvOficinas.Enabled = False
             Guardar.Enabled = True
             Cancelar.Enabled = True
         Else
@@ -58,6 +59,7 @@
             End With
             Nuevo.Enabled = True
             Actualizar.Enabled = True
+            dgvOficinas.Enabled = True
             Guardar.Enabled = False
             Cancelar.Enabled = False
         End If
