@@ -192,6 +192,9 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\DataSources\Entidades.datasource" />
+    <None Include="My Project\DataSources\EntidadesInsert.datasource" />
+    <None Include="My Project\DataSources\EntidadesTablas.datasource" />
+    <None Include="My Project\DataSources\EntidadesVistas.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
