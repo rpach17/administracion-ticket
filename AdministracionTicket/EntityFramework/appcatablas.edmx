@@ -153,7 +153,7 @@
           <Key>
             <PropertyRef Name="IDOFICINA" />
           </Key>
-          <Property Name="IDOFICINA" Type="number" Nullable="false" />
+          <Property Name="IDOFICINA" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE_OFICINA" Type="varchar2" MaxLength="30" />
         </EntityType>
         <EntityType Name="PAIS">
@@ -535,7 +535,7 @@
           <Key>
             <PropertyRef Name="IDOFICINA" />
           </Key>
-          <Property Name="IDOFICINA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="IDOFICINA" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE_OFICINA" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="DETALLE_OFICINA_GESTIONES" Relationship="ModeloTablas.DETALLE_OFICINA_GESTIONES_FK1" FromRole="OFICINAS" ToRole="DETALLE_OFICINA_GESTIONES" />
           <NavigationProperty Name="DETALLE_SUCURSAL_OFICINA" Relationship="ModeloTablas.DETALLE_SUCURSAL_OFICINA_FK2" FromRole="OFICINAS" ToRole="DETALLE_SUCURSAL_OFICINA" />

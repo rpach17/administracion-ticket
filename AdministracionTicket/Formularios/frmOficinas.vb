@@ -7,7 +7,6 @@
         Cancelar.Enabled = False
     End Sub
 
-
     Private Sub Nuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Nuevo.Click
         tarea = 1
         cambiarEstado(True)
