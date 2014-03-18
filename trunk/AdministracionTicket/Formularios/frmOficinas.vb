@@ -9,15 +9,8 @@
 
 
     Private Sub Nuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Nuevo.Click
-        With txtOficina
-            .Enabled = True
-            .Focus()
-        End With
         tarea = 1
-        Guardar.Enabled = True
-        Cancelar.Enabled = True
-        Nuevo.Enabled = False
-        Actualizar.Enabled = False
+        cambiarEstado(True)
     End Sub
 
     Private Sub Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Guardar.Click
@@ -26,15 +19,8 @@
         ElseIf tarea = 2 Then
             EntityTablas.ActualizarOficina(ObtenerDatoGrid(dgvOficinas), txtOficina.Text)
         End If
-        With txtOficina
-            .Enabled = False
-            .Text = ""
-        End With
+        cambiarEstado(False)
         EntityTablas.CargarOficinas(dgvOficinas)
-        Guardar.Enabled = False
-        Cancelar.Enabled = False
-        Nuevo.Enabled = True
-        Actualizar.Enabled = True
     End Sub
 
     Private Sub Eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Eliminar.Click
@@ -46,26 +32,35 @@
     End Sub
 
     Private Sub Actualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Actualizar.Click
-        With txtOficina
-            .Enabled = True
-            .Text = ObtenerDatoGrid(dgvOficinas, 1)
-            .Focus()
-        End With
         tarea = 2
-        Guardar.Enabled = True
-        Cancelar.Enabled = True
-        Actualizar.Enabled = False
-        Nuevo.Enabled = False
+        txtOficina.Text = ObtenerDatoGrid(dgvOficinas, 1)
+        cambiarEstado(True)
     End Sub
 
     Private Sub Cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancelar.Click
-        With txtOficina
-            .Enabled = False
-            .Text = ""
-        End With
-        Nuevo.Enabled = True
-        Actualizar.Enabled = True
-        Guardar.Enabled = False
-        Cancelar.Enabled = False
+        cambiarEstado(False)
     End Sub
+
+    Private Sub cambiarEstado(ByVal var As Boolean)
+        If var Then
+            With txtOficina
+                .Enabled = True
+                .Focus()
+            End With
+            Nuevo.Enabled = False
+            Actualizar.Enabled = False
+            Guardar.Enabled = True
+            Cancelar.Enabled = True
+        Else
+            With txtOficina
+                .Enabled = False
+                .Text = ""
+            End With
+            Nuevo.Enabled = True
+            Actualizar.Enabled = True
+            Guardar.Enabled = False
+            Cancelar.Enabled = False
+        End If
+    End Sub
+
 End Class
