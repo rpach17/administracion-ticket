@@ -33,4 +33,42 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Public Shared Sub CargarOficinas(ByVal grid As DataGridView, Optional ByVal filtro As String = "")
+        If filtro = "" Then
+            Dim ofi = (From o In ctx.OFICINAS.ToList
+                       Order By o.IDOFICINA
+                       Select o.IDOFICINA, Nombre = o.NOMBRE_OFICINA).ToList()
+            grid.DataSource = ofi
+            grid.Columns(0).Visible = False
+        Else
+            Dim ofi = (From o In ctx.OFICINAS.ToList
+                       Where o.NOMBRE_OFICINA
+                       Order By o.IDOFICINA
+                       Select o.IDOFICINA, Nombre = o.NOMBRE_OFICINA).ToList()
+            grid.DataSource = ofi
+            grid.Columns(0).Visible = False
+        End If
+    End Sub
+
+    Public Shared Sub AgregarOficina(ByVal off As OFICINAS)
+        Try
+            ctx.OFICINAS.AddObject(off)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub EliminarOficina(ByVal idof As Integer)
+        Dim offi = (From off In ctx.OFICINAS.ToList Where off.IDOFICINA = idof Select off).SingleOrDefault
+        Try
+            ctx.OFICINAS.DeleteObject(offi)
+            ctx.SaveChanges()
+            MsgBox("Oficina Eliminada")
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
 End Class
