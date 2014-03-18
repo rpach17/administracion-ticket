@@ -125,6 +125,12 @@
     <Compile Include="Formularios\frmOficinas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmSucursalesOficinas.Designer.vb">
+      <DependentUpon>frmSucursalesOficinas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmSucursalesOficinas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmVentanillas.Designer.vb">
       <DependentUpon>frmVentanillas.vb</DependentUpon>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmOficinas.resx">
       <DependentUpon>frmOficinas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmSucursalesOficinas.resx">
+      <DependentUpon>frmSucursalesOficinas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmVentanillas.resx">
       <DependentUpon>frmVentanillas.vb</DependentUpon>

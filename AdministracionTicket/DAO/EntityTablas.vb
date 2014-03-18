@@ -81,4 +81,21 @@
         End Try
     End Sub
 
+    Public Shared Sub CargarSucursales(ByVal grid As DataGridView, Optional ByVal filtro As String = "")
+        If filtro = "" Then
+            Dim su = (From suc In ctx.SUCURSALES.ToList
+                       Order By suc.NOMBRE
+                       Select suc.IDSUCURSAL, suc.NOMBRE, suc.MUNICIPIOS.NOMBRE_MPIO).ToList()
+            grid.DataSource = su
+            grid.Columns(0).Visible = False
+        Else
+            Dim su = (From suc In ctx.SUCURSALES.ToList
+                       Where suc.NOMBRE.StartsWith(filtro) OrElse suc.MUNICIPIOS.NOMBRE_MPIO.StartsWith(filtro)
+                       Order By suc.NOMBRE
+                       Select suc.IDSUCURSAL, suc.NOMBRE, suc.MUNICIPIOS.NOMBRE_MPIO).ToList()
+            grid.DataSource = su
+            grid.Columns(0).Visible = False
+        End If
+    End Sub
+
 End Class

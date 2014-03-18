@@ -1,5 +1,6 @@
 ﻿Public Class frmOficinas
     Dim tarea As Integer = 0
+
     Private Sub frmOficinas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         EntityTablas.CargarOficinas(dgvOficinas)
         txtOficina.Enabled = False
