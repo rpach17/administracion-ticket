@@ -212,7 +212,7 @@ Partial Class frmGestionesOficina
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(763, 385)
+        Me.ClientSize = New System.Drawing.Size(763, 414)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.btnAgregar)
