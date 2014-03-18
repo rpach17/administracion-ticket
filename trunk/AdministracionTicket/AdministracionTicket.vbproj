@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="Complementos\ModuloProcedimientos.vb" />
     <Compile Include="DAO\EntityTablas.vb" />
+    <Compile Include="DAO\EntityVistas.vb" />
     <Compile Include="EntityFramework\appcaInsertGestionesVentanilla.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,10 +94,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>appcavistas.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Formularios\frmGestionesOficina.Designer.vb">
+      <DependentUpon>frmGestionesOficina.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Form1.vb">
+    <Compile Include="Formularios\frmGestionesOficina.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmAgregarSucursal.Designer.vb">
@@ -154,8 +155,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Formularios\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Formularios\frmGestionesOficina.resx">
+      <DependentUpon>frmGestionesOficina.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmAgregarSucursal.resx">
       <DependentUpon>frmAgregarSucursal.vb</DependentUpon>

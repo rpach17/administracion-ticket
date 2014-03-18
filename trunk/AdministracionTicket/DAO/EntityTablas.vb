@@ -98,6 +98,59 @@
         End If
     End Sub
 
-    Dim prueba As Integer
+#Region "Gestiones por oficina"
+
+    Public Shared Sub CargarOficinas(ByVal cbo As ComboBox)
+        Dim ofi = (From o In ctx.OFICINAS.ToList()
+                   Select o).ToList()
+
+        cbo.DataSource = ofi
+        cbo.DisplayMember = "NOMBRE_OFICINA"
+        cbo.ValueMember = "IDOFICINA"
+        cbo.SelectedValue = -1
+    End Sub
+
+    Public Shared Sub CargarGestionesXOficinas(ByVal grid As DataGridView, ByVal ido As Integer)
+        Dim ofi = (From o In ctx.DETALLE_OFICINA_GESTIONES.ToList()
+                   Where o.OFICINAS.IDOFICINA = ido
+                   Select o.GESTIONES.IDGESTION, Código = o.GESTIONES.CODIGO, Gestión = o.GESTIONES.NOMBRE, Tiempo = o.GESTIONES.TIEMPO).ToList()
+
+        grid.DataSource = ofi
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Function AgregarGestion(ByVal ges As GESTIONES)
+        Try
+            ctx.GESTIONES.AddObject(ges)
+            ctx.SaveChanges()
+            Return ges.IDGESTION 'Después de SaveChanges(), EntityFramework carga el objeto 'ges' con los datos y así retornamos el ID recien agregado
+        Catch ex As UpdateException
+            Return ex.Message
+        End Try
+    End Function
+
+    Public Shared Sub AgregarOFGE(ByVal ges As DETALLE_OFICINA_GESTIONES)
+        Try
+            ctx.DETALLE_OFICINA_GESTIONES.AddObject(ges)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub ActualizarGestion(ByVal idg As Integer, ByVal cod As String, ByVal nombre As String, ByVal tiempo As Integer)
+        Dim gest As GESTIONES = (From g In ctx.GESTIONES.ToList() Where g.IDGESTION = idg).SingleOrDefault()
+        Try
+            With gest
+                .CODIGO = cod
+                .NOMBRE = nombre
+                .TIEMPO = tiempo
+            End With
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+#End Region
 
 End Class
