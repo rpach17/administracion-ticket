@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="CadenaAPPCATablas" Type="System.String" Scope="User">
-      <Value Profile="(Default)">metadata=res://*/EntityFramework.appcatablas.csdl|res://*/EntityFramework.appcatablas.ssdl|res://*/EntityFramework.appcatablas.msl;provider=Oracle.DataAccess.Client;provider connection string="DATA SOURCE=APPCA;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA"</Value>
+      <Value Profile="(Default)">metadata=res://*/EntityFramework.appcatablas.csdl|res://*/EntityFramework.appcatablas.ssdl|res://*/EntityFramework.appcatablas.msl;provider=Oracle.DataAccess.Client;provider connection string="DATA SOURCE=ronypacheco-pc;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA"</Value>
     </Setting>
   </Settings>
 </SettingsFile>

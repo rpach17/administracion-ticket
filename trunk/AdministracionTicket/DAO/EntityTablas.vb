@@ -60,6 +60,16 @@
         End Try
     End Sub
 
+    Public Shared Sub ActualizarOficina(ByVal idof As Integer, ByVal nombre As String)
+        Dim offi As OFICINAS = (From a In ctx.OFICINAS Where a.IDOFICINA = idof).First
+        Try
+            offi.NOMBRE_OFICINA = nombre
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     Public Shared Sub EliminarOficina(ByVal idof As Integer)
         Dim offi = (From off In ctx.OFICINAS.ToList Where off.IDOFICINA = idof Select off).SingleOrDefault
         Try
