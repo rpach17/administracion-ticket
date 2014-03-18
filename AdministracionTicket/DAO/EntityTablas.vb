@@ -98,4 +98,6 @@
         End If
     End Sub
 
+    Dim prueba As Integer
+
 End Class
