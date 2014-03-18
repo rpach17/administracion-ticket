@@ -81,11 +81,13 @@
         End Try
     End Sub
 
+#Region "Oficinas por Sucursales"
+
     Public Shared Sub CargarSucursales(ByVal grid As DataGridView, Optional ByVal filtro As String = "")
         If filtro = "" Then
             Dim su = (From suc In ctx.SUCURSALES.ToList
                        Order By suc.NOMBRE
-                       Select suc.IDSUCURSAL, suc.NOMBRE, suc.MUNICIPIOS.NOMBRE_MPIO).ToList()
+                       Select suc.IDSUCURSAL, Sucursal = suc.NOMBRE, Municipio = suc.MUNICIPIOS.NOMBRE_MPIO).ToList()
             grid.DataSource = su
             grid.Columns(0).Visible = False
         Else
@@ -97,6 +99,44 @@
             grid.Columns(0).Visible = False
         End If
     End Sub
+
+    Public Shared Sub CargarCboOficinas(ByVal cbo As ComboBox)
+        Dim off = (From o In ctx.OFICINAS.ToList Select o).ToList()
+        cbo.DataSource = off
+        cbo.DisplayMember = "NOMBRE_OFICINA"
+        cbo.ValueMember = "IDOFICINA"
+        cbo.SelectedIndex = -1
+    End Sub
+
+    Public Shared Sub CargarSucursalesOf(ByVal grid As DataGridView, ByVal filtro As Integer)
+        Dim suOf = (From sucof In ctx.DETALLE_SUCURSAL_OFICINA
+                    Where sucof.IDSUCURSAL = filtro
+                   Order By sucof.IDOFICINA
+                   Select sucof.IDDETALLE_SUCURSAL_OFICINA, sucof.OFICINAS.NOMBRE_OFICINA).ToList()
+        grid.DataSource = suOf
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub AgregarSuOf(ByVal SuOf As DETALLE_SUCURSAL_OFICINA)
+        Try
+            ctx.DETALLE_SUCURSAL_OFICINA.AddObject(SuOf)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub EliminarDeSuOf(ByVal idDeSuOf As Integer)
+        Dim DeSuOf = (From SuOf In ctx.DETALLE_SUCURSAL_OFICINA.ToList Where SuOf.IDDETALLE_SUCURSAL_OFICINA = idDeSuOf Select SuOf).SingleOrDefault
+        Try
+            ctx.DETALLE_SUCURSAL_OFICINA.DeleteObject(DeSuOf)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+#End Region
 
 #Region "Gestiones por oficina"
 
