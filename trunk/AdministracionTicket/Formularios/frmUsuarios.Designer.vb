@@ -26,8 +26,8 @@ Partial Class frmUsuarios
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmUsuarios))
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.DEPARTAMENTOSDataGridView = New System.Windows.Forms.DataGridView()
@@ -35,9 +35,9 @@ Partial Class frmUsuarios
         Me.MUNICIPIOSDataGridView = New System.Windows.Forms.DataGridView()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
         Me.dgvSucursales = New System.Windows.Forms.DataGridView()
-        Me.USUARIOS_SUCURSALDataGridView = New System.Windows.Forms.DataGridView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AgregarNuevoUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.USUARIOS_SUCURSALDataGridView = New System.Windows.Forms.DataGridView()
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ResetearContraseñaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,8 +56,8 @@ Partial Class frmUsuarios
         Me.SplitContainer3.Panel2.SuspendLayout()
         Me.SplitContainer3.SuspendLayout()
         CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.USUARIOS_SUCURSALDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
+        CType(Me.USUARIOS_SUCURSALDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -203,6 +203,19 @@ Partial Class frmUsuarios
         Me.dgvSucursales.Size = New System.Drawing.Size(237, 400)
         Me.dgvSucursales.TabIndex = 1
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarNuevoUsuarioToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(195, 26)
+        '
+        'AgregarNuevoUsuarioToolStripMenuItem
+        '
+        Me.AgregarNuevoUsuarioToolStripMenuItem.Image = CType(resources.GetObject("AgregarNuevoUsuarioToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.AgregarNuevoUsuarioToolStripMenuItem.Name = "AgregarNuevoUsuarioToolStripMenuItem"
+        Me.AgregarNuevoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.AgregarNuevoUsuarioToolStripMenuItem.Text = "Agregar nuevo usuario"
+        '
         'USUARIOS_SUCURSALDataGridView
         '
         Me.USUARIOS_SUCURSALDataGridView.AllowUserToAddRows = False
@@ -227,24 +240,11 @@ Partial Class frmUsuarios
         Me.USUARIOS_SUCURSALDataGridView.Size = New System.Drawing.Size(471, 400)
         Me.USUARIOS_SUCURSALDataGridView.TabIndex = 0
         '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarNuevoUsuarioToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(195, 26)
-        '
-        'AgregarNuevoUsuarioToolStripMenuItem
-        '
-        Me.AgregarNuevoUsuarioToolStripMenuItem.Image = CType(resources.GetObject("AgregarNuevoUsuarioToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.AgregarNuevoUsuarioToolStripMenuItem.Name = "AgregarNuevoUsuarioToolStripMenuItem"
-        Me.AgregarNuevoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.AgregarNuevoUsuarioToolStripMenuItem.Text = "Agregar nuevo usuario"
-        '
         'ContextMenuStrip2
         '
         Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResetearContraseñaToolStripMenuItem, Me.EditarUsuarioToolStripMenuItem})
         Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
-        Me.ContextMenuStrip2.Size = New System.Drawing.Size(180, 70)
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(180, 48)
         '
         'ResetearContraseñaToolStripMenuItem
         '
@@ -268,7 +268,9 @@ Partial Class frmUsuarios
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "frmUsuarios"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmUsuarios"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -284,8 +286,8 @@ Partial Class frmUsuarios
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer3.ResumeLayout(False)
         CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.USUARIOS_SUCURSALDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        CType(Me.USUARIOS_SUCURSALDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip2.ResumeLayout(False)
         Me.ResumeLayout(False)
 

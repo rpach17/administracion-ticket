@@ -1,6 +1,8 @@
 ﻿Public Class EntityTablas
     Shared ctx As New EntidadesTablas(My.Settings.CadenaAPPCATablas)
 
+#Region "Sucursales"
+
     Public Shared Sub CargarEmpresas(ByVal cbo As ComboBox)
         Dim emps = (From e In ctx.EMPRESAS.ToList Select e).ToList()
         cbo.DataSource = emps
@@ -33,6 +35,38 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Public Shared Function obtenerSucural(ByVal ids As Integer)
+        Dim su = (From s In ctx.SUCURSALES Where s.IDSUCURSAL = ids Select s).SingleOrDefault
+        Return su
+    End Function
+
+    Public Shared Sub ActualizaSucursal(ByVal ids As Integer, ByVal nombre As String,
+                                        ByVal direccion As String, ByVal la As Decimal, ByVal lo As Decimal)
+        Dim su = (From s In ctx.SUCURSALES Where s.IDSUCURSAL = ids).SingleOrDefault
+        Try
+            su.NOMBRE = nombre
+            su.DIRECCION = direccion
+            su.LATITUD = la
+            su.LONGITUD = lo
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub eliminarSucursal(ByVal ids As Integer)
+        Dim su = (From s In ctx.SUCURSALES Where s.IDSUCURSAL = ids).SingleOrDefault
+        Try
+            ctx.SUCURSALES.DeleteObject(su)
+            ctx.SaveChanges()
+            MsgBox("Sucursal eliminada")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+#End Region
 
     Public Shared Sub CargarOficinas(ByVal grid As DataGridView, Optional ByVal filtro As String = "")
         If filtro = "" Then
@@ -81,7 +115,7 @@
         End Try
     End Sub
 
-    
+
 #Region "Oficinas por Sucursales"
 
     Public Shared Sub CargarSucursales(ByVal grid As DataGridView, Optional ByVal filtro As String = "")

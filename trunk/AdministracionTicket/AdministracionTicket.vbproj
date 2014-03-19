@@ -94,6 +94,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>appcavistas.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmModificarSucursal.Designer.vb">
+      <DependentUpon>frmModificarSucursal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmModificarSucursal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmSucursales.Designer.vb">
+      <DependentUpon>frmSucursales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmSucursales.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmGestionesOficina.Designer.vb">
       <DependentUpon>frmGestionesOficina.vb</DependentUpon>
     </Compile>
@@ -132,6 +144,12 @@
     <Compile Include="Formularios\frmPerfiles.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmPrincipal.Designer.vb">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmSucursalesOficinas.Designer.vb">
       <DependentUpon>frmSucursalesOficinas.vb</DependentUpon>
     </Compile>
@@ -167,6 +185,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\frmModificarSucursal.resx">
+      <DependentUpon>frmModificarSucursal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmSucursales.resx">
+      <DependentUpon>frmSucursales.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmGestionesOficina.resx">
       <DependentUpon>frmGestionesOficina.vb</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPerfiles.resx">
       <DependentUpon>frmPerfiles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmSucursalesOficinas.resx">
       <DependentUpon>frmSucursalesOficinas.vb</DependentUpon>
