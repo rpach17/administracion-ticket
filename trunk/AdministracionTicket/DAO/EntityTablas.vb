@@ -68,6 +68,8 @@
 
 #End Region
 
+#Region "Oficinas"
+
     Public Shared Sub CargarOficinas(ByVal grid As DataGridView, Optional ByVal filtro As String = "")
         If filtro = "" Then
             Dim ofi = (From o In ctx.OFICINAS.ToList
@@ -115,6 +117,7 @@
         End Try
     End Sub
 
+#End Region
 
 #Region "Oficinas por Sucursales"
 
