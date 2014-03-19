@@ -22,18 +22,25 @@ Partial Class frmUsuarios
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmUsuarios))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.DEPARTAMENTOSDataGridView = New System.Windows.Forms.DataGridView()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.MUNICIPIOSDataGridView = New System.Windows.Forms.DataGridView()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
-        Me.SUCURSALESDataGridView = New System.Windows.Forms.DataGridView()
+        Me.dgvSucursales = New System.Windows.Forms.DataGridView()
         Me.USUARIOS_SUCURSALDataGridView = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AgregarNuevoUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ResetearContraseñaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditarUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -48,8 +55,10 @@ Partial Class frmUsuarios
         Me.SplitContainer3.Panel1.SuspendLayout()
         Me.SplitContainer3.Panel2.SuspendLayout()
         Me.SplitContainer3.SuspendLayout()
-        CType(Me.SUCURSALESDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.USUARIOS_SUCURSALDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
+        Me.ContextMenuStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -89,6 +98,7 @@ Partial Class frmUsuarios
         '
         Me.DEPARTAMENTOSDataGridView.AllowUserToAddRows = False
         Me.DEPARTAMENTOSDataGridView.AllowUserToDeleteRows = False
+        Me.DEPARTAMENTOSDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader
         Me.DEPARTAMENTOSDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -130,6 +140,7 @@ Partial Class frmUsuarios
         '
         Me.MUNICIPIOSDataGridView.AllowUserToAddRows = False
         Me.MUNICIPIOSDataGridView.AllowUserToDeleteRows = False
+        Me.MUNICIPIOSDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader
         Me.MUNICIPIOSDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
@@ -158,7 +169,7 @@ Partial Class frmUsuarios
         'SplitContainer3.Panel1
         '
         Me.SplitContainer3.Panel1.AutoScroll = True
-        Me.SplitContainer3.Panel1.Controls.Add(Me.SUCURSALESDataGridView)
+        Me.SplitContainer3.Panel1.Controls.Add(Me.dgvSucursales)
         '
         'SplitContainer3.Panel2
         '
@@ -167,11 +178,12 @@ Partial Class frmUsuarios
         Me.SplitContainer3.SplitterDistance = 237
         Me.SplitContainer3.TabIndex = 0
         '
-        'SUCURSALESDataGridView
+        'dgvSucursales
         '
-        Me.SUCURSALESDataGridView.AllowUserToAddRows = False
-        Me.SUCURSALESDataGridView.AllowUserToDeleteRows = False
-        Me.SUCURSALESDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight
+        Me.dgvSucursales.AllowUserToAddRows = False
+        Me.dgvSucursales.AllowUserToDeleteRows = False
+        Me.dgvSucursales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader
+        Me.dgvSucursales.BackgroundColor = System.Drawing.SystemColors.ButtonFace
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -179,16 +191,17 @@ Partial Class frmUsuarios
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SUCURSALESDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.SUCURSALESDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SUCURSALESDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SUCURSALESDataGridView.Location = New System.Drawing.Point(0, 0)
-        Me.SUCURSALESDataGridView.MultiSelect = False
-        Me.SUCURSALESDataGridView.Name = "SUCURSALESDataGridView"
-        Me.SUCURSALESDataGridView.ReadOnly = True
-        Me.SUCURSALESDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SUCURSALESDataGridView.Size = New System.Drawing.Size(237, 400)
-        Me.SUCURSALESDataGridView.TabIndex = 0
+        Me.dgvSucursales.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvSucursales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSucursales.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.dgvSucursales.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvSucursales.Location = New System.Drawing.Point(0, 0)
+        Me.dgvSucursales.MultiSelect = False
+        Me.dgvSucursales.Name = "dgvSucursales"
+        Me.dgvSucursales.ReadOnly = True
+        Me.dgvSucursales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvSucursales.Size = New System.Drawing.Size(237, 400)
+        Me.dgvSucursales.TabIndex = 1
         '
         'USUARIOS_SUCURSALDataGridView
         '
@@ -204,6 +217,7 @@ Partial Class frmUsuarios
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.USUARIOS_SUCURSALDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.USUARIOS_SUCURSALDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.USUARIOS_SUCURSALDataGridView.ContextMenuStrip = Me.ContextMenuStrip2
         Me.USUARIOS_SUCURSALDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.USUARIOS_SUCURSALDataGridView.Location = New System.Drawing.Point(0, 0)
         Me.USUARIOS_SUCURSALDataGridView.MultiSelect = False
@@ -212,6 +226,39 @@ Partial Class frmUsuarios
         Me.USUARIOS_SUCURSALDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.USUARIOS_SUCURSALDataGridView.Size = New System.Drawing.Size(471, 400)
         Me.USUARIOS_SUCURSALDataGridView.TabIndex = 0
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarNuevoUsuarioToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(195, 26)
+        '
+        'AgregarNuevoUsuarioToolStripMenuItem
+        '
+        Me.AgregarNuevoUsuarioToolStripMenuItem.Image = CType(resources.GetObject("AgregarNuevoUsuarioToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.AgregarNuevoUsuarioToolStripMenuItem.Name = "AgregarNuevoUsuarioToolStripMenuItem"
+        Me.AgregarNuevoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.AgregarNuevoUsuarioToolStripMenuItem.Text = "Agregar nuevo usuario"
+        '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResetearContraseñaToolStripMenuItem, Me.EditarUsuarioToolStripMenuItem})
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(180, 70)
+        '
+        'ResetearContraseñaToolStripMenuItem
+        '
+        Me.ResetearContraseñaToolStripMenuItem.Image = CType(resources.GetObject("ResetearContraseñaToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ResetearContraseñaToolStripMenuItem.Name = "ResetearContraseñaToolStripMenuItem"
+        Me.ResetearContraseñaToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.ResetearContraseñaToolStripMenuItem.Text = "Resetear contraseña"
+        '
+        'EditarUsuarioToolStripMenuItem
+        '
+        Me.EditarUsuarioToolStripMenuItem.Image = CType(resources.GetObject("EditarUsuarioToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EditarUsuarioToolStripMenuItem.Name = "EditarUsuarioToolStripMenuItem"
+        Me.EditarUsuarioToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.EditarUsuarioToolStripMenuItem.Text = "Editar usuario"
         '
         'frmUsuarios
         '
@@ -236,8 +283,10 @@ Partial Class frmUsuarios
         Me.SplitContainer3.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer3.ResumeLayout(False)
-        CType(Me.SUCURSALESDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.USUARIOS_SUCURSALDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.ContextMenuStrip2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -247,6 +296,11 @@ Partial Class frmUsuarios
     Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
     Friend WithEvents MUNICIPIOSDataGridView As System.Windows.Forms.DataGridView
     Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
-    Friend WithEvents SUCURSALESDataGridView As System.Windows.Forms.DataGridView
     Friend WithEvents USUARIOS_SUCURSALDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvSucursales As System.Windows.Forms.DataGridView
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents AgregarNuevoUsuarioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ContextMenuStrip2 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ResetearContraseñaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EditarUsuarioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

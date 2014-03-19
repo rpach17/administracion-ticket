@@ -81,6 +81,7 @@
         End Try
     End Sub
 
+    
 #Region "Oficinas por Sucursales"
 
     Public Shared Sub CargarSucursales(ByVal grid As DataGridView, Optional ByVal filtro As String = "")
@@ -263,5 +264,129 @@
     End Sub
 
 #End Region
+
+#Region "Usuarios por Region"
+
+    Public Shared Sub CargarDepartamentos(ByVal grid As DataGridView)
+        Dim dep = (From d In ctx.DEPARTAMENTOS.ToList
+                       Order By d.CODIGO_DEPTO
+                       Select d.IDDEPARTAMENTO, COD = d.CODIGO_DEPTO, Nombre = d.NOMBRE_DEPTO).ToList()
+        grid.DataSource = dep
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub CargarMunicipiosDep(ByVal grid As DataGridView, ByVal filtro As Integer)
+        Dim mun = (From m In ctx.MUNICIPIOS
+                    Where m.IDDEPARTAMENTO = filtro
+                   Order By m.CODIGO_MPIO
+                   Select m.IDMUNICIPIO, COD = m.CODIGO_MPIO, Municipio = m.NOMBRE_MPIO).ToList()
+        grid.DataSource = mun
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub CargarSucursalesMu(ByVal grid As DataGridView, ByVal filtro As Integer)
+        Dim mun = (From m In ctx.SUCURSALES
+                    Where m.IDMUNICIPIO = filtro
+                   Order By m.NOMBRE
+                   Select m.IDSUCURSAL, Nombre = m.NOMBRE).ToList()
+        grid.DataSource = mun
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub CargarUsuariosSu(ByVal grid As DataGridView, ByVal filtro As Integer)
+        Dim mun = (From m In ctx.USUARIOS
+                    Where m.DETALLE_SUCURSAL_OFICINA.IDSUCURSAL = filtro
+                   Order By m.NOMBRE
+                   Select m.IDUSUARIO, Usuario = m.USUARIO, Nombre = m.NOMBRE, Apellidos = m.APELLIDOS, Estado = If(m.ESTADO = 1, True, False)).ToList()
+        grid.DataSource = mun
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub CargarCboPerfiles(ByVal cbo As ComboBox)
+        Dim off = (From o In ctx.PERFILES.ToList Select o).ToList()
+        cbo.DataSource = off
+        cbo.DisplayMember = "NOMBRE_PERFIL"
+        cbo.ValueMember = "IDPERFIL"
+        cbo.SelectedIndex = -1
+    End Sub
+
+    Public Shared Function AgregarUsuario(ByVal u As USUARIOS)
+        Try
+            ctx.USUARIOS.AddObject(u)
+            ctx.SaveChanges()
+            Return u.IDUSUARIO 'Después de SaveChanges(), EntityFramework carga el objeto 'ges' con los datos y así retornamos el ID recien agregado
+        Catch ex As UpdateException
+            Return ex.Message
+        End Try
+    End Function
+
+    Public Shared Sub ActualizarUsuario(ByVal idu As Integer, ByVal usuario As String, ByVal nombre As String, _
+                                        ByVal apellidos As String, ByVal estado As Integer)
+        Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList Where u.IDUSUARIO = idu).SingleOrDefault
+        Try
+            With user
+                .USUARIO = usuario
+                .NOMBRE = nombre
+                .APELLIDOS = apellidos
+                .ESTADO = estado
+            End With
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Function SelectUsuario(ByVal id As Integer)
+        Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList Where u.IDUSUARIO = id Select u).SingleOrDefault
+        Return user
+    End Function
+
+    Public Shared Sub CargarPerfiles(ByVal grid As DataGridView, ByVal idu As Integer)
+        Dim per = (From p In ctx.PERFILES
+                  From u In p.USUARIOS()
+                  Where u.IDUSUARIO = idu
+                  Select p.IDPERFIL, Perfil = p.NOMBRE_PERFIL)
+        grid.DataSource = per
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub AgregarPerfilUser(ByVal idu As Integer, ByVal idp As Integer)
+        Dim user = (From u In ctx.USUARIOS
+                   Where u.IDUSUARIO = idu
+                   Select u).SingleOrDefault
+        Dim perfil = (From p In ctx.PERFILES
+                     Where p.IDPERFIL = idp
+                     Select p).SingleOrDefault
+        user.PERFILES.Add(perfil)
+        ctx.SaveChanges()
+    End Sub
+
+    Public Shared Sub QuitarPerfilUser(ByVal idu As Integer, ByVal idp As Integer)
+        Dim user = (From u In ctx.USUARIOS
+                   Where u.IDUSUARIO = idu
+                   Select u).SingleOrDefault
+        Dim perfil = (From p In ctx.PERFILES
+                     Where p.IDPERFIL = idp
+                     Select p).SingleOrDefault
+        user.PERFILES.Remove(perfil)
+        ctx.SaveChanges()
+    End Sub
+
+    Public Shared Sub ActualizarUsuarioPass(ByVal idu As Integer, ByVal pass As String)
+        Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList Where u.IDUSUARIO = idu).SingleOrDefault
+        Try
+            With user
+                .CONTRASENA = pass
+            End With
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+#End Region
+
+
+
 
 End Class
