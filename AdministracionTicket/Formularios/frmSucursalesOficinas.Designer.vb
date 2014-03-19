@@ -103,7 +103,9 @@ Partial Class frmSucursalesOficinas
         Me.dgvSucursales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvSucursales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSucursales.Location = New System.Drawing.Point(12, 79)
+        Me.dgvSucursales.MultiSelect = False
         Me.dgvSucursales.Name = "dgvSucursales"
+        Me.dgvSucursales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvSucursales.Size = New System.Drawing.Size(361, 282)
         Me.dgvSucursales.TabIndex = 7
         '
@@ -165,6 +167,7 @@ Partial Class frmSucursalesOficinas
         Me.dgvOficinas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvOficinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvOficinas.Location = New System.Drawing.Point(38, 114)
+        Me.dgvOficinas.MultiSelect = False
         Me.dgvOficinas.Name = "dgvOficinas"
         Me.dgvOficinas.Size = New System.Drawing.Size(240, 243)
         Me.dgvOficinas.TabIndex = 8
