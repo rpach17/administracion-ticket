@@ -39,14 +39,14 @@
     End Sub
 
     Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
-        If nudNumeroVent.Value > 0 Then
+        If nudNumeroVent.Value > 0 AndAlso cboOficinas.Text <> "" Then
             If BuscarEnGrid(dgvVentanillas, 1, nudNumeroVent.Value) Then
                 Exit Sub
             End If
 
             EntityTablas.AgregarVentanilla(New VENTANILLAS() With _
             {
-                .IDDETALLE_SUCURSAL_OFICINA = cboSucursales.SelectedValue, _
+                .IDDETALLE_SUCURSAL_OFICINA = cboOficinas.SelectedValue, _
                 .NUMERO_VENTANILLA = nudNumeroVent.Value
             })
             EntityTablas.CargarVentanillas(dgvVentanillas, cboOficinas.SelectedValue)
@@ -62,17 +62,61 @@
         End If
     End Sub
 
-    Private Sub dgvGestionesNoAsignadas_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvGestionesNoAsignadas.CellClick
+    Private Sub dgvGestionesNoAsignadas_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvGestionesNoAsignadas.CellDoubleClick
         Dim idv As Integer = ObtenerDatoGrid(dgvVentanillas)
         EntityTablas.AgregarGestionVentanilla(idv, ObtenerDatoGrid(dgvGestionesNoAsignadas))
         EntityTablas.CargarGestionesNoAsignadas(dgvGestionesNoAsignadas, cboOficinas.SelectedValue, idv)
         EntityTablas.CargarGestionesAsignadas(dgvGestionesAsignadas, idv)
     End Sub
 
-    Private Sub dgvGestionesAsignadas_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvGestionesAsignadas.CellClick
+    Private Sub dgvGestionesAsignadas_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvGestionesAsignadas.CellDoubleClick
         Dim idv As Integer = ObtenerDatoGrid(dgvVentanillas)
         EntityTablas.QuitarGestionVentanilla(idv, ObtenerDatoGrid(dgvGestionesAsignadas))
         EntityTablas.CargarGestionesNoAsignadas(dgvGestionesNoAsignadas, cboOficinas.SelectedValue, idv)
         EntityTablas.CargarGestionesAsignadas(dgvGestionesAsignadas, idv)
+    End Sub
+
+    Private Sub btnAsignarTodas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAsignarTodas.Click
+        Dim IDV As Integer = dgvVentanillas.CurrentRow().Cells(0).Value
+
+        For Each fila As DataGridViewRow In dgvGestionesNoAsignadas.Rows
+            EntityTablas.AgregarGestionVentanilla(IDV, fila.Cells(0).Value)
+        Next
+        EntityTablas.CargarGestionesNoAsignadas(dgvGestionesNoAsignadas, cboOficinas.SelectedValue, IDV)
+        EntityTablas.CargarGestionesAsignadas(dgvGestionesAsignadas, IDV)
+    End Sub
+
+    Private Sub btnAsignarSeleccion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAsignarSeleccion.Click
+        Dim IDV As Integer = dgvVentanillas.CurrentRow().Cells(0).Value
+
+        For Each fila As DataGridViewRow In dgvGestionesNoAsignadas.Rows
+            If fila.Selected Then
+                EntityTablas.AgregarGestionVentanilla(IDV, fila.Cells(0).Value)
+            End If
+        Next
+        EntityTablas.CargarGestionesNoAsignadas(dgvGestionesNoAsignadas, cboOficinas.SelectedValue, IDV)
+        EntityTablas.CargarGestionesAsignadas(dgvGestionesAsignadas, IDV)
+    End Sub
+
+    Private Sub btnQuitarTodas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnQuitarTodas.Click
+        Dim IDV As Integer = dgvVentanillas.CurrentRow().Cells(0).Value
+
+        For Each fila As DataGridViewRow In dgvGestionesAsignadas.Rows
+            EntityTablas.QuitarGestionVentanilla(IDV, fila.Cells(0).Value)
+        Next
+        EntityTablas.CargarGestionesNoAsignadas(dgvGestionesNoAsignadas, cboOficinas.SelectedValue, IDV)
+        EntityTablas.CargarGestionesAsignadas(dgvGestionesAsignadas, IDV)
+    End Sub
+
+    Private Sub btnQuitarSeleccion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnQuitarSeleccion.Click
+        Dim IDV As Integer = dgvVentanillas.CurrentRow().Cells(0).Value
+
+        For Each fila As DataGridViewRow In dgvGestionesAsignadas.Rows
+            If fila.Selected Then
+                EntityTablas.QuitarGestionVentanilla(IDV, fila.Cells(0).Value)
+            End If
+        Next
+        EntityTablas.CargarGestionesNoAsignadas(dgvGestionesNoAsignadas, cboOficinas.SelectedValue, IDV)
+        EntityTablas.CargarGestionesAsignadas(dgvGestionesAsignadas, IDV)
     End Sub
 End Class
