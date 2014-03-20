@@ -58,6 +58,21 @@
 
         If idv <> 0 Then
             EntityTablas.CargarGestionesNoAsignadas(dgvGestionesNoAsignadas, cboOficinas.SelectedValue, idv)
+            EntityTablas.CargarGestionesAsignadas(dgvGestionesAsignadas, idv)
         End If
+    End Sub
+
+    Private Sub dgvGestionesNoAsignadas_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvGestionesNoAsignadas.CellClick
+        Dim idv As Integer = ObtenerDatoGrid(dgvVentanillas)
+        EntityTablas.AgregarGestionVentanilla(idv, ObtenerDatoGrid(dgvGestionesNoAsignadas))
+        EntityTablas.CargarGestionesNoAsignadas(dgvGestionesNoAsignadas, cboOficinas.SelectedValue, idv)
+        EntityTablas.CargarGestionesAsignadas(dgvGestionesAsignadas, idv)
+    End Sub
+
+    Private Sub dgvGestionesAsignadas_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvGestionesAsignadas.CellClick
+        Dim idv As Integer = ObtenerDatoGrid(dgvVentanillas)
+        EntityTablas.QuitarGestionVentanilla(idv, ObtenerDatoGrid(dgvGestionesAsignadas))
+        EntityTablas.CargarGestionesNoAsignadas(dgvGestionesNoAsignadas, cboOficinas.SelectedValue, idv)
+        EntityTablas.CargarGestionesAsignadas(dgvGestionesAsignadas, idv)
     End Sub
 End Class
