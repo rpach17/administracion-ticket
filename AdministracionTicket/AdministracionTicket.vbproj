@@ -94,6 +94,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>appcavistas.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmConfig.Designer.vb">
+      <DependentUpon>frmConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmModificarSucursal.Designer.vb">
       <DependentUpon>frmModificarSucursal.vb</DependentUpon>
     </Compile>
