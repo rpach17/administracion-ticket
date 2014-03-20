@@ -71,4 +71,20 @@
 
         btnAgregar.Text = "Actualizar gestión"
     End Sub
+
+    Private Sub EliminarToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EliminarToolStripMenuItem.Click
+        EntityTablas.EliminarGestion(ObtenerDatoGrid(dgvGestionesXOficina))
+        EntityTablas.CargarGestionesXOficinas(dgvGestionesXOficina, cboOficina.SelectedValue)
+    End Sub
+
+    Private Sub dgvGestionesXOficina_MouseDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles dgvGestionesXOficina.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            With dgvGestionesXOficina
+                Dim Hiselect As DataGridView.HitTestInfo = .HitTest(e.X, e.Y)
+                If Hiselect.Type = DataGridViewHitTestType.Cell Then
+                    .CurrentCell = .Rows(Hiselect.RowIndex).Cells(Hiselect.ColumnIndex)
+                End If
+            End With
+        End If
+    End Sub
 End Class

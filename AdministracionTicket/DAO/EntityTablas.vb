@@ -189,7 +189,7 @@
     End Sub
 
     Public Shared Sub CargarGestionesXOficinas(ByVal grid As DataGridView, ByVal ido As Integer)
-        Dim ofi = (From o In ctx.DETALLE_OFICINA_GESTIONES.ToList()
+        Dim ofi = (From o In ctx.DETALLE_OFICINA_GESTIONES
                    Where o.OFICINAS.IDOFICINA = ido
                    Select o.GESTIONES.IDGESTION, Código = o.GESTIONES.CODIGO, Gestión = o.GESTIONES.NOMBRE, Tiempo = o.GESTIONES.TIEMPO).ToList()
 
@@ -206,6 +206,7 @@
             Return ex.Message
         End Try
     End Function
+
 
     Public Shared Sub AgregarOFGE(ByVal ges As DETALLE_OFICINA_GESTIONES)
         Try
@@ -229,6 +230,21 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Public Shared Sub EliminarGestion(ByVal idges As Integer)
+        Dim ges = (From g In ctx.GESTIONES
+                  Where g.IDGESTION = idges).SingleOrDefault
+        Dim det = (From d In ctx.DETALLE_OFICINA_GESTIONES
+                 Where d.IDGESTION = idges).SingleOrDefault
+        Try
+            ctx.DETALLE_OFICINA_GESTIONES.DeleteObject(det)
+            ctx.GESTIONES.DeleteObject(ges)
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
 #End Region
 
 #Region "Gestion de ventanillas"
