@@ -300,8 +300,9 @@
         ctx.SaveChanges()
     End Sub
 
-    Public Shared Sub CargarGestionesNoAsignadas(ByVal grid As DataGridView, ByVal ido As Integer, ByVal idv As Integer)
+    Public Shared Sub CargarGestionesNoAsignadas(ByVal grid As DataGridView, ByVal idso As Integer, ByVal idv As Integer)
         Dim lista As List(Of Decimal) = New List(Of Decimal)
+        Dim ido As Integer = (From dso In ctx.DETALLE_SUCURSAL_OFICINA Where dso.IDDETALLE_SUCURSAL_OFICINA = idso Select dso.IDOFICINA).SingleOrDefault()
 
         lista = (From v In ctx.VENTANILLAS
                   From g In v.DETALLE_OFICINA_GESTIONES
@@ -311,6 +312,7 @@
         Dim ges = (From d In ctx.DETALLE_OFICINA_GESTIONES
                     Where d.IDOFICINA = ido AndAlso Not lista.Contains(d.IDGESTION)
                     Select d.GESTIONES.IDGESTION, d.GESTIONES.NOMBRE)
+
         'Using ctx2 As New EntidadesInsert
         '    'Dim ges1 = (From gv In ctx2.GESTIONES_VENTANILLAS Where gv.IDVENTANILLA = idv Select gv.IDDETALLE_GESTION_OFICINA).ToList()
         '    'lista = ges1
