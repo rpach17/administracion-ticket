@@ -155,6 +155,7 @@ Partial Class frmVentanillas
         'dgvGestionesAsignadas
         '
         Me.dgvGestionesAsignadas.AllowUserToAddRows = False
+        Me.dgvGestionesAsignadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvGestionesAsignadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGestionesAsignadas.Location = New System.Drawing.Point(361, 68)
         Me.dgvGestionesAsignadas.Name = "dgvGestionesAsignadas"

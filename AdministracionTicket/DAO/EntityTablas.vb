@@ -287,16 +287,59 @@
     Public Shared Sub CargarGestionesNoAsignadas(ByVal grid As DataGridView, ByVal ido As Integer, ByVal idv As Integer)
         Dim lista As List(Of Decimal) = New List(Of Decimal)
 
-        Using ctx2 As New EntidadesInsert
-            Dim ges1 = (From gv In ctx2.GESTIONES_VENTANILLAS Where gv.IDVENTANILLA = idv Select gv.IDDETALLE_GESTION_OFICINA).ToList()
-            lista = ges1
-        End Using
+        lista = (From v In ctx.VENTANILLAS
+                  From g In v.DETALLE_OFICINA_GESTIONES
+                  Where v.IDVENTANILLA = idv
+                  Select g.GESTIONES.IDGESTION).ToList()
 
-        Dim ges2 = (From g In ctx.DETALLE_OFICINA_GESTIONES
-                       Where g.IDOFICINA = ido AndAlso Not lista.Contains(g.IDDETALLE_OFICINA_GESTION)
-                       Select g.IDDETALLE_OFICINA_GESTION, g.GESTIONES.NOMBRE).ToList()
+        Dim ges = (From d In ctx.DETALLE_OFICINA_GESTIONES
+                    Where d.IDOFICINA = ido AndAlso Not lista.Contains(d.IDGESTION)
+                    Select d.GESTIONES.IDGESTION, d.GESTIONES.NOMBRE)
+        'Using ctx2 As New EntidadesInsert
+        '    'Dim ges1 = (From gv In ctx2.GESTIONES_VENTANILLAS Where gv.IDVENTANILLA = idv Select gv.IDDETALLE_GESTION_OFICINA).ToList()
+        '    'lista = ges1
+        'End Using
 
-        grid.DataSource = ges2
+        'Dim ges2 = (From g In ctx.DETALLE_OFICINA_GESTIONES
+        '               Where g.IDOFICINA = ido AndAlso Not lista.Contains(g.IDDETALLE_OFICINA_GESTION)
+        '               Select g.IDDETALLE_OFICINA_GESTION, g.GESTIONES.NOMBRE).ToList()
+
+        grid.DataSource = ges
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub AgregarGestionVentanilla(ByVal idv As Integer, ByVal idg As Integer)
+        Dim ven = (From v In ctx.VENTANILLAS
+                   Where v.IDVENTANILLA = idv
+                   Select v).SingleOrDefault
+
+        Dim ges = (From g In ctx.DETALLE_OFICINA_GESTIONES
+                     Where g.IDGESTION = idg
+                     Select g).SingleOrDefault
+
+        ven.DETALLE_OFICINA_GESTIONES.Add(ges)
+        ctx.SaveChanges()
+    End Sub
+
+    Public Shared Sub QuitarGestionVentanilla(ByVal idv As Integer, ByVal idg As Integer)
+        Dim ven = (From v In ctx.VENTANILLAS
+                   Where v.IDVENTANILLA = idv
+                   Select v).SingleOrDefault
+
+        Dim ges = (From g In ctx.DETALLE_OFICINA_GESTIONES
+                     Where g.IDGESTION = idg
+                     Select g).SingleOrDefault
+        ven.DETALLE_OFICINA_GESTIONES.Remove(ges)
+        ctx.SaveChanges()
+    End Sub
+
+    Public Shared Sub CargarGestionesAsignadas(ByVal grid As DataGridView, ByVal idv As Integer)
+        Dim ven = (From v In ctx.VENTANILLAS
+                  From g In v.DETALLE_OFICINA_GESTIONES
+                  Where v.IDVENTANILLA = idv
+                  Select g.GESTIONES.IDGESTION, g.GESTIONES.NOMBRE)
+
+        grid.DataSource = ven
         grid.Columns(0).Visible = False
     End Sub
 
@@ -391,9 +434,11 @@
         Dim user = (From u In ctx.USUARIOS
                    Where u.IDUSUARIO = idu
                    Select u).SingleOrDefault
+
         Dim perfil = (From p In ctx.PERFILES
                      Where p.IDPERFIL = idp
                      Select p).SingleOrDefault
+
         user.PERFILES.Add(perfil)
         ctx.SaveChanges()
     End Sub
@@ -422,8 +467,5 @@
     End Sub
 
 #End Region
-
-
-
 
 End Class
