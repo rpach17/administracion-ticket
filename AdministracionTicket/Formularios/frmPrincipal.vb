@@ -64,4 +64,9 @@
             .Show()
         End With
     End Sub
+
+    Private Sub frmPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        lblInfoConexion.Text = String.Format("{0} ({1})", SesionActiva.Nombre, SesionActiva.Usuario)
+        lblInfoUbicacion.Text = String.Format("{0}, {1}", SesionActiva.Sucursal, SesionActiva.Oficina)
+    End Sub
 End Class

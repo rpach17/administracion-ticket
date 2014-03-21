@@ -1,7 +1,6 @@
 ﻿Imports Oracle.DataAccess.Client
 
 Module ModuloFunciones
-
     Structure Sesion
         Public IdUsuario As Integer
         Public Usuario As String
@@ -33,14 +32,14 @@ Module ModuloFunciones
         End If
     End Function
 
-    Public Function ProbarConexion(ByVal cadena As String) As Boolean
+    Public Function ProbarConexion(ByVal cadena As String) As String
         Try
             Using conn As New OracleConnection(cadena)
                 conn.Open()
             End Using
-            Return True
+            Return "OK"
         Catch ex As Exception
-            Return False
+            Return ex.InnerException.Message
         End Try
     End Function
 
