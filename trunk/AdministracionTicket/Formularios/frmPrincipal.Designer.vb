@@ -33,6 +33,7 @@ Partial Class frmPrincipal
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpcionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevaSucursalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CatalogoDeSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CatalogoDeOficinasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarOficinasASucursalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -41,7 +42,6 @@ Partial Class frmPrincipal
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListaDeUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListaDeUsuariosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NuevaSucursalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -65,7 +65,7 @@ Partial Class frmPrincipal
         '
         Me.lblInfoConexion.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblInfoConexion.Name = "lblInfoConexion"
-        Me.lblInfoConexion.Size = New System.Drawing.Size(129, 17)
+        Me.lblInfoConexion.Size = New System.Drawing.Size(128, 17)
         Me.lblInfoConexion.Text = "ToolStripStatusLabel1"
         '
         'ToolStripStatusLabel2
@@ -99,13 +99,13 @@ Partial Class frmPrincipal
         'CerrarSesiónToolStripMenuItem
         '
         Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
-        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar sesión"
         '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'OpcionesToolStripMenuItem
@@ -119,8 +119,14 @@ Partial Class frmPrincipal
         '
         Me.SucursalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaSucursalToolStripMenuItem, Me.CatalogoDeSucursalesToolStripMenuItem, Me.CatalogoDeOficinasToolStripMenuItem, Me.AsignarOficinasASucursalToolStripMenuItem})
         Me.SucursalesToolStripMenuItem.Name = "SucursalesToolStripMenuItem"
-        Me.SucursalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SucursalesToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
         Me.SucursalesToolStripMenuItem.Text = "Sucursales"
+        '
+        'NuevaSucursalToolStripMenuItem
+        '
+        Me.NuevaSucursalToolStripMenuItem.Name = "NuevaSucursalToolStripMenuItem"
+        Me.NuevaSucursalToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.NuevaSucursalToolStripMenuItem.Text = "Nueva Sucursal"
         '
         'CatalogoDeSucursalesToolStripMenuItem
         '
@@ -143,13 +149,13 @@ Partial Class frmPrincipal
         'GestionesToolStripMenuItem
         '
         Me.GestionesToolStripMenuItem.Name = "GestionesToolStripMenuItem"
-        Me.GestionesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GestionesToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
         Me.GestionesToolStripMenuItem.Text = "Gestiones"
         '
         'VentanillasToolStripMenuItem
         '
         Me.VentanillasToolStripMenuItem.Name = "VentanillasToolStripMenuItem"
-        Me.VentanillasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.VentanillasToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
         Me.VentanillasToolStripMenuItem.Text = "Ventanillas"
         '
         'UsuariosToolStripMenuItem
@@ -170,12 +176,6 @@ Partial Class frmPrincipal
         Me.ListaDeUsuariosToolStripMenuItem1.Name = "ListaDeUsuariosToolStripMenuItem1"
         Me.ListaDeUsuariosToolStripMenuItem1.Size = New System.Drawing.Size(162, 22)
         Me.ListaDeUsuariosToolStripMenuItem1.Text = "Lista de usuarios"
-        '
-        'NuevaSucursalToolStripMenuItem
-        '
-        Me.NuevaSucursalToolStripMenuItem.Name = "NuevaSucursalToolStripMenuItem"
-        Me.NuevaSucursalToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.NuevaSucursalToolStripMenuItem.Text = "Nueva Sucursal"
         '
         'frmPrincipal
         '

@@ -34,7 +34,7 @@ Partial Class frmConfig
         '
         'btnGuardar
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(216, 64)
+        Me.btnGuardar.Location = New System.Drawing.Point(217, 69)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(130, 23)
         Me.btnGuardar.TabIndex = 28
@@ -44,7 +44,7 @@ Partial Class frmConfig
         '
         'txtPass
         '
-        Me.txtPass.Location = New System.Drawing.Point(90, 40)
+        Me.txtPass.Location = New System.Drawing.Point(91, 45)
         Me.txtPass.Name = "txtPass"
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPass.Size = New System.Drawing.Size(100, 20)
@@ -53,7 +53,7 @@ Partial Class frmConfig
         '
         'txtDS
         '
-        Me.txtDS.Location = New System.Drawing.Point(90, 66)
+        Me.txtDS.Location = New System.Drawing.Point(91, 71)
         Me.txtDS.Name = "txtDS"
         Me.txtDS.Size = New System.Drawing.Size(100, 20)
         Me.txtDS.TabIndex = 24
@@ -62,7 +62,7 @@ Partial Class frmConfig
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 66)
+        Me.Label3.Location = New System.Drawing.Point(18, 71)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(67, 13)
         Me.Label3.TabIndex = 26
@@ -71,7 +71,7 @@ Partial Class frmConfig
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(31, 43)
+        Me.Label2.Location = New System.Drawing.Point(32, 48)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 25
@@ -79,7 +79,7 @@ Partial Class frmConfig
         '
         'btnProbar
         '
-        Me.btnProbar.Location = New System.Drawing.Point(216, 17)
+        Me.btnProbar.Location = New System.Drawing.Point(217, 22)
         Me.btnProbar.Name = "btnProbar"
         Me.btnProbar.Size = New System.Drawing.Size(130, 23)
         Me.btnProbar.TabIndex = 27
@@ -89,7 +89,7 @@ Partial Class frmConfig
         '
         'txtUserID
         '
-        Me.txtUserID.Location = New System.Drawing.Point(90, 14)
+        Me.txtUserID.Location = New System.Drawing.Point(91, 19)
         Me.txtUserID.Name = "txtUserID"
         Me.txtUserID.Size = New System.Drawing.Size(100, 20)
         Me.txtUserID.TabIndex = 22
@@ -98,7 +98,7 @@ Partial Class frmConfig
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(45, 17)
+        Me.Label1.Location = New System.Drawing.Point(46, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 21
@@ -118,6 +118,7 @@ Partial Class frmConfig
         Me.Controls.Add(Me.txtUserID)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmConfig"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmConfig"
         Me.ResumeLayout(False)
         Me.PerformLayout()
