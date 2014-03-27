@@ -39,7 +39,7 @@ Module ModuloFunciones
             End Using
             Return "OK"
         Catch ex As Exception
-            Return ex.InnerException.Message
+            Return ex.Message
         End Try
     End Function
 

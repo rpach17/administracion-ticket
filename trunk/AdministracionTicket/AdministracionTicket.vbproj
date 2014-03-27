@@ -83,7 +83,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -275,7 +275,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AdministracionTicket_TemporaryKey.pfx" />
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="EntityFramework\appcatablas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>appcatablas.Designer.vb</LastGenOutput>
