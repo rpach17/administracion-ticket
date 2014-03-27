@@ -204,6 +204,12 @@
     <Compile Include="Formularios\frmUsuarios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmUsuariosSucursal.Designer.vb">
+      <DependentUpon>frmUsuariosSucursal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmUsuariosSucursal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmVentanillas.Designer.vb">
       <DependentUpon>frmVentanillas.vb</DependentUpon>
     </Compile>
