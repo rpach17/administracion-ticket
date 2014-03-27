@@ -401,6 +401,15 @@
         grid.Columns(0).Visible = False
     End Sub
 
+    Public Shared Sub CargarUsuariosSucursal(ByVal grid As DataGridView, ByVal filtro As Integer, ByVal user As String)
+        Dim usu = (From u In ctx.USUARIOS
+                    Where u.DETALLE_SUCURSAL_OFICINA.IDSUCURSAL = filtro AndAlso (u.USUARIO.StartsWith(user) OrElse u.NOMBRE.StartsWith(user))
+                   Order By u.NOMBRE
+                   Select u.IDUSUARIO, Usuario = u.USUARIO, Nombre = u.NOMBRE, Apellidos = u.APELLIDOS, Estado = If(u.ESTADO = 1, True, False)).ToList()
+        grid.DataSource = usu
+        grid.Columns(0).Visible = False
+    End Sub
+
     Public Shared Sub CargarCboPerfiles(ByVal cbo As ComboBox)
         Dim off = (From o In ctx.PERFILES.ToList Select o).ToList()
         cbo.DataSource = off

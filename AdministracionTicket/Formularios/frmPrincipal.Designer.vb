@@ -99,13 +99,13 @@ Partial Class frmPrincipal
         'CerrarSesiónToolStripMenuItem
         '
         Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
-        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar sesión"
         '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'OpcionesToolStripMenuItem
@@ -119,7 +119,7 @@ Partial Class frmPrincipal
         '
         Me.SucursalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaSucursalToolStripMenuItem, Me.CatalogoDeSucursalesToolStripMenuItem, Me.CatalogoDeOficinasToolStripMenuItem, Me.AsignarOficinasASucursalToolStripMenuItem})
         Me.SucursalesToolStripMenuItem.Name = "SucursalesToolStripMenuItem"
-        Me.SucursalesToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.SucursalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SucursalesToolStripMenuItem.Text = "Sucursales"
         '
         'NuevaSucursalToolStripMenuItem
@@ -149,13 +149,13 @@ Partial Class frmPrincipal
         'GestionesToolStripMenuItem
         '
         Me.GestionesToolStripMenuItem.Name = "GestionesToolStripMenuItem"
-        Me.GestionesToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.GestionesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.GestionesToolStripMenuItem.Text = "Gestiones"
         '
         'VentanillasToolStripMenuItem
         '
         Me.VentanillasToolStripMenuItem.Name = "VentanillasToolStripMenuItem"
-        Me.VentanillasToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.VentanillasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.VentanillasToolStripMenuItem.Text = "Ventanillas"
         '
         'UsuariosToolStripMenuItem

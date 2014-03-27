@@ -269,6 +269,9 @@
     <EmbeddedResource Include="Formularios\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmUsuariosSucursal.resx">
+      <DependentUpon>frmUsuariosSucursal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmVentanillas.resx">
       <DependentUpon>frmVentanillas.vb</DependentUpon>
     </EmbeddedResource>

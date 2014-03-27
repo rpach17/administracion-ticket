@@ -69,4 +69,12 @@
         lblInfoConexion.Text = String.Format("{0} ({1})", SesionActiva.Nombre, SesionActiva.Usuario)
         lblInfoUbicacion.Text = String.Format("{0}, {1}", SesionActiva.Sucursal, SesionActiva.Oficina)
     End Sub
+
+    Private Sub ListaDeUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListaDeUsuariosToolStripMenuItem.Click
+        With frmUsuariosSucursal
+            .MdiParent = Me
+            .StartPosition = FormStartPosition.CenterScreen
+            .Show()
+        End With
+    End Sub
 End Class
