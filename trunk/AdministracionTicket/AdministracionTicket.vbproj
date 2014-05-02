@@ -142,6 +142,12 @@
     <Compile Include="Formularios\frmModificarSucursal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmRequisitos.Designer.vb">
+      <DependentUpon>frmRequisitos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmRequisitos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmSucursales.Designer.vb">
       <DependentUpon>frmSucursales.vb</DependentUpon>
     </Compile>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmModificarSucursal.resx">
       <DependentUpon>frmModificarSucursal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmRequisitos.resx">
+      <DependentUpon>frmRequisitos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmSucursales.resx">
       <DependentUpon>frmSucursales.vb</DependentUpon>

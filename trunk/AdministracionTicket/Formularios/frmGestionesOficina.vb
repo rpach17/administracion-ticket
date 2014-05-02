@@ -87,4 +87,14 @@
             End With
         End If
     End Sub
+
+
+    Private Sub RequisitosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RequisitosToolStripMenuItem.Click
+        Dim idg As Integer = ObtenerDatoGrid(dgvGestionesXOficina)
+
+        With frmRequisitos
+            .IdGestion1 = idg
+            .ShowDialog()
+        End With
+    End Sub
 End Class

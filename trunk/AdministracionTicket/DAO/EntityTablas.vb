@@ -521,4 +521,25 @@
     End Function
 #End Region
 
+#Region "Gestionar requisitos"
+
+    Public Shared Sub CargarRequisitos(ByVal grid As DataGridView, ByVal idg As Integer)
+        Dim reqs = (From r In ctx.REQUISITOS
+                   Where r.IDGESTION = idg
+                   Select r.IDREQUISITO, Nombre = r.NOMBRE_REQUISITO, Opcional = If(r.OPCIONAL = 1, True, False)).ToList()
+
+        grid.DataSource = reqs
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub AgregarRequisito(ByVal req As REQUISITOS)
+        Try
+            ctx.REQUISITOS.AddObject(req)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+#End Region
+
 End Class

@@ -58,8 +58,8 @@ Namespace My
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("metadata=res://*/EntityFramework.appcatablas.csdl|res://*/EntityFramework.appcata"& _ 
             "blas.ssdl|res://*/EntityFramework.appcatablas.msl;provider=Oracle.DataAccess.Cli"& _ 
-            "ent;provider connection string=""DATA SOURCE=ronypacheco-pc;PASSWORD=miclave;PERS"& _ 
-            "IST SECURITY INFO=True;USER ID=APPCA""")>  _
+            "ent;provider connection string=""DATA SOURCE=oracle;PASSWORD=miclave;PERSIST SECU"& _ 
+            "RITY INFO=True;USER ID=APPCA""")>  _
         Public Property CadenaAPPCATablas() As String
             Get
                 Return CType(Me("CadenaAPPCATablas"),String)
@@ -83,8 +83,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("DATA SOURCE=ronypacheco-pc;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=AP"& _ 
-            "PCA")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("DATA SOURCE=oracle;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA")>  _
         Public Property MiConexion() As String
             Get
                 Return CType(Me("MiConexion"),String)

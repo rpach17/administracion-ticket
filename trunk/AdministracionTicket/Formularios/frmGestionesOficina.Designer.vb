@@ -34,19 +34,22 @@ Partial Class frmGestionesOficina
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.dgvGestionesXOficina = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.RequisitosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.txtTiempo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvGestionesXOficina, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.ContextMenuStrip1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'cboOficina
@@ -132,7 +135,7 @@ Partial Class frmGestionesOficina
         'btnAgregar
         '
         Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnAgregar.Location = New System.Drawing.Point(24, 319)
+        Me.btnAgregar.Location = New System.Drawing.Point(21, 273)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(312, 40)
         Me.btnAgregar.TabIndex = 8
@@ -153,6 +156,19 @@ Partial Class frmGestionesOficina
         Me.dgvGestionesXOficina.Size = New System.Drawing.Size(409, 274)
         Me.dgvGestionesXOficina.TabIndex = 9
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RequisitosToolStripMenuItem, Me.EliminarToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 70)
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Image = CType(resources.GetObject("EliminarToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -163,7 +179,7 @@ Partial Class frmGestionesOficina
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtGestion)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(24, 145)
+        Me.GroupBox1.Location = New System.Drawing.Point(21, 99)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(312, 171)
         Me.GroupBox1.TabIndex = 10
@@ -184,7 +200,7 @@ Partial Class frmGestionesOficina
         '
         Me.GroupBox2.Controls.Add(Me.cboOficina)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Location = New System.Drawing.Point(24, 66)
+        Me.GroupBox2.Location = New System.Drawing.Point(21, 20)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(312, 68)
         Me.GroupBox2.TabIndex = 11
@@ -194,7 +210,7 @@ Partial Class frmGestionesOficina
         '
         Me.GroupBox3.Controls.Add(Me.dgvGestionesXOficina)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.GroupBox3.Location = New System.Drawing.Point(362, 66)
+        Me.GroupBox3.Location = New System.Drawing.Point(359, 20)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(415, 296)
         Me.GroupBox3.TabIndex = 12
@@ -209,48 +225,52 @@ Partial Class frmGestionesOficina
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(0, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(801, 37)
+        Me.Label6.Size = New System.Drawing.Size(879, 37)
         Me.Label6.TabIndex = 13
         Me.Label6.Text = "Gestiones por oficina"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ContextMenuStrip1
+        'Panel1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EliminarToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(118, 26)
+        Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.Controls.Add(Me.GroupBox2)
+        Me.Panel1.Controls.Add(Me.GroupBox1)
+        Me.Panel1.Controls.Add(Me.btnAgregar)
+        Me.Panel1.Controls.Add(Me.GroupBox3)
+        Me.Panel1.Location = New System.Drawing.Point(42, 56)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(803, 330)
+        Me.Panel1.TabIndex = 14
         '
-        'EliminarToolStripMenuItem
+        'RequisitosToolStripMenuItem
         '
-        Me.EliminarToolStripMenuItem.Image = CType(resources.GetObject("EliminarToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
-        Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        Me.RequisitosToolStripMenuItem.Name = "RequisitosToolStripMenuItem"
+        Me.RequisitosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RequisitosToolStripMenuItem.Text = "Requisitos"
         '
         'frmGestionesOficina
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(801, 414)
+        Me.ClientSize = New System.Drawing.Size(879, 408)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.btnAgregar)
-        Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmGestionesOficina"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestiones por oficina"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.txtTiempo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvGestionesXOficina, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
-        Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -271,4 +291,6 @@ Partial Class frmGestionesOficina
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents EliminarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents RequisitosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
