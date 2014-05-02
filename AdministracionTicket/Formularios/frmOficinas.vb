@@ -65,4 +65,11 @@
         End If
     End Sub
 
+    Private Sub ContextMenuStrip1_Opening(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip1.Opening
+        Dim ido As Integer = ObtenerDatoGrid(dgvOficinas)
+
+        With frmPuestos
+            .Ido1 = ido
+        End With
+    End Sub
 End Class
