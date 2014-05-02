@@ -29,10 +29,10 @@ Partial Class frmSaltos
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.txtNumPaso = New System.Windows.Forms.NumericUpDown()
+        Me.cboPuesto = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.cboPasoNo = New System.Windows.Forms.CheckBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -43,16 +43,41 @@ Partial Class frmSaltos
         Me.Eliminar = New System.Windows.Forms.ToolStripButton()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
+        Me.cboPasoSi = New System.Windows.Forms.ComboBox()
+        Me.chkUltimoPaso = New System.Windows.Forms.CheckBox()
+        Me.txtDuracion = New System.Windows.Forms.NumericUpDown()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvProcesos = New System.Windows.Forms.DataGridView()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.txtNumProceso = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.txtDescripcion = New System.Windows.Forms.ToolStripTextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.dgvPasos = New System.Windows.Forms.DataGridView()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.ToolStrip1.SuspendLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNumPaso, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtDuracion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvProcesos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.ToolStrip2.SuspendLayout()
+        CType(Me.dgvPasos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -62,7 +87,7 @@ Partial Class frmSaltos
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Nuevo, Me.ToolStripSeparator1, Me.Actualizar, Me.ToolStripSeparator2, Me.Guardar, Me.Cancelar, Me.ToolStripSeparator3, Me.Eliminar, Me.ToolStripSeparator4})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1302, 48)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1261, 48)
         Me.ToolStrip1.TabIndex = 2
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -90,57 +115,57 @@ Partial Class frmSaltos
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(44, 67)
+        Me.Label1.Location = New System.Drawing.Point(40, 60)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(126, 20)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Número de paso"
         '
-        'NumericUpDown1
+        'txtNumPaso
         '
-        Me.NumericUpDown1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NumericUpDown1.Location = New System.Drawing.Point(185, 65)
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(63, 26)
-        Me.NumericUpDown1.TabIndex = 4
-        Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtNumPaso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtNumPaso.Location = New System.Drawing.Point(181, 58)
+        Me.txtNumPaso.Name = "txtNumPaso"
+        Me.txtNumPaso.Size = New System.Drawing.Size(63, 26)
+        Me.txtNumPaso.TabIndex = 4
+        Me.txtNumPaso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'ComboBox1
+        'cboPuesto
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(185, 97)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(232, 28)
-        Me.ComboBox1.TabIndex = 5
+        Me.cboPuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboPuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.cboPuesto.FormattingEnabled = True
+        Me.cboPuesto.Location = New System.Drawing.Point(181, 90)
+        Me.cboPuesto.Name = "cboPuesto"
+        Me.cboPuesto.Size = New System.Drawing.Size(232, 28)
+        Me.cboPuesto.TabIndex = 5
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(111, 100)
+        Me.Label2.Location = New System.Drawing.Point(107, 93)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(59, 20)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Puesto"
         '
-        'CheckBox1
+        'cboPasoNo
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.CheckBox1.Location = New System.Drawing.Point(658, 126)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox1.TabIndex = 7
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.cboPasoNo.AutoSize = True
+        Me.cboPasoNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.cboPasoNo.Location = New System.Drawing.Point(205, 355)
+        Me.cboPasoNo.Name = "cboPasoNo"
+        Me.cboPasoNo.Size = New System.Drawing.Size(15, 14)
+        Me.cboPasoNo.TabIndex = 7
+        Me.cboPasoNo.UseVisualStyleBackColor = True
         '
         'ComboBox2
         '
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(494, 219)
+        Me.ComboBox2.Location = New System.Drawing.Point(41, 448)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(49, 28)
         Me.ComboBox2.TabIndex = 8
@@ -150,7 +175,7 @@ Partial Class frmSaltos
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.White
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label5.Location = New System.Drawing.Point(601, 103)
+        Me.Label5.Location = New System.Drawing.Point(148, 332)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(128, 20)
         Me.Label5.TabIndex = 13
@@ -159,7 +184,7 @@ Partial Class frmSaltos
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.AdministracionTicket.My.Resources.Resources.Decision
-        Me.PictureBox1.Location = New System.Drawing.Point(511, 39)
+        Me.PictureBox1.Location = New System.Drawing.Point(58, 268)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(314, 179)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -216,7 +241,7 @@ Partial Class frmSaltos
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.SystemColors.Control
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(534, 93)
+        Me.Label3.Location = New System.Drawing.Point(81, 322)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(32, 20)
         Me.Label3.TabIndex = 15
@@ -227,91 +252,273 @@ Partial Class frmSaltos
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.SystemColors.Control
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(767, 93)
+        Me.Label4.Location = New System.Drawing.Point(314, 322)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(25, 20)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "SI"
         '
-        'ComboBox3
+        'cboPasoSi
         '
-        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(796, 219)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(49, 28)
-        Me.ComboBox3.TabIndex = 17
+        Me.cboPasoSi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboPasoSi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.cboPasoSi.FormattingEnabled = True
+        Me.cboPasoSi.Location = New System.Drawing.Point(343, 448)
+        Me.cboPasoSi.Name = "cboPasoSi"
+        Me.cboPasoSi.Size = New System.Drawing.Size(49, 28)
+        Me.cboPasoSi.TabIndex = 17
         '
-        'CheckBox2
+        'chkUltimoPaso
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.CheckBox2.Location = New System.Drawing.Point(185, 131)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(132, 24)
-        Me.CheckBox2.TabIndex = 18
-        Me.CheckBox2.Text = "Es último paso"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.chkUltimoPaso.AutoSize = True
+        Me.chkUltimoPaso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.chkUltimoPaso.Location = New System.Drawing.Point(181, 124)
+        Me.chkUltimoPaso.Name = "chkUltimoPaso"
+        Me.chkUltimoPaso.Size = New System.Drawing.Size(132, 24)
+        Me.chkUltimoPaso.TabIndex = 18
+        Me.chkUltimoPaso.Text = "Es último paso"
+        Me.chkUltimoPaso.UseVisualStyleBackColor = True
         '
-        'NumericUpDown2
+        'txtDuracion
         '
-        Me.NumericUpDown2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NumericUpDown2.Location = New System.Drawing.Point(185, 161)
-        Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.Size = New System.Drawing.Size(63, 26)
-        Me.NumericUpDown2.TabIndex = 20
-        Me.NumericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtDuracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtDuracion.Location = New System.Drawing.Point(181, 154)
+        Me.txtDuracion.Name = "txtDuracion"
+        Me.txtDuracion.Size = New System.Drawing.Size(63, 26)
+        Me.txtDuracion.TabIndex = 20
+        Me.txtDuracion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label6.Location = New System.Drawing.Point(15, 163)
+        Me.Label6.Location = New System.Drawing.Point(11, 156)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(155, 20)
         Me.Label6.TabIndex = 19
         Me.Label6.Text = "Duración en minutos"
         '
-        'DataGridView1
+        'dgvProcesos
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(19, 267)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(459, 245)
-        Me.DataGridView1.TabIndex = 21
+        Me.dgvProcesos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvProcesos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvProcesos.Location = New System.Drawing.Point(3, 51)
+        Me.dgvProcesos.Name = "dgvProcesos"
+        Me.dgvProcesos.Size = New System.Drawing.Size(713, 261)
+        Me.dgvProcesos.TabIndex = 21
+        '
+        'Panel1
+        '
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.ToolStrip2)
+        Me.Panel1.Controls.Add(Me.dgvProcesos)
+        Me.Panel1.Location = New System.Drawing.Point(526, 113)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(721, 317)
+        Me.Panel1.TabIndex = 22
+        '
+        'ToolStrip2
+        '
+        Me.ToolStrip2.AutoSize = False
+        Me.ToolStrip2.ImageScalingSize = New System.Drawing.Size(32, 32)
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator5, Me.ToolStripButton2, Me.ToolStripSeparator6, Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripSeparator7, Me.ToolStripButton5, Me.ToolStripSeparator8, Me.ToolStripLabel1, Me.txtNumProceso, Me.ToolStripLabel2, Me.txtDescripcion})
+        Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip2.Name = "ToolStrip2"
+        Me.ToolStrip2.Size = New System.Drawing.Size(719, 48)
+        Me.ToolStrip2.TabIndex = 3
+        Me.ToolStrip2.Text = "ToolStrip2"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(36, 45)
+        Me.ToolStripButton1.Text = "Nueva Oficina"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 48)
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(36, 45)
+        Me.ToolStripButton2.Text = "Modificar Registro"
+        '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 48)
+        '
+        'ToolStripButton3
+        '
+        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.Size = New System.Drawing.Size(36, 45)
+        Me.ToolStripButton3.Text = "Guardar"
+        '
+        'ToolStripButton4
+        '
+        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
+        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton4.Name = "ToolStripButton4"
+        Me.ToolStripButton4.Size = New System.Drawing.Size(36, 45)
+        Me.ToolStripButton4.Text = "Cancelar"
+        '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 48)
+        '
+        'ToolStripButton5
+        '
+        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
+        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton5.Name = "ToolStripButton5"
+        Me.ToolStripButton5.Size = New System.Drawing.Size(36, 45)
+        Me.ToolStripButton5.Text = "Eliminar Oficna"
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 48)
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(51, 45)
+        Me.ToolStripLabel1.Text = "Número"
+        '
+        'txtNumProceso
+        '
+        Me.txtNumProceso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtNumProceso.Name = "txtNumProceso"
+        Me.txtNumProceso.Size = New System.Drawing.Size(40, 48)
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(69, 45)
+        Me.ToolStripLabel2.Text = "Descripción"
+        '
+        'txtDescripcion
+        '
+        Me.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtDescripcion.Name = "txtDescripcion"
+        Me.txtDescripcion.Size = New System.Drawing.Size(300, 48)
+        '
+        'Label7
+        '
+        Me.Label7.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.Label7.Location = New System.Drawing.Point(526, 75)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(721, 38)
+        Me.Label7.TabIndex = 23
+        Me.Label7.Text = "Procesos del paso"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dgvPasos
+        '
+        Me.dgvPasos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvPasos.Location = New System.Drawing.Point(444, 113)
+        Me.dgvPasos.Name = "dgvPasos"
+        Me.dgvPasos.Size = New System.Drawing.Size(76, 317)
+        Me.dgvPasos.TabIndex = 24
+        '
+        'Label8
+        '
+        Me.Label8.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.Label8.Location = New System.Drawing.Point(444, 75)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(76, 38)
+        Me.Label8.TabIndex = 25
+        Me.Label8.Text = "Pasos"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.cboPasoNo)
+        Me.GroupBox1.Controls.Add(Me.txtNumPaso)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.cboPuesto)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.chkUltimoPaso)
+        Me.GroupBox1.Controls.Add(Me.cboPasoSi)
+        Me.GroupBox1.Controls.Add(Me.txtDuracion)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.PictureBox1)
+        Me.GroupBox1.Controls.Add(Me.ComboBox2)
+        Me.GroupBox1.Controls.Add(Me.ShapeContainer1)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.GroupBox1.Location = New System.Drawing.Point(10, 64)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(428, 488)
+        Me.GroupBox1.TabIndex = 26
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Información del paso"
+        '
+        'ShapeContainer1
+        '
+        Me.ShapeContainer1.Location = New System.Drawing.Point(3, 25)
+        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer1.Name = "ShapeContainer1"
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(422, 460)
+        Me.ShapeContainer1.TabIndex = 21
+        Me.ShapeContainer1.TabStop = False
+        '
+        'LineShape1
+        '
+        Me.LineShape1.BorderColor = System.Drawing.Color.Silver
+        Me.LineShape1.Name = "LineShape1"
+        Me.LineShape1.X1 = 13
+        Me.LineShape1.X2 = 402
+        Me.LineShape1.Y1 = 204
+        Me.LineShape1.Y2 = 204
         '
         'frmSaltos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1302, 723)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.NumericUpDown2)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.ComboBox3)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.NumericUpDown1)
-        Me.Controls.Add(Me.Label1)
+        Me.ClientSize = New System.Drawing.Size(1261, 563)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.dgvPasos)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "frmSaltos"
         Me.Text = "Pasos de la gestión"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNumPaso, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtDuracion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvProcesos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.ToolStrip2.ResumeLayout(False)
+        Me.ToolStrip2.PerformLayout()
+        CType(Me.dgvPasos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
@@ -325,18 +532,39 @@ Partial Class frmSaltos
     Friend WithEvents Eliminar As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents txtNumPaso As System.Windows.Forms.NumericUpDown
+    Friend WithEvents cboPuesto As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents cboPasoNo As System.Windows.Forms.CheckBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents NumericUpDown2 As System.Windows.Forms.NumericUpDown
+    Friend WithEvents cboPasoSi As System.Windows.Forms.ComboBox
+    Friend WithEvents chkUltimoPaso As System.Windows.Forms.CheckBox
+    Friend WithEvents txtDuracion As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvProcesos As System.Windows.Forms.DataGridView
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents ToolStrip2 As System.Windows.Forms.ToolStrip
+    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents txtNumProceso As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents ToolStripLabel2 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents txtDescripcion As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents dgvPasos As System.Windows.Forms.DataGridView
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
 End Class

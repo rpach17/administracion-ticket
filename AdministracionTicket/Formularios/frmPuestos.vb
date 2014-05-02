@@ -22,7 +22,7 @@
 
     Private Sub frmPuestos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Text = String.Format("Puestos de la oficina {0}", nomOfi)
-        EntityTablas.CargarPuestos(dgvPuestos)
+        EntityTablas.CargarPuestos(dgvPuestos, ido)
         txtPuesto.Enabled = False
         Guardar.Enabled = False
         Cancelar.Enabled = False
@@ -47,7 +47,7 @@
             EntityTablas.ActualizarPuesto(ObtenerDatoGrid(dgvPuestos), txtPuesto.Text)
         End If
         cambiarEstado(False)
-        EntityTablas.CargarPuestos(dgvPuestos)
+        EntityTablas.CargarPuestos(dgvPuestos, ido)
     End Sub
 
     Private Sub Cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancelar.Click
@@ -57,7 +57,7 @@
     Private Sub Eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Eliminar.Click
         If MsgBox(String.Format("Desea eliminar el puesto de: {0}", ObtenerDatoGrid(dgvPuestos, 1)), MsgBoxStyle.YesNo, "Eliminar Oficina") = MsgBoxResult.Yes Then
             EntityTablas.EliminarPuesto(ObtenerDatoGrid(dgvPuestos))
-            EntityTablas.CargarPuestos(dgvPuestos)
+            EntityTablas.CargarPuestos(dgvPuestos, ido)
             MsgBox("Puesto eliminado", MsgBoxStyle.Information, "Puesto")
         End If
     End Sub

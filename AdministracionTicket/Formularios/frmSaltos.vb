@@ -18,4 +18,7 @@
         End Set
     End Property
 
+    Private Sub frmSaltos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        EntityTablas.CargarPuestos(cboPuesto, ido)
+    End Sub
 End Class
