@@ -42,10 +42,12 @@ Public Class frmRequisitos
         EntityTablas.CargarRequisitos(dgvRequisitos, IdGestion)
     End Sub
 
+
     Private Sub frmRequisitos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         EntityTablas.CargarRequisitos(dgvRequisitos, IdGestion)
         Guardar.Enabled = False
         Cancelar.Enabled = False
+        txtRequisito.Enabled = False
     End Sub
 
     Private Sub dgvRequisitos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dgvRequisitos.Click
@@ -85,7 +87,7 @@ Public Class frmRequisitos
 
     Private Sub Actualizar_Click(sender As Object, e As EventArgs) Handles Actualizar.Click
         tarea = 2
-        txtRequisito = ObtenerDatoGrid(dgvRequisitos, 1)
+        txtRequisito.Text = ObtenerDatoGrid(dgvRequisitos, 1)
         chkOpcional.Checked = ObtenerDatoGrid(dgvRequisitos, 2)
         cambiarEstado(True)
     End Sub
@@ -95,9 +97,10 @@ Public Class frmRequisitos
     End Sub
 
     Private Sub Eliminar_Click(sender As Object, e As EventArgs) Handles Eliminar.Click
+        Dim idr As Integer = ObtenerDatoGrid(dgvRequisitos)
         If MsgBox(String.Format("Desea eliminar el requisito: {0}", ObtenerDatoGrid(dgvRequisitos, 1)), MsgBoxStyle.YesNo, "Eliminar Oficina"
                   ) = MsgBoxResult.Yes Then
-            EntityTablas.eliminarRequisito(ObtenerDatoGrid(dgvRequisitos))
+            EntityTablas.eliminarRequisito(idr)
             EntityTablas.CargarRequisitos(dgvRequisitos, IdGestion)
         End If
     End Sub
