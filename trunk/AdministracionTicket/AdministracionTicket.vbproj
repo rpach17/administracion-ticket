@@ -142,10 +142,22 @@
     <Compile Include="Formularios\frmModificarSucursal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmPuestos.Designer.vb">
+      <DependentUpon>frmPuestos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPuestos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmRequisitos.Designer.vb">
       <DependentUpon>frmRequisitos.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmRequisitos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmSaltos.Designer.vb">
+      <DependentUpon>frmSaltos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmSaltos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmSucursales.Designer.vb">
@@ -245,8 +257,14 @@
     <EmbeddedResource Include="Formularios\frmModificarSucursal.resx">
       <DependentUpon>frmModificarSucursal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPuestos.resx">
+      <DependentUpon>frmPuestos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmRequisitos.resx">
       <DependentUpon>frmRequisitos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmSaltos.resx">
+      <DependentUpon>frmSaltos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmSucursales.resx">
       <DependentUpon>frmSucursales.vb</DependentUpon>
@@ -323,7 +341,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\text_list_bullets.png" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
