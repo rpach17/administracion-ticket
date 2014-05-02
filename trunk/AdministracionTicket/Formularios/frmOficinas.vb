@@ -65,11 +65,14 @@
         End If
     End Sub
 
-    Private Sub ContextMenuStrip1_Opening(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip1.Opening
+    Private Sub PuestosDeEstaOficinaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PuestosDeEstaOficinaToolStripMenuItem.Click
         Dim ido As Integer = ObtenerDatoGrid(dgvOficinas)
+        Dim nombreOfi As String = ObtenerDatoGrid(dgvOficinas, 1)
 
         With frmPuestos
             .Ido1 = ido
+            .NomOfi1 = nombreOfi
+            .ShowDialog()
         End With
     End Sub
 End Class

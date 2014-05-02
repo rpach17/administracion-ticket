@@ -25,6 +25,8 @@ Partial Class frmOficinas
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOficinas))
         Me.dgvOficinas = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.PuestosDeEstaOficinaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Nuevo = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -37,11 +39,9 @@ Partial Class frmOficinas
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.txtOficina = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.PuestosDeEstaOficinaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.dgvOficinas, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ToolStrip1.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvOficinas
@@ -53,6 +53,19 @@ Partial Class frmOficinas
         Me.dgvOficinas.Name = "dgvOficinas"
         Me.dgvOficinas.Size = New System.Drawing.Size(416, 277)
         Me.dgvOficinas.TabIndex = 0
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuestosDeEstaOficinaToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(195, 26)
+        '
+        'PuestosDeEstaOficinaToolStripMenuItem
+        '
+        Me.PuestosDeEstaOficinaToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.text_list_bullets
+        Me.PuestosDeEstaOficinaToolStripMenuItem.Name = "PuestosDeEstaOficinaToolStripMenuItem"
+        Me.PuestosDeEstaOficinaToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.PuestosDeEstaOficinaToolStripMenuItem.Text = "Puestos de esta oficina"
         '
         'ToolStrip1
         '
@@ -149,19 +162,6 @@ Partial Class frmOficinas
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Nombre:"
         '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuestosDeEstaOficinaToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(195, 48)
-        '
-        'PuestosDeEstaOficinaToolStripMenuItem
-        '
-        Me.PuestosDeEstaOficinaToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.text_list_bullets
-        Me.PuestosDeEstaOficinaToolStripMenuItem.Name = "PuestosDeEstaOficinaToolStripMenuItem"
-        Me.PuestosDeEstaOficinaToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.PuestosDeEstaOficinaToolStripMenuItem.Text = "Puestos de esta oficina"
-        '
         'frmOficinas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -171,13 +171,14 @@ Partial Class frmOficinas
         Me.Controls.Add(Me.txtOficina)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.dgvOficinas)
+        Me.MaximizeBox = False
         Me.Name = "frmOficinas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Oficinas"
         CType(Me.dgvOficinas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
