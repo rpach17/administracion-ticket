@@ -3,13 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="CadenaAPPCATablas" Type="System.String" Scope="User">
-      <Value Profile="(Default)">metadata=res://*/EntityFramework.appcatablas.csdl|res://*/EntityFramework.appcatablas.ssdl|res://*/EntityFramework.appcatablas.msl;provider=Oracle.DataAccess.Client;provider connection string="DATA SOURCE=ronypacheco-pc;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA"</Value>
+      <Value Profile="(Default)">metadata=res://*/EntityFramework.appcatablas.csdl|res://*/EntityFramework.appcatablas.ssdl|res://*/EntityFramework.appcatablas.msl;provider=Oracle.DataAccess.Client;provider connection string="DATA SOURCE=oracle;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA"</Value>
     </Setting>
     <Setting Name="IDPerfil" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="MiConexion" Type="System.String" Scope="User">
-      <Value Profile="(Default)">DATA SOURCE=ronypacheco-pc;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA</Value>
+      <Value Profile="(Default)">DATA SOURCE=oracle;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA</Value>
     </Setting>
   </Settings>
 </SettingsFile>

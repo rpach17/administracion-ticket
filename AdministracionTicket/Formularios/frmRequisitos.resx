@@ -117,18 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="EliminarToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAQ9JREFUOE+l
-        0r8uRFEQx/GRiI6OjooC7+GZ9g1USPxLaGhsgYIoVAqhQEHhgcb3d+7OMXfP7kZik8/mzPzmzO5Nrrn7
-        v/wWZnO7Zjs5nKTMMBt1F9DYMzuF75sNIhynDH7AbCwpwSFbjziGkwlL1DsmC9Tl39aBMwbgSV2i8zm9
-        kLO6QC4I4InqwSXnoDrf6S2QIQNXtAN11jxarwjXDN4QhdtOc1mahtwxfE+UPfx1wSOD8ClmP8ITA/BE
-        ddPLd+rhmeCFMrymQZ2nZeXrjZcCLu/4GPsVUU9Z0B31uwFey09eTziay0HZFzPov8oFje/R1lnKzOiy
-        1IDPApawgjVsYAvb2MQ6VrGMRcy7u/0AzrQm9ZxIeZEAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

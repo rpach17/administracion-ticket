@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("d70aad2b-21a2-403a-b30b-70da1db6c9fb")>
+<Assembly: EdmSchemaAttribute("484b64a1-eea1-401a-bf61-dcfc4d8f2e16")>
 #Region "EDM Relationship Metadata"
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DEPARTAMENTOS_FK1", "PAIS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(PAIS), "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DEPARTAMENTOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "MUNICIPIOS_FK1", "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(DEPARTAMENTOS), "MUNICIPIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(MUNICIPIOS), True)>
@@ -28,11 +28,11 @@ Imports System.Xml.Serialization
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DETALLE_SUCURSAL_OFICINA_FK2", "OFICINAS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(OFICINAS), "DETALLE_SUCURSAL_OFICINA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DETALLE_SUCURSAL_OFICINA), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "USUARIOS_FK1", "DETALLE_SUCURSAL_OFICINA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(DETALLE_SUCURSAL_OFICINA), "USUARIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(USUARIOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "VENTANILLAS_FK1", "DETALLE_SUCURSAL_OFICINA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(DETALLE_SUCURSAL_OFICINA), "VENTANILLAS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(VENTANILLAS), True)>
-<Assembly: EdmRelationshipAttribute("ModeloTablas", "SYS_C0010439", "EMPRESAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(EMPRESAS), "SUCURSALES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(SUCURSALES), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "REQUISITOS_FK1", "GESTIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(GESTIONES), "REQUISITOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(REQUISITOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "SUCURSALES_FK1", "MUNICIPIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(MUNICIPIOS), "SUCURSALES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(SUCURSALES), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DETALLE_USUARIOS_PERFILES", "USUARIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(USUARIOS), "PERFILES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(PERFILES))>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "GESTIONES_VENTANILLAS", "DETALLE_OFICINA_GESTIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DETALLE_OFICINA_GESTIONES), "VENTANILLAS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(VENTANILLAS))>
+<Assembly: EdmRelationshipAttribute("ModeloTablas", "SUCURSALES_FK2", "EMPRESAS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(EMPRESAS), "SUCURSALES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(SUCURSALES), True)>
 
 #End Region
 
@@ -125,20 +125,6 @@ Public Partial Class EntidadesTablas
     End Property
 
     Private _DETALLE_SUCURSAL_OFICINA As ObjectSet(Of DETALLE_SUCURSAL_OFICINA)
-
-    ''' <summary>
-    ''' No Metadata Documentation available.
-    ''' </summary>
-    Public ReadOnly Property EMPRESAS() As ObjectSet(Of EMPRESAS)
-        Get
-            If (_EMPRESAS Is Nothing) Then
-                _EMPRESAS = MyBase.CreateObjectSet(Of EMPRESAS)("EMPRESAS")
-            End If
-            Return _EMPRESAS
-        End Get
-    End Property
-
-    Private _EMPRESAS As ObjectSet(Of EMPRESAS)
 
     ''' <summary>
     ''' No Metadata Documentation available.
@@ -266,6 +252,20 @@ Public Partial Class EntidadesTablas
 
     Private _VENTANILLAS As ObjectSet(Of VENTANILLAS)
 
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    Public ReadOnly Property EMPRESAS() As ObjectSet(Of EMPRESAS)
+        Get
+            If (_EMPRESAS Is Nothing) Then
+                _EMPRESAS = MyBase.CreateObjectSet(Of EMPRESAS)("EMPRESAS")
+            End If
+            Return _EMPRESAS
+        End Get
+    End Property
+
+    Private _EMPRESAS As ObjectSet(Of EMPRESAS)
+
     #End Region
 
     #Region "AddTo Methods"
@@ -289,13 +289,6 @@ Public Partial Class EntidadesTablas
     ''' </summary>
     Public Sub AddToDETALLE_SUCURSAL_OFICINA(ByVal dETALLE_SUCURSAL_OFICINA As DETALLE_SUCURSAL_OFICINA)
         MyBase.AddObject("DETALLE_SUCURSAL_OFICINA", dETALLE_SUCURSAL_OFICINA)
-    End Sub
-
-    ''' <summary>
-    ''' Deprecated Method for adding a new object to the EMPRESAS EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
-    ''' </summary>
-    Public Sub AddToEMPRESAS(ByVal eMPRESAS As EMPRESAS)
-        MyBase.AddObject("EMPRESAS", eMPRESAS)
     End Sub
 
     ''' <summary>
@@ -359,6 +352,13 @@ Public Partial Class EntidadesTablas
     ''' </summary>
     Public Sub AddToVENTANILLAS(ByVal vENTANILLAS As VENTANILLAS)
         MyBase.AddObject("VENTANILLAS", vENTANILLAS)
+    End Sub
+
+    ''' <summary>
+    ''' Deprecated Method for adding a new object to the EMPRESAS EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+    ''' </summary>
+    Public Sub AddToEMPRESAS(ByVal eMPRESAS As EMPRESAS)
+        MyBase.AddObject("EMPRESAS", eMPRESAS)
     End Sub
 
     #End Region
@@ -968,11 +968,9 @@ Public Partial Class EMPRESAS
     ''' Create a new EMPRESAS object.
     ''' </summary>
     ''' <param name="iDEMPRESA">Initial value of the IDEMPRESA property.</param>
-    ''' <param name="nOMBRE">Initial value of the NOMBRE property.</param>
-    Public Shared Function CreateEMPRESAS(iDEMPRESA As Global.System.Decimal, nOMBRE As Global.System.String) As EMPRESAS
+    Public Shared Function CreateEMPRESAS(iDEMPRESA As Global.System.Decimal) As EMPRESAS
         Dim eMPRESAS as EMPRESAS = New EMPRESAS
         eMPRESAS.IDEMPRESA = iDEMPRESA
-        eMPRESAS.NOMBRE = nOMBRE
         Return eMPRESAS
     End Function
 
@@ -1010,7 +1008,7 @@ Public Partial Class EMPRESAS
     ''' <summary>
     ''' No Metadata Documentation available.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
     <DataMemberAttribute()>
     Public Property NOMBRE() As Global.System.String
         Get
@@ -1019,7 +1017,7 @@ Public Partial Class EMPRESAS
         Set
             OnNOMBREChanging(value)
             ReportPropertyChanging("NOMBRE")
-            _NOMBRE = StructuralObject.SetValidValue(value, false)
+            _NOMBRE = StructuralObject.SetValidValue(value, true)
             ReportPropertyChanged("NOMBRE")
             OnNOMBREChanged()
         End Set
@@ -1067,14 +1065,14 @@ Public Partial Class EMPRESAS
     <XmlIgnoreAttribute()>
     <SoapIgnoreAttribute()>
     <DataMemberAttribute()>
-    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "SYS_C0010439", "SUCURSALES")>
+    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "SUCURSALES_FK2", "SUCURSALES")>
      Public Property SUCURSALES() As EntityCollection(Of SUCURSALES)
         Get
-            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of SUCURSALES)("ModeloTablas.SYS_C0010439", "SUCURSALES")
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of SUCURSALES)("ModeloTablas.SUCURSALES_FK2", "SUCURSALES")
         End Get
         Set
             If (Not value Is Nothing)
-                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of SUCURSALES)("ModeloTablas.SYS_C0010439", "SUCURSALES", value)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of SUCURSALES)("ModeloTablas.SUCURSALES_FK2", "SUCURSALES", value)
             End If
         End Set
     End Property
@@ -1861,6 +1859,31 @@ Public Partial Class REQUISITOS
     Private Partial Sub OnNOMBRE_REQUISITOChanged()
     End Sub
 
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property OPCIONAL() As Nullable(Of Global.System.Decimal)
+        Get
+            Return _OPCIONAL
+        End Get
+        Set
+            OnOPCIONALChanging(value)
+            ReportPropertyChanging("OPCIONAL")
+            _OPCIONAL = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("OPCIONAL")
+            OnOPCIONALChanged()
+        End Set
+    End Property
+
+    Private _OPCIONAL As Nullable(Of Global.System.Decimal)
+    Private Partial Sub OnOPCIONALChanging(value As Nullable(Of Global.System.Decimal))
+    End Sub
+
+    Private Partial Sub OnOPCIONALChanged()
+    End Sub
+
     #End Region
 
     #Region "Navigation Properties"
@@ -2137,37 +2160,6 @@ Public Partial Class SUCURSALES
     <XmlIgnoreAttribute()>
     <SoapIgnoreAttribute()>
     <DataMemberAttribute()>
-    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "SYS_C0010439", "EMPRESAS")>
-    Public Property EMPRESAS() As EMPRESAS
-        Get
-            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of EMPRESAS)("ModeloTablas.SYS_C0010439", "EMPRESAS").Value
-        End Get
-        Set
-            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of EMPRESAS)("ModeloTablas.SYS_C0010439", "EMPRESAS").Value = value
-        End Set
-    End Property
-    ''' <summary>
-    ''' No Metadata Documentation available.
-    ''' </summary>
-    <BrowsableAttribute(False)>
-    <DataMemberAttribute()>
-    Public Property EMPRESASReference() As EntityReference(Of EMPRESAS)
-        Get
-            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of EMPRESAS)("ModeloTablas.SYS_C0010439", "EMPRESAS")
-        End Get
-        Set
-            If (Not value Is Nothing)
-                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of EMPRESAS)("ModeloTablas.SYS_C0010439", "EMPRESAS", value)
-            End If
-        End Set
-    End Property
-
-    ''' <summary>
-    ''' No Metadata Documentation available.
-    ''' </summary>
-    <XmlIgnoreAttribute()>
-    <SoapIgnoreAttribute()>
-    <DataMemberAttribute()>
     <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "SUCURSALES_FK1", "MUNICIPIOS")>
     Public Property MUNICIPIOS() As MUNICIPIOS
         Get
@@ -2189,6 +2181,37 @@ Public Partial Class SUCURSALES
         Set
             If (Not value Is Nothing)
                 CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of MUNICIPIOS)("ModeloTablas.SUCURSALES_FK1", "MUNICIPIOS", value)
+            End If
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "SUCURSALES_FK2", "EMPRESAS")>
+    Public Property EMPRESAS() As EMPRESAS
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of EMPRESAS)("ModeloTablas.SUCURSALES_FK2", "EMPRESAS").Value
+        End Get
+        Set
+            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of EMPRESAS)("ModeloTablas.SUCURSALES_FK2", "EMPRESAS").Value = value
+        End Set
+    End Property
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <BrowsableAttribute(False)>
+    <DataMemberAttribute()>
+    Public Property EMPRESASReference() As EntityReference(Of EMPRESAS)
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of EMPRESAS)("ModeloTablas.SUCURSALES_FK2", "EMPRESAS")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of EMPRESAS)("ModeloTablas.SUCURSALES_FK2", "EMPRESAS", value)
             End If
         End Set
     End Property
