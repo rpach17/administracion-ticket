@@ -558,4 +558,36 @@
 
 #End Region
 
+#Region "Puestos"
+    'Public Shared Sub AgregarPuesto(ByVal psto As pues)
+    '    Try
+    '        ctx.OFICINAS.AddObject(off)
+    '        ctx.SaveChanges()
+    '    Catch ex As UpdateException
+    '        MsgBox(ex.Message)
+    '    End Try
+    'End Sub
+
+    'Public Shared Sub ActualizarOficina(ByVal idof As Integer, ByVal nombre As String)
+    '    Dim offi As OFICINAS = (From a In ctx.OFICINAS Where a.IDOFICINA = idof).First
+    '    Try
+    '        offi.NOMBRE_OFICINA = nombre
+    '        ctx.SaveChanges()
+    '    Catch ex As Exception
+    '        MsgBox(ex.Message)
+    '    End Try
+    'End Sub
+
+    'Public Shared Sub EliminarOficina(ByVal idof As Integer)
+    '    Dim offi = (From off In ctx.OFICINAS.ToList Where off.IDOFICINA = idof Select off).SingleOrDefault
+    '    Try
+    '        ctx.OFICINAS.DeleteObject(offi)
+    '        ctx.SaveChanges()
+    '        MsgBox("Oficina Eliminada")
+    '    Catch ex As UpdateException
+    '        MsgBox(ex.Message)
+    '    End Try
+    'End Sub
+#End Region
+
 End Class
