@@ -571,7 +571,7 @@
 
 #Region "Puestos"
     Public Shared Sub CargarPuestos(ByVal grid As DataGridView, ByVal idofi As Integer)
-       
+
         Dim pue = (From p In ctx.PUESTO.ToList
                    Where p.IDOFICINA = idofi
                   Order By p.IDPUESTO
@@ -620,7 +620,95 @@
         combo.DataSource = puestos
     End Sub
 
+    Public Shared Sub CargarSaltos(ByVal grid As DataGridView, ByVal idg As Integer)
+        Dim sal = (From s In ctx.SALTOS.ToList
+                   Where s.IDGESTION = idg
+                  Order By s.NUMERO_SALTO
+                  Select s.IDSALTO, s.NUMERO_SALTO).ToList()
 
+        grid.DataSource = sal
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub CargarProcesos(ByVal grid As DataGridView, ByVal ids As Integer)
+        Dim pro = (From p In ctx.PROCESOS.ToList
+                   Where p.IDSALTO = ids
+                  Order By p.NUMERO
+                  Select p.IDPROCESO, p.NUMERO, p.DESCRIPCION).ToList()
+
+        grid.DataSource = pro
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub AgregarSalto(ByVal salto As SALTOS)
+        Try
+            ctx.SALTOS.AddObject(salto)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub AgregarProceso(ByVal proceso As PROCESOS)
+        Try
+            ctx.PROCESOS.AddObject(proceso)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub ActualizarSalto(ByVal ids As Integer, ByVal numero As Integer, ByVal puesto As Integer,
+                                      ByVal ultimoSalto As Integer, ByVal minutos As Integer, ByVal decision As Integer,
+                                      Optional ByVal saltoVer As Integer = 0,
+                                      Optional ByVal saltoFalso As Integer = 0)
+        Dim sal As SALTOS = (From s In ctx.SALTOS Where s.IDSALTO = ids).First
+        Try
+            With sal
+                .NUMERO_SALTO = numero
+                .IDPUESTO = puesto
+                .ULTIMOSALTO = ultimoSalto
+                .MINUTOS = minutos
+                .DECISION = decision
+                .IDSALTOV = saltoVer
+                .IDSALTOF = saltoFalso
+            End With
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Public Shared Sub ActualizarProceso(ByVal idp As Integer, ByVal numero As Integer, ByVal Descripcion As String)
+        Dim Proceso As PROCESOS = (From p In ctx.PROCESOS Where p.IDSALTO = idp).First
+        Try
+            With Proceso
+                .NUMERO = numero
+                .DESCRIPCION = Descripcion
+            End With
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub EliminarSalto(ByVal idpu As Integer)
+        Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
+        Try
+            ctx.PUESTO.DeleteObject(pue)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Public Shared Sub EliminarProceso(ByVal idpu As Integer)
+        Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
+        Try
+            ctx.PUESTO.DeleteObject(pue)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 #End Region
 
 End Class
