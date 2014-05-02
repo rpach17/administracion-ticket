@@ -612,7 +612,6 @@
         Try
             ctx.PUESTO.DeleteObject(pue)
             ctx.SaveChanges()
-            MsgBox("Puesto eliminado", MsgBoxStyle.Information, "Puesto")
         Catch ex As UpdateException
             MsgBox(ex.Message)
         End Try

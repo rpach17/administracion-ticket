@@ -1,5 +1,6 @@
 ﻿Public Class frmPuestos
     Dim ido As Integer
+    Dim nomOfi As String
     Dim tarea As Integer = 0
     Public Property Ido1() As Integer
         Get
@@ -10,11 +11,22 @@
         End Set
     End Property
 
+    Public Property NomOfi1() As String
+        Get
+            Return nomOfi
+        End Get
+        Set(ByVal value As String)
+            nomOfi = Value
+        End Set
+    End Property
+
     Private Sub frmPuestos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Text = String.Format("Puestos de la oficina {0}", nomOfi)
         EntityTablas.CargarPuestos(dgvPuestos)
         txtPuesto.Enabled = False
         Guardar.Enabled = False
         Cancelar.Enabled = False
+        txtPuesto.Enabled = False
     End Sub
 
     Private Sub Nuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Nuevo.Click
@@ -46,6 +58,7 @@
         If MsgBox(String.Format("Desea eliminar el puesto de: {0}", ObtenerDatoGrid(dgvPuestos, 1)), MsgBoxStyle.YesNo, "Eliminar Oficina") = MsgBoxResult.Yes Then
             EntityTablas.EliminarPuesto(ObtenerDatoGrid(dgvPuestos))
             EntityTablas.CargarPuestos(dgvPuestos)
+            MsgBox("Puesto eliminado", MsgBoxStyle.Information, "Puesto")
         End If
     End Sub
 
@@ -72,4 +85,5 @@
             Cancelar.Enabled = False
         End If
     End Sub
+
 End Class

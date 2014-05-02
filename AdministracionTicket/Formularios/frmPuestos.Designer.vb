@@ -151,7 +151,9 @@ Partial Class frmPuestos
         Me.Controls.Add(Me.dgvPuestos)
         Me.Controls.Add(Me.txtPuesto)
         Me.Controls.Add(Me.ToolStrip1)
+        Me.MaximizeBox = False
         Me.Name = "frmPuestos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Puestos"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
