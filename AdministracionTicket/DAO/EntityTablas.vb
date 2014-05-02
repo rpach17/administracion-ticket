@@ -556,6 +556,17 @@
         End Try
     End Sub
 
+    Public Shared Sub eliminarRequisito(ByVal idr As Integer)
+        Dim re = (From r In ctx.REQUISITOS Where r.IDREQUISITO = idr).SingleOrDefault
+        Try
+            ctx.SUCURSALES.DeleteObject(re)
+            ctx.SaveChanges()
+            MsgBox("Requisito eliminado")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
 #End Region
 
 #Region "Puestos"
