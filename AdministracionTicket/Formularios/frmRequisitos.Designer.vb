@@ -100,7 +100,7 @@ Partial Class frmRequisitos
         Me.Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Nuevo.Name = "Nuevo"
         Me.Nuevo.Size = New System.Drawing.Size(36, 45)
-        Me.Nuevo.Text = "Nueva Oficina"
+        Me.Nuevo.Text = "Nuevo Requisito"
         '
         'ToolStripSeparator1
         '
@@ -151,7 +151,7 @@ Partial Class frmRequisitos
         Me.Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Eliminar.Name = "Eliminar"
         Me.Eliminar.Size = New System.Drawing.Size(36, 45)
-        Me.Eliminar.Text = "Eliminar Oficna"
+        Me.Eliminar.Text = "Eliminar"
         '
         'ToolStripSeparator4
         '
