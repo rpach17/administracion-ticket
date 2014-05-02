@@ -570,22 +570,16 @@
 #End Region
 
 #Region "Puestos"
-    Public Shared Sub CargarPuestos(ByVal grid As DataGridView, Optional ByVal filtro As String = "")
-        If filtro = "" Then
-            Dim pue = (From p In ctx.PUESTO.ToList
-                       Order By p.IDPUESTO
-                       Select p.IDPUESTO, Nombre = p.NOMBRE_PUESTO).ToList()
-            grid.DataSource = pue
-            grid.Columns(0).Visible = False
-        Else
-            Dim pue = (From p In ctx.PUESTO.ToList
-                       Where p.NOMBRE_PUESTO.StartsWith(filtro)
-                      Order By p.IDPUESTO
-                      Select p.IDPUESTO, Nombre = p.NOMBRE_PUESTO).ToList()
+    Public Shared Sub CargarPuestos(ByVal grid As DataGridView, ByVal idofi As Integer)
+       
+        Dim pue = (From p In ctx.PUESTO.ToList
+                   Where p.IDOFICINA = idofi
+                  Order By p.IDPUESTO
+                  Select p.IDPUESTO, Nombre = p.NOMBRE_PUESTO).ToList()
 
-            grid.DataSource = pue
-            grid.Columns(0).Visible = False
-        End If
+        grid.DataSource = pue
+        grid.Columns(0).Visible = False
+
     End Sub
 
     Public Shared Sub AgregarPuesto(ByVal psto As PUESTO)
@@ -616,6 +610,17 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+#End Region
+
+#Region "Saltos y procesos"
+    Public Shared Sub CargarPuestos(ByVal combo As ComboBox, ByVal ido As Integer)
+        Dim puestos = (From p In ctx.PUESTO Where p.IDOFICINA = ido Select p).ToList
+        combo.DisplayMember = "NOMBRE_PUESTO"
+        combo.ValueMember = "IDPUESTO"
+        combo.DataSource = puestos
+    End Sub
+
+
 #End Region
 
 End Class
