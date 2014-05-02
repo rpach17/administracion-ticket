@@ -540,6 +540,22 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Public Shared Sub ActualizarRequisito(ByVal idr As Integer, ByVal idg As Integer, ByVal nombre As String, ByVal opt As Integer)
+        Dim requisito As REQUISITOS = (From r In ctx.REQUISITOS.ToList() Where r.IDREQUISITO = idr).SingleOrDefault()
+
+        Try
+            With requisito
+                .IDGESTION = idg
+                .NOMBRE_REQUISITO = nombre
+                .OPCIONAL = opt
+            End With
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
 #End Region
 
 End Class
