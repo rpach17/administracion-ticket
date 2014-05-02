@@ -97,4 +97,14 @@
             .ShowDialog()
         End With
     End Sub
+
+    Private Sub PasosDeLaGestiónToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasosDeLaGestiónToolStripMenuItem.Click
+        Dim idg As Integer = ObtenerDatoGrid(dgvGestionesXOficina)
+
+        With frmSaltos
+            .Ido1 = cboOficina.SelectedValue
+            .Idg1 = idg
+            .ShowDialog()
+        End With
+    End Sub
 End Class
