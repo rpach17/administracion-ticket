@@ -89,4 +89,16 @@ Public Class frmRequisitos
         chkOpcional.Checked = ObtenerDatoGrid(dgvRequisitos, 2)
         cambiarEstado(True)
     End Sub
+
+    Private Sub Cancelar_Click(sender As Object, e As EventArgs) Handles Cancelar.Click
+        cambiarEstado(False)
+    End Sub
+
+    Private Sub Eliminar_Click(sender As Object, e As EventArgs) Handles Eliminar.Click
+        If MsgBox(String.Format("Desea eliminar el requisito: {0}", ObtenerDatoGrid(dgvRequisitos, 1)), MsgBoxStyle.YesNo, "Eliminar Oficina"
+                  ) = MsgBoxResult.Yes Then
+            EntityTablas.eliminarRequisito(ObtenerDatoGrid(dgvRequisitos))
+            EntityTablas.CargarRequisitos(dgvRequisitos, IdGestion)
+        End If
+    End Sub
 End Class
