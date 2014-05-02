@@ -570,35 +570,53 @@
 #End Region
 
 #Region "Puestos"
-    'Public Shared Sub AgregarPuesto(ByVal psto As pues)
-    '    Try
-    '        ctx.OFICINAS.AddObject(off)
-    '        ctx.SaveChanges()
-    '    Catch ex As UpdateException
-    '        MsgBox(ex.Message)
-    '    End Try
-    'End Sub
+    Public Shared Sub CargarPuestos(ByVal grid As DataGridView, Optional ByVal filtro As String = "")
+        If filtro = "" Then
+            Dim pue = (From p In ctx.PUESTO.ToList
+                       Order By p.IDPUESTO
+                       Select p.IDPUESTO, Nombre = p.NOMBRE_PUESTO).ToList()
+            grid.DataSource = pue
+            grid.Columns(0).Visible = False
+        Else
+            Dim pue = (From p In ctx.PUESTO.ToList
+                       Where p.NOMBRE_PUESTO.StartsWith(filtro)
+                      Order By p.IDPUESTO
+                      Select p.IDPUESTO, Nombre = p.NOMBRE_PUESTO).ToList()
 
-    'Public Shared Sub ActualizarOficina(ByVal idof As Integer, ByVal nombre As String)
-    '    Dim offi As OFICINAS = (From a In ctx.OFICINAS Where a.IDOFICINA = idof).First
-    '    Try
-    '        offi.NOMBRE_OFICINA = nombre
-    '        ctx.SaveChanges()
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message)
-    '    End Try
-    'End Sub
+            grid.DataSource = pue
+            grid.Columns(0).Visible = False
+        End If
+    End Sub
 
-    'Public Shared Sub EliminarOficina(ByVal idof As Integer)
-    '    Dim offi = (From off In ctx.OFICINAS.ToList Where off.IDOFICINA = idof Select off).SingleOrDefault
-    '    Try
-    '        ctx.OFICINAS.DeleteObject(offi)
-    '        ctx.SaveChanges()
-    '        MsgBox("Oficina Eliminada")
-    '    Catch ex As UpdateException
-    '        MsgBox(ex.Message)
-    '    End Try
-    'End Sub
+    Public Shared Sub AgregarPuesto(ByVal psto As PUESTO)
+        Try
+            ctx.PUESTO.AddObject(psto)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub ActualizarPuesto(ByVal idpu As Integer, ByVal nombre As String)
+        Dim pue As PUESTO = (From p In ctx.PUESTO Where p.IDPUESTO = idpu).First
+        Try
+            pue.NOMBRE_PUESTO = nombre
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub EliminarPuesto(ByVal idpu As Integer)
+        Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
+        Try
+            ctx.PUESTO.DeleteObject(pue)
+            ctx.SaveChanges()
+            MsgBox("Puesto eliminado", MsgBoxStyle.Information, "Puesto")
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 #End Region
 
 End Class

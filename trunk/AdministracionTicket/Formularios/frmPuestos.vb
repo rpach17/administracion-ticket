@@ -11,7 +11,7 @@
     End Property
 
     Private Sub frmPuestos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'EntityTablas.CargarPuestos(dgvPuestos)
+        EntityTablas.CargarPuestos(dgvPuestos)
         txtPuesto.Enabled = False
         Guardar.Enabled = False
         Cancelar.Enabled = False
@@ -20,6 +20,33 @@
     Private Sub Nuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Nuevo.Click
         tarea = 1
         cambiarEstado(True)
+    End Sub
+
+    Private Sub Actualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Actualizar.Click
+        tarea = 2
+        txtPuesto.Text = ObtenerDatoGrid(dgvPuestos, 1)
+        cambiarEstado(True)
+    End Sub
+
+    Private Sub Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Guardar.Click
+        If tarea = 1 Then
+            EntityTablas.AgregarPuesto(New PUESTO() With {.NOMBRE_PUESTO = txtPuesto.Text, .IDOFICINA = ido})
+        ElseIf tarea = 2 Then
+            EntityTablas.ActualizarPuesto(ObtenerDatoGrid(dgvPuestos), txtPuesto.Text)
+        End If
+        cambiarEstado(False)
+        EntityTablas.CargarPuestos(dgvPuestos)
+    End Sub
+
+    Private Sub Cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancelar.Click
+        cambiarEstado(False)
+    End Sub
+
+    Private Sub Eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Eliminar.Click
+        If MsgBox(String.Format("Desea eliminar el puesto de: {0}", ObtenerDatoGrid(dgvPuestos, 1)), MsgBoxStyle.YesNo, "Eliminar Oficina") = MsgBoxResult.Yes Then
+            EntityTablas.EliminarPuesto(ObtenerDatoGrid(dgvPuestos))
+            EntityTablas.CargarPuestos(dgvPuestos)
+        End If
     End Sub
 
     Private Sub cambiarEstado(ByVal var As Boolean)
@@ -43,33 +70,6 @@
             dgvPuestos.Enabled = True
             Guardar.Enabled = False
             Cancelar.Enabled = False
-        End If
-    End Sub
-
-    Private Sub Actualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Actualizar.Click
-        tarea = 2
-        txtPuesto.Text = ObtenerDatoGrid(dgvPuestos, 1)
-        cambiarEstado(True)
-    End Sub
-
-    Private Sub Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Guardar.Click
-        If tarea = 1 Then
-            'EntityTablas.AgregarPuesto(New OFICINAS() With {.NOMBRE_OFICINA = txtOficina.Text})
-        ElseIf tarea = 2 Then
-            'EntityTablas.ActualizarPuesto(ObtenerDatoGrid(dgvOficinas), txtOficina.Text)
-        End If
-        cambiarEstado(False)
-        'EntityTablas.CargarPuestos(dgvPuestos)
-    End Sub
-
-    Private Sub Cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancelar.Click
-        cambiarEstado(False)
-    End Sub
-
-    Private Sub Eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Eliminar.Click
-        If MsgBox(String.Format("Desea eliminar el puesto de: {0}", ObtenerDatoGrid(dgvPuestos, 1)), MsgBoxStyle.YesNo, "Eliminar Oficina") = MsgBoxResult.Yes Then
-            'EntityTablas.EliminarPuesto(ObtenerDatoGrid(dgvPuestos))
-            'EntityTablas.CargarPuestos(dgvPuestos)
         End If
     End Sub
 End Class
