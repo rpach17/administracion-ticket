@@ -31,6 +31,8 @@ Partial Class frmPerfiles
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PERFILES_USUARIODataGridView = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.QuitarPerfilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cboPerfil = New System.Windows.Forms.ComboBox()
         Me.btnAgregarP = New System.Windows.Forms.Button()
         Me.btnOK = New System.Windows.Forms.Button()
@@ -42,8 +44,6 @@ Partial Class frmPerfiles
         Me.NOMBRETextBox = New System.Windows.Forms.TextBox()
         Me.APELLIDOSTextBox = New System.Windows.Forms.TextBox()
         Me.ESTADOCheckBox = New System.Windows.Forms.CheckBox()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.QuitarPerfilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         USUARIOLabel = New System.Windows.Forms.Label()
         CONTRASENALabel = New System.Windows.Forms.Label()
         NOMBRELabel = New System.Windows.Forms.Label()
@@ -52,6 +52,46 @@ Partial Class frmPerfiles
         CType(Me.PERFILES_USUARIODataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'USUARIOLabel
+        '
+        USUARIOLabel.AutoSize = True
+        USUARIOLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        USUARIOLabel.Location = New System.Drawing.Point(41, 99)
+        USUARIOLabel.Name = "USUARIOLabel"
+        USUARIOLabel.Size = New System.Drawing.Size(64, 20)
+        USUARIOLabel.TabIndex = 21
+        USUARIOLabel.Text = "Usuario"
+        '
+        'CONTRASENALabel
+        '
+        CONTRASENALabel.AutoSize = True
+        CONTRASENALabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        CONTRASENALabel.Location = New System.Drawing.Point(13, 131)
+        CONTRASENALabel.Name = "CONTRASENALabel"
+        CONTRASENALabel.Size = New System.Drawing.Size(92, 20)
+        CONTRASENALabel.TabIndex = 23
+        CONTRASENALabel.Text = "Contraseña"
+        '
+        'NOMBRELabel
+        '
+        NOMBRELabel.AutoSize = True
+        NOMBRELabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        NOMBRELabel.Location = New System.Drawing.Point(40, 163)
+        NOMBRELabel.Name = "NOMBRELabel"
+        NOMBRELabel.Size = New System.Drawing.Size(65, 20)
+        NOMBRELabel.TabIndex = 25
+        NOMBRELabel.Text = "Nombre"
+        '
+        'APELLIDOSLabel
+        '
+        APELLIDOSLabel.AutoSize = True
+        APELLIDOSLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        APELLIDOSLabel.Location = New System.Drawing.Point(32, 195)
+        APELLIDOSLabel.Name = "APELLIDOSLabel"
+        APELLIDOSLabel.Size = New System.Drawing.Size(73, 20)
+        APELLIDOSLabel.TabIndex = 27
+        APELLIDOSLabel.Text = "Apellidos"
         '
         'Panel1
         '
@@ -92,6 +132,19 @@ Partial Class frmPerfiles
         Me.PERFILES_USUARIODataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.PERFILES_USUARIODataGridView.Size = New System.Drawing.Size(300, 120)
         Me.PERFILES_USUARIODataGridView.TabIndex = 13
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuitarPerfilToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(138, 26)
+        '
+        'QuitarPerfilToolStripMenuItem
+        '
+        Me.QuitarPerfilToolStripMenuItem.Image = CType(resources.GetObject("QuitarPerfilToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.QuitarPerfilToolStripMenuItem.Name = "QuitarPerfilToolStripMenuItem"
+        Me.QuitarPerfilToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.QuitarPerfilToolStripMenuItem.Text = "Quitar perfil"
         '
         'cboPerfil
         '
@@ -157,16 +210,6 @@ Partial Class frmPerfiles
         Me.lblAccion.TabIndex = 30
         Me.lblAccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'USUARIOLabel
-        '
-        USUARIOLabel.AutoSize = True
-        USUARIOLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        USUARIOLabel.Location = New System.Drawing.Point(41, 99)
-        USUARIOLabel.Name = "USUARIOLabel"
-        USUARIOLabel.Size = New System.Drawing.Size(64, 20)
-        USUARIOLabel.TabIndex = 21
-        USUARIOLabel.Text = "Usuario"
-        '
         'USUARIOTextBox
         '
         Me.USUARIOTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
@@ -177,16 +220,6 @@ Partial Class frmPerfiles
         Me.USUARIOTextBox.Size = New System.Drawing.Size(175, 26)
         Me.USUARIOTextBox.TabIndex = 22
         '
-        'CONTRASENALabel
-        '
-        CONTRASENALabel.AutoSize = True
-        CONTRASENALabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        CONTRASENALabel.Location = New System.Drawing.Point(13, 131)
-        CONTRASENALabel.Name = "CONTRASENALabel"
-        CONTRASENALabel.Size = New System.Drawing.Size(92, 20)
-        CONTRASENALabel.TabIndex = 23
-        CONTRASENALabel.Text = "Contraseña"
-        '
         'CONTRASENATextBox
         '
         Me.CONTRASENATextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -195,16 +228,6 @@ Partial Class frmPerfiles
         Me.CONTRASENATextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.CONTRASENATextBox.Size = New System.Drawing.Size(175, 26)
         Me.CONTRASENATextBox.TabIndex = 24
-        '
-        'NOMBRELabel
-        '
-        NOMBRELabel.AutoSize = True
-        NOMBRELabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        NOMBRELabel.Location = New System.Drawing.Point(40, 163)
-        NOMBRELabel.Name = "NOMBRELabel"
-        NOMBRELabel.Size = New System.Drawing.Size(65, 20)
-        NOMBRELabel.TabIndex = 25
-        NOMBRELabel.Text = "Nombre"
         '
         'NOMBRETextBox
         '
@@ -215,16 +238,6 @@ Partial Class frmPerfiles
         Me.NOMBRETextBox.Name = "NOMBRETextBox"
         Me.NOMBRETextBox.Size = New System.Drawing.Size(175, 26)
         Me.NOMBRETextBox.TabIndex = 26
-        '
-        'APELLIDOSLabel
-        '
-        APELLIDOSLabel.AutoSize = True
-        APELLIDOSLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        APELLIDOSLabel.Location = New System.Drawing.Point(32, 195)
-        APELLIDOSLabel.Name = "APELLIDOSLabel"
-        APELLIDOSLabel.Size = New System.Drawing.Size(73, 20)
-        APELLIDOSLabel.TabIndex = 27
-        APELLIDOSLabel.Text = "Apellidos"
         '
         'APELLIDOSTextBox
         '
@@ -245,19 +258,6 @@ Partial Class frmPerfiles
         Me.ESTADOCheckBox.TabIndex = 29
         Me.ESTADOCheckBox.Text = "Estado"
         Me.ESTADOCheckBox.UseVisualStyleBackColor = True
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuitarPerfilToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(138, 26)
-        '
-        'QuitarPerfilToolStripMenuItem
-        '
-        Me.QuitarPerfilToolStripMenuItem.Image = CType(resources.GetObject("QuitarPerfilToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.QuitarPerfilToolStripMenuItem.Name = "QuitarPerfilToolStripMenuItem"
-        Me.QuitarPerfilToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
-        Me.QuitarPerfilToolStripMenuItem.Text = "Quitar perfil"
         '
         'frmPerfiles
         '
