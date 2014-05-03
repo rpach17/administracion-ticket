@@ -184,7 +184,9 @@
     Private Sub USUARIOTextBox_Leave(sender As Object, e As EventArgs) Handles USUARIOTextBox.Leave
         If EntityTablas.VerificarUsuario(USUARIOTextBox.Text) = False Then
             MsgBox("Usuario ya existe")
-            USUARIOTextBox.Focus() 'usuario ya existe o no valido
+            'USUARIOTextBox.Focus() 'usuario ya existe o no valido
         End If
     End Sub
+
+
 End Class
