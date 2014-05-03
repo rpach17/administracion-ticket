@@ -14,6 +14,7 @@
                 .Sucursal = "General"
                 .Oficina = "No disponible"
             End With
+            frmPrincipal.Show()
             Close()
             Exit Sub
         End If

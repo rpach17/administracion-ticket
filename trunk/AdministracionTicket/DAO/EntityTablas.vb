@@ -428,6 +428,17 @@
         End Try
     End Function
 
+    Public Shared Function VerificarUsuario(ByVal Usuario As String)
+        Try
+            Dim use As Integer = (From u In ctx.USUARIOS.ToList Where u.USUARIO = Usuario Select u).Count
+
+            Return IIf(use > 0, False, True)
+        Catch ex As UpdateException
+            Return False 'Return ex.Message
+        End Try
+    End Function
+
+
     Public Shared Sub ActualizarUsuario(ByVal idu As Integer, ByVal usuario As String, ByVal nombre As String, _
                                         ByVal apellidos As String, ByVal estado As Integer)
         Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList Where u.IDUSUARIO = idu).SingleOrDefault
