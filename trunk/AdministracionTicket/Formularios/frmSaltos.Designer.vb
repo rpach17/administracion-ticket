@@ -115,7 +115,7 @@ Partial Class frmSaltos
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(40, 60)
+        Me.Label1.Location = New System.Drawing.Point(40, 43)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(126, 20)
         Me.Label1.TabIndex = 3
@@ -123,8 +123,9 @@ Partial Class frmSaltos
         '
         'txtNumPaso
         '
+        Me.txtNumPaso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtNumPaso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtNumPaso.Location = New System.Drawing.Point(181, 58)
+        Me.txtNumPaso.Location = New System.Drawing.Point(181, 41)
         Me.txtNumPaso.Name = "txtNumPaso"
         Me.txtNumPaso.Size = New System.Drawing.Size(63, 26)
         Me.txtNumPaso.TabIndex = 4
@@ -135,7 +136,7 @@ Partial Class frmSaltos
         Me.cboPuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.cboPuesto.FormattingEnabled = True
-        Me.cboPuesto.Location = New System.Drawing.Point(181, 90)
+        Me.cboPuesto.Location = New System.Drawing.Point(181, 73)
         Me.cboPuesto.Name = "cboPuesto"
         Me.cboPuesto.Size = New System.Drawing.Size(232, 28)
         Me.cboPuesto.TabIndex = 5
@@ -144,7 +145,7 @@ Partial Class frmSaltos
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(107, 93)
+        Me.Label2.Location = New System.Drawing.Point(107, 76)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(59, 20)
         Me.Label2.TabIndex = 6
@@ -154,7 +155,7 @@ Partial Class frmSaltos
         '
         Me.cboPasoNo.AutoSize = True
         Me.cboPasoNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.cboPasoNo.Location = New System.Drawing.Point(205, 355)
+        Me.cboPasoNo.Location = New System.Drawing.Point(202, 282)
         Me.cboPasoNo.Name = "cboPasoNo"
         Me.cboPasoNo.Size = New System.Drawing.Size(15, 14)
         Me.cboPasoNo.TabIndex = 7
@@ -165,7 +166,7 @@ Partial Class frmSaltos
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(41, 448)
+        Me.ComboBox2.Location = New System.Drawing.Point(38, 375)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(49, 28)
         Me.ComboBox2.TabIndex = 8
@@ -175,7 +176,7 @@ Partial Class frmSaltos
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.White
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label5.Location = New System.Drawing.Point(148, 332)
+        Me.Label5.Location = New System.Drawing.Point(145, 259)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(128, 20)
         Me.Label5.TabIndex = 13
@@ -184,7 +185,7 @@ Partial Class frmSaltos
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.AdministracionTicket.My.Resources.Resources.Decision
-        Me.PictureBox1.Location = New System.Drawing.Point(58, 268)
+        Me.PictureBox1.Location = New System.Drawing.Point(55, 195)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(314, 179)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -241,7 +242,7 @@ Partial Class frmSaltos
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.SystemColors.Control
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(81, 322)
+        Me.Label3.Location = New System.Drawing.Point(78, 249)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(32, 20)
         Me.Label3.TabIndex = 15
@@ -252,7 +253,7 @@ Partial Class frmSaltos
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.SystemColors.Control
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(314, 322)
+        Me.Label4.Location = New System.Drawing.Point(311, 249)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(25, 20)
         Me.Label4.TabIndex = 16
@@ -263,7 +264,7 @@ Partial Class frmSaltos
         Me.cboPasoSi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPasoSi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.cboPasoSi.FormattingEnabled = True
-        Me.cboPasoSi.Location = New System.Drawing.Point(343, 448)
+        Me.cboPasoSi.Location = New System.Drawing.Point(340, 375)
         Me.cboPasoSi.Name = "cboPasoSi"
         Me.cboPasoSi.Size = New System.Drawing.Size(49, 28)
         Me.cboPasoSi.TabIndex = 17
@@ -272,7 +273,7 @@ Partial Class frmSaltos
         '
         Me.chkUltimoPaso.AutoSize = True
         Me.chkUltimoPaso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.chkUltimoPaso.Location = New System.Drawing.Point(181, 124)
+        Me.chkUltimoPaso.Location = New System.Drawing.Point(181, 107)
         Me.chkUltimoPaso.Name = "chkUltimoPaso"
         Me.chkUltimoPaso.Size = New System.Drawing.Size(132, 24)
         Me.chkUltimoPaso.TabIndex = 18
@@ -281,8 +282,9 @@ Partial Class frmSaltos
         '
         'txtDuracion
         '
+        Me.txtDuracion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtDuracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtDuracion.Location = New System.Drawing.Point(181, 154)
+        Me.txtDuracion.Location = New System.Drawing.Point(181, 137)
         Me.txtDuracion.Name = "txtDuracion"
         Me.txtDuracion.Size = New System.Drawing.Size(63, 26)
         Me.txtDuracion.TabIndex = 20
@@ -292,7 +294,7 @@ Partial Class frmSaltos
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label6.Location = New System.Drawing.Point(11, 156)
+        Me.Label6.Location = New System.Drawing.Point(11, 139)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(155, 20)
         Me.Label6.TabIndex = 19
@@ -422,8 +424,9 @@ Partial Class frmSaltos
         'Label7
         '
         Me.Label7.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.Label7.Location = New System.Drawing.Point(526, 75)
+        Me.Label7.Location = New System.Drawing.Point(526, 76)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(721, 38)
         Me.Label7.TabIndex = 23
@@ -441,8 +444,9 @@ Partial Class frmSaltos
         'Label8
         '
         Me.Label8.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.Label8.Location = New System.Drawing.Point(444, 75)
+        Me.Label8.Location = New System.Drawing.Point(444, 76)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(76, 38)
         Me.Label8.TabIndex = 25
@@ -469,7 +473,7 @@ Partial Class frmSaltos
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(10, 64)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(428, 488)
+        Me.GroupBox1.Size = New System.Drawing.Size(428, 421)
         Me.GroupBox1.TabIndex = 26
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Información del paso"
@@ -480,7 +484,7 @@ Partial Class frmSaltos
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(422, 460)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(422, 393)
         Me.ShapeContainer1.TabIndex = 21
         Me.ShapeContainer1.TabStop = False
         '
@@ -488,16 +492,16 @@ Partial Class frmSaltos
         '
         Me.LineShape1.BorderColor = System.Drawing.Color.Silver
         Me.LineShape1.Name = "LineShape1"
-        Me.LineShape1.X1 = 13
-        Me.LineShape1.X2 = 402
-        Me.LineShape1.Y1 = 204
-        Me.LineShape1.Y2 = 204
+        Me.LineShape1.X1 = 16
+        Me.LineShape1.X2 = 405
+        Me.LineShape1.Y1 = 151
+        Me.LineShape1.Y2 = 151
         '
         'frmSaltos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1261, 563)
+        Me.ClientSize = New System.Drawing.Size(1261, 499)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.dgvPasos)
