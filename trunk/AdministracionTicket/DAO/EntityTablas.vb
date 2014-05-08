@@ -694,8 +694,8 @@
 
     Public Shared Sub ActualizarSalto(ByVal ids As Integer, ByVal numero As Integer, ByVal puesto As Integer,
                                       ByVal ultimoSalto As Integer, ByVal minutos As Integer, ByVal decision As Integer,
-                                      Optional ByVal saltoVer As Integer = 0,
-                                      Optional ByVal saltoFalso As Integer = 0)
+                                      Optional ByVal saltoVer As Integer = -1,
+                                      Optional ByVal saltoFalso As Integer = -1)
         Dim sal As SALTOS = (From s In ctx.SALTOS Where s.IDSALTO = ids).First
         Try
             With sal
