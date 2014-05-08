@@ -438,8 +438,11 @@ Partial Class frmSaltos
         Me.dgvPasos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPasos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPasos.Location = New System.Drawing.Point(444, 113)
+        Me.dgvPasos.MultiSelect = False
         Me.dgvPasos.Name = "dgvPasos"
+        Me.dgvPasos.ReadOnly = True
         Me.dgvPasos.RowHeadersVisible = False
+        Me.dgvPasos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPasos.Size = New System.Drawing.Size(76, 317)
         Me.dgvPasos.TabIndex = 24
         '
