@@ -639,6 +639,7 @@
 
         grid.DataSource = sal
         grid.Columns(0).Visible = False
+
     End Sub
 
     Public Shared Sub CargarProcesos(ByVal grid As DataGridView, ByVal ids As Integer)
@@ -652,13 +653,18 @@
     End Sub
 
     Public Shared Sub AgregarSalto(ByVal salto As SALTOS)
-
-        Try
-            ctx.SALTOS.AddObject(salto)
-            ctx.SaveChanges()
-        Catch ex As UpdateException
-            MsgBox(ex.Message)
-        End Try
+        Dim paso As Integer = (From p In ctx.SALTOS.ToList()
+                   Where p.NUMERO_SALTO = salto.NUMERO_SALTO OrElse p.IDGESTION = salto.IDGESTION).Count()
+        If paso > 0 Then
+            Try
+                ctx.SALTOS.AddObject(salto)
+                ctx.SaveChanges()
+            Catch ex As UpdateException
+                MsgBox(ex.Message)
+            End Try
+        Else
+            MsgBox("Numero de paso ya ingresado")
+        End If
     End Sub
 
     Public Shared Sub AgregarProceso(ByVal proceso As PROCESOS)
