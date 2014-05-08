@@ -665,7 +665,8 @@
 
     Public Shared Sub AgregarSalto(ByVal salto As SALTOS)
         Dim paso As Integer = (From p In ctx.SALTOS.ToList()
-                   Where p.NUMERO_SALTO = salto.NUMERO_SALTO OrElse p.IDGESTION = salto.IDGESTION).Count()
+                   Where p.NUMERO_SALTO = salto.NUMERO_SALTO AndAlso p.IDGESTION = salto.IDGESTION).Count()
+
         If paso < 1 Then
             Try
                 ctx.SALTOS.AddObject(salto)
@@ -673,8 +674,6 @@
             Catch ex As UpdateException
                 MsgBox(ex.Message)
             End Try
-        Else
-            MsgBox("Numero de paso ya ingresado")
         End If
     End Sub
 

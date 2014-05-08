@@ -46,6 +46,16 @@ Public Class frmSaltos
     End Sub
 
     Private Sub Guardar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Guardar.Click
+        If txtNumPaso.Value < 1 Then
+            txtNumPaso.Focus()
+            Exit Sub
+        End If
+
+        If txtDuracion.Value < 1 Then
+            txtDuracion.Focus()
+            Exit Sub
+        End If
+
         EntityTablas.AgregarSalto(New SALTOS With _
         {
             .IDGESTION = idg,
@@ -60,7 +70,6 @@ Public Class frmSaltos
 
         EntityTablas.CargarSaltos(dgvPasos, idg)
         BuscarEnGrid(dgvPasos, 1, txtNumPaso.Value)
-
-        MsgBox("OK")
+        txtNumPaso.Value += 1
     End Sub
 End Class
