@@ -21,13 +21,15 @@ Public Class frmSaltos
 
     Private Sub frmSaltos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         EntityTablas.CargarPuestos(cboPuesto, ido)
+        EntityTablas.CargarSaltos(dgvPasos, idg)
+
         lblNo.Visible = False
         lblSi.Visible = False
         cboPasoNo.Enabled = False
         cboPasoSi.Enabled = False
     End Sub
 
-    Private Sub cboPasoNo_CheckedChanged(sender As Object, e As EventArgs) Handles chkDecision.CheckedChanged
+    Private Sub cboPasoNo_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDecision.CheckedChanged
         If chkDecision.Checked Then
             lblNo.Visible = True
             lblSi.Visible = True
@@ -43,10 +45,22 @@ Public Class frmSaltos
 
     End Sub
 
-    Private Sub Guardar_Click(sender As Object, e As EventArgs) Handles Guardar.Click
-        EntityTablas.AgregarSalto(New SALTOS With {.IDGESTION = idg, .NUMERO_SALTO = txtNumPaso.Value, .IDPUESTO = cboPuesto.SelectedValue,
-                                                  .ULTIMOSALTO = IIf(chkUltimoPaso.Checked, 1, 0), .MINUTOS = txtDuracion.Value,
-                                                  .DECISION = IIf(chkDecision.Checked, 1, 0), .IDSALTOV = cboPasoSi.SelectedValue,
-                                                  .IDSALTOF = cboPasoNo.SelectedValue})
+    Private Sub Guardar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Guardar.Click
+        EntityTablas.AgregarSalto(New SALTOS With _
+        {
+            .IDGESTION = idg,
+            .NUMERO_SALTO = txtNumPaso.Value, _
+            .IDPUESTO = cboPuesto.SelectedValue, _
+            .ULTIMOSALTO = If(chkUltimoPaso.Checked, 1, 0), _
+            .MINUTOS = txtDuracion.Value, _
+            .DECISION = If(chkDecision.Checked, 1, 0), _
+            .IDSALTOV = cboPasoSi.SelectedValue, _
+            .IDSALTOF = cboPasoNo.SelectedValue
+        })
+
+        EntityTablas.CargarSaltos(dgvPasos, idg)
+        BuscarEnGrid(dgvPasos, 1, txtNumPaso.Value)
+
+        MsgBox("OK")
     End Sub
 End Class

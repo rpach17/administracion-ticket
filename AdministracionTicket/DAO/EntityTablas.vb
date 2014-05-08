@@ -655,7 +655,7 @@
     Public Shared Sub AgregarSalto(ByVal salto As SALTOS)
         Dim paso As Integer = (From p In ctx.SALTOS.ToList()
                    Where p.NUMERO_SALTO = salto.NUMERO_SALTO OrElse p.IDGESTION = salto.IDGESTION).Count()
-        If paso > 0 Then
+        If paso < 1 Then
             Try
                 ctx.SALTOS.AddObject(salto)
                 ctx.SaveChanges()
