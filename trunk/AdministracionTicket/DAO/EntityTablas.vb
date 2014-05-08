@@ -654,16 +654,6 @@
         combo.SelectedValue = -1
     End Sub
 
-    Public Shared Sub CargarProcesos(ByVal grid As DataGridView, ByVal ids As Integer)
-        Dim pro = (From p In ctx.PROCESOS.ToList
-                   Where p.IDSALTO = ids
-                  Order By p.NUMERO
-                  Select p.IDPROCESO, p.NUMERO, p.DESCRIPCION).ToList()
-
-        grid.DataSource = pro
-        grid.Columns(0).Visible = False
-    End Sub
-
     Public Shared Sub AgregarSalto(ByVal salto As SALTOS)
         Dim paso As Integer = (From p In ctx.SALTOS.ToList()
                    Where p.NUMERO_SALTO = salto.NUMERO_SALTO AndAlso p.IDGESTION = salto.IDGESTION).Count()
@@ -737,7 +727,6 @@
 
         grid.DataSource = pro
         grid.Columns(0).Visible = False
-
     End Sub
 
     Public Shared Sub ActualizarProceso(ByVal idp As Integer, ByVal numero As Integer, ByVal Descripcion As String)
