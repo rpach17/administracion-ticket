@@ -59,7 +59,7 @@ Public Class frmSaltos
 
         'Botones pasos
         Nuevo.Enabled = False
-        Actualizar.Enabled = False
+        'Actualizar.Enabled = False
 
         'Botones procesos
         GuardarP.Enabled = False
@@ -125,7 +125,12 @@ Public Class frmSaltos
             idp = dgvPasos.SelectedRows(0).Cells(0).Value
             EntityTablas.CargarProcesos(dgvProcesos, idp)
         Else 'Actualizar info de paso
+            If BuscarEnGrid(dgvPasos, 1, txtNumPaso.Value) Then
+                Exit Sub
+            End If
+
             EntityTablas.ActualizarSalto(idp, txtNumPaso.Value, cboPuesto.SelectedValue, If(chkUltimoPaso.Checked, 1, 0), txtDuracion.Value, If(chkDecision.Checked, 1, 0), If(cboPasoSi.Text = Nothing, -1, cboPasoSi.SelectedValue), If(cboPasoNo.Text = Nothing, -1, cboPasoNo.SelectedValue))
+            EntityTablas.CargarSaltos(dgvPasos, idg)
             MsgBox("Información del paso actualizado!", MsgBoxStyle.Information, String.Format("Paso #{0}", txtNumPaso.Value))
         End If
 
@@ -133,7 +138,8 @@ Public Class frmSaltos
     End Sub
 
     Private Sub Actualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Actualizar.Click
-        idp = ObtenerDatoGrid(dgvPasos) 'ID del salto seleccionado
+        'idp = ObtenerDatoGrid(dgvPasos) 'ID del salto seleccionado
+        idp = dgvPasos.SelectedRows(0).Cells(0).Value
         Dim salto As SALTOS = EntityTablas.obtenerSalto(idp)
 
         txtNumPaso.Value = salto.NUMERO_SALTO
