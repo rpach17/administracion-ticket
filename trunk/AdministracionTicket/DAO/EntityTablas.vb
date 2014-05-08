@@ -729,7 +729,7 @@
     End Sub
 
     Public Shared Sub ActualizarProceso(ByVal idp As Integer, ByVal numero As Integer, ByVal Descripcion As String)
-        Dim Proceso As PROCESOS = (From p In ctx.PROCESOS Where p.IDSALTO = idp).First
+        Dim Proceso As PROCESOS = (From p In ctx.PROCESOS Where p.IDPROCESO = idp).First
         Try
             With Proceso
                 .NUMERO = numero
