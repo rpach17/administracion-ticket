@@ -303,8 +303,8 @@ Partial Class frmSaltos
         'dgvProcesos
         '
         Me.dgvProcesos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvProcesos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProcesos.Location = New System.Drawing.Point(3, 51)
         Me.dgvProcesos.Name = "dgvProcesos"
@@ -435,9 +435,11 @@ Partial Class frmSaltos
         '
         'dgvPasos
         '
+        Me.dgvPasos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPasos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPasos.Location = New System.Drawing.Point(444, 113)
         Me.dgvPasos.Name = "dgvPasos"
+        Me.dgvPasos.RowHeadersVisible = False
         Me.dgvPasos.Size = New System.Drawing.Size(76, 317)
         Me.dgvPasos.TabIndex = 24
         '
