@@ -35,6 +35,7 @@ Partial Class frmGestionesOficina
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.dgvGestionesXOficina = New System.Windows.Forms.DataGridView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.PasosDeLaGestiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RequisitosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -43,7 +44,6 @@ Partial Class frmGestionesOficina
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PasosDeLaGestiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.txtTiempo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvGestionesXOficina, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -117,8 +117,8 @@ Partial Class frmGestionesOficina
         '
         Me.txtTiempo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.txtTiempo.Location = New System.Drawing.Point(91, 110)
+        Me.txtTiempo.Maximum = New Decimal(New Integer() {999, 0, 0, 0})
         Me.txtTiempo.Name = "txtTiempo"
-        Me.txtTiempo.ReadOnly = True
         Me.txtTiempo.Size = New System.Drawing.Size(55, 26)
         Me.txtTiempo.TabIndex = 6
         Me.txtTiempo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -161,7 +161,13 @@ Partial Class frmGestionesOficina
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PasosDeLaGestiónToolStripMenuItem, Me.RequisitosToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(175, 92)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(175, 70)
+        '
+        'PasosDeLaGestiónToolStripMenuItem
+        '
+        Me.PasosDeLaGestiónToolStripMenuItem.Name = "PasosDeLaGestiónToolStripMenuItem"
+        Me.PasosDeLaGestiónToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.PasosDeLaGestiónToolStripMenuItem.Text = "Pasos de la gestión"
         '
         'RequisitosToolStripMenuItem
         '
@@ -248,12 +254,6 @@ Partial Class frmGestionesOficina
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(803, 330)
         Me.Panel1.TabIndex = 14
-        '
-        'PasosDeLaGestiónToolStripMenuItem
-        '
-        Me.PasosDeLaGestiónToolStripMenuItem.Name = "PasosDeLaGestiónToolStripMenuItem"
-        Me.PasosDeLaGestiónToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
-        Me.PasosDeLaGestiónToolStripMenuItem.Text = "Pasos de la gestión"
         '
         'frmGestionesOficina
         '
