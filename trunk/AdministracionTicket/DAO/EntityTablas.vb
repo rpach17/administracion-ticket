@@ -683,7 +683,6 @@
         Return salto
     End Function
 
-    
     Public Shared Sub ActualizarSalto(ByVal ids As Integer, ByVal numero As Integer, ByVal puesto As Integer,
                                       ByVal ultimoSalto As Integer, ByVal minutos As Integer, ByVal decision As Integer,
                                       Optional ByVal saltoVer As Integer = -1,
@@ -728,6 +727,17 @@
         Catch ex As UpdateException
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Public Shared Sub CargarProcesos(ByVal grid As DataGridView, ByVal ids As Integer)
+        Dim pro = (From p In ctx.PROCESOS.ToList()
+                   Where p.IDSALTO = ids
+                  Order By p.NUMERO
+                  Select p.IDPROCESO, p.NUMERO, p.DESCRIPCION).ToList()
+
+        grid.DataSource = pro
+        grid.Columns(0).Visible = False
+
     End Sub
 
     Public Shared Sub ActualizarProceso(ByVal idp As Integer, ByVal numero As Integer, ByVal Descripcion As String)
