@@ -702,24 +702,24 @@
         End Try
     End Sub
 
-    Public Shared Sub EliminarSalto(ByVal idpu As Integer)
-        Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
-        Try
-            ctx.PUESTO.DeleteObject(pue)
-            ctx.SaveChanges()
-        Catch ex As UpdateException
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-    Public Shared Sub EliminarProceso(ByVal idpu As Integer)
-        Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
-        Try
-            ctx.PUESTO.DeleteObject(pue)
-            ctx.SaveChanges()
-        Catch ex As UpdateException
-            MsgBox(ex.Message)
-        End Try
-    End Sub
+    'Public Shared Sub EliminarSalto(ByVal idpu As Integer)
+    '    Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
+    '    Try
+    '        ctx.PUESTO.DeleteObject(pue)
+    '        ctx.SaveChanges()
+    '    Catch ex As UpdateException
+    '        MsgBox(ex.Message)
+    '    End Try
+    'End Sub
+    'Public Shared Sub EliminarProceso(ByVal idpu As Integer)
+    '    Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
+    '    Try
+    '        ctx.PUESTO.DeleteObject(pue)
+    '        ctx.SaveChanges()
+    '    Catch ex As UpdateException
+    '        MsgBox(ex.Message)
+    '    End Try
+    'End Sub
 #End Region
 
 End Class

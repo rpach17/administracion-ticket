@@ -24,25 +24,25 @@ Partial Class frmSaltos
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSaltos))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.Nuevo = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Actualizar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Guardar = New System.Windows.Forms.ToolStripButton()
+        Me.Cancelar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Eliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtNumPaso = New System.Windows.Forms.NumericUpDown()
         Me.cboPuesto = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.cboPasoNo = New System.Windows.Forms.CheckBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.chkDecision = New System.Windows.Forms.CheckBox()
+        Me.cboPasoNo = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Nuevo = New System.Windows.Forms.ToolStripButton()
-        Me.Actualizar = New System.Windows.Forms.ToolStripButton()
-        Me.Guardar = New System.Windows.Forms.ToolStripButton()
-        Me.Cancelar = New System.Windows.Forms.ToolStripButton()
-        Me.Eliminar = New System.Windows.Forms.ToolStripButton()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblNo = New System.Windows.Forms.Label()
+        Me.lblSi = New System.Windows.Forms.Label()
         Me.cboPasoSi = New System.Windows.Forms.ComboBox()
         Me.chkUltimoPaso = New System.Windows.Forms.CheckBox()
         Me.txtDuracion = New System.Windows.Forms.NumericUpDown()
@@ -91,20 +91,65 @@ Partial Class frmSaltos
         Me.ToolStrip1.TabIndex = 2
         Me.ToolStrip1.Text = "ToolStrip1"
         '
+        'Nuevo
+        '
+        Me.Nuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Nuevo.Image = CType(resources.GetObject("Nuevo.Image"), System.Drawing.Image)
+        Me.Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Nuevo.Name = "Nuevo"
+        Me.Nuevo.Size = New System.Drawing.Size(36, 45)
+        Me.Nuevo.Text = "Nuevo Paso"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 48)
+        '
+        'Actualizar
+        '
+        Me.Actualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Actualizar.Image = CType(resources.GetObject("Actualizar.Image"), System.Drawing.Image)
+        Me.Actualizar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Actualizar.Name = "Actualizar"
+        Me.Actualizar.Size = New System.Drawing.Size(36, 45)
+        Me.Actualizar.Text = "Modificar Registro"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 48)
         '
+        'Guardar
+        '
+        Me.Guardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Guardar.Image = CType(resources.GetObject("Guardar.Image"), System.Drawing.Image)
+        Me.Guardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Guardar.Name = "Guardar"
+        Me.Guardar.Size = New System.Drawing.Size(36, 45)
+        Me.Guardar.Text = "Guardar"
+        '
+        'Cancelar
+        '
+        Me.Cancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Cancelar.Image = CType(resources.GetObject("Cancelar.Image"), System.Drawing.Image)
+        Me.Cancelar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Cancelar.Name = "Cancelar"
+        Me.Cancelar.Size = New System.Drawing.Size(36, 45)
+        Me.Cancelar.Text = "Cancelar"
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 48)
+        '
+        'Eliminar
+        '
+        Me.Eliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Eliminar.Image = CType(resources.GetObject("Eliminar.Image"), System.Drawing.Image)
+        Me.Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Eliminar.Name = "Eliminar"
+        Me.Eliminar.Size = New System.Drawing.Size(36, 45)
+        Me.Eliminar.Text = "Eliminar"
         '
         'ToolStripSeparator4
         '
@@ -151,25 +196,25 @@ Partial Class frmSaltos
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Puesto"
         '
+        'chkDecision
+        '
+        Me.chkDecision.AutoSize = True
+        Me.chkDecision.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.chkDecision.Location = New System.Drawing.Point(202, 282)
+        Me.chkDecision.Name = "chkDecision"
+        Me.chkDecision.Size = New System.Drawing.Size(15, 14)
+        Me.chkDecision.TabIndex = 7
+        Me.chkDecision.UseVisualStyleBackColor = True
+        '
         'cboPasoNo
         '
-        Me.cboPasoNo.AutoSize = True
+        Me.cboPasoNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPasoNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.cboPasoNo.Location = New System.Drawing.Point(202, 282)
+        Me.cboPasoNo.FormattingEnabled = True
+        Me.cboPasoNo.Location = New System.Drawing.Point(38, 375)
         Me.cboPasoNo.Name = "cboPasoNo"
-        Me.cboPasoNo.Size = New System.Drawing.Size(15, 14)
-        Me.cboPasoNo.TabIndex = 7
-        Me.cboPasoNo.UseVisualStyleBackColor = True
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(38, 375)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(49, 28)
-        Me.ComboBox2.TabIndex = 8
+        Me.cboPasoNo.Size = New System.Drawing.Size(49, 28)
+        Me.cboPasoNo.TabIndex = 8
         '
         'Label5
         '
@@ -192,72 +237,27 @@ Partial Class frmSaltos
         Me.PictureBox1.TabIndex = 14
         Me.PictureBox1.TabStop = False
         '
-        'Nuevo
+        'lblNo
         '
-        Me.Nuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Nuevo.Image = CType(resources.GetObject("Nuevo.Image"), System.Drawing.Image)
-        Me.Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Nuevo.Name = "Nuevo"
-        Me.Nuevo.Size = New System.Drawing.Size(36, 45)
-        Me.Nuevo.Text = "Nueva Oficina"
+        Me.lblNo.AutoSize = True
+        Me.lblNo.BackColor = System.Drawing.SystemColors.Control
+        Me.lblNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.lblNo.Location = New System.Drawing.Point(78, 249)
+        Me.lblNo.Name = "lblNo"
+        Me.lblNo.Size = New System.Drawing.Size(32, 20)
+        Me.lblNo.TabIndex = 15
+        Me.lblNo.Text = "NO"
         '
-        'Actualizar
+        'lblSi
         '
-        Me.Actualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Actualizar.Image = CType(resources.GetObject("Actualizar.Image"), System.Drawing.Image)
-        Me.Actualizar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Actualizar.Name = "Actualizar"
-        Me.Actualizar.Size = New System.Drawing.Size(36, 45)
-        Me.Actualizar.Text = "Modificar Registro"
-        '
-        'Guardar
-        '
-        Me.Guardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Guardar.Image = CType(resources.GetObject("Guardar.Image"), System.Drawing.Image)
-        Me.Guardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Guardar.Name = "Guardar"
-        Me.Guardar.Size = New System.Drawing.Size(36, 45)
-        Me.Guardar.Text = "Guardar"
-        '
-        'Cancelar
-        '
-        Me.Cancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Cancelar.Image = CType(resources.GetObject("Cancelar.Image"), System.Drawing.Image)
-        Me.Cancelar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Cancelar.Name = "Cancelar"
-        Me.Cancelar.Size = New System.Drawing.Size(36, 45)
-        Me.Cancelar.Text = "Cancelar"
-        '
-        'Eliminar
-        '
-        Me.Eliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Eliminar.Image = CType(resources.GetObject("Eliminar.Image"), System.Drawing.Image)
-        Me.Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Eliminar.Name = "Eliminar"
-        Me.Eliminar.Size = New System.Drawing.Size(36, 45)
-        Me.Eliminar.Text = "Eliminar Oficna"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.SystemColors.Control
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(78, 249)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(32, 20)
-        Me.Label3.TabIndex = 15
-        Me.Label3.Text = "NO"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.SystemColors.Control
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(311, 249)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(25, 20)
-        Me.Label4.TabIndex = 16
-        Me.Label4.Text = "SI"
+        Me.lblSi.AutoSize = True
+        Me.lblSi.BackColor = System.Drawing.SystemColors.Control
+        Me.lblSi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.lblSi.Location = New System.Drawing.Point(311, 249)
+        Me.lblSi.Name = "lblSi"
+        Me.lblSi.Size = New System.Drawing.Size(25, 20)
+        Me.lblSi.TabIndex = 16
+        Me.lblSi.Text = "SI"
         '
         'cboPasoSi
         '
@@ -303,8 +303,8 @@ Partial Class frmSaltos
         'dgvProcesos
         '
         Me.dgvProcesos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvProcesos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProcesos.Location = New System.Drawing.Point(3, 51)
         Me.dgvProcesos.Name = "dgvProcesos"
@@ -339,7 +339,7 @@ Partial Class frmSaltos
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
         Me.ToolStripButton1.Size = New System.Drawing.Size(36, 45)
-        Me.ToolStripButton1.Text = "Nueva Oficina"
+        Me.ToolStripButton1.Text = "Nuevo Proceso"
         '
         'ToolStripSeparator5
         '
@@ -390,7 +390,7 @@ Partial Class frmSaltos
         Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton5.Name = "ToolStripButton5"
         Me.ToolStripButton5.Size = New System.Drawing.Size(36, 45)
-        Me.ToolStripButton5.Text = "Eliminar Oficna"
+        Me.ToolStripButton5.Text = "Eliminar"
         '
         'ToolStripSeparator8
         '
@@ -456,7 +456,7 @@ Partial Class frmSaltos
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.cboPasoNo)
+        Me.GroupBox1.Controls.Add(Me.chkDecision)
         Me.GroupBox1.Controls.Add(Me.txtNumPaso)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.cboPuesto)
@@ -464,11 +464,11 @@ Partial Class frmSaltos
         Me.GroupBox1.Controls.Add(Me.chkUltimoPaso)
         Me.GroupBox1.Controls.Add(Me.cboPasoSi)
         Me.GroupBox1.Controls.Add(Me.txtDuracion)
-        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.lblSi)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.lblNo)
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox2)
+        Me.GroupBox1.Controls.Add(Me.cboPasoNo)
         Me.GroupBox1.Controls.Add(Me.ShapeContainer1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(10, 64)
@@ -539,12 +539,12 @@ Partial Class frmSaltos
     Friend WithEvents txtNumPaso As System.Windows.Forms.NumericUpDown
     Friend WithEvents cboPuesto As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents cboPasoNo As System.Windows.Forms.CheckBox
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents chkDecision As System.Windows.Forms.CheckBox
+    Friend WithEvents cboPasoNo As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents lblNo As System.Windows.Forms.Label
+    Friend WithEvents lblSi As System.Windows.Forms.Label
     Friend WithEvents cboPasoSi As System.Windows.Forms.ComboBox
     Friend WithEvents chkUltimoPaso As System.Windows.Forms.CheckBox
     Friend WithEvents txtDuracion As System.Windows.Forms.NumericUpDown
