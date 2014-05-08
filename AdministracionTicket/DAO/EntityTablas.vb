@@ -683,15 +683,7 @@
         Return salto
     End Function
 
-    Public Shared Sub AgregarProceso(ByVal proceso As PROCESOS)
-        Try
-            ctx.PROCESOS.AddObject(proceso)
-            ctx.SaveChanges()
-        Catch ex As UpdateException
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
+    
     Public Shared Sub ActualizarSalto(ByVal ids As Integer, ByVal numero As Integer, ByVal puesto As Integer,
                                       ByVal ultimoSalto As Integer, ByVal minutos As Integer, ByVal decision As Integer,
                                       Optional ByVal saltoVer As Integer = -1,
@@ -712,6 +704,32 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+    
+    Public Shared Sub EliminarSalto(ByVal idg As Integer)
+        'Al eliminar el salto se eliminan los procesos en cascada definido en la base de datos
+        Dim ultSalto = (From s In ctx.SALTOS.ToList Where s.IDGESTION = idg
+                        Order By s.NUMERO_SALTO Descending
+                        Select s).First()
+
+        Dim salto = (From s In ctx.SALTOS.ToList Where s.IDSALTO = ultSalto.IDSALTO Select s).SingleOrDefault
+        Try
+            ctx.SALTOS.DeleteObject(salto)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
+    Public Shared Sub AgregarProceso(ByVal proceso As PROCESOS)
+        Try
+            ctx.PROCESOS.AddObject(proceso)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     Public Shared Sub ActualizarProceso(ByVal idp As Integer, ByVal numero As Integer, ByVal Descripcion As String)
         Dim Proceso As PROCESOS = (From p In ctx.PROCESOS Where p.IDSALTO = idp).First
         Try
@@ -725,19 +743,6 @@
         End Try
     End Sub
 
-    Public Shared Sub EliminarSalto(ByVal idg As Integer)
-        Dim ultSalto = (From s In ctx.SALTOS.ToList Where s.IDGESTION = idg
-                        Order By s.NUMERO_SALTO Descending
-                        Select s).First()
-
-        Dim salto = (From s In ctx.SALTOS.ToList Where s.IDSALTO = ultSalto.IDSALTO Select s).SingleOrDefault
-        Try
-            ctx.SALTOS.DeleteObject(salto)
-            ctx.SaveChanges()
-        Catch ex As UpdateException
-            MsgBox(ex.Message)
-        End Try
-    End Sub
 
     'Public Shared Sub EliminarProceso(ByVal idpu As Integer)
     '    Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
