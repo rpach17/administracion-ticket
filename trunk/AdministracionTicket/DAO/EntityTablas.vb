@@ -677,6 +677,11 @@
         End If
     End Sub
 
+    Public Shared Function obtenerSalto(ByVal idsalto As Integer)
+        Dim salto = (From s In ctx.SALTOS Where s.IDSALTO = idsalto Select s).SingleOrDefault
+        Return salto
+    End Function
+
     Public Shared Sub AgregarProceso(ByVal proceso As PROCESOS)
         Try
             ctx.PROCESOS.AddObject(proceso)
