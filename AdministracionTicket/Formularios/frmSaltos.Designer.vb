@@ -305,9 +305,13 @@ Partial Class frmSaltos
         Me.dgvProcesos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvProcesos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvProcesos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProcesos.Location = New System.Drawing.Point(3, 51)
+        Me.dgvProcesos.MultiSelect = False
         Me.dgvProcesos.Name = "dgvProcesos"
+        Me.dgvProcesos.ReadOnly = True
+        Me.dgvProcesos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvProcesos.Size = New System.Drawing.Size(713, 261)
         Me.dgvProcesos.TabIndex = 21
         '
@@ -418,6 +422,7 @@ Partial Class frmSaltos
         'txtDescripcion
         '
         Me.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(300, 48)
         '

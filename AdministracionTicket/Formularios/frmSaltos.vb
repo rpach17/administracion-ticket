@@ -3,8 +3,12 @@ Public Class frmSaltos
     Dim ido As Integer
     Dim idg As Integer
     Dim esNuevo As Boolean
+    Dim esNuevoP As Boolean
     Dim idp As Integer
+    Dim idpro As Integer
+    Dim NombreGestion As String
 
+#Region "Propiedades"
     Public Property Idg1() As Integer
         Get
             Return idg
@@ -21,12 +25,31 @@ Public Class frmSaltos
             ido = Value
         End Set
     End Property
+    Public Property NombreGestion1() As String
+        Get
+            Return NombreGestion
+        End Get
+        Set(ByVal value As String)
+            NombreGestion = Value
+        End Set
+    End Property
+#End Region
 
     Private Sub frmSaltos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Text = String.Format("Pasos de la gestión {0}", NombreGestion)
+
         EntityTablas.CargarPuestos(cboPuesto, ido)
         EntityTablas.CargarSaltos(dgvPasos, idg)
         EntityTablas.CargarSaltosCbo(cboPasoNo, idg)
         EntityTablas.CargarSaltosCbo(cboPasoSi, idg)
+
+        Try
+            idp = dgvPasos.SelectedRows(0).Cells(0).Value
+        Catch ex As Exception
+            idp = ObtenerDatoGrid(dgvPasos)
+        End Try
+
+        EntityTablas.CargarProcesos(dgvProcesos, idp)
 
         lblNo.Visible = False
         lblSi.Visible = False
@@ -34,9 +57,14 @@ Public Class frmSaltos
         cboPasoSi.Enabled = False
         esNuevo = True
 
-        'Botones
+        'Botones pasos
         Nuevo.Enabled = False
         Actualizar.Enabled = False
+
+        'Botones procesos
+        GuardarP.Enabled = False
+        CancelarP.Enabled = False
+
 
     End Sub
 
@@ -92,6 +120,10 @@ Public Class frmSaltos
 
             BuscarEnGrid(dgvPasos, 1, txtNumPaso.Value)
             txtNumPaso.Value += 1
+
+            'CARGAR PROCESOS DEL PASO
+            idp = dgvPasos.SelectedRows(0).Cells(0).Value
+            EntityTablas.CargarProcesos(dgvProcesos, idp)
         Else 'Actualizar info de paso
             EntityTablas.ActualizarSalto(idp, txtNumPaso.Value, cboPuesto.SelectedValue, If(chkUltimoPaso.Checked, 1, 0), txtDuracion.Value, If(chkDecision.Checked, 1, 0), If(cboPasoSi.Text = Nothing, -1, cboPasoSi.SelectedValue), If(cboPasoNo.Text = Nothing, -1, cboPasoNo.SelectedValue))
             MsgBox("Información del paso actualizado!", MsgBoxStyle.Information, String.Format("Paso #{0}", txtNumPaso.Value))
@@ -160,27 +192,89 @@ Public Class frmSaltos
     End Sub
 
     Private Sub Eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Eliminar.Click
-        Dim msg As String = String.Format("Este proceso va a eliminar solamente el úlmito paso de ésta gestión{0}{0}¿Está seguro de eliminar este paso?", vbCrLf)
-        If MsgBox(msg, MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirme") = MsgBoxResult.Yes Then
-            EntityTablas.EliminarSalto(idg)
-            EntityTablas.CargarSaltos(dgvPasos, idg)
-            MsgBox("El paso ha sigo eliminado de la gestión", MsgBoxStyle.Information, "Paso eliminado")
+        If dgvPasos.Rows.Count > 0 Then
+            Dim msg As String = String.Format("Este proceso va a eliminar solamente el úlmito paso de ésta gestión{0}{0}¿Está seguro de eliminar este paso?", vbCrLf)
+            If MsgBox(msg, MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirme") = MsgBoxResult.Yes Then
+                EntityTablas.EliminarSalto(idg)
+                EntityTablas.CargarSaltos(dgvPasos, idg)
+                MsgBox("El paso ha sigo eliminado de la gestión", MsgBoxStyle.Information, "Paso eliminado")
+            End If
         End If
+    End Sub
+
+    Private Sub dgvPasos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dgvPasos.Click
+        idp = ObtenerDatoGrid(dgvPasos)
+        EntityTablas.CargarProcesos(dgvProcesos, idp)
     End Sub
 
     Private Sub NuevoP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NuevoP.Click
         cambiarEstadoP(True)
+        txtNumProceso.Text = Nothing
+        txtDescripcion.Text = Nothing
+        txtNumProceso.Focus()
+        esNuevoP = True
     End Sub
 
     Private Sub ActualizarP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ActualizarP.Click
         cambiarEstadoP(True)
+        txtNumProceso.Text = ObtenerDatoGrid(dgvProcesos, 1)
+        txtDescripcion.Text = ObtenerDatoGrid(dgvProcesos, 2)
+        idpro = ObtenerDatoGrid(dgvProcesos)
+        esNuevoP = False
     End Sub
 
     Private Sub GuardarP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GuardarP.Click
+        idp = dgvPasos.SelectedRows(0).Cells(0).Value
+        If esNuevoP Then
+            If BuscarEnGrid(dgvProcesos, 1, txtNumProceso.Text) Then
+                Exit Sub
+            End If
+
+            'idp = dgvPasos.SelectedRows(0).Cells(0).Value
+            EntityTablas.AgregarProceso(New PROCESOS() With { _
+                .NUMERO = txtNumProceso.Text, _
+                .DESCRIPCION = txtDescripcion.Text, _
+                .IDSALTO = idp
+            })
+            EntityTablas.CargarProcesos(dgvProcesos, idp)
+            txtNumProceso.Text = Val(txtNumProceso.Text) + 1
+            txtDescripcion.Text = ""
+            txtDescripcion.Focus()
+        Else
+            EntityTablas.ActualizarProceso(idpro, txtNumProceso.Text, txtDescripcion.Text)
+            EntityTablas.CargarProcesos(dgvProcesos, idp)
+        End If
         cambiarEstadoP(False)
+        txtNumProceso.Text = ""
+        txtDescripcion.Text = ""
     End Sub
 
     Private Sub CancelarP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CancelarP.Click
         cambiarEstadoP(False)
+        txtNumProceso.Text = ""
+        txtDescripcion.Text = ""
+    End Sub
+    
+    Private Sub txtNumProceso_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNumProceso.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub EliminarP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EliminarP.Click
+        If dgvProcesos.Rows.Count > 0 Then
+            Dim msg As String = String.Format("Esta acción va a eliminar solamente el úlmito proceso de este paso{0}{0}¿Está seguro de eliminar este proceso?", vbCrLf)
+            'idp = ObtenerDatoGrid(dgvPasos)
+            idp = dgvPasos.SelectedRows(0).Cells(0).Value
+            If MsgBox(msg, MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirme") = MsgBoxResult.Yes Then
+                EntityTablas.EliminarProceso(idp)
+                EntityTablas.CargarProcesos(dgvProcesos, idp)
+                MsgBox("El proceso ya no es parte del paso", MsgBoxStyle.Information, "Proceso eliminado")
+            End If
+        End If
     End Sub
 End Class
