@@ -139,12 +139,48 @@ Public Class frmSaltos
         End If
     End Sub
 
+    Private Sub cambiarEstadoP(ByVal var As Boolean)
+        If var Then
+            NuevoP.Enabled = False
+            ActualizarP.Enabled = False
+            'dgvOficinas.Enabled = False
+            GuardarP.Enabled = True
+            CancelarP.Enabled = True
+        Else
+            NuevoP.Enabled = True
+            ActualizarP.Enabled = True
+            'dgvOficinas.Enabled = True
+            GuardarP.Enabled = False
+            CancelarP.Enabled = False
+        End If
+    End Sub
+
     Private Sub Cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancelar.Click
         cambiarEstado(False)
     End Sub
 
     Private Sub Eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Eliminar.Click
-        idp = ObtenerDatoGrid(dgvPasos)
+        Dim msg As String = String.Format("Este proceso va a eliminar solamente el úlmito paso de ésta gestión{0}{0}¿Está seguro de eliminar este paso?", vbCrLf)
+        If MsgBox(msg, MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirme") = MsgBoxResult.Yes Then
+            EntityTablas.EliminarSalto(idg)
+            EntityTablas.CargarSaltos(dgvPasos, idg)
+            MsgBox("El paso ha sigo eliminado de la gestión", MsgBoxStyle.Information, "Paso eliminado")
+        End If
+    End Sub
 
+    Private Sub NuevoP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NuevoP.Click
+        cambiarEstadoP(True)
+    End Sub
+
+    Private Sub ActualizarP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ActualizarP.Click
+        cambiarEstadoP(True)
+    End Sub
+
+    Private Sub GuardarP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GuardarP.Click
+        cambiarEstadoP(False)
+    End Sub
+
+    Private Sub CancelarP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CancelarP.Click
+        cambiarEstadoP(False)
     End Sub
 End Class

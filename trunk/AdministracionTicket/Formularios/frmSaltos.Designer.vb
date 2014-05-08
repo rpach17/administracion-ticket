@@ -50,14 +50,14 @@ Partial Class frmSaltos
         Me.dgvProcesos = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.NuevoP = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ActualizarP = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.GuardarP = New System.Windows.Forms.ToolStripButton()
+        Me.CancelarP = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.EliminarP = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.txtNumProceso = New System.Windows.Forms.ToolStripTextBox()
@@ -325,72 +325,72 @@ Partial Class frmSaltos
         '
         Me.ToolStrip2.AutoSize = False
         Me.ToolStrip2.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator5, Me.ToolStripButton2, Me.ToolStripSeparator6, Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripSeparator7, Me.ToolStripButton5, Me.ToolStripSeparator8, Me.ToolStripLabel1, Me.txtNumProceso, Me.ToolStripLabel2, Me.txtDescripcion})
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoP, Me.ToolStripSeparator5, Me.ActualizarP, Me.ToolStripSeparator6, Me.GuardarP, Me.CancelarP, Me.ToolStripSeparator7, Me.EliminarP, Me.ToolStripSeparator8, Me.ToolStripLabel1, Me.txtNumProceso, Me.ToolStripLabel2, Me.txtDescripcion})
         Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip2.Name = "ToolStrip2"
         Me.ToolStrip2.Size = New System.Drawing.Size(719, 48)
         Me.ToolStrip2.TabIndex = 3
         Me.ToolStrip2.Text = "ToolStrip2"
         '
-        'ToolStripButton1
+        'NuevoP
         '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(36, 45)
-        Me.ToolStripButton1.Text = "Nuevo Proceso"
+        Me.NuevoP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.NuevoP.Image = CType(resources.GetObject("NuevoP.Image"), System.Drawing.Image)
+        Me.NuevoP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.NuevoP.Name = "NuevoP"
+        Me.NuevoP.Size = New System.Drawing.Size(36, 45)
+        Me.NuevoP.Text = "Nuevo Proceso"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 48)
         '
-        'ToolStripButton2
+        'ActualizarP
         '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(36, 45)
-        Me.ToolStripButton2.Text = "Modificar Registro"
+        Me.ActualizarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ActualizarP.Image = CType(resources.GetObject("ActualizarP.Image"), System.Drawing.Image)
+        Me.ActualizarP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ActualizarP.Name = "ActualizarP"
+        Me.ActualizarP.Size = New System.Drawing.Size(36, 45)
+        Me.ActualizarP.Text = "Modificar Registro"
         '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 48)
         '
-        'ToolStripButton3
+        'GuardarP
         '
-        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(36, 45)
-        Me.ToolStripButton3.Text = "Guardar"
+        Me.GuardarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.GuardarP.Image = CType(resources.GetObject("GuardarP.Image"), System.Drawing.Image)
+        Me.GuardarP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.GuardarP.Name = "GuardarP"
+        Me.GuardarP.Size = New System.Drawing.Size(36, 45)
+        Me.GuardarP.Text = "Guardar"
         '
-        'ToolStripButton4
+        'CancelarP
         '
-        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
-        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(36, 45)
-        Me.ToolStripButton4.Text = "Cancelar"
+        Me.CancelarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.CancelarP.Image = CType(resources.GetObject("CancelarP.Image"), System.Drawing.Image)
+        Me.CancelarP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.CancelarP.Name = "CancelarP"
+        Me.CancelarP.Size = New System.Drawing.Size(36, 45)
+        Me.CancelarP.Text = "Cancelar"
         '
         'ToolStripSeparator7
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
         Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 48)
         '
-        'ToolStripButton5
+        'EliminarP
         '
-        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
-        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(36, 45)
-        Me.ToolStripButton5.Text = "Eliminar"
+        Me.EliminarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.EliminarP.Image = CType(resources.GetObject("EliminarP.Image"), System.Drawing.Image)
+        Me.EliminarP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.EliminarP.Name = "EliminarP"
+        Me.EliminarP.Size = New System.Drawing.Size(36, 45)
+        Me.EliminarP.Text = "Eliminar"
         '
         'ToolStripSeparator8
         '
@@ -513,6 +513,7 @@ Partial Class frmSaltos
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ToolStrip1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmSaltos"
         Me.Text = "Pasos de la gestión"
         Me.ToolStrip1.ResumeLayout(False)
@@ -557,14 +558,14 @@ Partial Class frmSaltos
     Friend WithEvents dgvProcesos As System.Windows.Forms.DataGridView
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ToolStrip2 As System.Windows.Forms.ToolStrip
-    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents NuevoP As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ActualizarP As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents GuardarP As System.Windows.Forms.ToolStripButton
+    Friend WithEvents CancelarP As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents EliminarP As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
     Friend WithEvents txtNumProceso As System.Windows.Forms.ToolStripTextBox

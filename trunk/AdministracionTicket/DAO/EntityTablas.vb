@@ -728,7 +728,7 @@
     Public Shared Sub EliminarSalto(ByVal idg As Integer)
         Dim ultSalto = (From s In ctx.SALTOS.ToList Where s.IDGESTION = idg
                         Order By s.NUMERO_SALTO Descending
-                        Select s).SingleOrDefault
+                        Select s).First()
 
         Dim salto = (From s In ctx.SALTOS.ToList Where s.IDSALTO = ultSalto.IDSALTO Select s).SingleOrDefault
         Try
