@@ -635,7 +635,7 @@
         Dim sal = (From s In ctx.SALTOS.ToList
                    Where s.IDGESTION = idg
                   Order By s.NUMERO_SALTO
-                  Select s.IDSALTO, s.NUMERO_SALTO).ToList()
+                  Select s.IDSALTO, Numero = s.NUMERO_SALTO).ToList()
 
         grid.DataSource = sal
         grid.Columns(0).Visible = False
@@ -652,6 +652,7 @@
     End Sub
 
     Public Shared Sub AgregarSalto(ByVal salto As SALTOS)
+
         Try
             ctx.SALTOS.AddObject(salto)
             ctx.SaveChanges()
