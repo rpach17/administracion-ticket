@@ -709,7 +709,6 @@
         End Try
     End Sub
 
-
     Public Shared Sub AgregarProceso(ByVal proceso As PROCESOS)
         Try
             ctx.PROCESOS.AddObject(proceso)
@@ -742,7 +741,6 @@
         End Try
     End Sub
 
-
     Public Shared Sub EliminarProceso(ByVal idsalto As Integer)
         Dim ultproceso = (From p In ctx.PROCESOS.ToList Where p.IDSALTO = idsalto
                         Order By p.NUMERO Descending
@@ -756,6 +754,7 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
 #End Region
 
 End Class
