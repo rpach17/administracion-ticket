@@ -41,8 +41,8 @@ Partial Class frmSucursales
         'Panel1
         '
         Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(Me.dgvSucursales)
         Me.Panel1.Location = New System.Drawing.Point(0, 48)
         Me.Panel1.Name = "Panel1"
@@ -128,7 +128,7 @@ Partial Class frmSucursales
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmSucursales"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Oficinas"
+        Me.Text = "Sucursales"
         Me.Panel1.ResumeLayout(False)
         CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
