@@ -743,15 +743,19 @@
     End Sub
 
 
-    'Public Shared Sub EliminarProceso(ByVal idpu As Integer)
-    '    Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
-    '    Try
-    '        ctx.PUESTO.DeleteObject(pue)
-    '        ctx.SaveChanges()
-    '    Catch ex As UpdateException
-    '        MsgBox(ex.Message)
-    '    End Try
-    'End Sub
+    Public Shared Sub EliminarProceso(ByVal idsalto As Integer)
+        Dim ultproceso = (From p In ctx.PROCESOS.ToList Where p.IDSALTO = idsalto
+                        Order By p.NUMERO Descending
+                        Select p).First()
+
+        Dim pro = (From pr In ctx.PROCESOS.ToList Where pr.IDPROCESO = ultproceso.IDPROCESO Select pr).SingleOrDefault
+        Try
+            ctx.PROCESOS.DeleteObject(pro)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 #End Region
 
 End Class
