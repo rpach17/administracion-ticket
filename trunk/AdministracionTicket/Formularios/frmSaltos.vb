@@ -22,6 +22,8 @@ Public Class frmSaltos
     Private Sub frmSaltos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         EntityTablas.CargarPuestos(cboPuesto, ido)
         EntityTablas.CargarSaltos(dgvPasos, idg)
+        EntityTablas.CargarSaltosCbo(cboPasoNo, idg)
+        EntityTablas.CargarSaltosCbo(cboPasoSi, idg)
 
         lblNo.Visible = False
         lblSi.Visible = False
@@ -64,12 +66,29 @@ Public Class frmSaltos
             .ULTIMOSALTO = If(chkUltimoPaso.Checked, 1, 0), _
             .MINUTOS = txtDuracion.Value, _
             .DECISION = If(chkDecision.Checked, 1, 0), _
-            .IDSALTOV = cboPasoSi.SelectedValue, _
-            .IDSALTOF = cboPasoNo.SelectedValue
+            .IDSALTOV = If(cboPasoSi.Text = Nothing, -1, cboPasoSi.SelectedValue), _
+            .IDSALTOF = If(cboPasoNo.Text = Nothing, -1, cboPasoNo.SelectedValue)
         })
 
         EntityTablas.CargarSaltos(dgvPasos, idg)
+        EntityTablas.CargarSaltosCbo(cboPasoNo, idg)
+        EntityTablas.CargarSaltosCbo(cboPasoSi, idg)
+
         BuscarEnGrid(dgvPasos, 1, txtNumPaso.Value)
         txtNumPaso.Value += 1
+    End Sub
+
+    Private Sub Actualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Actualizar.Click
+        Dim idp As Integer = ObtenerDatoGrid(dgvPasos)
+        Dim salto As SALTOS = EntityTablas.obtenerSalto(idp)
+
+        txtNumPaso.Value = salto.NUMERO_SALTO
+        cboPuesto.SelectedValue = salto.IDPUESTO
+        chkUltimoPaso.Checked = IIf(salto.ULTIMOSALTO = 1, True, False)
+        txtDuracion.Value = salto.MINUTOS
+        chkDecision.Checked = IIf(salto.DECISION = 1, True, False)
+
+        cboPasoNo.SelectedValue = salto.IDSALTOF
+        cboPasoSi.SelectedValue = salto.IDSALTOV
     End Sub
 End Class

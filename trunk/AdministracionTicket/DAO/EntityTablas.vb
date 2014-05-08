@@ -651,6 +651,7 @@
         combo.DisplayMember = "NUMERO_SALTO"
         combo.ValueMember = "IDSALTO"
         combo.DataSource = sal
+        combo.SelectedValue = -1
     End Sub
 
     Public Shared Sub CargarProcesos(ByVal grid As DataGridView, ByVal ids As Integer)
