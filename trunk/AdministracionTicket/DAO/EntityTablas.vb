@@ -642,6 +642,17 @@
 
     End Sub
 
+    Public Shared Sub CargarSaltosCbo(ByVal combo As ComboBox, ByVal idg As Integer)
+        Dim sal = (From s In ctx.SALTOS.ToList
+                   Where s.IDGESTION = idg
+                  Order By s.NUMERO_SALTO
+                  Select s.IDSALTO, s.NUMERO_SALTO).ToList()
+
+        combo.DisplayMember = "NUMERO_SALTO"
+        combo.ValueMember = "IDSALTO"
+        combo.DataSource = sal
+    End Sub
+
     Public Shared Sub CargarProcesos(ByVal grid As DataGridView, ByVal ids As Integer)
         Dim pro = (From p In ctx.PROCESOS.ToList
                    Where p.IDSALTO = ids
