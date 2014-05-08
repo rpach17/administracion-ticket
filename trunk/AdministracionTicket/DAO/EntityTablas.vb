@@ -693,7 +693,7 @@
             MsgBox(ex.Message)
         End Try
     End Sub
-    
+
     Public Shared Sub EliminarSalto(ByVal idg As Integer)
         'Al eliminar el salto se eliminan los procesos en cascada definido en la base de datos
         Dim ultSalto = (From s In ctx.SALTOS.ToList Where s.IDGESTION = idg

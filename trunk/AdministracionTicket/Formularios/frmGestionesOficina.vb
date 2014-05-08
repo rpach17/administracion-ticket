@@ -100,10 +100,11 @@
 
     Private Sub PasosDeLaGestiónToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasosDeLaGestiónToolStripMenuItem.Click
         Dim idg As Integer = ObtenerDatoGrid(dgvGestionesXOficina)
-
+        Dim nombre As String = ObtenerDatoGrid(dgvGestionesXOficina, 2)
         With frmSaltos
             .Ido1 = cboOficina.SelectedValue
             .Idg1 = idg
+            .NombreGestion1 = nombre
             .ShowDialog()
         End With
     End Sub
