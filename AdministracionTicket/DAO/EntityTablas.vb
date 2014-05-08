@@ -725,15 +725,20 @@
         End Try
     End Sub
 
-    'Public Shared Sub EliminarSalto(ByVal idpu As Integer)
-    '    Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
-    '    Try
-    '        ctx.PUESTO.DeleteObject(pue)
-    '        ctx.SaveChanges()
-    '    Catch ex As UpdateException
-    '        MsgBox(ex.Message)
-    '    End Try
-    'End Sub
+    Public Shared Sub EliminarSalto(ByVal idg As Integer)
+        Dim ultSalto = (From s In ctx.SALTOS.ToList Where s.IDGESTION = idg
+                        Order By s.NUMERO_SALTO Descending
+                        Select s).SingleOrDefault
+
+        Dim salto = (From s In ctx.SALTOS.ToList Where s.IDSALTO = ultSalto.IDSALTO Select s).SingleOrDefault
+        Try
+            ctx.SALTOS.DeleteObject(salto)
+            ctx.SaveChanges()
+        Catch ex As UpdateException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     'Public Shared Sub EliminarProceso(ByVal idpu As Integer)
     '    Dim pue = (From p In ctx.PUESTO.ToList Where p.IDPUESTO = idpu Select p).SingleOrDefault
     '    Try
