@@ -132,7 +132,15 @@
             If Not ValidarForm() Then
                 Exit Sub
             End If
-
+            If EntityTablas.VerificarUsuario(USUARIOTextBox.Text) = False Then
+                MsgBox("Usuario ya existe")
+                If (Not String.IsNullOrEmpty(USUARIOTextBox.Text)) Then
+                    USUARIOTextBox.SelectionStart = 0
+                    USUARIOTextBox.SelectionLength = USUARIOTextBox.Text.Length
+                End If
+                USUARIOTextBox.Focus()
+                Exit Sub
+            End If
             IdUsuario = EntityTablas.AgregarUsuario(New USUARIOS() With {.USUARIO = USUARIOTextBox.Text, _
                                                                  .CONTRASENA = SHA1(CONTRASENATextBox.Text), _
                                                                  .NOMBRE = NOMBRETextBox.Text, _
@@ -184,7 +192,7 @@
     Private Sub USUARIOTextBox_Leave(sender As Object, e As EventArgs) Handles USUARIOTextBox.Leave
         If EntityTablas.VerificarUsuario(USUARIOTextBox.Text) = False Then
             MsgBox("Usuario ya existe")
-            'USUARIOTextBox.Focus() 'usuario ya existe o no valido
+            'USUARIOTextBox.Text = ""
         End If
     End Sub
 
