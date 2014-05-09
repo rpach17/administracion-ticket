@@ -196,7 +196,7 @@
           <Key>
             <PropertyRef Name="IDDETALLE_OFICINA_GESTION" />
           </Key>
-          <Property Name="IDDETALLE_OFICINA_GESTION" Type="number" Nullable="false" />
+          <Property Name="IDDETALLE_OFICINA_GESTION" Type="number" Nullable="false" StoreGeneratedPattern="Identity"/>
           <Property Name="IDOFICINA" Type="number" />
           <Property Name="IDGESTION" Type="number" />
         </EntityType>
@@ -257,7 +257,7 @@
           <Key>
             <PropertyRef Name="IDGESTION" />
           </Key>
-          <Property Name="IDGESTION" Type="number" Nullable="false" />
+          <Property Name="IDGESTION" Type="number" Nullable="false" StoreGeneratedPattern="Identity"/>
           <Property Name="CODIGO" Type="varchar2" MaxLength="5" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="45" />
           <Property Name="TIEMPO" Type="number" />
