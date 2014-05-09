@@ -29,9 +29,11 @@ Partial Class frmPrincipal
         Me.lblInfoUbicacion = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.OpcionesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpcionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListaDeUsuariosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpcionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevaSucursalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CatalogoDeSucursalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -39,9 +41,7 @@ Partial Class frmPrincipal
         Me.AsignarOficinasASucursalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentanillasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListaDeUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListaDeUsuariosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -96,67 +96,12 @@ Partial Class frmPrincipal
         Me.OpcionesToolStripMenuItem1.Size = New System.Drawing.Size(69, 20)
         Me.OpcionesToolStripMenuItem1.Text = "Opciones"
         '
-        'CerrarSesiónToolStripMenuItem
-        '
-        Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
-        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar sesión"
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SalirToolStripMenuItem.Text = "Salir"
-        '
         'OpcionesToolStripMenuItem
         '
         Me.OpcionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SucursalesToolStripMenuItem, Me.GestionesToolStripMenuItem, Me.VentanillasToolStripMenuItem})
         Me.OpcionesToolStripMenuItem.Name = "OpcionesToolStripMenuItem"
         Me.OpcionesToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
         Me.OpcionesToolStripMenuItem.Text = "Administracion"
-        '
-        'SucursalesToolStripMenuItem
-        '
-        Me.SucursalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaSucursalToolStripMenuItem, Me.CatalogoDeSucursalesToolStripMenuItem, Me.CatalogoDeOficinasToolStripMenuItem, Me.AsignarOficinasASucursalToolStripMenuItem})
-        Me.SucursalesToolStripMenuItem.Name = "SucursalesToolStripMenuItem"
-        Me.SucursalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SucursalesToolStripMenuItem.Text = "Sucursales"
-        '
-        'NuevaSucursalToolStripMenuItem
-        '
-        Me.NuevaSucursalToolStripMenuItem.Name = "NuevaSucursalToolStripMenuItem"
-        Me.NuevaSucursalToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.NuevaSucursalToolStripMenuItem.Text = "Nueva Sucursal"
-        '
-        'CatalogoDeSucursalesToolStripMenuItem
-        '
-        Me.CatalogoDeSucursalesToolStripMenuItem.Name = "CatalogoDeSucursalesToolStripMenuItem"
-        Me.CatalogoDeSucursalesToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.CatalogoDeSucursalesToolStripMenuItem.Text = "Catalogo de sucursales"
-        '
-        'CatalogoDeOficinasToolStripMenuItem
-        '
-        Me.CatalogoDeOficinasToolStripMenuItem.Name = "CatalogoDeOficinasToolStripMenuItem"
-        Me.CatalogoDeOficinasToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.CatalogoDeOficinasToolStripMenuItem.Text = "Catalogo de oficinas"
-        '
-        'AsignarOficinasASucursalToolStripMenuItem
-        '
-        Me.AsignarOficinasASucursalToolStripMenuItem.Name = "AsignarOficinasASucursalToolStripMenuItem"
-        Me.AsignarOficinasASucursalToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.AsignarOficinasASucursalToolStripMenuItem.Text = "Asignar oficinas a sucursal"
-        '
-        'GestionesToolStripMenuItem
-        '
-        Me.GestionesToolStripMenuItem.Name = "GestionesToolStripMenuItem"
-        Me.GestionesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.GestionesToolStripMenuItem.Text = "Gestiones"
-        '
-        'VentanillasToolStripMenuItem
-        '
-        Me.VentanillasToolStripMenuItem.Name = "VentanillasToolStripMenuItem"
-        Me.VentanillasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.VentanillasToolStripMenuItem.Text = "Ventanillas"
         '
         'UsuariosToolStripMenuItem
         '
@@ -165,17 +110,83 @@ Partial Class frmPrincipal
         Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
         Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
-        'ListaDeUsuariosToolStripMenuItem
-        '
-        Me.ListaDeUsuariosToolStripMenuItem.Name = "ListaDeUsuariosToolStripMenuItem"
-        Me.ListaDeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
-        Me.ListaDeUsuariosToolStripMenuItem.Text = "Búsqueda rápida"
-        '
         'ListaDeUsuariosToolStripMenuItem1
         '
+        Me.ListaDeUsuariosToolStripMenuItem1.Image = Global.AdministracionTicket.My.Resources.Resources.user
         Me.ListaDeUsuariosToolStripMenuItem1.Name = "ListaDeUsuariosToolStripMenuItem1"
         Me.ListaDeUsuariosToolStripMenuItem1.Size = New System.Drawing.Size(162, 22)
         Me.ListaDeUsuariosToolStripMenuItem1.Text = "Lista de usuarios"
+        '
+        'CerrarSesiónToolStripMenuItem
+        '
+        Me.CerrarSesiónToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.door_in
+        Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
+        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar sesión"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.cross
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'SucursalesToolStripMenuItem
+        '
+        Me.SucursalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaSucursalToolStripMenuItem, Me.CatalogoDeSucursalesToolStripMenuItem, Me.CatalogoDeOficinasToolStripMenuItem, Me.AsignarOficinasASucursalToolStripMenuItem})
+        Me.SucursalesToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.building
+        Me.SucursalesToolStripMenuItem.Name = "SucursalesToolStripMenuItem"
+        Me.SucursalesToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.SucursalesToolStripMenuItem.Text = "Sucursales"
+        '
+        'NuevaSucursalToolStripMenuItem
+        '
+        Me.NuevaSucursalToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.building_add
+        Me.NuevaSucursalToolStripMenuItem.Name = "NuevaSucursalToolStripMenuItem"
+        Me.NuevaSucursalToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.NuevaSucursalToolStripMenuItem.Text = "Nueva Sucursal"
+        '
+        'CatalogoDeSucursalesToolStripMenuItem
+        '
+        Me.CatalogoDeSucursalesToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.text_list_bullets1
+        Me.CatalogoDeSucursalesToolStripMenuItem.Name = "CatalogoDeSucursalesToolStripMenuItem"
+        Me.CatalogoDeSucursalesToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.CatalogoDeSucursalesToolStripMenuItem.Text = "Catalogo de sucursales"
+        '
+        'CatalogoDeOficinasToolStripMenuItem
+        '
+        Me.CatalogoDeOficinasToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.text_list_bullets
+        Me.CatalogoDeOficinasToolStripMenuItem.Name = "CatalogoDeOficinasToolStripMenuItem"
+        Me.CatalogoDeOficinasToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.CatalogoDeOficinasToolStripMenuItem.Text = "Catalogo de oficinas"
+        '
+        'AsignarOficinasASucursalToolStripMenuItem
+        '
+        Me.AsignarOficinasASucursalToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.building_go
+        Me.AsignarOficinasASucursalToolStripMenuItem.Name = "AsignarOficinasASucursalToolStripMenuItem"
+        Me.AsignarOficinasASucursalToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.AsignarOficinasASucursalToolStripMenuItem.Text = "Asignar oficinas a sucursal"
+        '
+        'GestionesToolStripMenuItem
+        '
+        Me.GestionesToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.application_view_list
+        Me.GestionesToolStripMenuItem.Name = "GestionesToolStripMenuItem"
+        Me.GestionesToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.GestionesToolStripMenuItem.Text = "Gestiones"
+        '
+        'VentanillasToolStripMenuItem
+        '
+        Me.VentanillasToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.picture_empty
+        Me.VentanillasToolStripMenuItem.Name = "VentanillasToolStripMenuItem"
+        Me.VentanillasToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.VentanillasToolStripMenuItem.Text = "Ventanillas"
+        '
+        'ListaDeUsuariosToolStripMenuItem
+        '
+        Me.ListaDeUsuariosToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.magnifier
+        Me.ListaDeUsuariosToolStripMenuItem.Name = "ListaDeUsuariosToolStripMenuItem"
+        Me.ListaDeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.ListaDeUsuariosToolStripMenuItem.Text = "Búsqueda rápida"
         '
         'frmPrincipal
         '
