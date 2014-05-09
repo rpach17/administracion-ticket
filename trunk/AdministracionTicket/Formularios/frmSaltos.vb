@@ -260,7 +260,7 @@ Public Class frmSaltos
         txtNumProceso.Text = ""
         txtDescripcion.Text = ""
     End Sub
-    
+
     Private Sub txtNumProceso_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNumProceso.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False

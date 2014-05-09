@@ -401,6 +401,13 @@
         grid.Columns(0).Visible = False
     End Sub
 
+    Public Shared Function Usuario(ByVal idu As Integer)
+        Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList()
+                       Where u.IDUSUARIO = idu
+                       Select u).First()
+            Return user
+    End Function
+
     Public Shared Sub CargarUsuariosSucursal(ByVal grid As DataGridView, ByVal filtro As Integer, ByVal user As String)
         Dim usu = (From u In ctx.USUARIOS
                     Where u.DETALLE_SUCURSAL_OFICINA.IDSUCURSAL = filtro AndAlso (u.USUARIO.StartsWith(user) OrElse u.NOMBRE.StartsWith(user))
@@ -448,6 +455,18 @@
                 .NOMBRE = nombre
                 .APELLIDOS = apellidos
                 .ESTADO = estado
+            End With
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub ActualizarContrasenia(ByVal idu As Integer, ByVal password As String)
+        Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList Where u.IDUSUARIO = idu).SingleOrDefault
+        Try
+            With user
+                .CONTRASENA = password
             End With
             ctx.SaveChanges()
         Catch ex As Exception

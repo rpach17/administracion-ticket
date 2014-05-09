@@ -137,6 +137,12 @@
     <Compile Include="Formularios\frmConfig.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmContrasenia.Designer.vb">
+      <DependentUpon>frmContrasenia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmContrasenia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmModificarSucursal.Designer.vb">
       <DependentUpon>frmModificarSucursal.vb</DependentUpon>
     </Compile>
@@ -254,6 +260,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Formularios\frmConfig.resx">
       <DependentUpon>frmConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmContrasenia.resx">
+      <DependentUpon>frmContrasenia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmModificarSucursal.resx">
       <DependentUpon>frmModificarSucursal.vb</DependentUpon>

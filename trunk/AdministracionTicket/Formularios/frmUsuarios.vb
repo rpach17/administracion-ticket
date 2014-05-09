@@ -50,12 +50,18 @@ Public Class frmUsuarios
     End Sub
 
     Private Sub ResetearContraseñaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ResetearContraseñaToolStripMenuItem.Click
-        Dim nombre As String = String.Format("{0} {1}", ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView, 2), ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView, 3))
-        If MsgBox(String.Format("¿Está seguro que desea reestablecer la contraseña de {0}?", nombre), MsgBoxStyle.Question + vbYesNo, "Confirme") = vbYes Then
+        Dim IDU As Integer = ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView)
+        With frmContrasenia
+            .IdUsuario1 = IDU
+            .ShowDialog()
+        End With
 
-            EntityTablas.ActualizarUsuarioPass(ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView), SHA1(String.Format("{0}123!", ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView, 1))))
-            MsgBox(String.Format("La contraseña fue establecida a: {0}123!", ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView, 1), MsgBoxStyle.Information, "Correcto"))
+        'Dim nombre As String = String.Format("{0} {1}", ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView, 2), ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView, 3))
+        'If MsgBox(String.Format("¿Está seguro que desea reestablecer la contraseña de {0}?", nombre), MsgBoxStyle.Question + vbYesNo, "Confirme") = vbYes Then
 
-        End If
+        '    EntityTablas.ActualizarUsuarioPass(ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView), SHA1(String.Format("{0}123!", ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView, 1))))
+        '    MsgBox(String.Format("La contraseña fue establecida a: {0}123!", ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView, 1), MsgBoxStyle.Information, "Correcto"))
+
+        'End If
     End Sub
 End Class
