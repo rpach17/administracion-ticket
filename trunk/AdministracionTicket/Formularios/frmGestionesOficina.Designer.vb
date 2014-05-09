@@ -37,13 +37,13 @@ Partial Class frmGestionesOficina
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PasosDeLaGestiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RequisitosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.txtTiempo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvGestionesXOficina, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -161,26 +161,21 @@ Partial Class frmGestionesOficina
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PasosDeLaGestiónToolStripMenuItem, Me.RequisitosToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(175, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(175, 92)
         '
         'PasosDeLaGestiónToolStripMenuItem
         '
+        Me.PasosDeLaGestiónToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.text_list_numbers
         Me.PasosDeLaGestiónToolStripMenuItem.Name = "PasosDeLaGestiónToolStripMenuItem"
         Me.PasosDeLaGestiónToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.PasosDeLaGestiónToolStripMenuItem.Text = "Pasos de la gestión"
         '
         'RequisitosToolStripMenuItem
         '
+        Me.RequisitosToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.text_linespacing
         Me.RequisitosToolStripMenuItem.Name = "RequisitosToolStripMenuItem"
         Me.RequisitosToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.RequisitosToolStripMenuItem.Text = "Requisitos"
-        '
-        'EliminarToolStripMenuItem
-        '
-        Me.EliminarToolStripMenuItem.Image = CType(resources.GetObject("EliminarToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
-        Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'GroupBox1
         '
@@ -254,6 +249,13 @@ Partial Class frmGestionesOficina
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(803, 330)
         Me.Panel1.TabIndex = 14
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Image = CType(resources.GetObject("EliminarToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'frmGestionesOficina
         '

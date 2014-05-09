@@ -251,8 +251,8 @@ Public Class frmSaltos
             EntityTablas.CargarProcesos(dgvProcesos, idp)
         End If
         cambiarEstadoP(False)
-        txtNumProceso.Text = ""
-        txtDescripcion.Text = ""
+        'txtNumProceso.Text = ""
+        'txtDescripcion.Text = ""
     End Sub
 
     Private Sub CancelarP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CancelarP.Click
