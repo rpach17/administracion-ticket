@@ -196,7 +196,7 @@ Partial Class frmPrincipal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(184, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(201, Byte), Integer))
-        Me.BackgroundImage = Global.AdministracionTicket.My.Resources.Resources.rnp
+        Me.BackgroundImage = Global.AdministracionTicket.My.Resources.Resources.rnp1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(735, 390)
         Me.Controls.Add(Me.StatusStrip1)
