@@ -68,6 +68,17 @@
     Private Sub frmPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         lblInfoConexion.Text = String.Format("{0} ({1})", SesionActiva.Nombre, SesionActiva.Usuario)
         lblInfoUbicacion.Text = String.Format("{0}, {1}", SesionActiva.Sucursal, SesionActiva.Oficina)
+
+        Dim ctlMDI As MdiClient
+
+        For Each ctl As Control In Controls
+            Try
+                ctlMDI = DirectCast(ctl, MdiClient)
+                ctlMDI.BackColor = Me.BackColor
+            Catch ex As InvalidCastException
+
+            End Try
+        Next
     End Sub
 
     Private Sub ListaDeUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListaDeUsuariosToolStripMenuItem.Click

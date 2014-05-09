@@ -24,14 +24,9 @@ Partial Class frmSaltos
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSaltos))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.Nuevo = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Actualizar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Guardar = New System.Windows.Forms.ToolStripButton()
-        Me.Cancelar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Eliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtNumPaso = New System.Windows.Forms.NumericUpDown()
@@ -40,7 +35,6 @@ Partial Class frmSaltos
         Me.chkDecision = New System.Windows.Forms.CheckBox()
         Me.cboPasoNo = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblNo = New System.Windows.Forms.Label()
         Me.lblSi = New System.Windows.Forms.Label()
         Me.cboPasoSi = New System.Windows.Forms.ComboBox()
@@ -50,14 +44,9 @@ Partial Class frmSaltos
         Me.dgvProcesos = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
-        Me.NuevoP = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ActualizarP = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.GuardarP = New System.Windows.Forms.ToolStripButton()
-        Me.CancelarP = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.EliminarP = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.txtNumProceso = New System.Windows.Forms.ToolStripTextBox()
@@ -69,15 +58,26 @@ Partial Class frmSaltos
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.NuevoP = New System.Windows.Forms.ToolStripButton()
+        Me.ActualizarP = New System.Windows.Forms.ToolStripButton()
+        Me.GuardarP = New System.Windows.Forms.ToolStripButton()
+        Me.CancelarP = New System.Windows.Forms.ToolStripButton()
+        Me.EliminarP = New System.Windows.Forms.ToolStripButton()
+        Me.Nuevo = New System.Windows.Forms.ToolStripButton()
+        Me.Actualizar = New System.Windows.Forms.ToolStripButton()
+        Me.Guardar = New System.Windows.Forms.ToolStripButton()
+        Me.Cancelar = New System.Windows.Forms.ToolStripButton()
+        Me.Eliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.txtNumPaso, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDuracion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvProcesos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.ToolStrip2.SuspendLayout()
         CType(Me.dgvPasos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -91,65 +91,20 @@ Partial Class frmSaltos
         Me.ToolStrip1.TabIndex = 2
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'Nuevo
-        '
-        Me.Nuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Nuevo.Image = CType(resources.GetObject("Nuevo.Image"), System.Drawing.Image)
-        Me.Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Nuevo.Name = "Nuevo"
-        Me.Nuevo.Size = New System.Drawing.Size(36, 45)
-        Me.Nuevo.Text = "Nuevo Paso"
-        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 48)
-        '
-        'Actualizar
-        '
-        Me.Actualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Actualizar.Image = CType(resources.GetObject("Actualizar.Image"), System.Drawing.Image)
-        Me.Actualizar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Actualizar.Name = "Actualizar"
-        Me.Actualizar.Size = New System.Drawing.Size(36, 45)
-        Me.Actualizar.Text = "Modificar Registro"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 48)
         '
-        'Guardar
-        '
-        Me.Guardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Guardar.Image = CType(resources.GetObject("Guardar.Image"), System.Drawing.Image)
-        Me.Guardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Guardar.Name = "Guardar"
-        Me.Guardar.Size = New System.Drawing.Size(36, 45)
-        Me.Guardar.Text = "Guardar"
-        '
-        'Cancelar
-        '
-        Me.Cancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Cancelar.Image = CType(resources.GetObject("Cancelar.Image"), System.Drawing.Image)
-        Me.Cancelar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Cancelar.Name = "Cancelar"
-        Me.Cancelar.Size = New System.Drawing.Size(36, 45)
-        Me.Cancelar.Text = "Cancelar"
-        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 48)
-        '
-        'Eliminar
-        '
-        Me.Eliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Eliminar.Image = CType(resources.GetObject("Eliminar.Image"), System.Drawing.Image)
-        Me.Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Eliminar.Name = "Eliminar"
-        Me.Eliminar.Size = New System.Drawing.Size(36, 45)
-        Me.Eliminar.Text = "Eliminar"
         '
         'ToolStripSeparator4
         '
@@ -226,16 +181,6 @@ Partial Class frmSaltos
         Me.Label5.Size = New System.Drawing.Size(128, 20)
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "¿Tiene desición?"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.AdministracionTicket.My.Resources.Resources.Decision
-        Me.PictureBox1.Location = New System.Drawing.Point(55, 195)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(314, 179)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 14
-        Me.PictureBox1.TabStop = False
         '
         'lblNo
         '
@@ -336,65 +281,20 @@ Partial Class frmSaltos
         Me.ToolStrip2.TabIndex = 3
         Me.ToolStrip2.Text = "ToolStrip2"
         '
-        'NuevoP
-        '
-        Me.NuevoP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.NuevoP.Image = CType(resources.GetObject("NuevoP.Image"), System.Drawing.Image)
-        Me.NuevoP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.NuevoP.Name = "NuevoP"
-        Me.NuevoP.Size = New System.Drawing.Size(36, 45)
-        Me.NuevoP.Text = "Nuevo Proceso"
-        '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 48)
-        '
-        'ActualizarP
-        '
-        Me.ActualizarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ActualizarP.Image = CType(resources.GetObject("ActualizarP.Image"), System.Drawing.Image)
-        Me.ActualizarP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ActualizarP.Name = "ActualizarP"
-        Me.ActualizarP.Size = New System.Drawing.Size(36, 45)
-        Me.ActualizarP.Text = "Modificar Registro"
         '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 48)
         '
-        'GuardarP
-        '
-        Me.GuardarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.GuardarP.Image = CType(resources.GetObject("GuardarP.Image"), System.Drawing.Image)
-        Me.GuardarP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.GuardarP.Name = "GuardarP"
-        Me.GuardarP.Size = New System.Drawing.Size(36, 45)
-        Me.GuardarP.Text = "Guardar"
-        '
-        'CancelarP
-        '
-        Me.CancelarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.CancelarP.Image = CType(resources.GetObject("CancelarP.Image"), System.Drawing.Image)
-        Me.CancelarP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.CancelarP.Name = "CancelarP"
-        Me.CancelarP.Size = New System.Drawing.Size(36, 45)
-        Me.CancelarP.Text = "Cancelar"
-        '
         'ToolStripSeparator7
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
         Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 48)
-        '
-        'EliminarP
-        '
-        Me.EliminarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.EliminarP.Image = CType(resources.GetObject("EliminarP.Image"), System.Drawing.Image)
-        Me.EliminarP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.EliminarP.Name = "EliminarP"
-        Me.EliminarP.Size = New System.Drawing.Size(36, 45)
-        Me.EliminarP.Text = "Eliminar"
         '
         'ToolStripSeparator8
         '
@@ -507,6 +407,106 @@ Partial Class frmSaltos
         Me.LineShape1.Y1 = 151
         Me.LineShape1.Y2 = 151
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.AdministracionTicket.My.Resources.Resources.Decision
+        Me.PictureBox1.Location = New System.Drawing.Point(55, 195)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(314, 179)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 14
+        Me.PictureBox1.TabStop = False
+        '
+        'NuevoP
+        '
+        Me.NuevoP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.NuevoP.Image = CType(resources.GetObject("NuevoP.Image"), System.Drawing.Image)
+        Me.NuevoP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.NuevoP.Name = "NuevoP"
+        Me.NuevoP.Size = New System.Drawing.Size(36, 45)
+        Me.NuevoP.Text = "Nuevo Proceso"
+        '
+        'ActualizarP
+        '
+        Me.ActualizarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ActualizarP.Image = CType(resources.GetObject("ActualizarP.Image"), System.Drawing.Image)
+        Me.ActualizarP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ActualizarP.Name = "ActualizarP"
+        Me.ActualizarP.Size = New System.Drawing.Size(36, 45)
+        Me.ActualizarP.Text = "Modificar Registro"
+        '
+        'GuardarP
+        '
+        Me.GuardarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.GuardarP.Image = CType(resources.GetObject("GuardarP.Image"), System.Drawing.Image)
+        Me.GuardarP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.GuardarP.Name = "GuardarP"
+        Me.GuardarP.Size = New System.Drawing.Size(36, 45)
+        Me.GuardarP.Text = "Guardar"
+        '
+        'CancelarP
+        '
+        Me.CancelarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.CancelarP.Image = CType(resources.GetObject("CancelarP.Image"), System.Drawing.Image)
+        Me.CancelarP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.CancelarP.Name = "CancelarP"
+        Me.CancelarP.Size = New System.Drawing.Size(36, 45)
+        Me.CancelarP.Text = "Cancelar"
+        '
+        'EliminarP
+        '
+        Me.EliminarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.EliminarP.Image = CType(resources.GetObject("EliminarP.Image"), System.Drawing.Image)
+        Me.EliminarP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.EliminarP.Name = "EliminarP"
+        Me.EliminarP.Size = New System.Drawing.Size(36, 45)
+        Me.EliminarP.Text = "Eliminar"
+        '
+        'Nuevo
+        '
+        Me.Nuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Nuevo.Image = CType(resources.GetObject("Nuevo.Image"), System.Drawing.Image)
+        Me.Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Nuevo.Name = "Nuevo"
+        Me.Nuevo.Size = New System.Drawing.Size(36, 45)
+        Me.Nuevo.Text = "Nuevo Paso"
+        '
+        'Actualizar
+        '
+        Me.Actualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Actualizar.Image = CType(resources.GetObject("Actualizar.Image"), System.Drawing.Image)
+        Me.Actualizar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Actualizar.Name = "Actualizar"
+        Me.Actualizar.Size = New System.Drawing.Size(36, 45)
+        Me.Actualizar.Text = "Modificar Registro"
+        '
+        'Guardar
+        '
+        Me.Guardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Guardar.Image = CType(resources.GetObject("Guardar.Image"), System.Drawing.Image)
+        Me.Guardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Guardar.Name = "Guardar"
+        Me.Guardar.Size = New System.Drawing.Size(36, 45)
+        Me.Guardar.Text = "Guardar"
+        '
+        'Cancelar
+        '
+        Me.Cancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Cancelar.Image = CType(resources.GetObject("Cancelar.Image"), System.Drawing.Image)
+        Me.Cancelar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Cancelar.Name = "Cancelar"
+        Me.Cancelar.Size = New System.Drawing.Size(36, 45)
+        Me.Cancelar.Text = "Cancelar"
+        '
+        'Eliminar
+        '
+        Me.Eliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.Eliminar.Image = CType(resources.GetObject("Eliminar.Image"), System.Drawing.Image)
+        Me.Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Eliminar.Name = "Eliminar"
+        Me.Eliminar.Size = New System.Drawing.Size(36, 45)
+        Me.Eliminar.Text = "Eliminar"
+        '
         'frmSaltos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -520,11 +520,11 @@ Partial Class frmSaltos
         Me.Controls.Add(Me.ToolStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmSaltos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Pasos de la gestión"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         CType(Me.txtNumPaso, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDuracion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvProcesos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -533,6 +533,7 @@ Partial Class frmSaltos
         CType(Me.dgvPasos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
