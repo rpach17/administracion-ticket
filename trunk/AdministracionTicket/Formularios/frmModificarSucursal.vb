@@ -17,8 +17,8 @@
         txtDireccionS.Text = su.DIRECCION
         txtIDM.Text = su.MUNICIPIOS.CODIGO_MPIO
         txtNombreM.Text = su.MUNICIPIOS.NOMBRE_MPIO
-        txtLongitud.Text = su.LATITUD
-        txtLatitud.Text = su.LONGITUD
+        txtLongitud.Text = su.LONGITUD
+        txtLatitud.Text = su.LATITUD
     End Sub
 
     Private Sub btnActualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnActualizar.Click
