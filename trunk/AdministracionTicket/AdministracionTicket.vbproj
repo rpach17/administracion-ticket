@@ -161,7 +161,7 @@
     <Compile Include="Formularios\frmRequisitos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmSaltos.Designer.vb">
+    <Compile Include="Formularios\frmSaltos.designer.vb">
       <DependentUpon>frmSaltos.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmSaltos.vb">
@@ -420,6 +420,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rnp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Decision2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_select_column1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

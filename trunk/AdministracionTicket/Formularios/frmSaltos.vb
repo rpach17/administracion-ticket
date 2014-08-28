@@ -1,5 +1,4 @@
-﻿Imports System.Xml
-Public Class frmSaltos
+﻿Public Class frmSaltos
     Dim ido As Integer
     Dim idg As Integer
     Dim esNuevo As Boolean
@@ -55,33 +54,40 @@ Public Class frmSaltos
         lblSi.Visible = False
         cboPasoNo.Enabled = False
         cboPasoSi.Enabled = False
+        txtDecision.Enabled = False
         esNuevo = True
 
         'Botones pasos
-        Nuevo.Enabled = False
-        'Actualizar.Enabled = False
+        Nuevo.Enabled = True
+        Guardar.Enabled = False
+        Cancelar.Enabled = False
+        If dgvPasos.Rows.Count = 0 Then
+            Actualizar.Enabled = False
+        End If
 
         'Botones procesos
         GuardarP.Enabled = False
         CancelarP.Enabled = False
-
-
+        If dgvProcesos.Rows.Count = 0 Then
+            ActualizarP.Enabled = False
+        End If
     End Sub
 
-    Private Sub cboPasoNo_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDecision.CheckedChanged
+    Private Sub chkDecision_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkDecision.CheckedChanged
         If chkDecision.Checked Then
             lblNo.Visible = True
             lblSi.Visible = True
             cboPasoNo.Enabled = True
             cboPasoSi.Enabled = True
+            txtDecision.Enabled = True
         Else
             lblNo.Visible = False
             lblSi.Visible = False
             cboPasoNo.Enabled = False
             cboPasoSi.Enabled = False
+            txtDecision.Text = ""
+            txtDecision.Enabled = False
         End If
-
-
     End Sub
 
     Private Sub Guardar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Guardar.Click
@@ -95,6 +101,13 @@ Public Class frmSaltos
             Exit Sub
         End If
 
+        If chkDecision.Checked Then
+            If txtDecision.Text.Trim = "" Then
+                txtDecision.Focus()
+                Exit Sub
+            End If
+        End If
+
         If esNuevo Then 'Nuevo paso
             EntityTablas.AgregarSalto(New SALTOS With _
             {
@@ -105,7 +118,9 @@ Public Class frmSaltos
                 .MINUTOS = txtDuracion.Value, _
                 .DECISION = If(chkDecision.Checked, 1, 0), _
                 .IDSALTOV = CDec(If(cboPasoSi.Text = Nothing, -1, cboPasoSi.SelectedValue)), _
-                .IDSALTOF = CDec(If(cboPasoNo.Text = Nothing, -1, cboPasoNo.SelectedValue))
+                .IDSALTOF = CDec(If(cboPasoNo.Text = Nothing, -1, cboPasoNo.SelectedValue)), _
+                .DESCRIPCION_DECISION = txtDecision.Text,
+                .DESCRIPCION_SALTO = txtDescripcionPaso.Text
             })
 
             '.IDSALTOV = If(cboPasoSi.Text = Nothing, -1, cboPasoSi.SelectedValue), _
@@ -124,14 +139,13 @@ Public Class frmSaltos
             'CARGAR PROCESOS DEL PASO
             idp = dgvPasos.SelectedRows(0).Cells(0).Value
             EntityTablas.CargarProcesos(dgvProcesos, idp)
-        Else 'Actualizar info de paso
-            If BuscarEnGrid(dgvPasos, 1, txtNumPaso.Value) Then
-                Exit Sub
-            End If
-
-            EntityTablas.ActualizarSalto(idp, txtNumPaso.Value, cboPuesto.SelectedValue, If(chkUltimoPaso.Checked, 1, 0), txtDuracion.Value, If(chkDecision.Checked, 1, 0), If(cboPasoSi.Text = Nothing, -1, cboPasoSi.SelectedValue), If(cboPasoNo.Text = Nothing, -1, cboPasoNo.SelectedValue))
+            txtNumPaso.Enabled = True
+        Else 'Actualizar info de paso           
+            EntityTablas.ActualizarSalto(idp, txtNumPaso.Value, txtDescripcionPaso.Text, cboPuesto.SelectedValue, If(chkUltimoPaso.Checked, 1, 0), txtDuracion.Value, If(chkDecision.Checked, 1, 0), If(cboPasoSi.Text = Nothing, -1, cboPasoSi.SelectedValue), If(cboPasoNo.Text = Nothing, -1, cboPasoNo.SelectedValue), txtDecision.Text)
             EntityTablas.CargarSaltos(dgvPasos, idg)
+            BuscarEnGrid(dgvPasos, 1, txtNumPaso.Value) ' Para seleccionar nuevamente el paso editado
             MsgBox("Información del paso actualizado!", MsgBoxStyle.Information, String.Format("Paso #{0}", txtNumPaso.Value))
+            txtNumPaso.Enabled = True
         End If
 
         cambiarEstado(False)
@@ -143,6 +157,8 @@ Public Class frmSaltos
         Dim salto As SALTOS = EntityTablas.obtenerSalto(idp)
 
         txtNumPaso.Value = salto.NUMERO_SALTO
+        txtNumPaso.Enabled = False
+        txtDescripcionPaso.Text = salto.DESCRIPCION_SALTO
         cboPuesto.SelectedValue = salto.IDPUESTO
         chkUltimoPaso.Checked = IIf(salto.ULTIMOSALTO = 1, True, False)
         txtDuracion.Value = salto.MINUTOS
@@ -150,6 +166,7 @@ Public Class frmSaltos
 
         cboPasoNo.SelectedValue = salto.IDSALTOF
         cboPasoSi.SelectedValue = salto.IDSALTOV
+        txtDecision.Text = salto.DESCRIPCION_DECISION
 
         esNuevo = False
 
@@ -163,17 +180,23 @@ Public Class frmSaltos
 
     Private Sub cambiarEstado(ByVal var As Boolean)
         If var Then
+            dgvPasos.Enabled = False
             Nuevo.Enabled = False
             Actualizar.Enabled = False
             'dgvOficinas.Enabled = False
             Guardar.Enabled = True
             Cancelar.Enabled = True
+            Eliminar.Enabled = False
         Else
+            dgvPasos.Enabled = True
             Nuevo.Enabled = True
-            Actualizar.Enabled = True
+            If dgvPasos.Rows.Count > 0 Then
+                Actualizar.Enabled = True
+            End If
             'dgvOficinas.Enabled = True
             Guardar.Enabled = False
             Cancelar.Enabled = False
+            Eliminar.Enabled = True
         End If
     End Sub
 
@@ -184,17 +207,22 @@ Public Class frmSaltos
             'dgvOficinas.Enabled = False
             GuardarP.Enabled = True
             CancelarP.Enabled = True
+            EliminarP.Enabled = False
         Else
             NuevoP.Enabled = True
-            ActualizarP.Enabled = True
+            If dgvProcesos.Rows.Count > 0 Then
+                ActualizarP.Enabled = True
+            End If
             'dgvOficinas.Enabled = True
             GuardarP.Enabled = False
             CancelarP.Enabled = False
+            EliminarP.Enabled = True
         End If
     End Sub
 
     Private Sub Cancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancelar.Click
         cambiarEstado(False)
+        txtNumPaso.Enabled = True
     End Sub
 
     Private Sub Eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Eliminar.Click
@@ -208,16 +236,19 @@ Public Class frmSaltos
         End If
     End Sub
 
-    Private Sub dgvPasos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dgvPasos.Click
+    Private Sub dgvPasos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dgvPasos.CellClick
         idp = ObtenerDatoGrid(dgvPasos)
         EntityTablas.CargarProcesos(dgvProcesos, idp)
     End Sub
 
     Private Sub NuevoP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NuevoP.Click
         cambiarEstadoP(True)
-        txtNumProceso.Text = Nothing
-        txtDescripcion.Text = Nothing
-        txtNumProceso.Focus()
+        If txtNumProceso.Text = "" Then
+            txtNumProceso.Focus()
+        Else
+            txtDescripcion.Text = Nothing
+            txtDescripcion.Focus()
+        End If
         esNuevoP = True
     End Sub
 
@@ -249,6 +280,9 @@ Public Class frmSaltos
         Else
             EntityTablas.ActualizarProceso(idpro, txtNumProceso.Text, txtDescripcion.Text)
             EntityTablas.CargarProcesos(dgvProcesos, idp)
+            BuscarEnGrid(dgvProcesos, 1, txtNumProceso.Text) ' Selecciona la descripcion del paso que se ha editado
+            txtNumProceso.Text = Nothing
+            txtDescripcion.Text = Nothing
         End If
         cambiarEstadoP(False)
         'txtNumProceso.Text = ""
@@ -283,4 +317,12 @@ Public Class frmSaltos
             End If
         End If
     End Sub
+
+    'Private Sub BtnVisualizar_Click(sender As Object, e As EventArgs) Handles BtnVisualizar.Click
+    '    With Datos
+    '        .IdGestion1 = idg
+    '        .ShowDialog()
+    '    End With
+    'End Sub
+
 End Class
