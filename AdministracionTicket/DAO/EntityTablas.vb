@@ -692,20 +692,22 @@
         Return salto
     End Function
 
-    Public Shared Sub ActualizarSalto(ByVal ids As Integer, ByVal numero As Integer, ByVal puesto As Integer,
+    Public Shared Sub ActualizarSalto(ByVal ids As Integer, ByVal numero As Integer, ByVal desPaso As String, ByVal puesto As Integer,
                                       ByVal ultimoSalto As Integer, ByVal minutos As Integer, ByVal decision As Integer,
                                       Optional ByVal saltoVer As Integer = -1,
-                                      Optional ByVal saltoFalso As Integer = -1)
+                                      Optional ByVal saltoFalso As Integer = -1, Optional ByVal desDesicion As String = "")
         Dim sal As SALTOS = (From s In ctx.SALTOS Where s.IDSALTO = ids).First
         Try
             With sal
                 .NUMERO_SALTO = numero
+                .DESCRIPCION_SALTO = desPaso
                 .IDPUESTO = puesto
                 .ULTIMOSALTO = ultimoSalto
                 .MINUTOS = minutos
                 .DECISION = decision
                 .IDSALTOV = saltoVer
                 .IDSALTOF = saltoFalso
+                .DESCRIPCION_DECISION = desDesicion
             End With
             ctx.SaveChanges()
         Catch ex As Exception
