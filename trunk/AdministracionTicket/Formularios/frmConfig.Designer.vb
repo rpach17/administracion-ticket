@@ -34,9 +34,9 @@ Partial Class frmConfig
         '
         'btnGuardar
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(217, 69)
+        Me.btnGuardar.Location = New System.Drawing.Point(206, 54)
         Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(130, 23)
+        Me.btnGuardar.Size = New System.Drawing.Size(130, 30)
         Me.btnGuardar.TabIndex = 28
         Me.btnGuardar.Tag = "4"
         Me.btnGuardar.Text = "Guardar"
@@ -62,7 +62,7 @@ Partial Class frmConfig
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(18, 71)
+        Me.Label3.Location = New System.Drawing.Point(18, 74)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(67, 13)
         Me.Label3.TabIndex = 26
@@ -79,9 +79,9 @@ Partial Class frmConfig
         '
         'btnProbar
         '
-        Me.btnProbar.Location = New System.Drawing.Point(217, 22)
+        Me.btnProbar.Location = New System.Drawing.Point(206, 19)
         Me.btnProbar.Name = "btnProbar"
-        Me.btnProbar.Size = New System.Drawing.Size(130, 23)
+        Me.btnProbar.Size = New System.Drawing.Size(130, 30)
         Me.btnProbar.TabIndex = 27
         Me.btnProbar.Tag = "4"
         Me.btnProbar.Text = "Probar Conexion"
@@ -98,7 +98,7 @@ Partial Class frmConfig
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(46, 22)
+        Me.Label1.Location = New System.Drawing.Point(42, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 21
@@ -108,7 +108,7 @@ Partial Class frmConfig
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(373, 118)
+        Me.ClientSize = New System.Drawing.Size(359, 111)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.txtPass)
         Me.Controls.Add(Me.txtDS)
@@ -117,9 +117,11 @@ Partial Class frmConfig
         Me.Controls.Add(Me.btnProbar)
         Me.Controls.Add(Me.txtUserID)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "frmConfig"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmConfig"
+        Me.Text = "Configurar conexión"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

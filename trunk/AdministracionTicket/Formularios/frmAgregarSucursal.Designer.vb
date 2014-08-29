@@ -38,14 +38,26 @@ Partial Class frmAgregarSucursal
         Me.txtNombreS = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.NOMBREComboBox = New System.Windows.Forms.ComboBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         NOMBRELabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'NOMBRELabel
+        '
+        NOMBRELabel.AutoSize = True
+        NOMBRELabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        NOMBRELabel.Location = New System.Drawing.Point(89, 35)
+        NOMBRELabel.Name = "NOMBRELabel"
+        NOMBRELabel.Size = New System.Drawing.Size(73, 20)
+        NOMBRELabel.TabIndex = 13
+        NOMBRELabel.Text = "Empresa"
         '
         'btnAgregar
         '
         Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnAgregar.Location = New System.Drawing.Point(267, 371)
+        Me.btnAgregar.Location = New System.Drawing.Point(266, 367)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(148, 43)
         Me.btnAgregar.TabIndex = 17
@@ -55,7 +67,7 @@ Partial Class frmAgregarSucursal
         'txtNombreM
         '
         Me.txtNombreM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtNombreM.Location = New System.Drawing.Point(217, 177)
+        Me.txtNombreM.Location = New System.Drawing.Point(216, 173)
         Me.txtNombreM.Name = "txtNombreM"
         Me.txtNombreM.ReadOnly = True
         Me.txtNombreM.Size = New System.Drawing.Size(198, 26)
@@ -64,7 +76,7 @@ Partial Class frmAgregarSucursal
         'btnBuscarM
         '
         Me.btnBuscarM.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnBuscarM.Location = New System.Drawing.Point(424, 177)
+        Me.btnBuscarM.Location = New System.Drawing.Point(416, 173)
         Me.btnBuscarM.Name = "btnBuscarM"
         Me.btnBuscarM.Size = New System.Drawing.Size(45, 26)
         Me.btnBuscarM.TabIndex = 14
@@ -78,7 +90,7 @@ Partial Class frmAgregarSucursal
         Me.GroupBox1.Controls.Add(Me.txtLatitud)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(39, 227)
+        Me.GroupBox1.Location = New System.Drawing.Point(38, 223)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(376, 138)
         Me.GroupBox1.TabIndex = 15
@@ -124,7 +136,7 @@ Partial Class frmAgregarSucursal
         'txtIDM
         '
         Me.txtIDM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtIDM.Location = New System.Drawing.Point(183, 177)
+        Me.txtIDM.Location = New System.Drawing.Point(182, 173)
         Me.txtIDM.Name = "txtIDM"
         Me.txtIDM.ReadOnly = True
         Me.txtIDM.Size = New System.Drawing.Size(35, 26)
@@ -135,7 +147,7 @@ Partial Class frmAgregarSucursal
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(88, 180)
+        Me.Label3.Location = New System.Drawing.Point(87, 176)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(75, 20)
         Me.Label3.TabIndex = 21
@@ -144,7 +156,7 @@ Partial Class frmAgregarSucursal
         'txtDireccionS
         '
         Me.txtDireccionS.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtDireccionS.Location = New System.Drawing.Point(183, 102)
+        Me.txtDireccionS.Location = New System.Drawing.Point(182, 98)
         Me.txtDireccionS.Multiline = True
         Me.txtDireccionS.Name = "txtDireccionS"
         Me.txtDireccionS.Size = New System.Drawing.Size(232, 69)
@@ -154,7 +166,7 @@ Partial Class frmAgregarSucursal
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(88, 105)
+        Me.Label2.Location = New System.Drawing.Point(87, 101)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(75, 20)
         Me.Label2.TabIndex = 20
@@ -164,7 +176,7 @@ Partial Class frmAgregarSucursal
         '
         Me.txtNombreS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombreS.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtNombreS.Location = New System.Drawing.Point(183, 70)
+        Me.txtNombreS.Location = New System.Drawing.Point(182, 66)
         Me.txtNombreS.Name = "txtNombreS"
         Me.txtNombreS.Size = New System.Drawing.Size(232, 26)
         Me.txtNombreS.TabIndex = 11
@@ -173,21 +185,11 @@ Partial Class frmAgregarSucursal
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(35, 73)
+        Me.Label1.Location = New System.Drawing.Point(34, 69)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(128, 20)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Nombre sucursal"
-        '
-        'NOMBRELabel
-        '
-        NOMBRELabel.AutoSize = True
-        NOMBRELabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        NOMBRELabel.Location = New System.Drawing.Point(90, 39)
-        NOMBRELabel.Name = "NOMBRELabel"
-        NOMBRELabel.Size = New System.Drawing.Size(73, 20)
-        NOMBRELabel.TabIndex = 13
-        NOMBRELabel.Text = "Empresa"
         '
         'NOMBREComboBox
         '
@@ -195,29 +197,39 @@ Partial Class frmAgregarSucursal
         Me.NOMBREComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.NOMBREComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NOMBREComboBox.FormattingEnabled = True
-        Me.NOMBREComboBox.Location = New System.Drawing.Point(183, 36)
+        Me.NOMBREComboBox.Location = New System.Drawing.Point(182, 32)
         Me.NOMBREComboBox.Name = "NOMBREComboBox"
         Me.NOMBREComboBox.Size = New System.Drawing.Size(232, 28)
         Me.NOMBREComboBox.TabIndex = 10
         Me.NOMBREComboBox.ValueMember = "IDEMPRESA"
         '
+        'Panel1
+        '
+        Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.NOMBREComboBox)
+        Me.Panel1.Controls.Add(Me.btnAgregar)
+        Me.Panel1.Controls.Add(NOMBRELabel)
+        Me.Panel1.Controls.Add(Me.txtNombreM)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.btnBuscarM)
+        Me.Panel1.Controls.Add(Me.txtNombreS)
+        Me.Panel1.Controls.Add(Me.GroupBox1)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.txtIDM)
+        Me.Panel1.Controls.Add(Me.txtDireccionS)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Location = New System.Drawing.Point(12, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(488, 433)
+        Me.Panel1.TabIndex = 22
+        '
         'frmAgregarSucursal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(488, 434)
-        Me.Controls.Add(Me.btnAgregar)
-        Me.Controls.Add(Me.txtNombreM)
-        Me.Controls.Add(Me.btnBuscarM)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.txtIDM)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtDireccionS)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtNombreS)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(NOMBRELabel)
-        Me.Controls.Add(Me.NOMBREComboBox)
+        Me.ClientSize = New System.Drawing.Size(512, 458)
+        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -226,8 +238,9 @@ Partial Class frmAgregarSucursal
         Me.Text = "Agregando sucursal"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnAgregar As System.Windows.Forms.Button
@@ -245,4 +258,5 @@ Partial Class frmAgregarSucursal
     Friend WithEvents txtNombreS As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents NOMBREComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 End Class

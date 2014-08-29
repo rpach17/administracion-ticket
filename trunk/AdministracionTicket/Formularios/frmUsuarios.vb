@@ -24,28 +24,41 @@ Public Class frmUsuarios
 
 
     Private Sub AgregarNuevoUsuarioToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AgregarNuevoUsuarioToolStripMenuItem.Click
-        Dim ID As Integer = ObtenerDatoGrid(dgvSucursales)
+        Try
+            frmPerfiles.Close()
+        Catch ex As Exception
+        End Try
 
+        Dim ID As Integer = ObtenerDatoGrid(dgvSucursales)
         If ID = 0 Then
             MsgBox("Seleccione una sucursal primero", MsgBoxStyle.Exclamation, "Nuevo usuario")
             Exit Sub
         End If
 
         With frmPerfiles
+            .MdiParent = Me.MdiParent
             .EsNuevo = True
             .IdSucursal = ID
-            .ShowDialog()
+            .Show()
+            .Focus()
         End With
     End Sub
 
     Private Sub EditarUsuarioToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditarUsuarioToolStripMenuItem.Click
+        Try
+            frmPerfiles.Close()
+        Catch ex As Exception
+        End Try
+
         Dim IDU As Integer = ObtenerDatoGrid(USUARIOS_SUCURSALDataGridView)
         Dim IDS As Integer = ObtenerDatoGrid(dgvSucursales)
         With frmPerfiles
+            .MdiParent = Me.MdiParent
             .EsNuevo = False
             .IdUsuario = IDU
             .IdSucursal = IDS
-            .ShowDialog()
+            .Show()
+            .Focus()
         End With
     End Sub
 

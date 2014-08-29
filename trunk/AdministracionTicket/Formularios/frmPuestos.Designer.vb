@@ -22,7 +22,6 @@ Partial Class frmPuestos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPuestos))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Nuevo = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -47,14 +46,14 @@ Partial Class frmPuestos
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Nuevo, Me.ToolStripSeparator1, Me.Actualizar, Me.ToolStripSeparator2, Me.Guardar, Me.Cancelar, Me.ToolStripSeparator3, Me.Eliminar, Me.ToolStripSeparator4})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(419, 48)
+        Me.ToolStrip1.Size = New System.Drawing.Size(421, 48)
         Me.ToolStrip1.TabIndex = 2
         Me.ToolStrip1.Text = "ToolStrip1"
         '
         'Nuevo
         '
         Me.Nuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Nuevo.Image = CType(resources.GetObject("Nuevo.Image"), System.Drawing.Image)
+        Me.Nuevo.Image = Global.AdministracionTicket.My.Resources.Resources.page_add
         Me.Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Nuevo.Name = "Nuevo"
         Me.Nuevo.Size = New System.Drawing.Size(36, 45)
@@ -68,7 +67,7 @@ Partial Class frmPuestos
         'Actualizar
         '
         Me.Actualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Actualizar.Image = CType(resources.GetObject("Actualizar.Image"), System.Drawing.Image)
+        Me.Actualizar.Image = Global.AdministracionTicket.My.Resources.Resources.pencil
         Me.Actualizar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Actualizar.Name = "Actualizar"
         Me.Actualizar.Size = New System.Drawing.Size(36, 45)
@@ -82,7 +81,7 @@ Partial Class frmPuestos
         'Guardar
         '
         Me.Guardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Guardar.Image = CType(resources.GetObject("Guardar.Image"), System.Drawing.Image)
+        Me.Guardar.Image = Global.AdministracionTicket.My.Resources.Resources.save
         Me.Guardar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Guardar.Name = "Guardar"
         Me.Guardar.Size = New System.Drawing.Size(36, 45)
@@ -91,7 +90,7 @@ Partial Class frmPuestos
         'Cancelar
         '
         Me.Cancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Cancelar.Image = CType(resources.GetObject("Cancelar.Image"), System.Drawing.Image)
+        Me.Cancelar.Image = Global.AdministracionTicket.My.Resources.Resources.cancel
         Me.Cancelar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Cancelar.Name = "Cancelar"
         Me.Cancelar.Size = New System.Drawing.Size(36, 45)
@@ -105,7 +104,7 @@ Partial Class frmPuestos
         'Eliminar
         '
         Me.Eliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Eliminar.Image = CType(resources.GetObject("Eliminar.Image"), System.Drawing.Image)
+        Me.Eliminar.Image = Global.AdministracionTicket.My.Resources.Resources.delete
         Me.Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Eliminar.Name = "Eliminar"
         Me.Eliminar.Size = New System.Drawing.Size(36, 45)
@@ -146,11 +145,12 @@ Partial Class frmPuestos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(419, 340)
+        Me.ClientSize = New System.Drawing.Size(421, 340)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvPuestos)
         Me.Controls.Add(Me.txtPuesto)
         Me.Controls.Add(Me.ToolStrip1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "frmPuestos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

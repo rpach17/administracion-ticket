@@ -22,7 +22,6 @@ Partial Class frmRequisitos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRequisitos))
         Me.txtRequisito = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.chkOpcional = New System.Windows.Forms.CheckBox()
@@ -75,11 +74,12 @@ Partial Class frmRequisitos
         '
         Me.dgvRequisitos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvRequisitos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvRequisitos.Location = New System.Drawing.Point(12, 151)
+        Me.dgvRequisitos.Location = New System.Drawing.Point(12, 114)
+        Me.dgvRequisitos.MultiSelect = False
         Me.dgvRequisitos.Name = "dgvRequisitos"
         Me.dgvRequisitos.ReadOnly = True
         Me.dgvRequisitos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvRequisitos.Size = New System.Drawing.Size(417, 211)
+        Me.dgvRequisitos.Size = New System.Drawing.Size(417, 253)
         Me.dgvRequisitos.TabIndex = 4
         '
         'ToolStrip1
@@ -96,7 +96,7 @@ Partial Class frmRequisitos
         'Nuevo
         '
         Me.Nuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Nuevo.Image = CType(resources.GetObject("Nuevo.Image"), System.Drawing.Image)
+        Me.Nuevo.Image = Global.AdministracionTicket.My.Resources.Resources.page_add
         Me.Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Nuevo.Name = "Nuevo"
         Me.Nuevo.Size = New System.Drawing.Size(36, 45)
@@ -110,7 +110,7 @@ Partial Class frmRequisitos
         'Actualizar
         '
         Me.Actualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Actualizar.Image = CType(resources.GetObject("Actualizar.Image"), System.Drawing.Image)
+        Me.Actualizar.Image = Global.AdministracionTicket.My.Resources.Resources.pencil
         Me.Actualizar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Actualizar.Name = "Actualizar"
         Me.Actualizar.Size = New System.Drawing.Size(36, 45)
@@ -124,7 +124,7 @@ Partial Class frmRequisitos
         'Guardar
         '
         Me.Guardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Guardar.Image = CType(resources.GetObject("Guardar.Image"), System.Drawing.Image)
+        Me.Guardar.Image = Global.AdministracionTicket.My.Resources.Resources.save
         Me.Guardar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Guardar.Name = "Guardar"
         Me.Guardar.Size = New System.Drawing.Size(36, 45)
@@ -133,7 +133,7 @@ Partial Class frmRequisitos
         'Cancelar
         '
         Me.Cancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Cancelar.Image = CType(resources.GetObject("Cancelar.Image"), System.Drawing.Image)
+        Me.Cancelar.Image = Global.AdministracionTicket.My.Resources.Resources.cancel
         Me.Cancelar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Cancelar.Name = "Cancelar"
         Me.Cancelar.Size = New System.Drawing.Size(36, 45)
@@ -147,7 +147,7 @@ Partial Class frmRequisitos
         'Eliminar
         '
         Me.Eliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Eliminar.Image = CType(resources.GetObject("Eliminar.Image"), System.Drawing.Image)
+        Me.Eliminar.Image = Global.AdministracionTicket.My.Resources.Resources.delete
         Me.Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Eliminar.Name = "Eliminar"
         Me.Eliminar.Size = New System.Drawing.Size(36, 45)
@@ -168,6 +168,8 @@ Partial Class frmRequisitos
         Me.Controls.Add(Me.chkOpcional)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtRequisito)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "frmRequisitos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Requisitos"

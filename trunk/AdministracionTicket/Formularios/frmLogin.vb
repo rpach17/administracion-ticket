@@ -1,6 +1,5 @@
 ﻿Public Class frmLogin
 
-   
     Private Sub btnCerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCerrar.Click
         Application.Exit()
     End Sub
@@ -14,13 +13,13 @@
                 .Sucursal = "General"
                 .Oficina = "No disponible"
             End With
-            frmPrincipal.Show()
+            RibbonMain.Show()
             Close()
             Exit Sub
         End If
 
         If EntityTablas.Login(txtUser.Text, SHA1(txtPass.Text)) Then
-            frmPrincipal.Show()
+            RibbonMain.Show()
             Close()
         Else
             Dim s As String = "Error al iniciar sesión. Posibles razones:" & vbCrLf & vbCrLf & _

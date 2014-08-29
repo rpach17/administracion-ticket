@@ -14,6 +14,7 @@ Public Class frmRequisitos
 
 
     Private Sub Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Guardar.Click
+        Dim ID As Integer = ObtenerDatoGrid(dgvRequisitos)
         If tarea = 1 Then
             If txtRequisito.Text.Trim = Nothing Then
                 txtRequisito.Focus()
@@ -30,12 +31,13 @@ Public Class frmRequisitos
             })
 
         ElseIf tarea = 2 Then
-            EntityTablas.ActualizarRequisito(ObtenerDatoGrid(dgvRequisitos), IdGestion, txtRequisito.Text, IIf(chkOpcional.Checked, 1, 0))
+            EntityTablas.ActualizarRequisito(ID, IdGestion, txtRequisito.Text, IIf(chkOpcional.Checked, 1, 0))
         End If
         cambiarEstado(False)
         EntityTablas.CargarRequisitos(dgvRequisitos, IdGestion)
         LimpiarControles(txtRequisito, chkOpcional)
         txtRequisito.Focus()
+        BuscarEnGrid(dgvRequisitos, 0, ID)
     End Sub
 
     Private Sub frmRequisitos_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
@@ -67,6 +69,7 @@ Public Class frmRequisitos
             dgvRequisitos.Enabled = False
             Guardar.Enabled = True
             Cancelar.Enabled = True
+            Eliminar.Enabled = False
         Else
             With txtRequisito
                 .Enabled = False
@@ -77,6 +80,7 @@ Public Class frmRequisitos
             dgvRequisitos.Enabled = True
             Guardar.Enabled = False
             Cancelar.Enabled = False
+            Eliminar.Enabled = True
         End If
     End Sub
     

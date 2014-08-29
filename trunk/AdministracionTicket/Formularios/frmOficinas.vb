@@ -14,13 +14,15 @@
     End Sub
 
     Private Sub Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Guardar.Click
+        Dim ID As Integer = ObtenerDatoGrid(dgvOficinas)
         If tarea = 1 Then
             EntityTablas.AgregarOficina(New OFICINAS() With {.NOMBRE_OFICINA = txtOficina.Text})
         ElseIf tarea = 2 Then
-            EntityTablas.ActualizarOficina(ObtenerDatoGrid(dgvOficinas), txtOficina.Text)
+            EntityTablas.ActualizarOficina(ID, txtOficina.Text)
         End If
         cambiarEstado(False)
         EntityTablas.CargarOficinas(dgvOficinas)
+        BuscarEnGrid(dgvOficinas, 0, ID)
     End Sub
 
     Private Sub Eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Eliminar.Click
@@ -52,6 +54,7 @@
             dgvOficinas.Enabled = False
             Guardar.Enabled = True
             Cancelar.Enabled = True
+            Eliminar.Enabled = False
         Else
             With txtOficina
                 .Enabled = False
@@ -62,6 +65,7 @@
             dgvOficinas.Enabled = True
             Guardar.Enabled = False
             Cancelar.Enabled = False
+            Eliminar.Enabled = True
         End If
     End Sub
 

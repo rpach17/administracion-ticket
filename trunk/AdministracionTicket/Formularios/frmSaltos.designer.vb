@@ -91,7 +91,7 @@ Partial Class frmSaltos
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Nuevo, Me.ToolStripSeparator1, Me.Actualizar, Me.ToolStripSeparator2, Me.Guardar, Me.Cancelar, Me.ToolStripSeparator3, Me.Eliminar, Me.ToolStripSeparator4, Me.BtnVisualizar})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1267, 48)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1238, 48)
         Me.ToolStrip1.TabIndex = 3
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -172,14 +172,15 @@ Partial Class frmSaltos
         'Panel1
         '
         Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.dgvPasos)
         Me.Panel1.Controls.Add(Me.GroupBox1)
-        Me.Panel1.Location = New System.Drawing.Point(8, 87)
+        Me.Panel1.Location = New System.Drawing.Point(12, 58)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1252, 451)
+        Me.Panel1.Size = New System.Drawing.Size(1213, 459)
         Me.Panel1.TabIndex = 4
         '
         'Panel2
@@ -187,9 +188,9 @@ Partial Class frmSaltos
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.ToolStrip2)
         Me.Panel2.Controls.Add(Me.dgvProcesos)
-        Me.Panel2.Location = New System.Drawing.Point(523, 48)
+        Me.Panel2.Location = New System.Drawing.Point(540, 48)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(721, 400)
+        Me.Panel2.Size = New System.Drawing.Size(648, 400)
         Me.Panel2.TabIndex = 36
         '
         'ToolStrip2
@@ -199,7 +200,7 @@ Partial Class frmSaltos
         Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoP, Me.ToolStripSeparator5, Me.ActualizarP, Me.ToolStripSeparator6, Me.GuardarP, Me.CancelarP, Me.ToolStripSeparator7, Me.EliminarP, Me.ToolStripSeparator8, Me.ToolStripLabel1, Me.txtNumProceso, Me.ToolStripLabel2, Me.txtDescripcion})
         Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip2.Name = "ToolStrip2"
-        Me.ToolStrip2.Size = New System.Drawing.Size(719, 48)
+        Me.ToolStrip2.Size = New System.Drawing.Size(646, 48)
         Me.ToolStrip2.TabIndex = 3
         Me.ToolStrip2.Text = "ToolStrip2"
         '
@@ -291,7 +292,7 @@ Partial Class frmSaltos
         Me.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(300, 48)
+        Me.txtDescripcion.Size = New System.Drawing.Size(250, 48)
         '
         'dgvProcesos
         '
@@ -306,7 +307,7 @@ Partial Class frmSaltos
         Me.dgvProcesos.Name = "dgvProcesos"
         Me.dgvProcesos.ReadOnly = True
         Me.dgvProcesos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvProcesos.Size = New System.Drawing.Size(713, 344)
+        Me.dgvProcesos.Size = New System.Drawing.Size(640, 344)
         Me.dgvProcesos.TabIndex = 21
         '
         'Label7
@@ -315,9 +316,9 @@ Partial Class frmSaltos
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(523, 11)
+        Me.Label7.Location = New System.Drawing.Point(540, 11)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(721, 38)
+        Me.Label7.Size = New System.Drawing.Size(648, 38)
         Me.Label7.TabIndex = 35
         Me.Label7.Text = "Procesos del paso"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -328,7 +329,7 @@ Partial Class frmSaltos
         Me.Label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(441, 11)
+        Me.Label8.Location = New System.Drawing.Point(458, 11)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(76, 38)
         Me.Label8.TabIndex = 34
@@ -339,10 +340,10 @@ Partial Class frmSaltos
         '
         Me.dgvPasos.AllowUserToAddRows = False
         Me.dgvPasos.AllowUserToDeleteRows = False
-        Me.dgvPasos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvPasos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvPasos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvPasos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPasos.Location = New System.Drawing.Point(441, 48)
+        Me.dgvPasos.Location = New System.Drawing.Point(458, 48)
         Me.dgvPasos.MultiSelect = False
         Me.dgvPasos.Name = "dgvPasos"
         Me.dgvPasos.ReadOnly = True
@@ -353,11 +354,11 @@ Partial Class frmSaltos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.txtDescripcionPaso)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtDecision)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.chkDecision)
         Me.GroupBox1.Controls.Add(Me.txtNumPaso)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -372,7 +373,7 @@ Partial Class frmSaltos
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.cboPasoNo)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(7, 2)
+        Me.GroupBox1.Location = New System.Drawing.Point(24, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(428, 446)
         Me.GroupBox1.TabIndex = 32
@@ -381,7 +382,7 @@ Partial Class frmSaltos
         '
         'txtDescripcionPaso
         '
-        Me.txtDescripcionPaso.Location = New System.Drawing.Point(160, 60)
+        Me.txtDescripcionPaso.Location = New System.Drawing.Point(160, 66)
         Me.txtDescripcionPaso.Name = "txtDescripcionPaso"
         Me.txtDescripcionPaso.Size = New System.Drawing.Size(262, 29)
         Me.txtDescripcionPaso.TabIndex = 25
@@ -390,7 +391,7 @@ Partial Class frmSaltos
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(65, 66)
+        Me.Label4.Location = New System.Drawing.Point(65, 72)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(92, 20)
         Me.Label4.TabIndex = 24
@@ -416,7 +417,7 @@ Partial Class frmSaltos
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.White
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.Label5.Location = New System.Drawing.Point(145, 255)
         Me.Label5.Name = "Label5"
@@ -438,7 +439,7 @@ Partial Class frmSaltos
         '
         Me.txtNumPaso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtNumPaso.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtNumPaso.Location = New System.Drawing.Point(160, 27)
+        Me.txtNumPaso.Location = New System.Drawing.Point(160, 36)
         Me.txtNumPaso.Name = "txtNumPaso"
         Me.txtNumPaso.Size = New System.Drawing.Size(63, 26)
         Me.txtNumPaso.TabIndex = 4
@@ -448,7 +449,7 @@ Partial Class frmSaltos
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(31, 29)
+        Me.Label1.Location = New System.Drawing.Point(28, 38)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(126, 20)
         Me.Label1.TabIndex = 3
@@ -468,7 +469,7 @@ Partial Class frmSaltos
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(98, 103)
+        Me.Label2.Location = New System.Drawing.Point(95, 103)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(59, 20)
         Me.Label2.TabIndex = 6
@@ -508,7 +509,7 @@ Partial Class frmSaltos
         'lblSi
         '
         Me.lblSi.AutoSize = True
-        Me.lblSi.BackColor = System.Drawing.SystemColors.Control
+        Me.lblSi.BackColor = System.Drawing.Color.White
         Me.lblSi.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.lblSi.Location = New System.Drawing.Point(311, 239)
         Me.lblSi.Name = "lblSi"
@@ -529,7 +530,7 @@ Partial Class frmSaltos
         'lblNo
         '
         Me.lblNo.AutoSize = True
-        Me.lblNo.BackColor = System.Drawing.SystemColors.Control
+        Me.lblNo.BackColor = System.Drawing.Color.White
         Me.lblNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.lblNo.Location = New System.Drawing.Point(78, 239)
         Me.lblNo.Name = "lblNo"
@@ -561,7 +562,7 @@ Partial Class frmSaltos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1267, 550)
+        Me.ClientSize = New System.Drawing.Size(1238, 529)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
