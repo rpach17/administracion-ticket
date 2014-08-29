@@ -135,13 +135,7 @@ Partial Class frmPrincipal
         Me.NuevaSucursalToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.NuevaSucursalToolStripMenuItem.Text = "Nueva Sucursal"
         '
-        'CatalogoDeSucursalesToolStripMenuItem
-        '
-        Me.CatalogoDeSucursalesToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.text_list_bullets1
-        Me.CatalogoDeSucursalesToolStripMenuItem.Name = "CatalogoDeSucursalesToolStripMenuItem"
-        Me.CatalogoDeSucursalesToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.CatalogoDeSucursalesToolStripMenuItem.Text = "Catalogo de sucursales"
-        '
+        
         'CatalogoDeOficinasToolStripMenuItem
         '
         Me.CatalogoDeOficinasToolStripMenuItem.Image = Global.AdministracionTicket.My.Resources.Resources.text_list_bullets

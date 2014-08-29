@@ -22,7 +22,6 @@ Partial Class frmSucursales
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSucursales))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvSucursales = New System.Windows.Forms.DataGridView()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -46,7 +45,7 @@ Partial Class frmSucursales
         Me.Panel1.Controls.Add(Me.dgvSucursales)
         Me.Panel1.Location = New System.Drawing.Point(0, 48)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(392, 408)
+        Me.Panel1.Size = New System.Drawing.Size(392, 410)
         Me.Panel1.TabIndex = 4
         '
         'dgvSucursales
@@ -57,7 +56,8 @@ Partial Class frmSucursales
         Me.dgvSucursales.Location = New System.Drawing.Point(0, 0)
         Me.dgvSucursales.Name = "dgvSucursales"
         Me.dgvSucursales.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgvSucursales.Size = New System.Drawing.Size(392, 408)
+        Me.dgvSucursales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvSucursales.Size = New System.Drawing.Size(392, 410)
         Me.dgvSucursales.TabIndex = 1
         '
         'ToolStrip1
@@ -74,7 +74,7 @@ Partial Class frmSucursales
         'Buscar
         '
         Me.Buscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Buscar.Image = CType(resources.GetObject("Buscar.Image"), System.Drawing.Image)
+        Me.Buscar.Image = Global.AdministracionTicket.My.Resources.Resources.magnifier
         Me.Buscar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Buscar.Name = "Buscar"
         Me.Buscar.Size = New System.Drawing.Size(36, 42)
@@ -82,6 +82,7 @@ Partial Class frmSucursales
         '
         'txtSucursal
         '
+        Me.txtSucursal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtSucursal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtSucursal.Name = "txtSucursal"
         Me.txtSucursal.Size = New System.Drawing.Size(200, 45)
@@ -94,7 +95,7 @@ Partial Class frmSucursales
         'Actualizar
         '
         Me.Actualizar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Actualizar.Image = CType(resources.GetObject("Actualizar.Image"), System.Drawing.Image)
+        Me.Actualizar.Image = Global.AdministracionTicket.My.Resources.Resources.pencil
         Me.Actualizar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Actualizar.Name = "Actualizar"
         Me.Actualizar.Size = New System.Drawing.Size(36, 42)
@@ -108,7 +109,7 @@ Partial Class frmSucursales
         'Eliminar
         '
         Me.Eliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.Eliminar.Image = CType(resources.GetObject("Eliminar.Image"), System.Drawing.Image)
+        Me.Eliminar.Image = Global.AdministracionTicket.My.Resources.Resources.delete
         Me.Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.Eliminar.Name = "Eliminar"
         Me.Eliminar.Size = New System.Drawing.Size(36, 42)
@@ -123,7 +124,7 @@ Partial Class frmSucursales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(392, 458)
+        Me.ClientSize = New System.Drawing.Size(392, 460)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmSucursales"

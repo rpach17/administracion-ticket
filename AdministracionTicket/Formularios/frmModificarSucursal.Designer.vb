@@ -37,15 +37,17 @@ Partial Class frmModificarSucursal
         Me.txtNombreS = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblEmpresa = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         NOMBRELabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'NOMBRELabel
         '
         NOMBRELabel.AutoSize = True
         NOMBRELabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        NOMBRELabel.Location = New System.Drawing.Point(67, 11)
+        NOMBRELabel.Location = New System.Drawing.Point(75, 21)
         NOMBRELabel.Name = "NOMBRELabel"
         NOMBRELabel.Size = New System.Drawing.Size(73, 20)
         NOMBRELabel.TabIndex = 13
@@ -54,17 +56,17 @@ Partial Class frmModificarSucursal
         'btnActualizar
         '
         Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnActualizar.Location = New System.Drawing.Point(244, 343)
+        Me.btnActualizar.Location = New System.Drawing.Point(252, 353)
         Me.btnActualizar.Name = "btnActualizar"
         Me.btnActualizar.Size = New System.Drawing.Size(148, 43)
         Me.btnActualizar.TabIndex = 17
-        Me.btnActualizar.Text = "Realizar Cambios"
+        Me.btnActualizar.Text = "Realizar cambios"
         Me.btnActualizar.UseVisualStyleBackColor = True
         '
         'txtNombreM
         '
         Me.txtNombreM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtNombreM.Location = New System.Drawing.Point(194, 149)
+        Me.txtNombreM.Location = New System.Drawing.Point(202, 159)
         Me.txtNombreM.Name = "txtNombreM"
         Me.txtNombreM.ReadOnly = True
         Me.txtNombreM.Size = New System.Drawing.Size(198, 26)
@@ -77,7 +79,7 @@ Partial Class frmModificarSucursal
         Me.GroupBox1.Controls.Add(Me.txtLatitud)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(16, 199)
+        Me.GroupBox1.Location = New System.Drawing.Point(24, 209)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(376, 138)
         Me.GroupBox1.TabIndex = 15
@@ -123,7 +125,7 @@ Partial Class frmModificarSucursal
         'txtIDM
         '
         Me.txtIDM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtIDM.Location = New System.Drawing.Point(160, 149)
+        Me.txtIDM.Location = New System.Drawing.Point(168, 159)
         Me.txtIDM.Name = "txtIDM"
         Me.txtIDM.ReadOnly = True
         Me.txtIDM.Size = New System.Drawing.Size(35, 26)
@@ -134,7 +136,7 @@ Partial Class frmModificarSucursal
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(65, 152)
+        Me.Label3.Location = New System.Drawing.Point(73, 162)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(75, 20)
         Me.Label3.TabIndex = 21
@@ -143,7 +145,7 @@ Partial Class frmModificarSucursal
         'txtDireccionS
         '
         Me.txtDireccionS.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtDireccionS.Location = New System.Drawing.Point(160, 74)
+        Me.txtDireccionS.Location = New System.Drawing.Point(168, 84)
         Me.txtDireccionS.Multiline = True
         Me.txtDireccionS.Name = "txtDireccionS"
         Me.txtDireccionS.Size = New System.Drawing.Size(232, 69)
@@ -153,7 +155,7 @@ Partial Class frmModificarSucursal
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(65, 77)
+        Me.Label2.Location = New System.Drawing.Point(73, 87)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(75, 20)
         Me.Label2.TabIndex = 20
@@ -163,7 +165,7 @@ Partial Class frmModificarSucursal
         '
         Me.txtNombreS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombreS.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtNombreS.Location = New System.Drawing.Point(160, 42)
+        Me.txtNombreS.Location = New System.Drawing.Point(168, 52)
         Me.txtNombreS.Name = "txtNombreS"
         Me.txtNombreS.Size = New System.Drawing.Size(232, 26)
         Me.txtNombreS.TabIndex = 11
@@ -172,7 +174,7 @@ Partial Class frmModificarSucursal
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(12, 45)
+        Me.Label1.Location = New System.Drawing.Point(20, 55)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(128, 20)
         Me.Label1.TabIndex = 16
@@ -182,28 +184,38 @@ Partial Class frmModificarSucursal
         '
         Me.lblEmpresa.AutoSize = True
         Me.lblEmpresa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmpresa.Location = New System.Drawing.Point(156, 11)
+        Me.lblEmpresa.Location = New System.Drawing.Point(164, 21)
         Me.lblEmpresa.Name = "lblEmpresa"
         Me.lblEmpresa.Size = New System.Drawing.Size(73, 20)
         Me.lblEmpresa.TabIndex = 22
         Me.lblEmpresa.Text = "Empresa"
         '
+        'Panel1
+        '
+        Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(NOMBRELabel)
+        Me.Panel1.Controls.Add(Me.lblEmpresa)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.btnActualizar)
+        Me.Panel1.Controls.Add(Me.txtNombreS)
+        Me.Panel1.Controls.Add(Me.txtNombreM)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.GroupBox1)
+        Me.Panel1.Controls.Add(Me.txtDireccionS)
+        Me.Panel1.Controls.Add(Me.txtIDM)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Location = New System.Drawing.Point(12, 12)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(425, 413)
+        Me.Panel1.TabIndex = 23
+        '
         'frmModificarSucursal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(409, 401)
-        Me.Controls.Add(Me.lblEmpresa)
-        Me.Controls.Add(Me.btnActualizar)
-        Me.Controls.Add(Me.txtNombreM)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.txtIDM)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtDireccionS)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtNombreS)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(NOMBRELabel)
+        Me.ClientSize = New System.Drawing.Size(449, 438)
+        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -212,8 +224,9 @@ Partial Class frmModificarSucursal
         Me.Text = "Editando Sucursal"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnActualizar As System.Windows.Forms.Button
@@ -230,4 +243,5 @@ Partial Class frmModificarSucursal
     Friend WithEvents txtNombreS As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents lblEmpresa As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 End Class

@@ -35,6 +35,9 @@ Partial Class frmLogin
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.btnCerrar)
@@ -46,14 +49,15 @@ Partial Class frmLogin
         Me.Panel1.Controls.Add(Me.btnEntrar)
         Me.Panel1.Location = New System.Drawing.Point(6, 6)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(466, 256)
+        Me.Panel1.Size = New System.Drawing.Size(452, 219)
         Me.Panel1.TabIndex = 12
         '
         'btnCerrar
         '
+        Me.btnCerrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
-        Me.btnCerrar.Location = New System.Drawing.Point(428, 5)
+        Me.btnCerrar.Location = New System.Drawing.Point(414, 5)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(31, 30)
         Me.btnCerrar.TabIndex = 9
@@ -62,13 +66,14 @@ Partial Class frmLogin
         '
         'Label4
         '
+        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.BackColor = System.Drawing.Color.Gray
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(0, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(464, 41)
+        Me.Label4.Size = New System.Drawing.Size(450, 41)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Credenciales"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -77,7 +82,7 @@ Partial Class frmLogin
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(57, 113)
+        Me.Label3.Location = New System.Drawing.Point(54, 103)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(92, 20)
         Me.Label3.TabIndex = 6
@@ -85,8 +90,9 @@ Partial Class frmLogin
         '
         'txtPass
         '
+        Me.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.txtPass.Location = New System.Drawing.Point(155, 107)
+        Me.txtPass.Location = New System.Drawing.Point(152, 97)
         Me.txtPass.Name = "txtPass"
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPass.Size = New System.Drawing.Size(211, 29)
@@ -94,9 +100,10 @@ Partial Class frmLogin
         '
         'txtUser
         '
+        Me.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUser.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.txtUser.Location = New System.Drawing.Point(155, 75)
+        Me.txtUser.Location = New System.Drawing.Point(152, 65)
         Me.txtUser.Name = "txtUser"
         Me.txtUser.Size = New System.Drawing.Size(211, 29)
         Me.txtUser.TabIndex = 1
@@ -105,7 +112,7 @@ Partial Class frmLogin
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(85, 81)
+        Me.Label2.Location = New System.Drawing.Point(82, 71)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(64, 20)
         Me.Label2.TabIndex = 4
@@ -113,8 +120,8 @@ Partial Class frmLogin
         '
         'btnEntrar
         '
-        Me.btnEntrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
-        Me.btnEntrar.Location = New System.Drawing.Point(155, 160)
+        Me.btnEntrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.5!)
+        Me.btnEntrar.Location = New System.Drawing.Point(152, 132)
         Me.btnEntrar.Name = "btnEntrar"
         Me.btnEntrar.Size = New System.Drawing.Size(211, 47)
         Me.btnEntrar.TabIndex = 3
@@ -126,8 +133,8 @@ Partial Class frmLogin
         Me.AcceptButton = Me.btnEntrar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DarkGreen
-        Me.ClientSize = New System.Drawing.Size(478, 268)
+        Me.BackColor = System.Drawing.Color.SeaGreen
+        Me.ClientSize = New System.Drawing.Size(464, 231)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmLogin"

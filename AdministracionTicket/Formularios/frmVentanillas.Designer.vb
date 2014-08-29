@@ -57,6 +57,7 @@ Partial Class frmVentanillas
         'Panel1
         '
         Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.nudNumeroVent)
         Me.Panel1.Controls.Add(Me.btnAgregar)
         Me.Panel1.Controls.Add(Me.Label6)
@@ -72,15 +73,15 @@ Partial Class frmVentanillas
         Me.Panel1.Controls.Add(Me.cboMunicipio)
         Me.Panel1.Controls.Add(Me.cboDepto)
         Me.Panel1.Controls.Add(Me.cboPais)
-        Me.Panel1.Location = New System.Drawing.Point(12, 12)
+        Me.Panel1.Location = New System.Drawing.Point(23, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1169, 427)
+        Me.Panel1.Size = New System.Drawing.Size(1200, 454)
         Me.Panel1.TabIndex = 0
         '
         'nudNumeroVent
         '
         Me.nudNumeroVent.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.nudNumeroVent.Location = New System.Drawing.Point(144, 188)
+        Me.nudNumeroVent.Location = New System.Drawing.Point(159, 202)
         Me.nudNumeroVent.Name = "nudNumeroVent"
         Me.nudNumeroVent.Size = New System.Drawing.Size(59, 26)
         Me.nudNumeroVent.TabIndex = 62
@@ -89,9 +90,9 @@ Partial Class frmVentanillas
         'btnAgregar
         '
         Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnAgregar.Location = New System.Drawing.Point(209, 188)
+        Me.btnAgregar.Location = New System.Drawing.Point(224, 201)
         Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(125, 27)
+        Me.btnAgregar.Size = New System.Drawing.Size(98, 28)
         Me.btnAgregar.TabIndex = 61
         Me.btnAgregar.Text = "Agregar ventanilla"
         Me.btnAgregar.UseVisualStyleBackColor = True
@@ -100,7 +101,7 @@ Partial Class frmVentanillas
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(7, 191)
+        Me.Label6.Location = New System.Drawing.Point(22, 205)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(124, 20)
         Me.Label6.TabIndex = 60
@@ -117,7 +118,7 @@ Partial Class frmVentanillas
         Me.grpboxGestiones.Controls.Add(Me.dgvGestionesAsignadas)
         Me.grpboxGestiones.Controls.Add(Me.dgvGestionesNoAsignadas)
         Me.grpboxGestiones.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.grpboxGestiones.Location = New System.Drawing.Point(444, 5)
+        Me.grpboxGestiones.Location = New System.Drawing.Point(459, 19)
         Me.grpboxGestiones.Name = "grpboxGestiones"
         Me.grpboxGestiones.Size = New System.Drawing.Size(718, 412)
         Me.grpboxGestiones.TabIndex = 59
@@ -190,6 +191,7 @@ Partial Class frmVentanillas
         '
         Me.dgvGestionesAsignadas.AllowUserToAddRows = False
         Me.dgvGestionesAsignadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvGestionesAsignadas.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvGestionesAsignadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGestionesAsignadas.Location = New System.Drawing.Point(361, 68)
         Me.dgvGestionesAsignadas.Name = "dgvGestionesAsignadas"
@@ -202,6 +204,7 @@ Partial Class frmVentanillas
         '
         Me.dgvGestionesNoAsignadas.AllowUserToAddRows = False
         Me.dgvGestionesNoAsignadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvGestionesNoAsignadas.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvGestionesNoAsignadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGestionesNoAsignadas.Location = New System.Drawing.Point(18, 68)
         Me.dgvGestionesNoAsignadas.Name = "dgvGestionesNoAsignadas"
@@ -214,8 +217,9 @@ Partial Class frmVentanillas
         '
         Me.dgvVentanillas.AllowUserToAddRows = False
         Me.dgvVentanillas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvVentanillas.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvVentanillas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvVentanillas.Location = New System.Drawing.Point(144, 231)
+        Me.dgvVentanillas.Location = New System.Drawing.Point(159, 245)
         Me.dgvVentanillas.MultiSelect = False
         Me.dgvVentanillas.Name = "dgvVentanillas"
         Me.dgvVentanillas.ReadOnly = True
@@ -227,7 +231,7 @@ Partial Class frmVentanillas
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(65, 148)
+        Me.Label5.Location = New System.Drawing.Point(80, 164)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(66, 20)
         Me.Label5.TabIndex = 57
@@ -239,7 +243,7 @@ Partial Class frmVentanillas
         Me.cboOficinas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboOficinas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboOficinas.FormattingEnabled = True
-        Me.cboOficinas.Location = New System.Drawing.Point(144, 145)
+        Me.cboOficinas.Location = New System.Drawing.Point(159, 161)
         Me.cboOficinas.Name = "cboOficinas"
         Me.cboOficinas.Size = New System.Drawing.Size(294, 28)
         Me.cboOficinas.TabIndex = 56
@@ -249,7 +253,7 @@ Partial Class frmVentanillas
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(43, 115)
+        Me.Label4.Location = New System.Drawing.Point(58, 129)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(88, 20)
         Me.Label4.TabIndex = 55
@@ -259,7 +263,7 @@ Partial Class frmVentanillas
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(56, 81)
+        Me.Label3.Location = New System.Drawing.Point(71, 95)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(75, 20)
         Me.Label3.TabIndex = 54
@@ -269,7 +273,7 @@ Partial Class frmVentanillas
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(19, 44)
+        Me.Label2.Location = New System.Drawing.Point(34, 58)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(112, 20)
         Me.Label2.TabIndex = 53
@@ -279,11 +283,11 @@ Partial Class frmVentanillas
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(92, 13)
+        Me.Label1.Location = New System.Drawing.Point(107, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 20)
         Me.Label1.TabIndex = 52
-        Me.Label1.Text = "Pais"
+        Me.Label1.Text = "País"
         '
         'cboSucursales
         '
@@ -291,7 +295,7 @@ Partial Class frmVentanillas
         Me.cboSucursales.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboSucursales.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboSucursales.FormattingEnabled = True
-        Me.cboSucursales.Location = New System.Drawing.Point(144, 112)
+        Me.cboSucursales.Location = New System.Drawing.Point(159, 126)
         Me.cboSucursales.Name = "cboSucursales"
         Me.cboSucursales.Size = New System.Drawing.Size(294, 28)
         Me.cboSucursales.TabIndex = 51
@@ -303,7 +307,7 @@ Partial Class frmVentanillas
         Me.cboMunicipio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMunicipio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboMunicipio.FormattingEnabled = True
-        Me.cboMunicipio.Location = New System.Drawing.Point(144, 78)
+        Me.cboMunicipio.Location = New System.Drawing.Point(159, 92)
         Me.cboMunicipio.Name = "cboMunicipio"
         Me.cboMunicipio.Size = New System.Drawing.Size(294, 28)
         Me.cboMunicipio.TabIndex = 50
@@ -315,7 +319,7 @@ Partial Class frmVentanillas
         Me.cboDepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDepto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDepto.FormattingEnabled = True
-        Me.cboDepto.Location = New System.Drawing.Point(144, 44)
+        Me.cboDepto.Location = New System.Drawing.Point(159, 58)
         Me.cboDepto.Name = "cboDepto"
         Me.cboDepto.Size = New System.Drawing.Size(294, 28)
         Me.cboDepto.TabIndex = 49
@@ -327,7 +331,7 @@ Partial Class frmVentanillas
         Me.cboPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPais.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboPais.FormattingEnabled = True
-        Me.cboPais.Location = New System.Drawing.Point(144, 10)
+        Me.cboPais.Location = New System.Drawing.Point(159, 24)
         Me.cboPais.Name = "cboPais"
         Me.cboPais.Size = New System.Drawing.Size(294, 28)
         Me.cboPais.TabIndex = 48
@@ -337,7 +341,7 @@ Partial Class frmVentanillas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1193, 451)
+        Me.ClientSize = New System.Drawing.Size(1235, 454)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmVentanillas"
         Me.Text = "Ventanillas"

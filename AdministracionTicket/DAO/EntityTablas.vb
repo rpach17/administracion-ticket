@@ -369,9 +369,10 @@
     Public Shared Sub CargarDepartamentos(ByVal grid As DataGridView)
         Dim dep = (From d In ctx.DEPARTAMENTOS.ToList
                        Order By d.CODIGO_DEPTO
-                       Select d.IDDEPARTAMENTO, COD = d.CODIGO_DEPTO, Nombre = d.NOMBRE_DEPTO).ToList()
+                       Select d.IDDEPARTAMENTO, COD = d.CODIGO_DEPTO, Departamento = d.NOMBRE_DEPTO).ToList()
         grid.DataSource = dep
         grid.Columns(0).Visible = False
+        grid.Columns(1).Width = 30
     End Sub
 
     Public Shared Sub CargarMunicipiosDep(ByVal grid As DataGridView, ByVal filtro As Integer)
@@ -381,15 +382,17 @@
                    Select m.IDMUNICIPIO, COD = m.CODIGO_MPIO, Municipio = m.NOMBRE_MPIO).ToList()
         grid.DataSource = mun
         grid.Columns(0).Visible = False
+        grid.Columns(1).Width = 30
     End Sub
 
     Public Shared Sub CargarSucursalesMu(ByVal grid As DataGridView, ByVal filtro As Integer)
         Dim mun = (From m In ctx.SUCURSALES
                     Where m.IDMUNICIPIO = filtro
                    Order By m.NOMBRE
-                   Select m.IDSUCURSAL, Nombre = m.NOMBRE).ToList()
+                   Select m.IDSUCURSAL, Sucursal = m.NOMBRE).ToList()
         grid.DataSource = mun
         grid.Columns(0).Visible = False
+        'grid.Columns(1).Width = 30
     End Sub
 
     Public Shared Sub CargarUsuariosSu(ByVal grid As DataGridView, ByVal filtro As Integer)
@@ -523,7 +526,6 @@
             MsgBox(ex.Message)
         End Try
     End Sub
-
 #End Region
 
 #Region "Inicio de sesión"

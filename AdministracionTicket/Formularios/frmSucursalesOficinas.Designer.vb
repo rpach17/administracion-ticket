@@ -22,8 +22,6 @@ Partial Class frmSucursalesOficinas
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSucursalesOficinas))
-        Me.lblAccion = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -35,32 +33,22 @@ Partial Class frmSucursalesOficinas
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.cboOficicinas = New System.Windows.Forms.ComboBox()
         Me.dgvOficinas = New System.Windows.Forms.DataGridView()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.dgvOficinas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'lblAccion
-        '
-        Me.lblAccion.BackColor = System.Drawing.Color.Gray
-        Me.lblAccion.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblAccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.lblAccion.ForeColor = System.Drawing.Color.White
-        Me.lblAccion.Location = New System.Drawing.Point(0, 0)
-        Me.lblAccion.Name = "lblAccion"
-        Me.lblAccion.Size = New System.Drawing.Size(722, 44)
-        Me.lblAccion.TabIndex = 14
-        Me.lblAccion.Text = "OFICINAS POR SUCURSAL"
-        Me.lblAccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.txtBuscarSucursal)
         Me.Panel1.Controls.Add(Me.dgvSucursales)
-        Me.Panel1.Location = New System.Drawing.Point(7, 47)
+        Me.Panel1.Location = New System.Drawing.Point(33, 28)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(383, 365)
         Me.Panel1.TabIndex = 15
@@ -81,21 +69,22 @@ Partial Class frmSucursalesOficinas
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Image = CType(resources.GetObject("Label1.Image"), System.Drawing.Image)
+        Me.Label1.Image = Global.AdministracionTicket.My.Resources.Resources.magnifier
         Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label1.Location = New System.Drawing.Point(12, 43)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(152, 33)
         Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Buscar Sucursal"
+        Me.Label1.Text = "Buscar sucursal"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtBuscarSucursal
         '
         Me.txtBuscarSucursal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtBuscarSucursal.Location = New System.Drawing.Point(170, 47)
+        Me.txtBuscarSucursal.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.txtBuscarSucursal.Location = New System.Drawing.Point(170, 49)
         Me.txtBuscarSucursal.Name = "txtBuscarSucursal"
-        Me.txtBuscarSucursal.Size = New System.Drawing.Size(203, 20)
+        Me.txtBuscarSucursal.Size = New System.Drawing.Size(203, 23)
         Me.txtBuscarSucursal.TabIndex = 6
         '
         'dgvSucursales
@@ -106,17 +95,18 @@ Partial Class frmSucursalesOficinas
         Me.dgvSucursales.MultiSelect = False
         Me.dgvSucursales.Name = "dgvSucursales"
         Me.dgvSucursales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvSucursales.Size = New System.Drawing.Size(361, 282)
+        Me.dgvSucursales.Size = New System.Drawing.Size(361, 270)
         Me.dgvSucursales.TabIndex = 7
         '
         'Panel2
         '
+        Me.Panel2.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.btnQuitar)
         Me.Panel2.Controls.Add(Me.btnAgregar)
         Me.Panel2.Controls.Add(Me.cboOficicinas)
         Me.Panel2.Controls.Add(Me.dgvOficinas)
-        Me.Panel2.Location = New System.Drawing.Point(396, 47)
+        Me.Panel2.Location = New System.Drawing.Point(422, 28)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(319, 365)
         Me.Panel2.TabIndex = 16
@@ -136,30 +126,32 @@ Partial Class frmSucursalesOficinas
         '
         'btnQuitar
         '
-        Me.btnQuitar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnQuitar.Location = New System.Drawing.Point(38, 70)
+        Me.btnQuitar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.btnQuitar.Location = New System.Drawing.Point(36, 79)
         Me.btnQuitar.Name = "btnQuitar"
-        Me.btnQuitar.Size = New System.Drawing.Size(118, 38)
+        Me.btnQuitar.Size = New System.Drawing.Size(118, 33)
         Me.btnQuitar.TabIndex = 9
         Me.btnQuitar.Text = "Quitar"
         Me.btnQuitar.UseVisualStyleBackColor = True
         '
         'btnAgregar
         '
-        Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAgregar.Location = New System.Drawing.Point(160, 70)
+        Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.btnAgregar.Location = New System.Drawing.Point(161, 79)
         Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(118, 38)
+        Me.btnAgregar.Size = New System.Drawing.Size(118, 33)
         Me.btnAgregar.TabIndex = 7
         Me.btnAgregar.Text = "Agregar"
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
         'cboOficicinas
         '
+        Me.cboOficicinas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboOficicinas.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.cboOficicinas.FormattingEnabled = True
-        Me.cboOficicinas.Location = New System.Drawing.Point(38, 44)
+        Me.cboOficicinas.Location = New System.Drawing.Point(38, 49)
         Me.cboOficicinas.Name = "cboOficicinas"
-        Me.cboOficicinas.Size = New System.Drawing.Size(240, 21)
+        Me.cboOficicinas.Size = New System.Drawing.Size(240, 24)
         Me.cboOficicinas.TabIndex = 6
         '
         'dgvOficinas
@@ -169,28 +161,38 @@ Partial Class frmSucursalesOficinas
         Me.dgvOficinas.Location = New System.Drawing.Point(38, 114)
         Me.dgvOficinas.MultiSelect = False
         Me.dgvOficinas.Name = "dgvOficinas"
-        Me.dgvOficinas.Size = New System.Drawing.Size(240, 243)
+        Me.dgvOficinas.Size = New System.Drawing.Size(240, 235)
         Me.dgvOficinas.TabIndex = 8
+        '
+        'Panel3
+        '
+        Me.Panel3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel3.BackColor = System.Drawing.Color.White
+        Me.Panel3.Controls.Add(Me.Panel1)
+        Me.Panel3.Controls.Add(Me.Panel2)
+        Me.Panel3.Location = New System.Drawing.Point(12, 12)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(772, 420)
+        Me.Panel3.TabIndex = 17
         '
         'frmSucursalesOficinas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(722, 422)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.lblAccion)
+        Me.ClientSize = New System.Drawing.Size(793, 442)
+        Me.Controls.Add(Me.Panel3)
         Me.Name = "frmSucursalesOficinas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Oficinas por sucursal"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.dgvSucursales, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         CType(Me.dgvOficinas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents lblAccion As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -202,4 +204,5 @@ Partial Class frmSucursalesOficinas
     Friend WithEvents btnAgregar As System.Windows.Forms.Button
     Friend WithEvents cboOficicinas As System.Windows.Forms.ComboBox
     Friend WithEvents dgvOficinas As System.Windows.Forms.DataGridView
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
 End Class

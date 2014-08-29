@@ -83,6 +83,11 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <Private>True</Private>
@@ -130,6 +135,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>appcavistas.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmAnimacion.designer.vb">
+      <DependentUpon>frmAnimacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmAnimacion.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmConfig.Designer.vb">
       <DependentUpon>frmConfig.vb</DependentUpon>
@@ -241,6 +252,12 @@
     <Compile Include="Formularios\frmVentanillas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\RibbonMain.Designer.vb">
+      <DependentUpon>RibbonMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\RibbonMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -258,6 +275,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\frmAnimacion.resx">
+      <DependentUpon>frmAnimacion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmConfig.resx">
       <DependentUpon>frmConfig.vb</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +332,10 @@
     <EmbeddedResource Include="Formularios\frmVentanillas.resx">
       <DependentUpon>frmVentanillas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\RibbonMain.resx">
+      <DependentUpon>RibbonMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -441,6 +465,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\table_select_column1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\building1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_view_list1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picture_empty1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\switch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\715.GIF" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

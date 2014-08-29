@@ -12,13 +12,18 @@
 
     Private Sub frmAgregarSucursal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim su As SUCURSALES = EntityTablas.obtenerSucural(idSucursal)
-        lblEmpresa.Text = su.EMPRESAS.NOMBRE
-        txtNombreS.Text = su.NOMBRE
-        txtDireccionS.Text = su.DIRECCION
-        txtIDM.Text = su.MUNICIPIOS.CODIGO_MPIO
-        txtNombreM.Text = su.MUNICIPIOS.NOMBRE_MPIO
-        txtLongitud.Text = su.LONGITUD
-        txtLatitud.Text = su.LATITUD
+
+        Try
+            lblEmpresa.Text = su.EMPRESAS.NOMBRE
+            txtNombreS.Text = su.NOMBRE
+            txtDireccionS.Text = su.DIRECCION
+            txtIDM.Text = su.MUNICIPIOS.CODIGO_MPIO
+            txtNombreM.Text = su.MUNICIPIOS.NOMBRE_MPIO
+            txtLongitud.Text = su.LONGITUD
+            txtLatitud.Text = su.LATITUD
+        Catch ex As Exception
+        End Try
+
     End Sub
 
     Private Sub btnActualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnActualizar.Click

@@ -37,13 +37,13 @@ Partial Class frmGestionesOficina
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PasosDeLaGestiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RequisitosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.txtTiempo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvGestionesXOficina, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -58,7 +58,7 @@ Partial Class frmGestionesOficina
         Me.cboOficina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboOficina.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.cboOficina.FormattingEnabled = True
-        Me.cboOficina.Location = New System.Drawing.Point(91, 21)
+        Me.cboOficina.Location = New System.Drawing.Point(91, 24)
         Me.cboOficina.Name = "cboOficina"
         Me.cboOficina.Size = New System.Drawing.Size(197, 28)
         Me.cboOficina.TabIndex = 0
@@ -67,7 +67,7 @@ Partial Class frmGestionesOficina
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(27, 24)
+        Me.Label1.Location = New System.Drawing.Point(26, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(58, 20)
         Me.Label1.TabIndex = 1
@@ -77,7 +77,7 @@ Partial Class frmGestionesOficina
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label2.Location = New System.Drawing.Point(26, 49)
+        Me.Label2.Location = New System.Drawing.Point(25, 49)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(59, 20)
         Me.Label2.TabIndex = 2
@@ -127,7 +127,7 @@ Partial Class frmGestionesOficina
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label4.Location = New System.Drawing.Point(20, 112)
+        Me.Label4.Location = New System.Drawing.Point(23, 112)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(61, 20)
         Me.Label4.TabIndex = 7
@@ -148,20 +148,19 @@ Partial Class frmGestionesOficina
         Me.dgvGestionesXOficina.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvGestionesXOficina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGestionesXOficina.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.dgvGestionesXOficina.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvGestionesXOficina.Location = New System.Drawing.Point(3, 19)
+        Me.dgvGestionesXOficina.Location = New System.Drawing.Point(6, 22)
         Me.dgvGestionesXOficina.MultiSelect = False
         Me.dgvGestionesXOficina.Name = "dgvGestionesXOficina"
         Me.dgvGestionesXOficina.ReadOnly = True
         Me.dgvGestionesXOficina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGestionesXOficina.Size = New System.Drawing.Size(409, 274)
+        Me.dgvGestionesXOficina.Size = New System.Drawing.Size(403, 268)
         Me.dgvGestionesXOficina.TabIndex = 9
         '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PasosDeLaGestiónToolStripMenuItem, Me.RequisitosToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(175, 92)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(175, 70)
         '
         'PasosDeLaGestiónToolStripMenuItem
         '
@@ -176,6 +175,13 @@ Partial Class frmGestionesOficina
         Me.RequisitosToolStripMenuItem.Name = "RequisitosToolStripMenuItem"
         Me.RequisitosToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.RequisitosToolStripMenuItem.Text = "Requisitos"
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Image = CType(resources.GetObject("EliminarToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'GroupBox1
         '
@@ -241,6 +247,7 @@ Partial Class frmGestionesOficina
         'Panel1
         '
         Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.GroupBox2)
         Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.btnAgregar)
@@ -249,13 +256,6 @@ Partial Class frmGestionesOficina
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(803, 330)
         Me.Panel1.TabIndex = 14
-        '
-        'EliminarToolStripMenuItem
-        '
-        Me.EliminarToolStripMenuItem.Image = CType(resources.GetObject("EliminarToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
-        Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'frmGestionesOficina
         '
