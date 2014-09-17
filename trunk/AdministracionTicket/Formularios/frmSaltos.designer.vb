@@ -22,6 +22,7 @@ Partial Class frmSaltos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSaltos))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Nuevo = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -34,6 +35,11 @@ Partial Class frmSaltos
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnVisualizar = New System.Windows.Forms.ToolStripButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.dgvUsuarios = New System.Windows.Forms.DataGridView()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.dgvAsigUser = New System.Windows.Forms.DataGridView()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.dgvPasos = New System.Windows.Forms.DataGridView()
@@ -56,29 +62,25 @@ Partial Class frmSaltos
         Me.lblNo = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cboPasoNo = New System.Windows.Forms.ComboBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.dgvAsigUser = New System.Windows.Forms.DataGridView()
-        Me.dgvUsuarios = New System.Windows.Forms.DataGridView()
+        Me.CrearForm = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.dgvAsigUser, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvPasos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.txtNumPaso, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDuracion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        CType(Me.dgvAsigUser, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToolStrip1
         '
         Me.ToolStrip1.AutoSize = False
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Nuevo, Me.ToolStripSeparator1, Me.Actualizar, Me.ToolStripSeparator2, Me.Guardar, Me.Cancelar, Me.ToolStripSeparator3, Me.Eliminar, Me.ToolStripSeparator4, Me.BtnVisualizar})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Nuevo, Me.ToolStripSeparator1, Me.Actualizar, Me.ToolStripSeparator2, Me.Guardar, Me.Cancelar, Me.ToolStripSeparator3, Me.Eliminar, Me.ToolStripSeparator4, Me.BtnVisualizar, Me.CrearForm})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1276, 48)
@@ -174,6 +176,71 @@ Partial Class frmSaltos
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1253, 459)
         Me.Panel1.TabIndex = 4
+        '
+        'Panel3
+        '
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.dgvUsuarios)
+        Me.Panel3.Location = New System.Drawing.Point(1008, 48)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(235, 400)
+        Me.Panel3.TabIndex = 36
+        '
+        'dgvUsuarios
+        '
+        Me.dgvUsuarios.AllowUserToAddRows = False
+        Me.dgvUsuarios.AllowUserToDeleteRows = False
+        Me.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvUsuarios.Location = New System.Drawing.Point(0, 0)
+        Me.dgvUsuarios.MultiSelect = False
+        Me.dgvUsuarios.Name = "dgvUsuarios"
+        Me.dgvUsuarios.ReadOnly = True
+        Me.dgvUsuarios.RowHeadersVisible = False
+        Me.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvUsuarios.Size = New System.Drawing.Size(233, 398)
+        Me.dgvUsuarios.TabIndex = 34
+        '
+        'Panel2
+        '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.dgvAsigUser)
+        Me.Panel2.Location = New System.Drawing.Point(751, 48)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(252, 400)
+        Me.Panel2.TabIndex = 36
+        '
+        'dgvAsigUser
+        '
+        Me.dgvAsigUser.AllowUserToAddRows = False
+        Me.dgvAsigUser.AllowUserToDeleteRows = False
+        Me.dgvAsigUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvAsigUser.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvAsigUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAsigUser.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvAsigUser.Location = New System.Drawing.Point(0, 0)
+        Me.dgvAsigUser.MultiSelect = False
+        Me.dgvAsigUser.Name = "dgvAsigUser"
+        Me.dgvAsigUser.ReadOnly = True
+        Me.dgvAsigUser.RowHeadersVisible = False
+        Me.dgvAsigUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvAsigUser.Size = New System.Drawing.Size(250, 398)
+        Me.dgvAsigUser.TabIndex = 34
+        '
+        'Label9
+        '
+        Me.Label9.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(1008, 11)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(235, 38)
+        Me.Label9.TabIndex = 35
+        Me.Label9.Text = "Usurios sin asignar"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label7
         '
@@ -423,70 +490,14 @@ Partial Class frmSaltos
         Me.cboPasoNo.Size = New System.Drawing.Size(49, 28)
         Me.cboPasoNo.TabIndex = 8
         '
-        'Panel2
+        'CrearForm
         '
-        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Controls.Add(Me.dgvAsigUser)
-        Me.Panel2.Location = New System.Drawing.Point(751, 48)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(252, 400)
-        Me.Panel2.TabIndex = 36
-        '
-        'Panel3
-        '
-        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.dgvUsuarios)
-        Me.Panel3.Location = New System.Drawing.Point(1008, 48)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(235, 400)
-        Me.Panel3.TabIndex = 36
-        '
-        'Label9
-        '
-        Me.Label9.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(1008, 11)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(235, 38)
-        Me.Label9.TabIndex = 35
-        Me.Label9.Text = "Usurios sin asignar"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'dgvAsigUser
-        '
-        Me.dgvAsigUser.AllowUserToAddRows = False
-        Me.dgvAsigUser.AllowUserToDeleteRows = False
-        Me.dgvAsigUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dgvAsigUser.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvAsigUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvAsigUser.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvAsigUser.Location = New System.Drawing.Point(0, 0)
-        Me.dgvAsigUser.MultiSelect = False
-        Me.dgvAsigUser.Name = "dgvAsigUser"
-        Me.dgvAsigUser.ReadOnly = True
-        Me.dgvAsigUser.RowHeadersVisible = False
-        Me.dgvAsigUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvAsigUser.Size = New System.Drawing.Size(250, 398)
-        Me.dgvAsigUser.TabIndex = 34
-        '
-        'dgvUsuarios
-        '
-        Me.dgvUsuarios.AllowUserToAddRows = False
-        Me.dgvUsuarios.AllowUserToDeleteRows = False
-        Me.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dgvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvUsuarios.Location = New System.Drawing.Point(0, 0)
-        Me.dgvUsuarios.MultiSelect = False
-        Me.dgvUsuarios.Name = "dgvUsuarios"
-        Me.dgvUsuarios.ReadOnly = True
-        Me.dgvUsuarios.RowHeadersVisible = False
-        Me.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvUsuarios.Size = New System.Drawing.Size(233, 398)
-        Me.dgvUsuarios.TabIndex = 34
+        Me.CrearForm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.CrearForm.Image = CType(resources.GetObject("CrearForm.Image"), System.Drawing.Image)
+        Me.CrearForm.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.CrearForm.Name = "CrearForm"
+        Me.CrearForm.Size = New System.Drawing.Size(36, 45)
+        Me.CrearForm.Text = "Crear formulario"
         '
         'frmSaltos
         '
@@ -502,16 +513,16 @@ Partial Class frmSaltos
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        CType(Me.dgvAsigUser, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvPasos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.txtNumPaso, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDuracion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
-        CType(Me.dgvAsigUser, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -554,4 +565,5 @@ Partial Class frmSaltos
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents dgvUsuarios As System.Windows.Forms.DataGridView
     Friend WithEvents dgvAsigUser As System.Windows.Forms.DataGridView
+    Friend WithEvents CrearForm As System.Windows.Forms.ToolStripButton
 End Class

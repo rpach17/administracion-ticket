@@ -839,4 +839,17 @@
     End Sub
 #End Region
 
+
+#Region "Crear formularios"
+    Public Shared Function AgregarFormulario(ByVal form As FORMULARIOS)
+        Try
+            ctx.FORMULARIOS.AddObject(form)
+            ctx.SaveChanges()
+            Return form.IDFORMULARIO 'Después de SaveChanges(), EntityFramework carga el objeto 'ges' con los datos y así retornamos el ID recien agregado
+        Catch ex As UpdateException
+            Return ex.Message
+        End Try
+    End Function
+#End Region
+
 End Class

@@ -23,6 +23,27 @@
     End Sub
 
     Private Sub btnGuardarForm_Click(sender As Object, e As EventArgs) Handles btnGuardarForm.Click
-        panelCampos.Enabled = True
+        If txtTitulo.Text.Trim = "" Then
+            txtTitulo.Focus()
+            Exit Sub
+        End If
+
+        If chkEsGrid.Checked Then
+            If cboFormPadre.Text = "" Then
+                MsgBox("Seleccione el formulario padre", MsgBoxStyle.Exclamation, "Formulario")
+                Exit Sub
+            End If
+        End If
+
+        Dim idf As Integer = EntityTablas.AgregarFormulario(New FORMULARIOS With _
+                                                            {
+                                                                .TITULO = txtTitulo.Text,
+                                                                .IDSALTO = IdSalto1,
+                                                                .GRID = IIf(chkEsGrid.Checked, 1, 0),
+                                                                .FORMULARIO_PADRE = IIf(chkEsGrid.Checked, cboFormPadre.SelectedValue, 0)
+                                                            })
+
+                                                         
+
     End Sub
 End Class

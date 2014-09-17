@@ -61,6 +61,7 @@
         Cancelar.Enabled = False
         If dgvPasos.Rows.Count = 0 Then
             Actualizar.Enabled = False
+            CrearForm.Enabled = False
         End If
 
     End Sub
@@ -228,4 +229,20 @@
         'EntityTablas.CargarUsuariosAsignados(dgvAsigUser, ObtenerDatoGrid(dgvPasos))
     End Sub
 
+    Private Sub CrearForm_Click(sender As Object, e As EventArgs) Handles CrearForm.Click
+        Dim nump As Integer = ObtenerDatoGrid(dgvPasos, 2)
+
+        If nump = 1 Then
+            MsgBox("No puede crear formulario para este paso", MsgBoxStyle.Exclamation, "Formulario")
+            Exit Sub
+        Else
+            Dim idp As Integer = ObtenerDatoGrid(dgvPasos)
+            With frmCrearFormularios
+                .MdiParent = Me.MdiParent
+                .IdSalto1 = idp
+                .Show()
+                .Focus()
+            End With
+        End If
+    End Sub
 End Class
