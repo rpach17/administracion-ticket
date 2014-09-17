@@ -98,7 +98,7 @@
         End With
     End Sub
 
-    Private Sub PasosDeLaGestiónToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasosDeLaGestiónToolStripMenuItem.Click
+    Private Sub PasosDeLaGestiónToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             frmSaltos.Close()
         Catch ex As Exception
@@ -106,11 +106,22 @@
 
         Dim idg As Integer = ObtenerDatoGrid(dgvGestionesXOficina)
         Dim nombre As String = ObtenerDatoGrid(dgvGestionesXOficina, 2)
-        With frmSaltos
+        'With frmSaltos
+        '    .MdiParent = Me.MdiParent
+        '    .Ido1 = cboOficina.SelectedValue
+        '    .Idg1 = idg
+        '    .NombreGestion1 = nombre
+        '    .Show()
+        '    .Focus()
+        'End With
+        Try
+            frmGrupoSaltos.Close()
+        Catch ex As Exception
+        End Try
+
+        With frmGrupoSaltos
+            .IdGestion = idg
             .MdiParent = Me.MdiParent
-            .Ido1 = cboOficina.SelectedValue
-            .Idg1 = idg
-            .NombreGestion1 = nombre
             .Show()
             .Focus()
         End With

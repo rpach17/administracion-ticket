@@ -34,31 +34,15 @@ Partial Class frmSaltos
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnVisualizar = New System.Windows.Forms.ToolStripButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
-        Me.NuevoP = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ActualizarP = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.GuardarP = New System.Windows.Forms.ToolStripButton()
-        Me.CancelarP = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.EliminarP = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
-        Me.txtNumProceso = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
-        Me.txtDescripcion = New System.Windows.Forms.ToolStripTextBox()
-        Me.dgvProcesos = New System.Windows.Forms.DataGridView()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.dgvPasos = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.txtDescripcionPaso = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtDecision = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.chkDecision = New System.Windows.Forms.CheckBox()
         Me.txtNumPaso = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -72,11 +56,9 @@ Partial Class frmSaltos
         Me.lblNo = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cboPasoNo = New System.Windows.Forms.ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.ToolStrip2.SuspendLayout()
-        CType(Me.dgvProcesos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvPasos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.txtNumPaso, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -183,142 +165,15 @@ Partial Class frmSaltos
         Me.Panel1.Size = New System.Drawing.Size(1213, 459)
         Me.Panel1.TabIndex = 4
         '
-        'Panel2
-        '
-        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Controls.Add(Me.ToolStrip2)
-        Me.Panel2.Controls.Add(Me.dgvProcesos)
-        Me.Panel2.Location = New System.Drawing.Point(540, 48)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(648, 400)
-        Me.Panel2.TabIndex = 36
-        '
-        'ToolStrip2
-        '
-        Me.ToolStrip2.AutoSize = False
-        Me.ToolStrip2.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoP, Me.ToolStripSeparator5, Me.ActualizarP, Me.ToolStripSeparator6, Me.GuardarP, Me.CancelarP, Me.ToolStripSeparator7, Me.EliminarP, Me.ToolStripSeparator8, Me.ToolStripLabel1, Me.txtNumProceso, Me.ToolStripLabel2, Me.txtDescripcion})
-        Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip2.Name = "ToolStrip2"
-        Me.ToolStrip2.Size = New System.Drawing.Size(646, 48)
-        Me.ToolStrip2.TabIndex = 3
-        Me.ToolStrip2.Text = "ToolStrip2"
-        '
-        'NuevoP
-        '
-        Me.NuevoP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.NuevoP.Image = Global.AdministracionTicket.My.Resources.Resources.page_add
-        Me.NuevoP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.NuevoP.Name = "NuevoP"
-        Me.NuevoP.Size = New System.Drawing.Size(36, 45)
-        Me.NuevoP.Text = "Nuevo Proceso"
-        '
-        'ToolStripSeparator5
-        '
-        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 48)
-        '
-        'ActualizarP
-        '
-        Me.ActualizarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ActualizarP.Image = Global.AdministracionTicket.My.Resources.Resources.pencil
-        Me.ActualizarP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ActualizarP.Name = "ActualizarP"
-        Me.ActualizarP.Size = New System.Drawing.Size(36, 45)
-        Me.ActualizarP.Text = "Modificar Registro"
-        '
-        'ToolStripSeparator6
-        '
-        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 48)
-        '
-        'GuardarP
-        '
-        Me.GuardarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.GuardarP.Image = Global.AdministracionTicket.My.Resources.Resources.save
-        Me.GuardarP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.GuardarP.Name = "GuardarP"
-        Me.GuardarP.Size = New System.Drawing.Size(36, 45)
-        Me.GuardarP.Text = "Guardar"
-        '
-        'CancelarP
-        '
-        Me.CancelarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.CancelarP.Image = Global.AdministracionTicket.My.Resources.Resources.cancel
-        Me.CancelarP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.CancelarP.Name = "CancelarP"
-        Me.CancelarP.Size = New System.Drawing.Size(36, 45)
-        Me.CancelarP.Text = "Cancelar"
-        '
-        'ToolStripSeparator7
-        '
-        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 48)
-        '
-        'EliminarP
-        '
-        Me.EliminarP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.EliminarP.Image = Global.AdministracionTicket.My.Resources.Resources.delete
-        Me.EliminarP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.EliminarP.Name = "EliminarP"
-        Me.EliminarP.Size = New System.Drawing.Size(36, 45)
-        Me.EliminarP.Text = "Eliminar"
-        '
-        'ToolStripSeparator8
-        '
-        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 48)
-        '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(51, 45)
-        Me.ToolStripLabel1.Text = "Número"
-        '
-        'txtNumProceso
-        '
-        Me.txtNumProceso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtNumProceso.Name = "txtNumProceso"
-        Me.txtNumProceso.Size = New System.Drawing.Size(40, 48)
-        '
-        'ToolStripLabel2
-        '
-        Me.ToolStripLabel2.Name = "ToolStripLabel2"
-        Me.ToolStripLabel2.Size = New System.Drawing.Size(69, 45)
-        Me.ToolStripLabel2.Text = "Descripción"
-        '
-        'txtDescripcion
-        '
-        Me.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(250, 48)
-        '
-        'dgvProcesos
-        '
-        Me.dgvProcesos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvProcesos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dgvProcesos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvProcesos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProcesos.Location = New System.Drawing.Point(3, 51)
-        Me.dgvProcesos.MultiSelect = False
-        Me.dgvProcesos.Name = "dgvProcesos"
-        Me.dgvProcesos.ReadOnly = True
-        Me.dgvProcesos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvProcesos.Size = New System.Drawing.Size(640, 344)
-        Me.dgvProcesos.TabIndex = 21
-        '
         'Label7
         '
         Me.Label7.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(540, 11)
+        Me.Label7.Location = New System.Drawing.Point(911, 11)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(648, 38)
+        Me.Label7.Size = New System.Drawing.Size(277, 38)
         Me.Label7.TabIndex = 35
         Me.Label7.Text = "Procesos del paso"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -331,7 +186,7 @@ Partial Class frmSaltos
         Me.Label8.ForeColor = System.Drawing.Color.White
         Me.Label8.Location = New System.Drawing.Point(458, 11)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(76, 38)
+        Me.Label8.Size = New System.Drawing.Size(287, 38)
         Me.Label8.TabIndex = 34
         Me.Label8.Text = "Pasos"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -340,7 +195,7 @@ Partial Class frmSaltos
         '
         Me.dgvPasos.AllowUserToAddRows = False
         Me.dgvPasos.AllowUserToDeleteRows = False
-        Me.dgvPasos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvPasos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPasos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvPasos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPasos.Location = New System.Drawing.Point(458, 48)
@@ -349,7 +204,7 @@ Partial Class frmSaltos
         Me.dgvPasos.ReadOnly = True
         Me.dgvPasos.RowHeadersVisible = False
         Me.dgvPasos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvPasos.Size = New System.Drawing.Size(76, 400)
+        Me.dgvPasos.Size = New System.Drawing.Size(287, 400)
         Me.dgvPasos.TabIndex = 33
         '
         'GroupBox1
@@ -379,6 +234,17 @@ Partial Class frmSaltos
         Me.GroupBox1.TabIndex = 32
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Información del paso"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.Label5.Location = New System.Drawing.Point(145, 255)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(128, 20)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "¿Tiene desición?"
         '
         'txtDescripcionPaso
         '
@@ -413,17 +279,6 @@ Partial Class frmSaltos
         Me.Label3.Size = New System.Drawing.Size(70, 20)
         Me.Label3.TabIndex = 24
         Me.Label3.Text = "Decisión"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label5.Location = New System.Drawing.Point(145, 255)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(128, 20)
-        Me.Label5.TabIndex = 13
-        Me.Label5.Text = "¿Tiene desición?"
         '
         'chkDecision
         '
@@ -558,6 +413,14 @@ Partial Class frmSaltos
         Me.cboPasoNo.Size = New System.Drawing.Size(49, 28)
         Me.cboPasoNo.TabIndex = 8
         '
+        'Panel2
+        '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Location = New System.Drawing.Point(911, 48)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(277, 400)
+        Me.Panel2.TabIndex = 36
+        '
         'frmSaltos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -568,14 +431,10 @@ Partial Class frmSaltos
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmSaltos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Pasos de la gestión"
+        Me.Text = "Pasos del Proceso"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.ToolStrip2.ResumeLayout(False)
-        Me.ToolStrip2.PerformLayout()
-        CType(Me.dgvProcesos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvPasos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -597,22 +456,6 @@ Partial Class frmSaltos
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents BtnVisualizar As System.Windows.Forms.ToolStripButton
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents ToolStrip2 As System.Windows.Forms.ToolStrip
-    Friend WithEvents NuevoP As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ActualizarP As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents GuardarP As System.Windows.Forms.ToolStripButton
-    Friend WithEvents CancelarP As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents EliminarP As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
-    Friend WithEvents txtNumProceso As System.Windows.Forms.ToolStripTextBox
-    Friend WithEvents ToolStripLabel2 As System.Windows.Forms.ToolStripLabel
-    Friend WithEvents txtDescripcion As System.Windows.Forms.ToolStripTextBox
-    Friend WithEvents dgvProcesos As System.Windows.Forms.DataGridView
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents dgvPasos As System.Windows.Forms.DataGridView
@@ -635,4 +478,5 @@ Partial Class frmSaltos
     Friend WithEvents cboPasoNo As System.Windows.Forms.ComboBox
     Friend WithEvents txtDescripcionPaso As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
 End Class

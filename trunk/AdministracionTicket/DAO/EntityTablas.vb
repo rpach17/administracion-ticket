@@ -155,6 +155,29 @@
         grid.Columns(0).Visible = False
     End Sub
 
+    Public Shared Sub CargarSucursalesOfi(ByVal cbo As ComboBox, ByVal filtro As Integer)
+        Dim suOf = (From sucof In ctx.DETALLE_SUCURSAL_OFICINA
+                    Where sucof.IDSUCURSAL = filtro
+                   Order By sucof.IDOFICINA
+                   Select sucof.IDDETALLE_SUCURSAL_OFICINA, sucof.OFICINAS.NOMBRE_OFICINA).ToList()
+        cbo.DataSource = suOf
+        cbo.DisplayMember = "NOMBRE_OFICINA"
+        cbo.ValueMember = "IDDETALLE_SUCURSAL_OFICINA"
+        cbo.SelectedIndex = -1
+    End Sub
+
+    Public Shared Sub CargarCboGestiones(ByVal cbo As ComboBox, ByVal filtro As Integer)
+        Dim gestiones = (From g In ctx.GESTIONES
+                         Join dog In ctx.DETALLE_OFICINA_GESTIONES On dog.IDGESTION Equals g.IDGESTION
+                         Join dso In ctx.DETALLE_SUCURSAL_OFICINA On dso.IDOFICINA Equals dog.IDOFICINA
+                         Where dso.IDDETALLE_SUCURSAL_OFICINA = filtro
+                         Select g.IDGESTION, g.NOMBRE).ToList
+        cbo.DataSource = gestiones
+        cbo.DisplayMember = "NOMBRE"
+        cbo.ValueMember = "IDGESTION"
+        cbo.SelectedIndex = -1
+    End Sub
+
     Public Shared Sub AgregarSuOf(ByVal SuOf As DETALLE_SUCURSAL_OFICINA)
         Try
             ctx.DETALLE_SUCURSAL_OFICINA.AddObject(SuOf)
@@ -652,20 +675,20 @@
         combo.DataSource = puestos
     End Sub
 
-    Public Shared Sub CargarSaltos(ByVal grid As DataGridView, ByVal idg As Integer)
+    Public Shared Sub CargarSaltos(ByVal grid As DataGridView, ByVal idgs As Integer)
         Dim sal = (From s In ctx.SALTOS.ToList
-                   Where s.IDGESTION = idg
+                   Where s.IDGRUPO_SALTOS = idgs
                   Order By s.NUMERO_SALTO
-                  Select s.IDSALTO, Numero = s.NUMERO_SALTO).ToList()
+                  Select s.IDSALTO, Numero = s.NUMERO_SALTO, s.DESCRIPCION_SALTO).ToList()
 
         grid.DataSource = sal
         grid.Columns(0).Visible = False
 
     End Sub
 
-    Public Shared Sub CargarSaltosCbo(ByVal combo As ComboBox, ByVal idg As Integer)
+    Public Shared Sub CargarSaltosCbo(ByVal combo As ComboBox, ByVal idgs As Integer)
         Dim sal = (From s In ctx.SALTOS.ToList
-                   Where s.IDGESTION = idg
+                   Where s.IDGRUPO_SALTOS = idgs
                   Order By s.NUMERO_SALTO
                   Select s.IDSALTO, s.NUMERO_SALTO).ToList()
 
@@ -677,7 +700,7 @@
 
     Public Shared Sub AgregarSalto(ByVal salto As SALTOS)
         Dim paso As Integer = (From p In ctx.SALTOS.ToList()
-                   Where p.NUMERO_SALTO = salto.NUMERO_SALTO AndAlso p.IDGESTION = salto.IDGESTION).Count()
+                   Where p.NUMERO_SALTO = salto.NUMERO_SALTO AndAlso p.GRUPO_SALTOS.IDGESTION = salto.GRUPO_SALTOS.IDGESTION).Count()
 
         If paso < 1 Then
             Try
@@ -687,6 +710,58 @@
                 MsgBox(ex.Message)
             End Try
         End If
+    End Sub
+
+    Public Shared Sub AgregarGrupoSalto(ByVal grupoSalto As GRUPO_SALTOS)
+        Dim activo As Integer = (From gs In ctx.GRUPO_SALTOS
+                                 Where gs.IDGESTION = grupoSalto.IDGESTION AndAlso gs.ACTIVO = 1 _
+                                 AndAlso gs.IDDETALLE_SUCURSAL_OFICINA = grupoSalto.IDDETALLE_SUCURSAL_OFICINA).Count()
+
+        If activo < 1 Then
+            Try
+                ctx.GRUPO_SALTOS.AddObject(grupoSalto)
+                ctx.SaveChanges()
+                MsgBox("Salto agregado exitosamente")
+            Catch ex As UpdateException
+                MsgBox(ex.Message)
+            End Try
+        ElseIf grupoSalto.ACTIVO = 1 Then
+            Try
+                Dim grupos = (From gr In ctx.GRUPO_SALTOS
+                          Where gr.IDGESTION = grupoSalto.IDGESTION AndAlso gr.IDDETALLE_SUCURSAL_OFICINA = grupoSalto.IDDETALLE_SUCURSAL_OFICINA
+                          Select gr).ToList()
+                For Each g In grupos
+                    g.ACTIVO = 0
+                Next
+                ctx.GRUPO_SALTOS.AddObject(grupoSalto)
+                ctx.SaveChanges()
+                MsgBox("Salto agregado exitosamente")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Else
+            Try
+                ctx.GRUPO_SALTOS.AddObject(grupoSalto)
+                ctx.SaveChanges()
+                MsgBox("Salto agregado exitosamente")
+            Catch ex As UpdateException
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Public Shared Sub CargarGrupoSaltos(ByVal grid As DataGridView, ByVal idg As Integer, ByVal iddso As Integer)
+        Dim gsal = (From gs In ctx.GRUPO_SALTOS
+                    Where gs.IDGESTION = idg AndAlso gs.IDDETALLE_SUCURSAL_OFICINA = iddso
+                    Select gs.IDGRUPO_SALTOS, gs.DESCRIPCION, gs.ACTIVO).ToList()
+
+        grid.Rows.Clear()
+        For Each g In gsal
+            grid.Rows.Add(g.IDGRUPO_SALTOS, g.DESCRIPCION, IIf(g.ACTIVO = 1, True, False), "Pasos")
+        Next
+        'grid.DataSource = gsal
+        'grid.Columns(0).Visible = False
+
     End Sub
 
     Public Shared Function obtenerSalto(ByVal idsalto As Integer)
@@ -717,9 +792,11 @@
         End Try
     End Sub
 
+
+
     Public Shared Sub EliminarSalto(ByVal idg As Integer)
         'Al eliminar el salto se eliminan los procesos en cascada definido en la base de datos
-        Dim ultSalto = (From s In ctx.SALTOS.ToList Where s.IDGESTION = idg
+        Dim ultSalto = (From s In ctx.SALTOS.ToList Where s.IDGRUPO_SALTOS = idg
                         Order By s.NUMERO_SALTO Descending
                         Select s).First()
 
@@ -732,51 +809,12 @@
         End Try
     End Sub
 
-    Public Shared Sub AgregarProceso(ByVal proceso As PROCESOS)
-        Try
-            ctx.PROCESOS.AddObject(proceso)
-            ctx.SaveChanges()
-        Catch ex As UpdateException
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
-    Public Shared Sub CargarProcesos(ByVal grid As DataGridView, ByVal ids As Integer)
-        Dim pro = (From p In ctx.PROCESOS.ToList()
-                   Where p.IDSALTO = ids
-                  Order By p.NUMERO
-                  Select p.IDPROCESO, p.NUMERO, p.DESCRIPCION).ToList()
-
-        grid.DataSource = pro
-        grid.Columns(0).Visible = False
-    End Sub
-
-    Public Shared Sub ActualizarProceso(ByVal idp As Integer, ByVal numero As Integer, ByVal Descripcion As String)
-        Dim Proceso As PROCESOS = (From p In ctx.PROCESOS Where p.IDPROCESO = idp).First
-        Try
-            With Proceso
-                .NUMERO = numero
-                .DESCRIPCION = Descripcion
-            End With
-            ctx.SaveChanges()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
-    Public Shared Sub EliminarProceso(ByVal idsalto As Integer)
-        Dim ultproceso = (From p In ctx.PROCESOS.ToList Where p.IDSALTO = idsalto
-                        Order By p.NUMERO Descending
-                        Select p).First()
-
-        Dim pro = (From pr In ctx.PROCESOS.ToList Where pr.IDPROCESO = ultproceso.IDPROCESO Select pr).SingleOrDefault
-        Try
-            ctx.PROCESOS.DeleteObject(pro)
-            ctx.SaveChanges()
-        Catch ex As UpdateException
-            MsgBox(ex.Message)
-        End Try
-    End Sub
+    Shared Function fidOficina(ByVal iddso) As Integer
+        Dim id As Integer = (From o In ctx.DETALLE_SUCURSAL_OFICINA.ToList()
+                             Where o.IDDETALLE_SUCURSAL_OFICINA = iddso
+                             Select o.IDOFICINA).SingleOrDefault
+        Return id
+    End Function
 
 #End Region
 

@@ -35,6 +35,10 @@ Partial Class RibbonMain
         Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarStaticItem1 = New DevExpress.XtraBars.BarStaticItem()
+        Me.lblInfoConexion = New DevExpress.XtraBars.BarStaticItem()
+        Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
+        Me.lblInfoUbicacion = New DevExpress.XtraBars.BarStaticItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -42,10 +46,7 @@ Partial Class RibbonMain
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.ClientPanel = New DevExpress.XtraEditors.PanelControl()
         Me.XtraTabManager = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
-        Me.BarStaticItem1 = New DevExpress.XtraBars.BarStaticItem()
-        Me.lblInfoConexion = New DevExpress.XtraBars.BarStaticItem()
-        Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
-        Me.lblInfoUbicacion = New DevExpress.XtraBars.BarStaticItem()
+        Me.BarButtonItem12 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,9 +58,9 @@ Partial Class RibbonMain
         '
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu1
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarStaticItem1, Me.lblInfoConexion, Me.BarStaticItem2, Me.lblInfoUbicacion})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarStaticItem1, Me.lblInfoConexion, Me.BarStaticItem2, Me.lblInfoUbicacion, Me.BarButtonItem12})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 17
+        Me.RibbonControl.MaxItemId = 18
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
@@ -164,6 +165,36 @@ Partial Class RibbonMain
         Me.BarButtonItem5.LargeGlyph = CType(resources.GetObject("BarButtonItem5.LargeGlyph"), System.Drawing.Image)
         Me.BarButtonItem5.Name = "BarButtonItem5"
         '
+        'BarStaticItem1
+        '
+        Me.BarStaticItem1.Caption = "Conectado como:"
+        Me.BarStaticItem1.Id = 13
+        Me.BarStaticItem1.Name = "BarStaticItem1"
+        Me.BarStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'lblInfoConexion
+        '
+        Me.lblInfoConexion.Caption = "aaa"
+        Me.lblInfoConexion.Id = 14
+        Me.lblInfoConexion.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblInfoConexion.ItemAppearance.Normal.Options.UseFont = True
+        Me.lblInfoConexion.Name = "lblInfoConexion"
+        Me.lblInfoConexion.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'BarStaticItem2
+        '
+        Me.BarStaticItem2.Caption = "|"
+        Me.BarStaticItem2.Id = 15
+        Me.BarStaticItem2.Name = "BarStaticItem2"
+        Me.BarStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'lblInfoUbicacion
+        '
+        Me.lblInfoUbicacion.Caption = "bbb"
+        Me.lblInfoUbicacion.Id = 16
+        Me.lblInfoUbicacion.Name = "lblInfoUbicacion"
+        Me.lblInfoUbicacion.TextAlignment = System.Drawing.StringAlignment.Near
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1, Me.RibbonPageGroup2})
@@ -175,6 +206,7 @@ Partial Class RibbonMain
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BarButtonItem1)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BarButtonItem2)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BarButtonItem3)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.BarButtonItem12)
         Me.RibbonPageGroup1.Name = "RibbonPageGroup1"
         Me.RibbonPageGroup1.Text = "Administración"
         '
@@ -215,35 +247,11 @@ Partial Class RibbonMain
         Me.XtraTabManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover
         Me.XtraTabManager.MdiParent = Me
         '
-        'BarStaticItem1
+        'BarButtonItem12
         '
-        Me.BarStaticItem1.Caption = "Conectado como:"
-        Me.BarStaticItem1.Id = 13
-        Me.BarStaticItem1.Name = "BarStaticItem1"
-        Me.BarStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near
-        '
-        'lblInfoConexion
-        '
-        Me.lblInfoConexion.Caption = "aaa"
-        Me.lblInfoConexion.Id = 14
-        Me.lblInfoConexion.ItemAppearance.Normal.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.lblInfoConexion.ItemAppearance.Normal.Options.UseFont = True
-        Me.lblInfoConexion.Name = "lblInfoConexion"
-        Me.lblInfoConexion.TextAlignment = System.Drawing.StringAlignment.Near
-        '
-        'BarStaticItem2
-        '
-        Me.BarStaticItem2.Caption = "|"
-        Me.BarStaticItem2.Id = 15
-        Me.BarStaticItem2.Name = "BarStaticItem2"
-        Me.BarStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near
-        '
-        'lblInfoUbicacion
-        '
-        Me.lblInfoUbicacion.Caption = "bbb"
-        Me.lblInfoUbicacion.Id = 16
-        Me.lblInfoUbicacion.Name = "lblInfoUbicacion"
-        Me.lblInfoUbicacion.TextAlignment = System.Drawing.StringAlignment.Near
+        Me.BarButtonItem12.Caption = "Procesos"
+        Me.BarButtonItem12.Id = 17
+        Me.BarButtonItem12.Name = "BarButtonItem12"
         '
         'RibbonMain
         '
@@ -294,6 +302,7 @@ Partial Class RibbonMain
     Friend WithEvents lblInfoConexion As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents BarStaticItem2 As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents lblInfoUbicacion As DevExpress.XtraBars.BarStaticItem
+    Friend WithEvents BarButtonItem12 As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

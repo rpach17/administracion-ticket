@@ -88,4 +88,12 @@
         lblInfoConexion.Caption = String.Format("{0} ({1})", SesionActiva.Nombre, SesionActiva.Usuario)
         lblInfoUbicacion.Caption = String.Format("{0}, {1}", SesionActiva.Sucursal, SesionActiva.Oficina)
     End Sub
+
+    Private Sub BarButtonItem12_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem12.ItemClick
+        With frmGrupoSaltos
+            .MdiParent = Me
+            .Show()
+            .Focus()
+        End With
+    End Sub
 End Class
