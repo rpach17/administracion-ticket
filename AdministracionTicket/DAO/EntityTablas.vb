@@ -679,11 +679,11 @@
         Dim sal = (From s In ctx.SALTOS.ToList
                    Where s.IDGRUPO_SALTOS = idgs
                   Order By s.NUMERO_SALTO
-                  Select s.IDSALTO, Numero = s.NUMERO_SALTO, s.DESCRIPCION_SALTO).ToList()
+                  Select s.IDSALTO, s.IDPUESTO, Numero = s.NUMERO_SALTO, Descripcion = s.DESCRIPCION_SALTO).ToList()
 
         grid.DataSource = sal
         grid.Columns(0).Visible = False
-
+        grid.Columns(1).Visible = False
     End Sub
 
     Public Shared Sub CargarSaltosCbo(ByVal combo As ComboBox, ByVal idgs As Integer)
@@ -816,6 +816,27 @@
         Return id
     End Function
 
+    Public Shared Sub CargarUsuarios(ByVal grid As DataGridView, ByVal idPuesto As Integer)
+        Dim user = (From u In ctx.USUARIOS
+                    Where u.IDPUESTO = idPuesto
+                    Select u.IDUSUARIO, Usuario = u.USUARIO).ToList()
+
+        grid.DataSource = user
+        grid.Columns(0).Visible = False
+
+    End Sub
+
+    Public Shared Sub CargarUsuariosAsignados(ByVal grid As DataGridView, ByVal idSalto As Integer)
+        Dim user = (From u In ctx.USUARIOS
+                    Join ds In ctx.DETALLE_SALTO_USUARIOS On u.IDUSUARIO Equals ds.IDUSUARIO
+                    Where ds.IDSALTO = idSalto
+                    Select u.IDUSUARIO, Usuario = u.USUARIO, ds.PRIORIDAD).ToList()
+
+        grid.Rows.Clear()
+        For Each u In user
+            grid.Rows.Add(u.IDUSUARIO, u.Usuario, IIf(u.PRIORIDAD = 1, True, False))
+        Next
+    End Sub
 #End Region
 
 End Class

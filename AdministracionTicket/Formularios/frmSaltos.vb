@@ -209,6 +209,8 @@
 
     Private Sub dgvPasos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dgvPasos.CellClick
         idp = ObtenerDatoGrid(dgvPasos)
+        EntityTablas.CargarUsuarios(dgvUsuarios, ObtenerDatoGrid(dgvPasos, 1))
+        EntityTablas.CargarUsuariosAsignados(dgvAsigUser, ObtenerDatoGrid(dgvPasos))
     End Sub
 
     Private Sub txtNumProceso_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
@@ -222,11 +224,8 @@
     End Sub
 
 
-    'Private Sub BtnVisualizar_Click(sender As Object, e As EventArgs) Handles BtnVisualizar.Click
-    '    With Datos
-    '        .IdGestion1 = idg
-    '        .ShowDialog()
-    '    End With
-    'End Sub
+    Private Sub dgvPasos_Click(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPasos.CellClick
+        'EntityTablas.CargarUsuariosAsignados(dgvAsigUser, ObtenerDatoGrid(dgvPasos))
+    End Sub
 
 End Class

@@ -57,6 +57,10 @@ Partial Class frmSaltos
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cboPasoNo = New System.Windows.Forms.ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.dgvAsigUser = New System.Windows.Forms.DataGridView()
+        Me.dgvUsuarios = New System.Windows.Forms.DataGridView()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvPasos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,6 +68,10 @@ Partial Class frmSaltos
         CType(Me.txtNumPaso, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDuracion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.dgvAsigUser, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -73,7 +81,7 @@ Partial Class frmSaltos
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Nuevo, Me.ToolStripSeparator1, Me.Actualizar, Me.ToolStripSeparator2, Me.Guardar, Me.Cancelar, Me.ToolStripSeparator3, Me.Eliminar, Me.ToolStripSeparator4, Me.BtnVisualizar})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1238, 48)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1276, 48)
         Me.ToolStrip1.TabIndex = 3
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -155,14 +163,16 @@ Partial Class frmSaltos
         '
         Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.Panel3)
         Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.dgvPasos)
         Me.Panel1.Controls.Add(Me.GroupBox1)
-        Me.Panel1.Location = New System.Drawing.Point(12, 58)
+        Me.Panel1.Location = New System.Drawing.Point(12, 64)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1213, 459)
+        Me.Panel1.Size = New System.Drawing.Size(1253, 459)
         Me.Panel1.TabIndex = 4
         '
         'Label7
@@ -171,11 +181,11 @@ Partial Class frmSaltos
         Me.Label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(911, 11)
+        Me.Label7.Location = New System.Drawing.Point(751, 11)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(277, 38)
+        Me.Label7.Size = New System.Drawing.Size(252, 38)
         Me.Label7.TabIndex = 35
-        Me.Label7.Text = "Procesos del paso"
+        Me.Label7.Text = "Usuarios"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label8
@@ -416,16 +426,73 @@ Partial Class frmSaltos
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Location = New System.Drawing.Point(911, 48)
+        Me.Panel2.Controls.Add(Me.dgvAsigUser)
+        Me.Panel2.Location = New System.Drawing.Point(751, 48)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(277, 400)
+        Me.Panel2.Size = New System.Drawing.Size(252, 400)
         Me.Panel2.TabIndex = 36
+        '
+        'Panel3
+        '
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.dgvUsuarios)
+        Me.Panel3.Location = New System.Drawing.Point(1008, 48)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(235, 400)
+        Me.Panel3.TabIndex = 36
+        '
+        'Label9
+        '
+        Me.Label9.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(1008, 11)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(235, 38)
+        Me.Label9.TabIndex = 35
+        Me.Label9.Text = "Usurios sin asignar"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dgvAsigUser
+        '
+        Me.dgvAsigUser.AllowUserToAddRows = False
+        Me.dgvAsigUser.AllowUserToDeleteRows = False
+        Me.dgvAsigUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvAsigUser.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvAsigUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAsigUser.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvAsigUser.Location = New System.Drawing.Point(0, 0)
+        Me.dgvAsigUser.MultiSelect = False
+        Me.dgvAsigUser.Name = "dgvAsigUser"
+        Me.dgvAsigUser.ReadOnly = True
+        Me.dgvAsigUser.RowHeadersVisible = False
+        Me.dgvAsigUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvAsigUser.Size = New System.Drawing.Size(250, 398)
+        Me.dgvAsigUser.TabIndex = 34
+        '
+        'dgvUsuarios
+        '
+        Me.dgvUsuarios.AllowUserToAddRows = False
+        Me.dgvUsuarios.AllowUserToDeleteRows = False
+        Me.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvUsuarios.Location = New System.Drawing.Point(0, 0)
+        Me.dgvUsuarios.MultiSelect = False
+        Me.dgvUsuarios.Name = "dgvUsuarios"
+        Me.dgvUsuarios.ReadOnly = True
+        Me.dgvUsuarios.RowHeadersVisible = False
+        Me.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvUsuarios.Size = New System.Drawing.Size(233, 398)
+        Me.dgvUsuarios.TabIndex = 34
         '
         'frmSaltos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1238, 529)
+        Me.ClientSize = New System.Drawing.Size(1276, 547)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -441,6 +508,10 @@ Partial Class frmSaltos
         CType(Me.txtNumPaso, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDuracion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        CType(Me.dgvAsigUser, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -479,4 +550,8 @@ Partial Class frmSaltos
     Friend WithEvents txtDescripcionPaso As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents dgvUsuarios As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvAsigUser As System.Windows.Forms.DataGridView
 End Class
