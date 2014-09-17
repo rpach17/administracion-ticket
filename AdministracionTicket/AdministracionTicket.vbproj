@@ -83,12 +83,24 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <Private>True</Private>
     </Reference>
@@ -136,6 +148,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>appcavistas.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmSucursalesBusqueda.Designer.vb">
+      <DependentUpon>frmSucursalesBusqueda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmSucursalesBusqueda.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmAnimacion.designer.vb">
       <DependentUpon>frmAnimacion.vb</DependentUpon>
     </Compile>
@@ -152,6 +170,12 @@
       <DependentUpon>frmContrasenia.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmContrasenia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmGrupoSaltos.Designer.vb">
+      <DependentUpon>frmGrupoSaltos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmGrupoSaltos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmModificarSucursal.Designer.vb">
@@ -275,6 +299,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\frmSucursalesBusqueda.resx">
+      <DependentUpon>frmSucursalesBusqueda.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmAnimacion.resx">
       <DependentUpon>frmAnimacion.vb</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmContrasenia.resx">
       <DependentUpon>frmContrasenia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmGrupoSaltos.resx">
+      <DependentUpon>frmGrupoSaltos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmModificarSucursal.resx">
       <DependentUpon>frmModificarSucursal.vb</DependentUpon>
