@@ -40,6 +40,7 @@ Partial Class RibbonMain
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
         Me.lblInfoUbicacion = New DevExpress.XtraBars.BarStaticItem()
         Me.BarButtonItem12 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem13 = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -47,7 +48,6 @@ Partial Class RibbonMain
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.ClientPanel = New DevExpress.XtraEditors.PanelControl()
         Me.XtraTabManager = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
-        Me.BarButtonItem13 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -200,7 +200,14 @@ Partial Class RibbonMain
         '
         Me.BarButtonItem12.Caption = "Procesos"
         Me.BarButtonItem12.Id = 17
+        Me.BarButtonItem12.LargeGlyph = CType(resources.GetObject("BarButtonItem12.LargeGlyph"), System.Drawing.Image)
         Me.BarButtonItem12.Name = "BarButtonItem12"
+        '
+        'BarButtonItem13
+        '
+        Me.BarButtonItem13.Caption = "BarButtonItem13"
+        Me.BarButtonItem13.Id = 18
+        Me.BarButtonItem13.Name = "BarButtonItem13"
         '
         'RibbonPage1
         '
@@ -254,12 +261,6 @@ Partial Class RibbonMain
         '
         Me.XtraTabManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover
         Me.XtraTabManager.MdiParent = Me
-        '
-        'BarButtonItem13
-        '
-        Me.BarButtonItem13.Caption = "BarButtonItem13"
-        Me.BarButtonItem13.Id = 18
-        Me.BarButtonItem13.Name = "BarButtonItem13"
         '
         'RibbonMain
         '
