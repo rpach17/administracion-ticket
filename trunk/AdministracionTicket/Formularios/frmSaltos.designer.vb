@@ -34,11 +34,15 @@ Partial Class frmSaltos
         Me.Eliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnVisualizar = New System.Windows.Forms.ToolStripButton()
+        Me.CrearForm = New System.Windows.Forms.ToolStripButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.dgvUsuarios = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.dgvAsigUser = New System.Windows.Forms.DataGridView()
+        Me.idUsuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.usuario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Prioridad = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -62,7 +66,6 @@ Partial Class frmSaltos
         Me.lblNo = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.cboPasoNo = New System.Windows.Forms.ComboBox()
-        Me.CrearForm = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -161,6 +164,15 @@ Partial Class frmSaltos
         Me.BtnVisualizar.Size = New System.Drawing.Size(36, 45)
         Me.BtnVisualizar.Text = "Ver Pasos de la Gestión"
         '
+        'CrearForm
+        '
+        Me.CrearForm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.CrearForm.Image = CType(resources.GetObject("CrearForm.Image"), System.Drawing.Image)
+        Me.CrearForm.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.CrearForm.Name = "CrearForm"
+        Me.CrearForm.Size = New System.Drawing.Size(36, 45)
+        Me.CrearForm.Text = "Crear formulario"
+        '
         'Panel1
         '
         Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -219,15 +231,35 @@ Partial Class frmSaltos
         Me.dgvAsigUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvAsigUser.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvAsigUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAsigUser.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idUsuario, Me.usuario, Me.Prioridad})
         Me.dgvAsigUser.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvAsigUser.Location = New System.Drawing.Point(0, 0)
         Me.dgvAsigUser.MultiSelect = False
         Me.dgvAsigUser.Name = "dgvAsigUser"
-        Me.dgvAsigUser.ReadOnly = True
         Me.dgvAsigUser.RowHeadersVisible = False
-        Me.dgvAsigUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvAsigUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.dgvAsigUser.Size = New System.Drawing.Size(250, 398)
         Me.dgvAsigUser.TabIndex = 34
+        '
+        'idUsuario
+        '
+        Me.idUsuario.HeaderText = "idUsuario"
+        Me.idUsuario.Name = "idUsuario"
+        Me.idUsuario.Visible = False
+        Me.idUsuario.Width = 57
+        '
+        'usuario
+        '
+        Me.usuario.HeaderText = "Usuario"
+        Me.usuario.Name = "usuario"
+        Me.usuario.ReadOnly = True
+        Me.usuario.Width = 68
+        '
+        'Prioridad
+        '
+        Me.Prioridad.HeaderText = "Prioridad"
+        Me.Prioridad.Name = "Prioridad"
+        Me.Prioridad.Width = 54
         '
         'Label9
         '
@@ -490,15 +522,6 @@ Partial Class frmSaltos
         Me.cboPasoNo.Size = New System.Drawing.Size(49, 28)
         Me.cboPasoNo.TabIndex = 8
         '
-        'CrearForm
-        '
-        Me.CrearForm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.CrearForm.Image = CType(resources.GetObject("CrearForm.Image"), System.Drawing.Image)
-        Me.CrearForm.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.CrearForm.Name = "CrearForm"
-        Me.CrearForm.Size = New System.Drawing.Size(36, 45)
-        Me.CrearForm.Text = "Crear formulario"
-        '
         'frmSaltos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -564,6 +587,9 @@ Partial Class frmSaltos
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents dgvUsuarios As System.Windows.Forms.DataGridView
-    Friend WithEvents dgvAsigUser As System.Windows.Forms.DataGridView
     Friend WithEvents CrearForm As System.Windows.Forms.ToolStripButton
+    Friend WithEvents dgvAsigUser As System.Windows.Forms.DataGridView
+    Friend WithEvents idUsuario As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents usuario As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Prioridad As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

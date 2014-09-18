@@ -668,6 +668,7 @@
 #End Region
 
 #Region "Saltos y procesos"
+
     Public Shared Sub CargarPuestos(ByVal combo As ComboBox, ByVal ido As Integer)
         Dim puestos = (From p In ctx.PUESTO Where p.IDOFICINA = ido Select p).ToList
         combo.DisplayMember = "NOMBRE_PUESTO"
@@ -792,8 +793,6 @@
         End Try
     End Sub
 
-
-
     Public Shared Sub EliminarSalto(ByVal idg As Integer)
         'Al eliminar el salto se eliminan los procesos en cascada definido en la base de datos
         Dim ultSalto = (From s In ctx.SALTOS.ToList Where s.IDGRUPO_SALTOS = idg
@@ -816,9 +815,14 @@
         Return id
     End Function
 
-    Public Shared Sub CargarUsuarios(ByVal grid As DataGridView, ByVal idPuesto As Integer)
+    Public Shared Sub CargarUsuarios(ByVal grid As DataGridView, ByVal idPuesto As Integer, ByVal salto As Integer)
+        Dim lista As List(Of Decimal) = New List(Of Decimal)
+        lista = (From ua In ctx.DETALLE_USUARIO_SALTOS
+                 Where ua.IDSALTO = salto
+                 Select ua.IDUSUARIO).ToList()
+
         Dim user = (From u In ctx.USUARIOS
-                    Where u.IDPUESTO = idPuesto
+                    Where u.IDPUESTO = idPuesto AndAlso Not lista.Contains(u.IDUSUARIO)
                     Select u.IDUSUARIO, Usuario = u.USUARIO).ToList()
 
         grid.DataSource = user
@@ -828,7 +832,7 @@
 
     Public Shared Sub CargarUsuariosAsignados(ByVal grid As DataGridView, ByVal idSalto As Integer)
         Dim user = (From u In ctx.USUARIOS
-                    Join ds In ctx.DETALLE_SALTO_USUARIOS On u.IDUSUARIO Equals ds.IDUSUARIO
+                    Join ds In ctx.DETALLE_USUARIO_SALTOS On u.IDUSUARIO Equals ds.IDUSUARIO
                     Where ds.IDSALTO = idSalto
                     Select u.IDUSUARIO, Usuario = u.USUARIO, ds.PRIORIDAD).ToList()
 
@@ -837,6 +841,47 @@
             grid.Rows.Add(u.IDUSUARIO, u.Usuario, IIf(u.PRIORIDAD = 1, True, False))
         Next
     End Sub
+
+    Public Shared Sub AsignarUsuarioSalto(ByVal asignar As DETALLE_USUARIO_SALTOS)
+        Try
+            ctx.DETALLE_USUARIO_SALTOS.AddObject(asignar)
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub ActualizaAsignacionUsuario(ByVal usuaio As Integer, ByVal salto As Integer, ByVal principal As Boolean)
+        Dim asignacion As DETALLE_USUARIO_SALTOS = (From a In ctx.DETALLE_USUARIO_SALTOS
+                                                  Where a.IDSALTO = salto AndAlso a.IDUSUARIO = usuaio
+                                                  Select a).FirstOrDefault
+        asignacion.PRIORIDAD = IIf(principal, 1, 0)
+        ctx.SaveChanges()
+
+    End Sub
+
+    Public Shared Sub ActualizaAsignacionUsuarioSalto(ByVal salto As Integer)
+        Dim asignacion = (From a In ctx.DETALLE_USUARIO_SALTOS
+                          Where a.IDSALTO = salto
+                          Select a).ToList()
+        For Each a In asignacion
+            a.PRIORIDAD = 0
+        Next
+        ctx.SaveChanges()
+    End Sub
+
+    Public Shared Sub DesAsignarUsuarioSalto(ByVal salto As Integer, ByVal usuario As Integer)
+        Dim userAsignado = (From a In ctx.DETALLE_USUARIO_SALTOS
+                           Where a.IDSALTO = salto And a.IDUSUARIO = usuario
+                           Select a).FirstOrDefault
+        Try
+            ctx.DETALLE_USUARIO_SALTOS.DeleteObject(userAsignado)
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
 #End Region
 
 
