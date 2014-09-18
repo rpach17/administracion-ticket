@@ -41,6 +41,7 @@
         EntityTablas.CargarSaltos(dgvPasos, idgs)
         EntityTablas.CargarSaltosCbo(cboPasoNo, idgs)
         EntityTablas.CargarSaltosCbo(cboPasoSi, idgs)
+        cargarUser()
 
         Try
             idp = dgvPasos.SelectedRows(0).Cells(0).Value
@@ -210,8 +211,7 @@
 
     Private Sub dgvPasos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dgvPasos.CellClick
         idp = ObtenerDatoGrid(dgvPasos)
-        EntityTablas.CargarUsuarios(dgvUsuarios, ObtenerDatoGrid(dgvPasos, 1))
-        EntityTablas.CargarUsuariosAsignados(dgvAsigUser, ObtenerDatoGrid(dgvPasos))
+        cargarUser()
     End Sub
 
     Private Sub txtNumProceso_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
@@ -222,11 +222,6 @@
         Else
             e.Handled = True
         End If
-    End Sub
-
-
-    Private Sub dgvPasos_Click(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPasos.CellClick
-        'EntityTablas.CargarUsuariosAsignados(dgvAsigUser, ObtenerDatoGrid(dgvPasos))
     End Sub
 
     Private Sub CrearForm_Click(sender As Object, e As EventArgs) Handles CrearForm.Click
@@ -244,5 +239,59 @@
                 .Focus()
             End With
         End If
+    End Sub
+
+    Private Sub dgvUsuarios_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsuarios.CellClick
+        'Agregar usuario a asignacion usuario
+        EntityTablas.AsignarUsuarioSalto(New DETALLE_USUARIO_SALTOS With _
+                                         {
+                                             .IDSALTO = ObtenerDatoGrid(dgvPasos),
+                                             .IDUSUARIO = ObtenerDatoGrid(dgvUsuarios)
+                                         })
+        'actualizar los grids
+        cargarUser()
+    End Sub
+
+    Private Sub cargarUser()
+        EntityTablas.CargarUsuarios(dgvUsuarios, ObtenerDatoGrid(dgvPasos, 1), ObtenerDatoGrid(dgvPasos))
+        EntityTablas.CargarUsuariosAsignados(dgvAsigUser, ObtenerDatoGrid(dgvPasos))
+    End Sub
+
+    Private Sub dgvAsigUser_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAsigUser.CellClick
+        If dgvAsigUser.CurrentCell.ColumnIndex = 2 Then
+            'MsgBox(String.Format("Valor de la celda {0}", dgvAsigUser.CurrentRow.Cells(2).Value))
+            If dgvAsigUser.CurrentRow.Cells(2).Value Then
+                If MsgBox("Desea quitar la prioridad a este usuario", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    EntityTablas.ActualizaAsignacionUsuario(ObtenerDatoGrid(dgvAsigUser), ObtenerDatoGrid(dgvPasos), False)
+                End If
+                cargarUser()
+            Else
+                Dim cuenta As Integer = 0
+                If dgvAsigUser.Rows.Count >= 1 Then
+                    For Each row In dgvAsigUser.Rows
+                        If row.cells(2).value = True Then
+                            cuenta += 1
+                        End If
+                    Next
+                End If
+                If cuenta > 0 Then
+                    If MsgBox(String.Format("Desea que este Usuario tenga la prioridad{0}Recuerde solo un usuario puede tener prioridad", vbCrLf), MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        'MsgBox(String.Format("Usted hizo clic en la celda {0}-{1} ", dgvAsigUser.CurrentCell.RowIndex, dgvAsigUser.CurrentCell.ColumnIndex))
+                        EntityTablas.ActualizaAsignacionUsuarioSalto(ObtenerDatoGrid(dgvPasos))
+                        EntityTablas.ActualizaAsignacionUsuario(ObtenerDatoGrid(dgvAsigUser), ObtenerDatoGrid(dgvPasos), True)
+                        cargarUser()
+                    End If
+                Else
+                    EntityTablas.ActualizaAsignacionUsuario(ObtenerDatoGrid(dgvAsigUser), ObtenerDatoGrid(dgvPasos), True)
+                    cargarUser()
+                End If
+
+            End If
+        End If
+    End Sub
+
+    Private Sub dgvAsigUser_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvAsigUser.CellDoubleClick
+        EntityTablas.DesAsignarUsuarioSalto(ObtenerDatoGrid(dgvPasos), ObtenerDatoGrid(dgvAsigUser))
+        cargarUser()
     End Sub
 End Class
