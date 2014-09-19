@@ -18,10 +18,8 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("ccccae8c-9e36-4664-8bae-518c85a694be")>
+<Assembly: EdmSchemaAttribute("9844e8c1-a542-4418-88f6-961b8cc9bedd")>
 #Region "Metadatos de relaciones en EDM"
-<Assembly: EdmRelationshipAttribute("ModeloTablas", "CAMPOS_FORM_FK1", "FORMULARIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(FORMULARIOS), "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(CAMPOS_FORM), True)>
-<Assembly: EdmRelationshipAttribute("ModeloTablas", "CAMPOS_FORM_FK2", "TIPOS_CAMPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(TIPOS_CAMPOS), "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(CAMPOS_FORM), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DEPARTAMENTOS_FK1", "PAIS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(PAIS), "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DEPARTAMENTOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "MUNICIPIOS_FK1", "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(DEPARTAMENTOS), "MUNICIPIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(MUNICIPIOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DETALLE_OFICINA_GESTIONES_FK1", "OFICINAS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(OFICINAS), "DETALLE_OFICINA_GESTIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DETALLE_OFICINA_GESTIONES), True)>
@@ -59,7 +57,10 @@ Imports System.Xml.Serialization
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "SALTOS_FK1", "GRUPO_SALTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(GRUPO_SALTOS), "SALTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(SALTOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "SALTOS_FK2", "PUESTO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(PUESTO), "SALTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(SALTOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DETALLE_TRAMITE_FK1", "TRAMITES", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(TRAMITES), "DETALLE_SEGUIMIENTO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DETALLE_SEGUIMIENTO), True)>
+<Assembly: EdmRelationshipAttribute("ModeloTablas", "CAMPOS_FORM_FK1", "FORMULARIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(FORMULARIOS), "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(CAMPOS_FORM), True)>
+<Assembly: EdmRelationshipAttribute("ModeloTablas", "CAMPOS_FORM_FK2", "TIPOS_CAMPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(TIPOS_CAMPOS), "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(CAMPOS_FORM), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "CAMPOS_FORM_FK3", "VALIDACIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(VALIDACIONES), "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(CAMPOS_FORM), True)>
+<Assembly: EdmRelationshipAttribute("ModeloTablas", "DETALLE_COMBOBOX_FK1", "COMBOBOX", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(COMBOBOX), "DETALLE_COMBOBOX", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DETALLE_COMBOBOX), True)>
 
 #End Region
 
@@ -124,20 +125,6 @@ Public Partial Class EntidadesTablas
     End Property
 
     Private _BENEFICIARIO As ObjectSet(Of BENEFICIARIO)
-
-    ''' <summary>
-    ''' No hay documentación de metadatos disponible.
-    ''' </summary>
-    Public ReadOnly Property CAMPOS_FORM() As ObjectSet(Of CAMPOS_FORM)
-        Get
-            If (_CAMPOS_FORM Is Nothing) Then
-                _CAMPOS_FORM = MyBase.CreateObjectSet(Of CAMPOS_FORM)("CAMPOS_FORM")
-            End If
-            Return _CAMPOS_FORM
-        End Get
-    End Property
-
-    Private _CAMPOS_FORM As ObjectSet(Of CAMPOS_FORM)
 
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
@@ -587,6 +574,48 @@ Public Partial Class EntidadesTablas
 
     Private _VALIDACIONES As ObjectSet(Of VALIDACIONES)
 
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    Public ReadOnly Property CAMPOS_FORM() As ObjectSet(Of CAMPOS_FORM)
+        Get
+            If (_CAMPOS_FORM Is Nothing) Then
+                _CAMPOS_FORM = MyBase.CreateObjectSet(Of CAMPOS_FORM)("CAMPOS_FORM")
+            End If
+            Return _CAMPOS_FORM
+        End Get
+    End Property
+
+    Private _CAMPOS_FORM As ObjectSet(Of CAMPOS_FORM)
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    Public ReadOnly Property COMBOBOX() As ObjectSet(Of COMBOBOX)
+        Get
+            If (_COMBOBOX Is Nothing) Then
+                _COMBOBOX = MyBase.CreateObjectSet(Of COMBOBOX)("COMBOBOX")
+            End If
+            Return _COMBOBOX
+        End Get
+    End Property
+
+    Private _COMBOBOX As ObjectSet(Of COMBOBOX)
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    Public ReadOnly Property DETALLE_COMBOBOX() As ObjectSet(Of DETALLE_COMBOBOX)
+        Get
+            If (_DETALLE_COMBOBOX Is Nothing) Then
+                _DETALLE_COMBOBOX = MyBase.CreateObjectSet(Of DETALLE_COMBOBOX)("DETALLE_COMBOBOX")
+            End If
+            Return _DETALLE_COMBOBOX
+        End Get
+    End Property
+
+    Private _DETALLE_COMBOBOX As ObjectSet(Of DETALLE_COMBOBOX)
+
     #End Region
 
     #Region "Métodos AddTo"
@@ -596,13 +625,6 @@ Public Partial Class EntidadesTablas
     ''' </summary>
     Public Sub AddToBENEFICIARIO(ByVal bENEFICIARIO As BENEFICIARIO)
         MyBase.AddObject("BENEFICIARIO", bENEFICIARIO)
-    End Sub
-
-    ''' <summary>
-    ''' Método desusado para agregar un nuevo objeto al EntitySet CAMPOS_FORM. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
-    ''' </summary>
-    Public Sub AddToCAMPOS_FORM(ByVal cAMPOS_FORM As CAMPOS_FORM)
-        MyBase.AddObject("CAMPOS_FORM", cAMPOS_FORM)
     End Sub
 
     ''' <summary>
@@ -827,6 +849,27 @@ Public Partial Class EntidadesTablas
     ''' </summary>
     Public Sub AddToVALIDACIONES(ByVal vALIDACIONES As VALIDACIONES)
         MyBase.AddObject("VALIDACIONES", vALIDACIONES)
+    End Sub
+
+    ''' <summary>
+    ''' Método desusado para agregar un nuevo objeto al EntitySet CAMPOS_FORM. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
+    ''' </summary>
+    Public Sub AddToCAMPOS_FORM(ByVal cAMPOS_FORM As CAMPOS_FORM)
+        MyBase.AddObject("CAMPOS_FORM", cAMPOS_FORM)
+    End Sub
+
+    ''' <summary>
+    ''' Método desusado para agregar un nuevo objeto al EntitySet COMBOBOX. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
+    ''' </summary>
+    Public Sub AddToCOMBOBOX(ByVal cOMBOBOX As COMBOBOX)
+        MyBase.AddObject("COMBOBOX", cOMBOBOX)
+    End Sub
+
+    ''' <summary>
+    ''' Método desusado para agregar un nuevo objeto al EntitySet DETALLE_COMBOBOX. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
+    ''' </summary>
+    Public Sub AddToDETALLE_COMBOBOX(ByVal dETALLE_COMBOBOX As DETALLE_COMBOBOX)
+        MyBase.AddObject("DETALLE_COMBOBOX", dETALLE_COMBOBOX)
     End Sub
 
     #End Region
@@ -1268,6 +1311,31 @@ Public Partial Class CAMPOS_FORM
     Private Partial Sub OnIDCOMBOBOXChanged()
     End Sub
 
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property ORDEN() As Nullable(Of Global.System.Decimal)
+        Get
+            Return _ORDEN
+        End Get
+        Set
+            OnORDENChanging(value)
+            ReportPropertyChanging("ORDEN")
+            _ORDEN = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("ORDEN")
+            OnORDENChanged()
+        End Set
+    End Property
+
+    Private _ORDEN As Nullable(Of Global.System.Decimal)
+    Private Partial Sub OnORDENChanging(value As Nullable(Of Global.System.Decimal))
+    End Sub
+
+    Private Partial Sub OnORDENChanged()
+    End Sub
+
     #End Region
 
     #Region "Propiedades de navegación"
@@ -1361,6 +1429,108 @@ Public Partial Class CAMPOS_FORM
         Set
             If (Not value Is Nothing)
                 CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of VALIDACIONES)("ModeloTablas.CAMPOS_FORM_FK3", "VALIDACIONES", value)
+            End If
+        End Set
+    End Property
+
+    #End Region
+
+End Class
+
+''' <summary>
+''' No hay documentación de metadatos disponible.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="ModeloTablas", Name:="COMBOBOX")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class COMBOBOX
+    Inherits EntityObject
+    #Region "Método de generador"
+
+    ''' <summary>
+    ''' Crear un nuevo objeto COMBOBOX.
+    ''' </summary>
+    ''' <param name="iDCOMBOBOX">Valor inicial de la propiedad IDCOMBOBOX.</param>
+    Public Shared Function CreateCOMBOBOX(iDCOMBOBOX As Global.System.Decimal) As COMBOBOX
+        Dim cOMBOBOX as COMBOBOX = New COMBOBOX
+        cOMBOBOX.IDCOMBOBOX = iDCOMBOBOX
+        Return cOMBOBOX
+    End Function
+
+    #End Region
+
+    #Region "Propiedades primitivas"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property IDCOMBOBOX() As Global.System.Decimal
+        Get
+            Return _IDCOMBOBOX
+        End Get
+        Set
+            If (_IDCOMBOBOX <> Value) Then
+                OnIDCOMBOBOXChanging(value)
+                ReportPropertyChanging("IDCOMBOBOX")
+                _IDCOMBOBOX = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("IDCOMBOBOX")
+                OnIDCOMBOBOXChanged()
+            End If
+        End Set
+    End Property
+
+    Private _IDCOMBOBOX As Global.System.Decimal
+    Private Partial Sub OnIDCOMBOBOXChanging(value As Global.System.Decimal)
+    End Sub
+
+    Private Partial Sub OnIDCOMBOBOXChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property DESCRIPCION() As Global.System.String
+        Get
+            Return _DESCRIPCION
+        End Get
+        Set
+            OnDESCRIPCIONChanging(value)
+            ReportPropertyChanging("DESCRIPCION")
+            _DESCRIPCION = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("DESCRIPCION")
+            OnDESCRIPCIONChanged()
+        End Set
+    End Property
+
+    Private _DESCRIPCION As Global.System.String
+    Private Partial Sub OnDESCRIPCIONChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnDESCRIPCIONChanged()
+    End Sub
+
+    #End Region
+
+    #Region "Propiedades de navegación"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "DETALLE_COMBOBOX_FK1", "DETALLE_COMBOBOX")>
+     Public Property DETALLE_COMBOBOX() As EntityCollection(Of DETALLE_COMBOBOX)
+        Get
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of DETALLE_COMBOBOX)("ModeloTablas.DETALLE_COMBOBOX_FK1", "DETALLE_COMBOBOX")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of DETALLE_COMBOBOX)("ModeloTablas.DETALLE_COMBOBOX_FK1", "DETALLE_COMBOBOX", value)
             End If
         End Set
     End Property
@@ -1550,6 +1720,173 @@ Public Partial Class DEPARTAMENTOS
         Set
             If (Not value Is Nothing)
                 CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of MUNICIPIOS)("ModeloTablas.MUNICIPIOS_FK1", "MUNICIPIOS", value)
+            End If
+        End Set
+    End Property
+
+    #End Region
+
+End Class
+
+''' <summary>
+''' No hay documentación de metadatos disponible.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="ModeloTablas", Name:="DETALLE_COMBOBOX")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class DETALLE_COMBOBOX
+    Inherits EntityObject
+    #Region "Método de generador"
+
+    ''' <summary>
+    ''' Crear un nuevo objeto DETALLE_COMBOBOX.
+    ''' </summary>
+    ''' <param name="iDDETALLE_COMBOBOX">Valor inicial de la propiedad IDDETALLE_COMBOBOX.</param>
+    ''' <param name="iDCOMBOBOX">Valor inicial de la propiedad IDCOMBOBOX.</param>
+    Public Shared Function CreateDETALLE_COMBOBOX(iDDETALLE_COMBOBOX As Global.System.Decimal, iDCOMBOBOX As Global.System.Decimal) As DETALLE_COMBOBOX
+        Dim dETALLE_COMBOBOX as DETALLE_COMBOBOX = New DETALLE_COMBOBOX
+        dETALLE_COMBOBOX.IDDETALLE_COMBOBOX = iDDETALLE_COMBOBOX
+        dETALLE_COMBOBOX.IDCOMBOBOX = iDCOMBOBOX
+        Return dETALLE_COMBOBOX
+    End Function
+
+    #End Region
+
+    #Region "Propiedades primitivas"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property IDDETALLE_COMBOBOX() As Global.System.Decimal
+        Get
+            Return _IDDETALLE_COMBOBOX
+        End Get
+        Set
+            If (_IDDETALLE_COMBOBOX <> Value) Then
+                OnIDDETALLE_COMBOBOXChanging(value)
+                ReportPropertyChanging("IDDETALLE_COMBOBOX")
+                _IDDETALLE_COMBOBOX = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("IDDETALLE_COMBOBOX")
+                OnIDDETALLE_COMBOBOXChanged()
+            End If
+        End Set
+    End Property
+
+    Private _IDDETALLE_COMBOBOX As Global.System.Decimal
+    Private Partial Sub OnIDDETALLE_COMBOBOXChanging(value As Global.System.Decimal)
+    End Sub
+
+    Private Partial Sub OnIDDETALLE_COMBOBOXChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property IDCOMBOBOX() As Global.System.Decimal
+        Get
+            Return _IDCOMBOBOX
+        End Get
+        Set
+            OnIDCOMBOBOXChanging(value)
+            ReportPropertyChanging("IDCOMBOBOX")
+            _IDCOMBOBOX = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("IDCOMBOBOX")
+            OnIDCOMBOBOXChanged()
+        End Set
+    End Property
+
+    Private _IDCOMBOBOX As Global.System.Decimal
+    Private Partial Sub OnIDCOMBOBOXChanging(value As Global.System.Decimal)
+    End Sub
+
+    Private Partial Sub OnIDCOMBOBOXChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property VALOR() As Nullable(Of Global.System.Decimal)
+        Get
+            Return _VALOR
+        End Get
+        Set
+            OnVALORChanging(value)
+            ReportPropertyChanging("VALOR")
+            _VALOR = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("VALOR")
+            OnVALORChanged()
+        End Set
+    End Property
+
+    Private _VALOR As Nullable(Of Global.System.Decimal)
+    Private Partial Sub OnVALORChanging(value As Nullable(Of Global.System.Decimal))
+    End Sub
+
+    Private Partial Sub OnVALORChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property TEXTO() As Global.System.String
+        Get
+            Return _TEXTO
+        End Get
+        Set
+            OnTEXTOChanging(value)
+            ReportPropertyChanging("TEXTO")
+            _TEXTO = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("TEXTO")
+            OnTEXTOChanged()
+        End Set
+    End Property
+
+    Private _TEXTO As Global.System.String
+    Private Partial Sub OnTEXTOChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnTEXTOChanged()
+    End Sub
+
+    #End Region
+
+    #Region "Propiedades de navegación"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "DETALLE_COMBOBOX_FK1", "COMBOBOX")>
+    Public Property COMBOBOX() As COMBOBOX
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of COMBOBOX)("ModeloTablas.DETALLE_COMBOBOX_FK1", "COMBOBOX").Value
+        End Get
+        Set
+            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of COMBOBOX)("ModeloTablas.DETALLE_COMBOBOX_FK1", "COMBOBOX").Value = value
+        End Set
+    End Property
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <BrowsableAttribute(False)>
+    <DataMemberAttribute()>
+    Public Property COMBOBOXReference() As EntityReference(Of COMBOBOX)
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of COMBOBOX)("ModeloTablas.DETALLE_COMBOBOX_FK1", "COMBOBOX")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of COMBOBOX)("ModeloTablas.DETALLE_COMBOBOX_FK1", "COMBOBOX", value)
             End If
         End Set
     End Property
@@ -3339,24 +3676,6 @@ Public Partial Class FORMULARIOS
     <XmlIgnoreAttribute()>
     <SoapIgnoreAttribute()>
     <DataMemberAttribute()>
-    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "CAMPOS_FORM_FK1", "CAMPOS_FORM")>
-     Public Property CAMPOS_FORM() As EntityCollection(Of CAMPOS_FORM)
-        Get
-            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of CAMPOS_FORM)("ModeloTablas.CAMPOS_FORM_FK1", "CAMPOS_FORM")
-        End Get
-        Set
-            If (Not value Is Nothing)
-                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of CAMPOS_FORM)("ModeloTablas.CAMPOS_FORM_FK1", "CAMPOS_FORM", value)
-            End If
-        End Set
-    End Property
-
-    ''' <summary>
-    ''' No hay documentación de metadatos disponible.
-    ''' </summary>
-    <XmlIgnoreAttribute()>
-    <SoapIgnoreAttribute()>
-    <DataMemberAttribute()>
     <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "FORMULARIOS_FK2", "FORMULARIOS1")>
      Public Property FORMULARIOS1() As EntityCollection(Of FORMULARIOS)
         Get
@@ -3427,6 +3746,24 @@ Public Partial Class FORMULARIOS
         Set
             If (Not value Is Nothing)
                 CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of SALTOS)("ModeloTablas.FORMULARIOS_FK1", "SALTOS", value)
+            End If
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "CAMPOS_FORM_FK1", "CAMPOS_FORM")>
+     Public Property CAMPOS_FORM() As EntityCollection(Of CAMPOS_FORM)
+        Get
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of CAMPOS_FORM)("ModeloTablas.CAMPOS_FORM_FK1", "CAMPOS_FORM")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of CAMPOS_FORM)("ModeloTablas.CAMPOS_FORM_FK1", "CAMPOS_FORM", value)
             End If
         End Set
     End Property
