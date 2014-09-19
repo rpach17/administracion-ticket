@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("37eb514e-6712-4f9b-9739-ac2c298be807")>
+<Assembly: EdmSchemaAttribute("036ad774-c006-4a8b-afe0-fc6faab7221e")>
 #Region "Metadatos de relaciones en EDM"
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DEPARTAMENTOS_FK1", "PAIS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(PAIS), "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DEPARTAMENTOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "MUNICIPIOS_FK1", "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(DEPARTAMENTOS), "MUNICIPIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(MUNICIPIOS), True)>
@@ -60,6 +60,7 @@ Imports System.Xml.Serialization
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "CAMPOS_FORM_FK1", "FORMULARIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(FORMULARIOS), "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(CAMPOS_FORM), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "CAMPOS_FORM_FK2", "TIPOS_CAMPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(TIPOS_CAMPOS), "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(CAMPOS_FORM), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "CAMPOS_FORM_FK3", "VALIDACIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(VALIDACIONES), "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(CAMPOS_FORM), True)>
+<Assembly: EdmRelationshipAttribute("ModeloTablas", "DETALLE_LISTA_DESPLEGABLE_FK1", "LISTA_DESPLEGABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(LISTA_DESPLEGABLE), "DETALLE_LISTA_DESPLEGABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DETALLE_LISTA_DESPLEGABLE), True)>
 
 #End Region
 
@@ -587,6 +588,34 @@ Public Partial Class EntidadesTablas
 
     Private _CAMPOS_FORM As ObjectSet(Of CAMPOS_FORM)
 
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    Public ReadOnly Property DETALLE_LISTA_DESPLEGABLE() As ObjectSet(Of DETALLE_LISTA_DESPLEGABLE)
+        Get
+            If (_DETALLE_LISTA_DESPLEGABLE Is Nothing) Then
+                _DETALLE_LISTA_DESPLEGABLE = MyBase.CreateObjectSet(Of DETALLE_LISTA_DESPLEGABLE)("DETALLE_LISTA_DESPLEGABLE")
+            End If
+            Return _DETALLE_LISTA_DESPLEGABLE
+        End Get
+    End Property
+
+    Private _DETALLE_LISTA_DESPLEGABLE As ObjectSet(Of DETALLE_LISTA_DESPLEGABLE)
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    Public ReadOnly Property LISTA_DESPLEGABLE() As ObjectSet(Of LISTA_DESPLEGABLE)
+        Get
+            If (_LISTA_DESPLEGABLE Is Nothing) Then
+                _LISTA_DESPLEGABLE = MyBase.CreateObjectSet(Of LISTA_DESPLEGABLE)("LISTA_DESPLEGABLE")
+            End If
+            Return _LISTA_DESPLEGABLE
+        End Get
+    End Property
+
+    Private _LISTA_DESPLEGABLE As ObjectSet(Of LISTA_DESPLEGABLE)
+
     #End Region
 
     #Region "Métodos AddTo"
@@ -827,6 +856,20 @@ Public Partial Class EntidadesTablas
     ''' </summary>
     Public Sub AddToCAMPOS_FORM(ByVal cAMPOS_FORM As CAMPOS_FORM)
         MyBase.AddObject("CAMPOS_FORM", cAMPOS_FORM)
+    End Sub
+
+    ''' <summary>
+    ''' Método desusado para agregar un nuevo objeto al EntitySet DETALLE_LISTA_DESPLEGABLE. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
+    ''' </summary>
+    Public Sub AddToDETALLE_LISTA_DESPLEGABLE(ByVal dETALLE_LISTA_DESPLEGABLE As DETALLE_LISTA_DESPLEGABLE)
+        MyBase.AddObject("DETALLE_LISTA_DESPLEGABLE", dETALLE_LISTA_DESPLEGABLE)
+    End Sub
+
+    ''' <summary>
+    ''' Método desusado para agregar un nuevo objeto al EntitySet LISTA_DESPLEGABLE. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
+    ''' </summary>
+    Public Sub AddToLISTA_DESPLEGABLE(ByVal lISTA_DESPLEGABLE As LISTA_DESPLEGABLE)
+        MyBase.AddObject("LISTA_DESPLEGABLE", lISTA_DESPLEGABLE)
     End Sub
 
     #End Region
@@ -1575,6 +1618,173 @@ Public Partial Class DEPARTAMENTOS
         Set
             If (Not value Is Nothing)
                 CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of MUNICIPIOS)("ModeloTablas.MUNICIPIOS_FK1", "MUNICIPIOS", value)
+            End If
+        End Set
+    End Property
+
+    #End Region
+
+End Class
+
+''' <summary>
+''' No hay documentación de metadatos disponible.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="ModeloTablas", Name:="DETALLE_LISTA_DESPLEGABLE")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class DETALLE_LISTA_DESPLEGABLE
+    Inherits EntityObject
+    #Region "Método de generador"
+
+    ''' <summary>
+    ''' Crear un nuevo objeto DETALLE_LISTA_DESPLEGABLE.
+    ''' </summary>
+    ''' <param name="iDDETALLE_LISTA">Valor inicial de la propiedad IDDETALLE_LISTA.</param>
+    ''' <param name="iDLISTA_DESPLEGABLE">Valor inicial de la propiedad IDLISTA_DESPLEGABLE.</param>
+    Public Shared Function CreateDETALLE_LISTA_DESPLEGABLE(iDDETALLE_LISTA As Global.System.Decimal, iDLISTA_DESPLEGABLE As Global.System.Decimal) As DETALLE_LISTA_DESPLEGABLE
+        Dim dETALLE_LISTA_DESPLEGABLE as DETALLE_LISTA_DESPLEGABLE = New DETALLE_LISTA_DESPLEGABLE
+        dETALLE_LISTA_DESPLEGABLE.IDDETALLE_LISTA = iDDETALLE_LISTA
+        dETALLE_LISTA_DESPLEGABLE.IDLISTA_DESPLEGABLE = iDLISTA_DESPLEGABLE
+        Return dETALLE_LISTA_DESPLEGABLE
+    End Function
+
+    #End Region
+
+    #Region "Propiedades primitivas"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property IDDETALLE_LISTA() As Global.System.Decimal
+        Get
+            Return _IDDETALLE_LISTA
+        End Get
+        Set
+            If (_IDDETALLE_LISTA <> Value) Then
+                OnIDDETALLE_LISTAChanging(value)
+                ReportPropertyChanging("IDDETALLE_LISTA")
+                _IDDETALLE_LISTA = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("IDDETALLE_LISTA")
+                OnIDDETALLE_LISTAChanged()
+            End If
+        End Set
+    End Property
+
+    Private _IDDETALLE_LISTA As Global.System.Decimal
+    Private Partial Sub OnIDDETALLE_LISTAChanging(value As Global.System.Decimal)
+    End Sub
+
+    Private Partial Sub OnIDDETALLE_LISTAChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property IDLISTA_DESPLEGABLE() As Global.System.Decimal
+        Get
+            Return _IDLISTA_DESPLEGABLE
+        End Get
+        Set
+            OnIDLISTA_DESPLEGABLEChanging(value)
+            ReportPropertyChanging("IDLISTA_DESPLEGABLE")
+            _IDLISTA_DESPLEGABLE = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("IDLISTA_DESPLEGABLE")
+            OnIDLISTA_DESPLEGABLEChanged()
+        End Set
+    End Property
+
+    Private _IDLISTA_DESPLEGABLE As Global.System.Decimal
+    Private Partial Sub OnIDLISTA_DESPLEGABLEChanging(value As Global.System.Decimal)
+    End Sub
+
+    Private Partial Sub OnIDLISTA_DESPLEGABLEChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property VALOR() As Nullable(Of Global.System.Decimal)
+        Get
+            Return _VALOR
+        End Get
+        Set
+            OnVALORChanging(value)
+            ReportPropertyChanging("VALOR")
+            _VALOR = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("VALOR")
+            OnVALORChanged()
+        End Set
+    End Property
+
+    Private _VALOR As Nullable(Of Global.System.Decimal)
+    Private Partial Sub OnVALORChanging(value As Nullable(Of Global.System.Decimal))
+    End Sub
+
+    Private Partial Sub OnVALORChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property TEXTO() As Global.System.String
+        Get
+            Return _TEXTO
+        End Get
+        Set
+            OnTEXTOChanging(value)
+            ReportPropertyChanging("TEXTO")
+            _TEXTO = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("TEXTO")
+            OnTEXTOChanged()
+        End Set
+    End Property
+
+    Private _TEXTO As Global.System.String
+    Private Partial Sub OnTEXTOChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnTEXTOChanged()
+    End Sub
+
+    #End Region
+
+    #Region "Propiedades de navegación"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "DETALLE_LISTA_DESPLEGABLE_FK1", "LISTA_DESPLEGABLE")>
+    Public Property LISTA_DESPLEGABLE() As LISTA_DESPLEGABLE
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of LISTA_DESPLEGABLE)("ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1", "LISTA_DESPLEGABLE").Value
+        End Get
+        Set
+            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of LISTA_DESPLEGABLE)("ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1", "LISTA_DESPLEGABLE").Value = value
+        End Set
+    End Property
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <BrowsableAttribute(False)>
+    <DataMemberAttribute()>
+    Public Property LISTA_DESPLEGABLEReference() As EntityReference(Of LISTA_DESPLEGABLE)
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of LISTA_DESPLEGABLE)("ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1", "LISTA_DESPLEGABLE")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of LISTA_DESPLEGABLE)("ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1", "LISTA_DESPLEGABLE", value)
             End If
         End Set
     End Property
@@ -4098,6 +4308,108 @@ Public Partial Class IDENTIFICACION
         Set
             If (Not value Is Nothing)
                 CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of PROPIETARIO)("ModeloTablas.PROPIETARIO_FK1", "PROPIETARIO", value)
+            End If
+        End Set
+    End Property
+
+    #End Region
+
+End Class
+
+''' <summary>
+''' No hay documentación de metadatos disponible.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="ModeloTablas", Name:="LISTA_DESPLEGABLE")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class LISTA_DESPLEGABLE
+    Inherits EntityObject
+    #Region "Método de generador"
+
+    ''' <summary>
+    ''' Crear un nuevo objeto LISTA_DESPLEGABLE.
+    ''' </summary>
+    ''' <param name="iDLISTA_DESPLEGABLE">Valor inicial de la propiedad IDLISTA_DESPLEGABLE.</param>
+    Public Shared Function CreateLISTA_DESPLEGABLE(iDLISTA_DESPLEGABLE As Global.System.Decimal) As LISTA_DESPLEGABLE
+        Dim lISTA_DESPLEGABLE as LISTA_DESPLEGABLE = New LISTA_DESPLEGABLE
+        lISTA_DESPLEGABLE.IDLISTA_DESPLEGABLE = iDLISTA_DESPLEGABLE
+        Return lISTA_DESPLEGABLE
+    End Function
+
+    #End Region
+
+    #Region "Propiedades primitivas"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property IDLISTA_DESPLEGABLE() As Global.System.Decimal
+        Get
+            Return _IDLISTA_DESPLEGABLE
+        End Get
+        Set
+            If (_IDLISTA_DESPLEGABLE <> Value) Then
+                OnIDLISTA_DESPLEGABLEChanging(value)
+                ReportPropertyChanging("IDLISTA_DESPLEGABLE")
+                _IDLISTA_DESPLEGABLE = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("IDLISTA_DESPLEGABLE")
+                OnIDLISTA_DESPLEGABLEChanged()
+            End If
+        End Set
+    End Property
+
+    Private _IDLISTA_DESPLEGABLE As Global.System.Decimal
+    Private Partial Sub OnIDLISTA_DESPLEGABLEChanging(value As Global.System.Decimal)
+    End Sub
+
+    Private Partial Sub OnIDLISTA_DESPLEGABLEChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property DESCRIPCION() As Global.System.String
+        Get
+            Return _DESCRIPCION
+        End Get
+        Set
+            OnDESCRIPCIONChanging(value)
+            ReportPropertyChanging("DESCRIPCION")
+            _DESCRIPCION = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("DESCRIPCION")
+            OnDESCRIPCIONChanged()
+        End Set
+    End Property
+
+    Private _DESCRIPCION As Global.System.String
+    Private Partial Sub OnDESCRIPCIONChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnDESCRIPCIONChanged()
+    End Sub
+
+    #End Region
+
+    #Region "Propiedades de navegación"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "DETALLE_LISTA_DESPLEGABLE_FK1", "DETALLE_LISTA_DESPLEGABLE")>
+     Public Property DETALLE_LISTA_DESPLEGABLE() As EntityCollection(Of DETALLE_LISTA_DESPLEGABLE)
+        Get
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of DETALLE_LISTA_DESPLEGABLE)("ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1", "DETALLE_LISTA_DESPLEGABLE")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of DETALLE_LISTA_DESPLEGABLE)("ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1", "DETALLE_LISTA_DESPLEGABLE", value)
             End If
         End Set
     End Property
