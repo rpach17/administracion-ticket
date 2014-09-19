@@ -245,7 +245,7 @@
           <Key>
             <PropertyRef Name="IDCAMPO_FORM" />
           </Key>
-          <Property Name="IDCAMPO_FORM" Type="number" Nullable="false" />
+          <Property Name="IDCAMPO_FORM" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IDFORMULARIO" Type="number" />
           <Property Name="NOMBRE_CAMPO" Type="varchar2" MaxLength="35" />
           <Property Name="ETIQUETA" Type="varchar2" MaxLength="45" />
@@ -2200,7 +2200,7 @@
           <Key>
             <PropertyRef Name="IDCAMPO_FORM" />
           </Key>
-          <Property Type="Decimal" Name="IDCAMPO_FORM" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDCAMPO_FORM" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Decimal" Name="IDFORMULARIO" Precision="38" Scale="0" />
           <Property Type="String" Name="NOMBRE_CAMPO" MaxLength="35" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ETIQUETA" MaxLength="45" FixedLength="false" Unicode="false" />
