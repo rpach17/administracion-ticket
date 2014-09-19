@@ -8,9 +8,7 @@
         <EntityContainer Name="ModeloTablasStoreContainer">
           <EntitySet Name="BENEFICIARIO" EntityType="ModeloTablas.Store.BENEFICIARIO" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="CAMPOS_FORM" EntityType="ModeloTablas.Store.CAMPOS_FORM" store:Type="Tables" Schema="APPCA" />
-          <EntitySet Name="COMBOBOX" EntityType="ModeloTablas.Store.COMBOBOX" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="DEPARTAMENTOS" EntityType="ModeloTablas.Store.DEPARTAMENTOS" store:Type="Tables" Schema="APPCA" />
-          <EntitySet Name="DETALLE_COMBOBOX" EntityType="ModeloTablas.Store.DETALLE_COMBOBOX" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="DETALLE_DOCS" EntityType="ModeloTablas.Store.DETALLE_DOCS" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="DETALLE_ERRORES_GESTIONES" EntityType="ModeloTablas.Store.DETALLE_ERRORES_GESTIONES" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="DETALLE_OFICINA_GESTIONES" EntityType="ModeloTablas.Store.DETALLE_OFICINA_GESTIONES" store:Type="Tables" Schema="APPCA" />
@@ -62,10 +60,6 @@
           <AssociationSet Name="DEPARTAMENTOS_FK1" Association="ModeloTablas.Store.DEPARTAMENTOS_FK1">
             <End Role="PAIS" EntitySet="PAIS" />
             <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
-          </AssociationSet>
-          <AssociationSet Name="DETALLE_COMBOBOX_FK1" Association="ModeloTablas.Store.DETALLE_COMBOBOX_FK1">
-            <End Role="COMBOBOX" EntitySet="COMBOBOX" />
-            <End Role="DETALLE_COMBOBOX" EntitySet="DETALLE_COMBOBOX" />
           </AssociationSet>
           <AssociationSet Name="DETALLE_DOCS_FK1" Association="ModeloTablas.Store.DETALLE_DOCS_FK1">
             <End Role="DOCS_RECIBIDOS" EntitySet="DOCS_RECIBIDOS" />
@@ -258,13 +252,6 @@
           <Property Name="IDCOMBOBOX" Type="number" />
           <Property Name="ORDEN" Type="number" />
         </EntityType>
-        <EntityType Name="COMBOBOX">
-          <Key>
-            <PropertyRef Name="IDCOMBOBOX" />
-          </Key>
-          <Property Name="IDCOMBOBOX" Type="number" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="35" />
-        </EntityType>
         <EntityType Name="DEPARTAMENTOS">
           <Key>
             <PropertyRef Name="IDDEPARTAMENTO" />
@@ -273,15 +260,6 @@
           <Property Name="IDPAIS" Type="number" Nullable="false" />
           <Property Name="CODIGO_DEPTO" Type="varchar2" Nullable="false" MaxLength="2" />
           <Property Name="NOMBRE_DEPTO" Type="varchar2" Nullable="false" MaxLength="30" />
-        </EntityType>
-        <EntityType Name="DETALLE_COMBOBOX">
-          <Key>
-            <PropertyRef Name="IDDETALLE_COMBOBOX" />
-          </Key>
-          <Property Name="IDDETALLE_COMBOBOX" Type="number" Nullable="false" />
-          <Property Name="IDCOMBOBOX" Type="number" Nullable="false" />
-          <Property Name="VALOR" Type="number" />
-          <Property Name="TEXTO" Type="nvarchar2" MaxLength="60" />
         </EntityType>
         <EntityType Name="DETALLE_DOCS">
           <Key>
@@ -672,18 +650,6 @@
             </Principal>
             <Dependent Role="DEPARTAMENTOS">
               <PropertyRef Name="IDPAIS" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="DETALLE_COMBOBOX_FK1">
-          <End Role="COMBOBOX" Type="ModeloTablas.Store.COMBOBOX" Multiplicity="1" />
-          <End Role="DETALLE_COMBOBOX" Type="ModeloTablas.Store.DETALLE_COMBOBOX" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMBOBOX">
-              <PropertyRef Name="IDCOMBOBOX" />
-            </Principal>
-            <Dependent Role="DETALLE_COMBOBOX">
-              <PropertyRef Name="IDCOMBOBOX" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1370,8 +1336,6 @@
           </AssociationSet>
           <EntitySet Name="VALIDACIONES" EntityType="ModeloTablas.VALIDACIONES" />
           <EntitySet Name="CAMPOS_FORM" EntityType="ModeloTablas.CAMPOS_FORM" />
-          <EntitySet Name="COMBOBOX" EntityType="ModeloTablas.COMBOBOX" />
-          <EntitySet Name="DETALLE_COMBOBOX" EntityType="ModeloTablas.DETALLE_COMBOBOX" />
           <AssociationSet Name="CAMPOS_FORM_FK1" Association="ModeloTablas.CAMPOS_FORM_FK1">
             <End Role="FORMULARIOS" EntitySet="FORMULARIOS" />
             <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
@@ -1383,10 +1347,6 @@
           <AssociationSet Name="CAMPOS_FORM_FK3" Association="ModeloTablas.CAMPOS_FORM_FK3">
             <End Role="VALIDACIONES" EntitySet="VALIDACIONES" />
             <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
-          </AssociationSet>
-          <AssociationSet Name="DETALLE_COMBOBOX_FK1" Association="ModeloTablas.DETALLE_COMBOBOX_FK1">
-            <End Role="COMBOBOX" EntitySet="COMBOBOX" />
-            <End Role="DETALLE_COMBOBOX" EntitySet="DETALLE_COMBOBOX" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BENEFICIARIO">
@@ -2216,24 +2176,6 @@
           <NavigationProperty Name="TIPOS_CAMPOS" Relationship="ModeloTablas.CAMPOS_FORM_FK2" FromRole="CAMPOS_FORM" ToRole="TIPOS_CAMPOS" />
           <NavigationProperty Name="VALIDACIONES" Relationship="ModeloTablas.CAMPOS_FORM_FK3" FromRole="CAMPOS_FORM" ToRole="VALIDACIONES" />
         </EntityType>
-        <EntityType Name="COMBOBOX">
-          <Key>
-            <PropertyRef Name="IDCOMBOBOX" />
-          </Key>
-          <Property Type="Decimal" Name="IDCOMBOBOX" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="String" Name="DESCRIPCION" MaxLength="35" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DETALLE_COMBOBOX" Relationship="ModeloTablas.DETALLE_COMBOBOX_FK1" FromRole="COMBOBOX" ToRole="DETALLE_COMBOBOX" />
-        </EntityType>
-        <EntityType Name="DETALLE_COMBOBOX">
-          <Key>
-            <PropertyRef Name="IDDETALLE_COMBOBOX" />
-          </Key>
-          <Property Type="Decimal" Name="IDDETALLE_COMBOBOX" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDCOMBOBOX" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="VALOR" Precision="38" Scale="0" />
-          <Property Type="String" Name="TEXTO" MaxLength="60" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="COMBOBOX" Relationship="ModeloTablas.DETALLE_COMBOBOX_FK1" FromRole="DETALLE_COMBOBOX" ToRole="COMBOBOX" />
-        </EntityType>
         <Association Name="CAMPOS_FORM_FK1">
           <End Type="ModeloTablas.FORMULARIOS" Role="FORMULARIOS" Multiplicity="0..1" />
           <End Type="ModeloTablas.CAMPOS_FORM" Role="CAMPOS_FORM" Multiplicity="*" />
@@ -2267,18 +2209,6 @@
             </Principal>
             <Dependent Role="CAMPOS_FORM">
               <PropertyRef Name="IDVALIDACION" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="DETALLE_COMBOBOX_FK1">
-          <End Type="ModeloTablas.COMBOBOX" Role="COMBOBOX" Multiplicity="1" />
-          <End Type="ModeloTablas.DETALLE_COMBOBOX" Role="DETALLE_COMBOBOX" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMBOBOX">
-              <PropertyRef Name="IDCOMBOBOX" />
-            </Principal>
-            <Dependent Role="DETALLE_COMBOBOX">
-              <PropertyRef Name="IDCOMBOBOX" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2700,25 +2630,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="COMBOBOX">
-            <EntityTypeMapping TypeName="ModeloTablas.COMBOBOX">
-              <MappingFragment StoreEntitySet="COMBOBOX">
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-                <ScalarProperty Name="IDCOMBOBOX" ColumnName="IDCOMBOBOX" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DETALLE_COMBOBOX">
-            <EntityTypeMapping TypeName="ModeloTablas.DETALLE_COMBOBOX">
-              <MappingFragment StoreEntitySet="DETALLE_COMBOBOX">
-                <ScalarProperty Name="TEXTO" ColumnName="TEXTO" />
-                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
-                <ScalarProperty Name="IDCOMBOBOX" ColumnName="IDCOMBOBOX" />
-                <ScalarProperty Name="IDDETALLE_COMBOBOX" ColumnName="IDDETALLE_COMBOBOX" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -2812,12 +2724,9 @@
         <AssociationConnector Association="ModeloTablas.DETALLE_TRAMITE_FK1" />
         <EntityTypeShape EntityType="ModeloTablas.VALIDACIONES" Width="1.5" PointX="8.4203383980413626" PointY="9.0511206877655912" />
         <EntityTypeShape EntityType="ModeloTablas.CAMPOS_FORM" Width="1.5" PointX="2.2243367145882624" PointY="19.602547922917896" />
-        <EntityTypeShape EntityType="ModeloTablas.COMBOBOX" Width="1.5" PointX="1.8399992016330358" PointY="27.949241666099635" />
-        <EntityTypeShape EntityType="ModeloTablas.DETALLE_COMBOBOX" Width="1.5" PointX="7.828043240973745" PointY="17.647386588923347" />
         <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK1" />
         <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK2" />
         <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK3" />
-        <AssociationConnector Association="ModeloTablas.DETALLE_COMBOBOX_FK1" />
       </Diagram>
     </Diagrams>
   </Designer>
