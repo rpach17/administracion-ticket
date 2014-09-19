@@ -886,15 +886,98 @@
 
 
 #Region "Crear formularios"
-    Public Shared Function AgregarFormulario(ByVal form As FORMULARIOS)
+    Public Shared Function AgregarFormulario(ByVal form As FORMULARIOS) As Object
+        Dim activo As Integer = (From fr In ctx.FORMULARIOS
+                                Where fr.IDSALTO = form.IDSALTO AndAlso fr.ACTIVO = 1).Count()
+
+        If activo < 1 Then
+            Try
+                ctx.FORMULARIOS.AddObject(form)
+                ctx.SaveChanges()
+                Return form.IDFORMULARIO 'Después de SaveChanges(), EntityFramework carga el objeto 'ges' con los datos y así retornamos el ID recien agregado
+            Catch ex As Exception
+                Return ex.Message.ToString
+            End Try
+        ElseIf form.ACTIVO = 1 Then
+            Try
+                Dim forms = (From frm In ctx.FORMULARIOS
+                                Where frm.IDSALTO = form.IDSALTO
+                                Select frm).ToList()
+
+                Try
+                    For Each f In forms
+                        f.ACTIVO = 0
+                    Next
+
+                    ctx.FORMULARIOS.AddObject(form)
+                    ctx.SaveChanges()
+                    Return form.IDFORMULARIO
+                Catch ex As Exception
+                    Return ex.Message.ToString
+                End Try
+            Catch ex As Exception
+                Return ex.Message.ToString
+            End Try
+        Else
+            Try
+                ctx.FORMULARIOS.AddObject(form)
+                ctx.SaveChanges()
+                Return form.IDFORMULARIO
+            Catch ex As UpdateException
+                Return ex.Message
+            End Try
+        End If
+    End Function
+
+    Public Shared Sub CargarFormsPadres(cbo As ComboBox, IdP As Integer)
+        Dim forms = (From fr In ctx.FORMULARIOS
+                     Where fr.IDSALTO = IdP
+                     Order By fr.IDFORMULARIO
+                     Select fr.IDFORMULARIO, fr.TITULO).ToList
+
+        cbo.DataSource = forms
+        cbo.ValueMember = "IDFORMULARIO"
+        cbo.DisplayMember = "TITULO"
+    End Sub
+
+    Public Shared Sub CargarTiposcampos(cbo As COMBOBOX)
+        Dim campos = (From cam In ctx.TIPOS_CAMPOS
+                      Order By cam.DESCRIPCION
+                      Select cam.IDTIPO_CAMPO, cam.DESCRIPCION).ToList
+
+        cbo.DataSource = campos
+        cbo.ValueMember = "IDTIPO_CAMPO"
+        cbo.DisplayMember = "DESCRIPCION"
+    End Sub
+
+    Public Shared Sub CargarValidaciones(cbo As ComboBox)
+        Dim valids = (From val In ctx.VALIDACIONES
+                      Order By val.DESCRIPCION
+                      Select val.IDVALIDACION, val.DESCRIPCION).ToList
+
+        cbo.DataSource = valids
+        cbo.ValueMember = "IDVALIDACION"
+        cbo.DisplayMember = "DESCRIPCION"
+    End Sub
+
+    Public Shared Function AgregarCampos(ByVal campos As CAMPOS_FORM) As String
         Try
-            ctx.FORMULARIOS.AddObject(form)
+            ctx.CAMPOS_FORM.AddObject(campos)
             ctx.SaveChanges()
-            Return form.IDFORMULARIO 'Después de SaveChanges(), EntityFramework carga el objeto 'ges' con los datos y así retornamos el ID recien agregado
-        Catch ex As UpdateException
-            Return ex.Message
+            Return "OK"
+        Catch ex As Exception
+            Return ex.InnerException.ToString
         End Try
     End Function
+
+    Public Shared Sub CargarCamposGrid(grid As DevExpress.XtraGrid.GridControl, idf As Integer)
+        Dim campos = (From campo In ctx.CAMPOS_FORM
+                      Where campo.IDFORMULARIO = idf
+                      Order By campo.IDCAMPO_FORM
+                      Select campo.ETIQUETA, campo.TIPOS_CAMPOS.DESCRIPCION).ToList
+
+        grid.DataSource = campos
+    End Sub
 #End Region
 
 End Class

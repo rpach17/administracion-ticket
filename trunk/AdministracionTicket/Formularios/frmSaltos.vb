@@ -231,10 +231,17 @@
             MsgBox("No puede crear formulario para este paso", MsgBoxStyle.Exclamation, "Formulario")
             Exit Sub
         Else
+            Try
+                frmCrearFormularios.Close()
+            Catch ex As Exception
+            End Try
+
             Dim idp As Integer = ObtenerDatoGrid(dgvPasos)
+            Dim nombreg As String = ObtenerDatoGrid(dgvPasos, 3)
             With frmCrearFormularios
                 .MdiParent = Me.MdiParent
                 .IdSalto1 = idp
+                .Titulo1 = nombreg
                 .Show()
                 .Focus()
             End With
