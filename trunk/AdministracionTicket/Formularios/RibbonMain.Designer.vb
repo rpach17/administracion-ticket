@@ -200,7 +200,7 @@ Partial Class RibbonMain
         '
         Me.BarButtonItem12.Caption = "Procesos"
         Me.BarButtonItem12.Id = 17
-        Me.BarButtonItem12.LargeGlyph = CType(resources.GetObject("BarButtonItem12.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem12.LargeGlyph = Global.AdministracionTicket.My.Resources.Resources.cog
         Me.BarButtonItem12.Name = "BarButtonItem12"
         '
         'BarButtonItem13

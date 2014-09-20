@@ -22,7 +22,6 @@ Partial Class frmSaltos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSaltos))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Nuevo = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -167,7 +166,7 @@ Partial Class frmSaltos
         'CrearForm
         '
         Me.CrearForm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.CrearForm.Image = CType(resources.GetObject("CrearForm.Image"), System.Drawing.Image)
+        Me.CrearForm.Image = Global.AdministracionTicket.My.Resources.Resources.application_form
         Me.CrearForm.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.CrearForm.Name = "CrearForm"
         Me.CrearForm.Size = New System.Drawing.Size(36, 45)

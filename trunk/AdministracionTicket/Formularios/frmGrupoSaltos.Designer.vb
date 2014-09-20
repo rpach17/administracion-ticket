@@ -72,7 +72,7 @@ Partial Class frmGrupoSaltos
         Me.GroupBox2.Controls.Add(Me.btnBuscarS)
         Me.GroupBox2.Controls.Add(Me.cboOficina)
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Location = New System.Drawing.Point(21, 20)
+        Me.GroupBox2.Location = New System.Drawing.Point(25, 38)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(422, 137)
         Me.GroupBox2.TabIndex = 11
@@ -120,9 +120,9 @@ Partial Class frmGrupoSaltos
         'btnBuscarS
         '
         Me.btnBuscarS.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnBuscarS.Location = New System.Drawing.Point(371, 26)
+        Me.btnBuscarS.Location = New System.Drawing.Point(365, 24)
         Me.btnBuscarS.Name = "btnBuscarS"
-        Me.btnBuscarS.Size = New System.Drawing.Size(45, 26)
+        Me.btnBuscarS.Size = New System.Drawing.Size(45, 28)
         Me.btnBuscarS.TabIndex = 23
         Me.btnBuscarS.Text = "..."
         Me.btnBuscarS.UseVisualStyleBackColor = True
@@ -154,7 +154,7 @@ Partial Class frmGrupoSaltos
         Me.GroupBox1.Controls.Add(Me.txtDescripcion)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(21, 163)
+        Me.GroupBox1.Location = New System.Drawing.Point(25, 181)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(422, 131)
         Me.GroupBox1.TabIndex = 10
@@ -164,7 +164,7 @@ Partial Class frmGrupoSaltos
         'chkActivo
         '
         Me.chkActivo.AutoSize = True
-        Me.chkActivo.Location = New System.Drawing.Point(123, 83)
+        Me.chkActivo.Location = New System.Drawing.Point(118, 83)
         Me.chkActivo.Name = "chkActivo"
         Me.chkActivo.Size = New System.Drawing.Size(15, 14)
         Me.chkActivo.TabIndex = 8
@@ -174,7 +174,7 @@ Partial Class frmGrupoSaltos
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(25, 49)
+        Me.Label3.Location = New System.Drawing.Point(20, 49)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(92, 20)
         Me.Label3.TabIndex = 2
@@ -184,17 +184,17 @@ Partial Class frmGrupoSaltos
         '
         Me.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.txtDescripcion.Location = New System.Drawing.Point(123, 46)
+        Me.txtDescripcion.Location = New System.Drawing.Point(118, 46)
         Me.txtDescripcion.MaxLength = 48
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(293, 26)
+        Me.txtDescripcion.Size = New System.Drawing.Size(287, 26)
         Me.txtDescripcion.TabIndex = 3
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label6.Location = New System.Drawing.Point(20, 81)
+        Me.Label6.Location = New System.Drawing.Point(60, 78)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(52, 20)
         Me.Label6.TabIndex = 4
@@ -203,7 +203,7 @@ Partial Class frmGrupoSaltos
         'btnAgregar
         '
         Me.btnAgregar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnAgregar.Location = New System.Drawing.Point(21, 300)
+        Me.btnAgregar.Location = New System.Drawing.Point(25, 318)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(422, 40)
         Me.btnAgregar.TabIndex = 8
@@ -214,7 +214,7 @@ Partial Class frmGrupoSaltos
         '
         Me.GroupBox3.Controls.Add(Me.dgvGrupoSaltos)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.GroupBox3.Location = New System.Drawing.Point(449, 20)
+        Me.GroupBox3.Location = New System.Drawing.Point(453, 38)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(414, 320)
         Me.GroupBox3.TabIndex = 12
@@ -233,7 +233,7 @@ Partial Class frmGrupoSaltos
         Me.dgvGrupoSaltos.Name = "dgvGrupoSaltos"
         Me.dgvGrupoSaltos.ReadOnly = True
         Me.dgvGrupoSaltos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGrupoSaltos.Size = New System.Drawing.Size(402, 268)
+        Me.dgvGrupoSaltos.Size = New System.Drawing.Size(402, 292)
         Me.dgvGrupoSaltos.TabIndex = 9
         '
         'idGrupoSalto

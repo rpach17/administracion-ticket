@@ -51,6 +51,14 @@ Module ModuloFunciones
         End Try
     End Function
 
+    Public Function ObtenerDatoXtraGrid(ByVal grid As DevExpress.XtraGrid.Views.Grid.GridView, ByVal columna As String)
+        Try
+            Return grid.GetRowCellValue(grid.FocusedRowHandle, columna)
+        Catch ex As Exception
+            Return Nothing
+        End Try
+    End Function
+
     Public Function BuscarEnGrid(ByVal grid As DataGridView, ByVal col As Integer, ByVal dato As Object) As Boolean
         Dim indice As Integer = 0
 
@@ -63,4 +71,5 @@ Module ModuloFunciones
         Next Row
         Return False
     End Function
+
 End Module

@@ -23,15 +23,20 @@ Partial Class frmCrearFormularios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.chkActivo = New System.Windows.Forms.CheckBox()
+        Me.lblTitulo = New System.Windows.Forms.Label()
         Me.panelCampos = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.txtIdComboBox = New System.Windows.Forms.TextBox()
         Me.btnAgregarCampo = New System.Windows.Forms.Button()
         Me.btnAsignarDatosCampo = New System.Windows.Forms.Button()
         Me.chkSoloLectura = New System.Windows.Forms.CheckBox()
         Me.chkRequerido = New System.Windows.Forms.CheckBox()
+        Me.numOrden = New System.Windows.Forms.NumericUpDown()
         Me.numLogitud = New System.Windows.Forms.NumericUpDown()
         Me.cboValidacion = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.cboTiposCampo = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -42,28 +47,24 @@ Partial Class frmCrearFormularios
         Me.txtMascara = New System.Windows.Forms.TextBox()
         Me.txtEtiqueta = New System.Windows.Forms.TextBox()
         Me.txtNombreCampo = New System.Windows.Forms.TextBox()
-        Me.dgvCampos = New DevExpress.XtraGrid.GridControl()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.btnNuevoForm = New System.Windows.Forms.Button()
         Me.btnGuardarForm = New System.Windows.Forms.Button()
         Me.cboFormPadre = New System.Windows.Forms.ComboBox()
         Me.chkEsGrid = New System.Windows.Forms.CheckBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtTitulo = New System.Windows.Forms.TextBox()
-        Me.lblTitulo = New System.Windows.Forms.Label()
-        Me.chkActivo = New System.Windows.Forms.CheckBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.numOrden = New System.Windows.Forms.NumericUpDown()
+        Me.dgvCampos = New System.Windows.Forms.DataGridView()
+        Me.btnNuevoCampo = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.panelCampos.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        CType(Me.numOrden, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.numLogitud, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvCampos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.numOrden, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -73,6 +74,7 @@ Partial Class frmCrearFormularios
         Me.Panel1.Controls.Add(Me.chkActivo)
         Me.Panel1.Controls.Add(Me.lblTitulo)
         Me.Panel1.Controls.Add(Me.panelCampos)
+        Me.Panel1.Controls.Add(Me.btnNuevoForm)
         Me.Panel1.Controls.Add(Me.btnGuardarForm)
         Me.Panel1.Controls.Add(Me.cboFormPadre)
         Me.Panel1.Controls.Add(Me.chkEsGrid)
@@ -83,6 +85,30 @@ Partial Class frmCrearFormularios
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(876, 454)
         Me.Panel1.TabIndex = 0
+        '
+        'chkActivo
+        '
+        Me.chkActivo.AutoSize = True
+        Me.chkActivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.chkActivo.Location = New System.Drawing.Point(173, 75)
+        Me.chkActivo.Name = "chkActivo"
+        Me.chkActivo.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.chkActivo.Size = New System.Drawing.Size(65, 21)
+        Me.chkActivo.TabIndex = 7
+        Me.chkActivo.Text = "Activo"
+        Me.chkActivo.UseVisualStyleBackColor = True
+        '
+        'lblTitulo
+        '
+        Me.lblTitulo.BackColor = System.Drawing.SystemColors.Highlight
+        Me.lblTitulo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTitulo.ForeColor = System.Drawing.Color.White
+        Me.lblTitulo.Location = New System.Drawing.Point(0, 0)
+        Me.lblTitulo.Name = "lblTitulo"
+        Me.lblTitulo.Size = New System.Drawing.Size(876, 30)
+        Me.lblTitulo.TabIndex = 6
+        Me.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'panelCampos
         '
@@ -115,6 +141,8 @@ Partial Class frmCrearFormularios
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.txtIdComboBox)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnNuevoCampo)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnAgregarCampo)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnAsignarDatosCampo)
         Me.SplitContainer1.Panel1.Controls.Add(Me.chkSoloLectura)
@@ -141,13 +169,20 @@ Partial Class frmCrearFormularios
         Me.SplitContainer1.SplitterDistance = 453
         Me.SplitContainer1.TabIndex = 0
         '
+        'txtIdComboBox
+        '
+        Me.txtIdComboBox.Location = New System.Drawing.Point(322, 95)
+        Me.txtIdComboBox.Name = "txtIdComboBox"
+        Me.txtIdComboBox.Size = New System.Drawing.Size(88, 20)
+        Me.txtIdComboBox.TabIndex = 10
+        '
         'btnAgregarCampo
         '
         Me.btnAgregarCampo.Location = New System.Drawing.Point(137, 176)
         Me.btnAgregarCampo.Name = "btnAgregarCampo"
-        Me.btnAgregarCampo.Size = New System.Drawing.Size(179, 33)
+        Me.btnAgregarCampo.Size = New System.Drawing.Size(143, 33)
         Me.btnAgregarCampo.TabIndex = 9
-        Me.btnAgregarCampo.Text = "Agregar campo"
+        Me.btnAgregarCampo.Text = "Guardar"
         Me.btnAgregarCampo.UseVisualStyleBackColor = True
         '
         'btnAsignarDatosCampo
@@ -180,12 +215,20 @@ Partial Class frmCrearFormularios
         Me.chkRequerido.Text = "Requerido"
         Me.chkRequerido.UseVisualStyleBackColor = True
         '
+        'numOrden
+        '
+        Me.numOrden.Location = New System.Drawing.Point(252, 95)
+        Me.numOrden.Name = "numOrden"
+        Me.numOrden.Size = New System.Drawing.Size(65, 20)
+        Me.numOrden.TabIndex = 4
+        '
         'numLogitud
         '
         Me.numLogitud.Location = New System.Drawing.Point(137, 95)
         Me.numLogitud.Name = "numLogitud"
         Me.numLogitud.Size = New System.Drawing.Size(65, 20)
         Me.numLogitud.TabIndex = 4
+        Me.numLogitud.Value = New Decimal(New Integer() {20, 0, 0, 0})
         '
         'cboValidacion
         '
@@ -195,6 +238,15 @@ Partial Class frmCrearFormularios
         Me.cboValidacion.Name = "cboValidacion"
         Me.cboValidacion.Size = New System.Drawing.Size(179, 21)
         Me.cboValidacion.TabIndex = 5
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(210, 99)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(36, 13)
+        Me.Label10.TabIndex = 1
+        Me.Label10.Text = "Orden"
         '
         'cboTiposCampo
         '
@@ -263,7 +315,7 @@ Partial Class frmCrearFormularios
         '
         Me.txtMascara.Location = New System.Drawing.Point(137, 148)
         Me.txtMascara.Name = "txtMascara"
-        Me.txtMascara.Size = New System.Drawing.Size(179, 20)
+        Me.txtMascara.Size = New System.Drawing.Size(295, 20)
         Me.txtMascara.TabIndex = 6
         '
         'txtEtiqueta
@@ -275,25 +327,21 @@ Partial Class frmCrearFormularios
         '
         'txtNombreCampo
         '
+        Me.txtNombreCampo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.txtNombreCampo.Location = New System.Drawing.Point(137, 43)
         Me.txtNombreCampo.Name = "txtNombreCampo"
         Me.txtNombreCampo.Size = New System.Drawing.Size(179, 20)
         Me.txtNombreCampo.TabIndex = 2
         '
-        'dgvCampos
+        'btnNuevoForm
         '
-        Me.dgvCampos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvCampos.Location = New System.Drawing.Point(0, 0)
-        Me.dgvCampos.MainView = Me.GridView1
-        Me.dgvCampos.Name = "dgvCampos"
-        Me.dgvCampos.Size = New System.Drawing.Size(370, 219)
-        Me.dgvCampos.TabIndex = 0
-        Me.dgvCampos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
-        '
-        'GridView1
-        '
-        Me.GridView1.GridControl = Me.dgvCampos
-        Me.GridView1.Name = "GridView1"
+        Me.btnNuevoForm.Location = New System.Drawing.Point(311, 131)
+        Me.btnNuevoForm.Name = "btnNuevoForm"
+        Me.btnNuevoForm.Size = New System.Drawing.Size(132, 37)
+        Me.btnNuevoForm.TabIndex = 3
+        Me.btnNuevoForm.Text = "Nuevo formulario"
+        Me.btnNuevoForm.UseVisualStyleBackColor = True
+        Me.btnNuevoForm.Visible = False
         '
         'btnGuardarForm
         '
@@ -355,44 +403,28 @@ Partial Class frmCrearFormularios
         Me.txtTitulo.Size = New System.Drawing.Size(389, 23)
         Me.txtTitulo.TabIndex = 0
         '
-        'lblTitulo
+        'dgvCampos
         '
-        Me.lblTitulo.BackColor = System.Drawing.SystemColors.Highlight
-        Me.lblTitulo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!)
-        Me.lblTitulo.Location = New System.Drawing.Point(0, 0)
-        Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.Size = New System.Drawing.Size(876, 30)
-        Me.lblTitulo.TabIndex = 6
-        Me.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.dgvCampos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvCampos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvCampos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvCampos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvCampos.Location = New System.Drawing.Point(0, 0)
+        Me.dgvCampos.MultiSelect = False
+        Me.dgvCampos.Name = "dgvCampos"
+        Me.dgvCampos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvCampos.Size = New System.Drawing.Size(370, 219)
+        Me.dgvCampos.TabIndex = 0
         '
-        'chkActivo
+        'btnNuevoCampo
         '
-        Me.chkActivo.AutoSize = True
-        Me.chkActivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.chkActivo.Location = New System.Drawing.Point(173, 75)
-        Me.chkActivo.Name = "chkActivo"
-        Me.chkActivo.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.chkActivo.Size = New System.Drawing.Size(65, 21)
-        Me.chkActivo.TabIndex = 7
-        Me.chkActivo.Text = "Activo"
-        Me.chkActivo.UseVisualStyleBackColor = True
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(210, 99)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(36, 13)
-        Me.Label10.TabIndex = 1
-        Me.Label10.Text = "Orden"
-        '
-        'numOrden
-        '
-        Me.numOrden.Location = New System.Drawing.Point(252, 95)
-        Me.numOrden.Name = "numOrden"
-        Me.numOrden.Size = New System.Drawing.Size(65, 20)
-        Me.numOrden.TabIndex = 4
+        Me.btnNuevoCampo.Location = New System.Drawing.Point(286, 176)
+        Me.btnNuevoCampo.Name = "btnNuevoCampo"
+        Me.btnNuevoCampo.Size = New System.Drawing.Size(143, 33)
+        Me.btnNuevoCampo.TabIndex = 9
+        Me.btnNuevoCampo.Text = "Nuevo campo"
+        Me.btnNuevoCampo.UseVisualStyleBackColor = True
+        Me.btnNuevoCampo.Visible = False
         '
         'frmCrearFormularios
         '
@@ -410,10 +442,9 @@ Partial Class frmCrearFormularios
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        CType(Me.numOrden, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.numLogitud, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvCampos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.numOrden, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -443,10 +474,12 @@ Partial Class frmCrearFormularios
     Friend WithEvents txtEtiqueta As System.Windows.Forms.TextBox
     Friend WithEvents txtNombreCampo As System.Windows.Forms.TextBox
     Friend WithEvents btnAgregarCampo As System.Windows.Forms.Button
-    Friend WithEvents dgvCampos As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents lblTitulo As System.Windows.Forms.Label
     Friend WithEvents chkActivo As System.Windows.Forms.CheckBox
     Friend WithEvents numOrden As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents btnNuevoForm As System.Windows.Forms.Button
+    Friend WithEvents txtIdComboBox As System.Windows.Forms.TextBox
+    Friend WithEvents dgvCampos As System.Windows.Forms.DataGridView
+    Friend WithEvents btnNuevoCampo As System.Windows.Forms.Button
 End Class
