@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("036ad774-c006-4a8b-afe0-fc6faab7221e")>
+<Assembly: EdmSchemaAttribute("446fabdb-3f24-481f-9f97-aa48a7b09c92")>
 #Region "Metadatos de relaciones en EDM"
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DEPARTAMENTOS_FK1", "PAIS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(PAIS), "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DEPARTAMENTOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "MUNICIPIOS_FK1", "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(DEPARTAMENTOS), "MUNICIPIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(MUNICIPIOS), True)>

@@ -884,7 +884,6 @@
 
 #End Region
 
-
 #Region "Crear formularios"
     Public Shared Function AgregarFormulario(ByVal form As FORMULARIOS) As Object
         Dim activo As Integer = (From fr In ctx.FORMULARIOS
@@ -938,6 +937,7 @@
         cbo.DataSource = forms
         cbo.ValueMember = "IDFORMULARIO"
         cbo.DisplayMember = "TITULO"
+        cbo.SelectedValue = -1
     End Sub
 
     Public Shared Sub CargarTiposcampos(cbo As COMBOBOX)
@@ -948,6 +948,7 @@
         cbo.DataSource = campos
         cbo.ValueMember = "IDTIPO_CAMPO"
         cbo.DisplayMember = "DESCRIPCION"
+        cbo.SelectedValue = -1
     End Sub
 
     Public Shared Sub CargarValidaciones(cbo As ComboBox)
@@ -958,6 +959,7 @@
         cbo.DataSource = valids
         cbo.ValueMember = "IDVALIDACION"
         cbo.DisplayMember = "DESCRIPCION"
+        cbo.SelectedValue = -1
     End Sub
 
     Public Shared Function AgregarCampos(ByVal campos As CAMPOS_FORM) As String
@@ -970,14 +972,132 @@
         End Try
     End Function
 
-    Public Shared Sub CargarCamposGrid(grid As DevExpress.XtraGrid.GridControl, idf As Integer)
+    Public Shared Sub CargarCamposGrid(grid As DataGridView, idf As Integer)
         Dim campos = (From campo In ctx.CAMPOS_FORM
                       Where campo.IDFORMULARIO = idf
-                      Order By campo.IDCAMPO_FORM
-                      Select campo.ETIQUETA, campo.TIPOS_CAMPOS.DESCRIPCION).ToList
+                      Order By campo.ORDEN
+                      Select campo.IDCAMPO_FORM, campo.ETIQUETA, campo.TIPOS_CAMPOS.DESCRIPCION, campo.ORDEN).ToList
 
         grid.DataSource = campos
+        grid.Columns(0).Visible = False
     End Sub
-#End Region
 
+    Public Shared Function AgregarListaDesplegable(ByVal ls As LISTA_DESPLEGABLE)
+        Try
+            ctx.LISTA_DESPLEGABLE.AddObject(ls)
+            ctx.SaveChanges()
+            Return ls.IDLISTA_DESPLEGABLE
+        Catch ex As Exception
+            Return ex.InnerException.ToString
+        End Try
+    End Function
+
+    Public Shared Sub AgregarOpcionLista(ByVal opt As DETALLE_LISTA_DESPLEGABLE)
+        Try
+            ctx.DETALLE_LISTA_DESPLEGABLE.AddObject(opt)
+            ctx.SaveChanges()
+        Catch ex As Exception
+            'Return ex.Message.ToString
+        End Try
+    End Sub
+
+    Public Shared Sub CargarOpcionesLista(grid As DataGridView, idld As Integer, Optional ByVal txt As TextBox = Nothing)
+        If Not txt Is Nothing Then
+            Dim nombre = (From n In ctx.LISTA_DESPLEGABLE
+                          Where n.IDLISTA_DESPLEGABLE = idld
+                          Select n.DESCRIPCION).Single
+
+            txt.Text = nombre
+        End If
+
+        Dim opciones = (From opt In ctx.DETALLE_LISTA_DESPLEGABLE
+                        Where opt.IDLISTA_DESPLEGABLE = idld
+                        Order By opt.VALOR
+                        Select opt.VALOR, opt.TEXTO).ToList
+
+        grid.DataSource = opciones
+    End Sub
+
+    Public Shared Sub CargarListasDesplegables(grid As DataGridView, Optional busqueda As String = "")
+        If busqueda = "" Then
+            Dim listas = (From ls In ctx.LISTA_DESPLEGABLE
+                          Order By ls.DESCRIPCION
+                          Select ls.IDLISTA_DESPLEGABLE, ls.DESCRIPCION).ToList
+
+            grid.DataSource = listas
+            grid.Columns(0).Visible = False
+        Else
+            Dim listas = (From ls In ctx.LISTA_DESPLEGABLE
+                          Where ls.DESCRIPCION.Contains(busqueda)
+                          Order By ls.DESCRIPCION
+                          Select ls.IDLISTA_DESPLEGABLE, ls.DESCRIPCION).ToList
+
+            grid.DataSource = listas
+            grid.Columns(0).Visible = False
+        End If
+    End Sub
+
+    Public Shared Sub CargarFormsSalto(grid As DataGridView, IdP As Integer)
+        Dim forms = (From fr In ctx.FORMULARIOS
+                     Where fr.IDSALTO = IdP
+                     Order By fr.IDFORMULARIO
+                     Select fr.IDFORMULARIO, fr.TITULO).ToList
+
+        grid.DataSource = forms
+        grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Function LlenarFrmForm(idf As Integer) As FORMULARIOS
+        Dim datos As FORMULARIOS = (From frm In ctx.FORMULARIOS
+                                    Where frm.IDFORMULARIO = idf
+                                    Select frm).First
+
+        Return datos
+    End Function
+
+    Public Shared Sub ActualizaFormulario(titulo As String, activo As Boolean, grid As Boolean, frmPadre As Integer, idf As Integer)
+        Dim frm = (From f In ctx.FORMULARIOS Where f.IDFORMULARIO = idf).SingleOrDefault
+        Try
+            frm.TITULO = titulo
+            frm.GRID = If(grid, 1, 0)
+            frm.ACTIVO = If(activo, 1, 0)
+            frm.FORMULARIO_PADRE = frmPadre
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Function LlenarCampos(idc As Integer) As CAMPOS_FORM
+        Dim datos As CAMPOS_FORM = (From campo In ctx.CAMPOS_FORM
+                                    Where campo.IDCAMPO_FORM = idc
+                                    Select campo).First
+
+        Return datos
+    End Function
+
+    Public Shared Sub ActualizarCampo(tipoCampo As Decimal, nombreCampo As String, etiqueta As String, longi As Decimal, orden As Decimal, val As Decimal?, mascara As String, requerido As Decimal, soloLectura As Decimal, IdCombo As Decimal?, IdCampo As Decimal)
+        Dim campo = (From c In ctx.CAMPOS_FORM Where c.IDCAMPO_FORM = IdCampo).SingleOrDefault
+        Try
+            With campo
+                .IDTIPO_CAMPO = tipoCampo
+                .NOMBRE_CAMPO = nombreCampo
+                .ETIQUETA = etiqueta
+                .LONGITUD = longi
+                .ORDEN = orden
+                .IDVALIDACION = val
+                .MASCARA = mascara
+                .REQUERIDO = requerido
+                .SOLO_LECTURA = soloLectura
+                .IDCOMBOBOX = IdCombo
+            End With
+
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
+#End Region
 End Class

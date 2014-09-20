@@ -287,7 +287,7 @@
           <Key>
             <PropertyRef Name="IDDETALLE_LISTA" />
           </Key>
-          <Property Name="IDDETALLE_LISTA" Type="number" Nullable="false" />
+          <Property Name="IDDETALLE_LISTA" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IDLISTA_DESPLEGABLE" Type="number" Nullable="false" />
           <Property Name="VALOR" Type="number" />
           <Property Name="TEXTO" Type="nvarchar2" MaxLength="60" />
@@ -441,7 +441,7 @@
           <Key>
             <PropertyRef Name="IDLISTA_DESPLEGABLE" />
           </Key>
-          <Property Name="IDLISTA_DESPLEGABLE" Type="number" Nullable="false" />
+          <Property Name="IDLISTA_DESPLEGABLE" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="35" />
         </EntityType>
         <EntityType Name="MUNICIPIOS">
@@ -2256,7 +2256,7 @@
           <Key>
             <PropertyRef Name="IDDETALLE_LISTA" />
           </Key>
-          <Property Type="Decimal" Name="IDDETALLE_LISTA" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDDETALLE_LISTA" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Decimal" Name="IDLISTA_DESPLEGABLE" Nullable="false" Precision="38" Scale="0" />
           <Property Type="Decimal" Name="VALOR" Precision="38" Scale="0" />
           <Property Type="String" Name="TEXTO" MaxLength="60" FixedLength="false" Unicode="true" />
@@ -2266,8 +2266,8 @@
           <Key>
             <PropertyRef Name="IDLISTA_DESPLEGABLE" />
           </Key>
-          <Property Type="Decimal" Name="IDLISTA_DESPLEGABLE" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="String" Name="DESCRIPCION" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IDLISTA_DESPLEGABLE" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DETALLE_LISTA_DESPLEGABLE" Relationship="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1" FromRole="LISTA_DESPLEGABLE" ToRole="DETALLE_LISTA_DESPLEGABLE" />
         </EntityType>
         <Association Name="DETALLE_LISTA_DESPLEGABLE_FK1">
@@ -2739,7 +2739,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="appcatablas" ZoomLevel="29">
+      <Diagram Name="appcatablas" ZoomLevel="55">
         <EntityTypeShape EntityType="ModeloTablas.BENEFICIARIO" Width="1.5" PointX="10.205972760080346" PointY="25.879076582323329" />
         <EntityTypeShape EntityType="ModeloTablas.DEPARTAMENTOS" Width="1.5" PointX="2.18216101181794" PointY="22.102031956474313" />
         <EntityTypeShape EntityType="ModeloTablas.DETALLE_OFICINA_GESTIONES" Width="1.5" PointX="33.375" PointY="26.25" />

@@ -157,6 +157,18 @@
     <Compile Include="Formularios\frmCrearFormularios.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmListadoForms.Designer.vb">
+      <DependentUpon>frmListadoForms.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmListadoForms.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmListasDesplegables.Designer.vb">
+      <DependentUpon>frmListasDesplegables.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmListasDesplegables.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmSucursalesBusqueda.Designer.vb">
       <DependentUpon>frmSucursalesBusqueda.vb</DependentUpon>
     </Compile>
@@ -310,6 +322,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Formularios\frmCrearFormularios.resx">
       <DependentUpon>frmCrearFormularios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmListadoForms.resx">
+      <DependentUpon>frmListadoForms.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmListasDesplegables.resx">
+      <DependentUpon>frmListasDesplegables.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmSucursalesBusqueda.resx">
       <DependentUpon>frmSucursalesBusqueda.vb</DependentUpon>
@@ -531,6 +549,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\715.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
