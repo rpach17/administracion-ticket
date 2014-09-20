@@ -151,6 +151,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>appcavistas.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmUsuariosObt.Designer.vb">
+      <DependentUpon>frmUsuariosObt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmUsuariosObt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmCrearFormularios.Designer.vb">
       <DependentUpon>frmCrearFormularios.vb</DependentUpon>
     </Compile>
@@ -320,6 +326,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\frmUsuariosObt.resx">
+      <DependentUpon>frmUsuariosObt.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmCrearFormularios.resx">
       <DependentUpon>frmCrearFormularios.vb</DependentUpon>
     </EmbeddedResource>

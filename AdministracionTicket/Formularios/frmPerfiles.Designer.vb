@@ -27,6 +27,10 @@ Partial Class frmPerfiles
         Dim CONTRASENALabel As System.Windows.Forms.Label
         Dim NOMBRELabel As System.Windows.Forms.Label
         Dim APELLIDOSLabel As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
+        Dim Label3 As System.Windows.Forms.Label
+        Dim Label4 As System.Windows.Forms.Label
+        Dim Label6 As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPerfiles))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -45,10 +49,20 @@ Partial Class frmPerfiles
         Me.APELLIDOSTextBox = New System.Windows.Forms.TextBox()
         Me.ESTADOCheckBox = New System.Windows.Forms.CheckBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TITULOTextBox = New System.Windows.Forms.TextBox()
+        Me.txtVincular = New System.Windows.Forms.TextBox()
+        Me.btnBuscarUsuario = New System.Windows.Forms.Button()
+        Me.cboPuestos = New System.Windows.Forms.ComboBox()
+        Me.IDENTIDADTexbox = New System.Windows.Forms.TextBox()
         USUARIOLabel = New System.Windows.Forms.Label()
         CONTRASENALabel = New System.Windows.Forms.Label()
         NOMBRELabel = New System.Windows.Forms.Label()
         APELLIDOSLabel = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
+        Label3 = New System.Windows.Forms.Label()
+        Label4 = New System.Windows.Forms.Label()
+        Label6 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PERFILES_USUARIODataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -79,7 +93,7 @@ Partial Class frmPerfiles
         '
         NOMBRELabel.AutoSize = True
         NOMBRELabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        NOMBRELabel.Location = New System.Drawing.Point(46, 121)
+        NOMBRELabel.Location = New System.Drawing.Point(46, 187)
         NOMBRELabel.Name = "NOMBRELabel"
         NOMBRELabel.Size = New System.Drawing.Size(65, 20)
         NOMBRELabel.TabIndex = 25
@@ -89,11 +103,51 @@ Partial Class frmPerfiles
         '
         APELLIDOSLabel.AutoSize = True
         APELLIDOSLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        APELLIDOSLabel.Location = New System.Drawing.Point(38, 153)
+        APELLIDOSLabel.Location = New System.Drawing.Point(38, 219)
         APELLIDOSLabel.Name = "APELLIDOSLabel"
         APELLIDOSLabel.Size = New System.Drawing.Size(73, 20)
         APELLIDOSLabel.TabIndex = 27
         APELLIDOSLabel.Text = "Apellidos"
+        '
+        'Label2
+        '
+        Label2.AutoSize = True
+        Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Label2.Location = New System.Drawing.Point(15, 283)
+        Label2.Name = "Label2"
+        Label2.Size = New System.Drawing.Size(96, 20)
+        Label2.TabIndex = 27
+        Label2.Text = "Vincular con"
+        '
+        'Label3
+        '
+        Label3.AutoSize = True
+        Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Label3.Location = New System.Drawing.Point(35, 155)
+        Label3.Name = "Label3"
+        Label3.Size = New System.Drawing.Size(76, 20)
+        Label3.TabIndex = 23
+        Label3.Text = "Identidad"
+        '
+        'Label4
+        '
+        Label4.AutoSize = True
+        Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Label4.Location = New System.Drawing.Point(64, 251)
+        Label4.Name = "Label4"
+        Label4.Size = New System.Drawing.Size(47, 20)
+        Label4.TabIndex = 27
+        Label4.Text = "Titulo"
+        '
+        'Label6
+        '
+        Label6.AutoSize = True
+        Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Label6.Location = New System.Drawing.Point(305, 251)
+        Label6.Name = "Label6"
+        Label6.Size = New System.Drawing.Size(109, 20)
+        Label6.TabIndex = 27
+        Label6.Text = "Ejemplo ABG."
         '
         'Panel1
         '
@@ -104,7 +158,7 @@ Partial Class frmPerfiles
         Me.Panel1.Controls.Add(Me.btnAgregarP)
         Me.Panel1.Location = New System.Drawing.Point(460, 20)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(381, 231)
+        Me.Panel1.Size = New System.Drawing.Size(381, 362)
         Me.Panel1.TabIndex = 34
         '
         'Label1
@@ -128,13 +182,13 @@ Partial Class frmPerfiles
         Me.PERFILES_USUARIODataGridView.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.PERFILES_USUARIODataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.PERFILES_USUARIODataGridView.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.PERFILES_USUARIODataGridView.Location = New System.Drawing.Point(17, 86)
+        Me.PERFILES_USUARIODataGridView.Location = New System.Drawing.Point(17, 97)
         Me.PERFILES_USUARIODataGridView.MultiSelect = False
         Me.PERFILES_USUARIODataGridView.Name = "PERFILES_USUARIODataGridView"
         Me.PERFILES_USUARIODataGridView.ReadOnly = True
         Me.PERFILES_USUARIODataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.PERFILES_USUARIODataGridView.Size = New System.Drawing.Size(349, 129)
-        Me.PERFILES_USUARIODataGridView.TabIndex = 13
+        Me.PERFILES_USUARIODataGridView.Size = New System.Drawing.Size(349, 247)
+        Me.PERFILES_USUARIODataGridView.TabIndex = 2
         '
         'ContextMenuStrip1
         '
@@ -155,28 +209,28 @@ Partial Class frmPerfiles
         Me.cboPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPerfil.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.cboPerfil.FormattingEnabled = True
-        Me.cboPerfil.Location = New System.Drawing.Point(17, 52)
+        Me.cboPerfil.Location = New System.Drawing.Point(17, 54)
         Me.cboPerfil.Name = "cboPerfil"
         Me.cboPerfil.Size = New System.Drawing.Size(256, 28)
-        Me.cboPerfil.TabIndex = 14
+        Me.cboPerfil.TabIndex = 0
         Me.cboPerfil.ValueMember = "IDPERFIL"
         '
         'btnAgregarP
         '
-        Me.btnAgregarP.Location = New System.Drawing.Point(279, 51)
+        Me.btnAgregarP.Location = New System.Drawing.Point(279, 53)
         Me.btnAgregarP.Name = "btnAgregarP"
         Me.btnAgregarP.Size = New System.Drawing.Size(87, 30)
-        Me.btnAgregarP.TabIndex = 16
+        Me.btnAgregarP.TabIndex = 1
         Me.btnAgregarP.Text = "Agregar"
         Me.btnAgregarP.UseVisualStyleBackColor = True
         '
         'btnOK
         '
         Me.btnOK.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.btnOK.Location = New System.Drawing.Point(128, 212)
+        Me.btnOK.Location = New System.Drawing.Point(128, 343)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(175, 39)
-        Me.btnOK.TabIndex = 33
+        Me.btnOK.TabIndex = 10
         Me.btnOK.UseVisualStyleBackColor = True
         '
         'lblOficina
@@ -198,7 +252,7 @@ Partial Class frmPerfiles
         Me.cboOficinas.Location = New System.Drawing.Point(128, 20)
         Me.cboOficinas.Name = "cboOficinas"
         Me.cboOficinas.Size = New System.Drawing.Size(326, 28)
-        Me.cboOficinas.TabIndex = 31
+        Me.cboOficinas.TabIndex = 0
         Me.cboOficinas.ValueMember = "IDDETALLE_SUCURSAL_OFICINA"
         '
         'lblAccion
@@ -209,7 +263,7 @@ Partial Class frmPerfiles
         Me.lblAccion.ForeColor = System.Drawing.Color.White
         Me.lblAccion.Location = New System.Drawing.Point(0, 0)
         Me.lblAccion.Name = "lblAccion"
-        Me.lblAccion.Size = New System.Drawing.Size(892, 44)
+        Me.lblAccion.Size = New System.Drawing.Size(924, 44)
         Me.lblAccion.TabIndex = 30
         Me.lblAccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -221,7 +275,7 @@ Partial Class frmPerfiles
         Me.USUARIOTextBox.MaxLength = 20
         Me.USUARIOTextBox.Name = "USUARIOTextBox"
         Me.USUARIOTextBox.Size = New System.Drawing.Size(175, 26)
-        Me.USUARIOTextBox.TabIndex = 22
+        Me.USUARIOTextBox.TabIndex = 1
         '
         'CONTRASENATextBox
         '
@@ -230,35 +284,35 @@ Partial Class frmPerfiles
         Me.CONTRASENATextBox.Name = "CONTRASENATextBox"
         Me.CONTRASENATextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.CONTRASENATextBox.Size = New System.Drawing.Size(175, 26)
-        Me.CONTRASENATextBox.TabIndex = 24
+        Me.CONTRASENATextBox.TabIndex = 2
         '
         'NOMBRETextBox
         '
         Me.NOMBRETextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NOMBRETextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.NOMBRETextBox.Location = New System.Drawing.Point(128, 118)
+        Me.NOMBRETextBox.Location = New System.Drawing.Point(128, 184)
         Me.NOMBRETextBox.MaxLength = 35
         Me.NOMBRETextBox.Name = "NOMBRETextBox"
-        Me.NOMBRETextBox.Size = New System.Drawing.Size(175, 26)
-        Me.NOMBRETextBox.TabIndex = 26
+        Me.NOMBRETextBox.Size = New System.Drawing.Size(259, 26)
+        Me.NOMBRETextBox.TabIndex = 5
         '
         'APELLIDOSTextBox
         '
         Me.APELLIDOSTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.APELLIDOSTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.APELLIDOSTextBox.Location = New System.Drawing.Point(128, 150)
+        Me.APELLIDOSTextBox.Location = New System.Drawing.Point(128, 216)
         Me.APELLIDOSTextBox.MaxLength = 35
         Me.APELLIDOSTextBox.Name = "APELLIDOSTextBox"
-        Me.APELLIDOSTextBox.Size = New System.Drawing.Size(175, 26)
-        Me.APELLIDOSTextBox.TabIndex = 28
+        Me.APELLIDOSTextBox.Size = New System.Drawing.Size(259, 26)
+        Me.APELLIDOSTextBox.TabIndex = 6
         '
         'ESTADOCheckBox
         '
         Me.ESTADOCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ESTADOCheckBox.Location = New System.Drawing.Point(128, 182)
+        Me.ESTADOCheckBox.Location = New System.Drawing.Point(128, 313)
         Me.ESTADOCheckBox.Name = "ESTADOCheckBox"
         Me.ESTADOCheckBox.Size = New System.Drawing.Size(104, 24)
-        Me.ESTADOCheckBox.TabIndex = 29
+        Me.ESTADOCheckBox.TabIndex = 9
         Me.ESTADOCheckBox.Text = "Estado"
         Me.ESTADOCheckBox.UseVisualStyleBackColor = True
         '
@@ -266,29 +320,100 @@ Partial Class frmPerfiles
         '
         Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.lblOficina)
         Me.Panel2.Controls.Add(Me.ESTADOCheckBox)
         Me.Panel2.Controls.Add(Me.Panel1)
+        Me.Panel2.Controls.Add(Me.TITULOTextBox)
+        Me.Panel2.Controls.Add(Me.txtVincular)
+        Me.Panel2.Controls.Add(Label6)
+        Me.Panel2.Controls.Add(Label4)
         Me.Panel2.Controls.Add(Me.APELLIDOSTextBox)
+        Me.Panel2.Controls.Add(Label2)
+        Me.Panel2.Controls.Add(Me.btnBuscarUsuario)
         Me.Panel2.Controls.Add(Me.btnOK)
         Me.Panel2.Controls.Add(APELLIDOSLabel)
         Me.Panel2.Controls.Add(Me.NOMBRETextBox)
+        Me.Panel2.Controls.Add(Me.cboPuestos)
         Me.Panel2.Controls.Add(Me.cboOficinas)
         Me.Panel2.Controls.Add(NOMBRELabel)
+        Me.Panel2.Controls.Add(Me.IDENTIDADTexbox)
         Me.Panel2.Controls.Add(Me.CONTRASENATextBox)
+        Me.Panel2.Controls.Add(Label3)
         Me.Panel2.Controls.Add(USUARIOLabel)
         Me.Panel2.Controls.Add(CONTRASENALabel)
         Me.Panel2.Controls.Add(Me.USUARIOTextBox)
-        Me.Panel2.Location = New System.Drawing.Point(12, 54)
+        Me.Panel2.Location = New System.Drawing.Point(26, 70)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(870, 272)
-        Me.Panel2.TabIndex = 35
+        Me.Panel2.Size = New System.Drawing.Size(870, 407)
+        Me.Panel2.TabIndex = 0
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.Label5.Location = New System.Drawing.Point(52, 121)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(59, 20)
+        Me.Label5.TabIndex = 32
+        Me.Label5.Text = "Puesto"
+        '
+        'TITULOTextBox
+        '
+        Me.TITULOTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TITULOTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.TITULOTextBox.Location = New System.Drawing.Point(128, 248)
+        Me.TITULOTextBox.MaxLength = 35
+        Me.TITULOTextBox.Name = "TITULOTextBox"
+        Me.TITULOTextBox.Size = New System.Drawing.Size(175, 26)
+        Me.TITULOTextBox.TabIndex = 7
+        '
+        'txtVincular
+        '
+        Me.txtVincular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtVincular.Enabled = False
+        Me.txtVincular.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.txtVincular.Location = New System.Drawing.Point(128, 280)
+        Me.txtVincular.MaxLength = 35
+        Me.txtVincular.Name = "txtVincular"
+        Me.txtVincular.Size = New System.Drawing.Size(175, 26)
+        Me.txtVincular.TabIndex = 6
+        '
+        'btnBuscarUsuario
+        '
+        Me.btnBuscarUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.btnBuscarUsuario.Location = New System.Drawing.Point(309, 280)
+        Me.btnBuscarUsuario.Name = "btnBuscarUsuario"
+        Me.btnBuscarUsuario.Size = New System.Drawing.Size(37, 26)
+        Me.btnBuscarUsuario.TabIndex = 8
+        Me.btnBuscarUsuario.Text = "..."
+        Me.btnBuscarUsuario.UseVisualStyleBackColor = True
+        '
+        'cboPuestos
+        '
+        Me.cboPuestos.DisplayMember = "NOMBRE_OFICINA"
+        Me.cboPuestos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboPuestos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.cboPuestos.FormattingEnabled = True
+        Me.cboPuestos.Location = New System.Drawing.Point(128, 118)
+        Me.cboPuestos.Name = "cboPuestos"
+        Me.cboPuestos.Size = New System.Drawing.Size(326, 28)
+        Me.cboPuestos.TabIndex = 3
+        Me.cboPuestos.ValueMember = "IDDETALLE_SUCURSAL_OFICINA"
+        '
+        'IDENTIDADTexbox
+        '
+        Me.IDENTIDADTexbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.IDENTIDADTexbox.Location = New System.Drawing.Point(128, 152)
+        Me.IDENTIDADTexbox.Name = "IDENTIDADTexbox"
+        Me.IDENTIDADTexbox.Size = New System.Drawing.Size(175, 26)
+        Me.IDENTIDADTexbox.TabIndex = 4
         '
         'frmPerfiles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(892, 338)
+        Me.ClientSize = New System.Drawing.Size(924, 508)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.lblAccion)
         Me.Name = "frmPerfiles"
@@ -319,4 +444,10 @@ Partial Class frmPerfiles
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents QuitarPerfilToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents txtVincular As System.Windows.Forms.TextBox
+    Friend WithEvents btnBuscarUsuario As System.Windows.Forms.Button
+    Friend WithEvents IDENTIDADTexbox As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents TITULOTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents cboPuestos As System.Windows.Forms.ComboBox
 End Class

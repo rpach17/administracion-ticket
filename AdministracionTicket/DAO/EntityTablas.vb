@@ -306,6 +306,14 @@
                 cbo.DisplayMember = "NOMBRE_OFICINA"
                 cbo.ValueMember = "IDDETALLE_SUCURSAL_OFICINA"
                 cbo.SelectedValue = -1
+            Case "cboPuestos"
+                Dim puestos = (From p In ctx.PUESTO
+                               Where p.IDOFICINA = ID
+                               Select p.IDPUESTO, p.NOMBRE_PUESTO).ToList
+                cbo.DataSource = puestos
+                cbo.DisplayMember = "NOMBRE_PUESTO"
+                cbo.ValueMember = "IDPUESTO"
+                cbo.SelectedValue = -1
         End Select
     End Sub
 
@@ -418,29 +426,49 @@
         'grid.Columns(1).Width = 30
     End Sub
 
-    Public Shared Sub CargarUsuariosSu(ByVal grid As DataGridView, ByVal filtro As Integer)
-        Dim mun = (From m In ctx.USUARIOS
-                    Where m.DETALLE_SUCURSAL_OFICINA.IDSUCURSAL = filtro
-                   Order By m.NOMBRE
-                   Select m.IDUSUARIO, Usuario = m.USUARIO, Nombre = m.NOMBRE, Apellidos = m.APELLIDOS, Estado = If(m.ESTADO = 1, True, False)).ToList()
-        grid.DataSource = mun
-        grid.Columns(0).Visible = False
-    End Sub
-
     Public Shared Function Usuario(ByVal idu As Integer)
         Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList()
                        Where u.IDUSUARIO = idu
                        Select u).First()
-            Return user
+        Return user
     End Function
 
+    Public Shared Function fidSucursal(ByVal idso As Integer) As Integer
+        Dim su As Integer = (From dso In ctx.DETALLE_SUCURSAL_OFICINA
+                            Where dso.IDDETALLE_SUCURSAL_OFICINA = idso
+                            Select dso.IDSUCURSAL).SingleOrDefault
+        Return su
+    End Function
+
+    Public Shared Sub CargarUsuariosSu(ByVal grid As DataGridView, ByVal filtro As Integer)
+        Dim usu = (From u In ctx.USUARIOS
+                   Where u.DETALLE_SUCURSAL_OFICINA.IDSUCURSAL = filtro
+                   Order By u.NOMBRE
+                   Select u.IDUSUARIO, Usuario = u.USUARIO, Nombre = u.NOMBRE, Apellidos = u.APELLIDOS, Estado = If(u.ESTADO = 1, True, False)).ToList()
+        grid.DataSource = usu
+        grid.Columns(0).Visible = False
+    End Sub
     Public Shared Sub CargarUsuariosSucursal(ByVal grid As DataGridView, ByVal filtro As Integer, ByVal user As String)
         Dim usu = (From u In ctx.USUARIOS
                     Where u.DETALLE_SUCURSAL_OFICINA.IDSUCURSAL = filtro AndAlso (u.USUARIO.StartsWith(user) OrElse u.NOMBRE.StartsWith(user))
                    Order By u.NOMBRE
                    Select u.IDUSUARIO, Usuario = u.USUARIO, Nombre = u.NOMBRE, Apellidos = u.APELLIDOS, Estado = If(u.ESTADO = 1, True, False)).ToList()
+
         grid.DataSource = usu
         grid.Columns(0).Visible = False
+    End Sub
+
+    Public Shared Sub BuscaNombre(ByVal nombreText As TextBox, ByVal apellidoText As TextBox, ByVal identidad As String)
+        Dim datos = (From i In ctx.IDENTIFICACION
+                    Where i.IDENTIDAD = identidad
+                    Select Nombre = i.PRIMER_NOMBRE + " " + i.SEGUNDO_NOMBRE, Apellidos = i.PRIMER_APELLIDO + " " + i.SEGUNDO_APELLIDO).FirstOrDefault
+        If Not datos Is Nothing Then
+            nombreText.Text = datos.Nombre
+            apellidoText.Text = datos.Apellidos
+        Else
+            nombreText.Text = ""
+            apellidoText.Text = ""
+        End If
     End Sub
 
     Public Shared Sub CargarCboPerfiles(ByVal cbo As ComboBox)
@@ -472,14 +500,16 @@
     End Function
 
 
-    Public Shared Sub ActualizarUsuario(ByVal idu As Integer, ByVal usuario As String, ByVal nombre As String, _
-                                        ByVal apellidos As String, ByVal estado As Integer)
+    Public Shared Sub ActualizarUsuario(ByVal idu As Integer, ByVal identidad As String, ByVal nombre As String, ByVal apellidos As String, _
+                                        ByVal titulo As String, ByVal vinculado As Integer, ByVal estado As Integer)
         Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList Where u.IDUSUARIO = idu).SingleOrDefault
         Try
             With user
-                .USUARIO = usuario
+                .IDENTIDAD = identidad
                 .NOMBRE = nombre
                 .APELLIDOS = apellidos
+                .TITULO = titulo
+                .VINCULAR_CON = vinculado
                 .ESTADO = estado
             End With
             ctx.SaveChanges()
