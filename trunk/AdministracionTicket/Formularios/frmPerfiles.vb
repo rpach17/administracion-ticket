@@ -1,6 +1,8 @@
 ﻿Public Class frmPerfiles
 
+
 #Region "Propiedades"
+
     Private _idUsuario As Integer
     Public Property IdUsuario() As Integer
         Get
@@ -30,6 +32,27 @@
             _esNuevo = value
         End Set
     End Property
+
+    Private _vinculadoCon As Integer?
+    Public Property VinculadoCon As integer?
+        Get
+            Return _vinculadoCon
+        End Get
+        Set(ByVal Value As integer?)
+            _vinculadoCon = Value
+        End Set
+    End Property
+
+    Private _usuarioVinculado As String
+    Public Property usuarioVinculado As String
+        Get
+            Return _usuarioVinculado
+        End Get
+        Set(ByVal Value As String)
+            _usuarioVinculado = Value
+        End Set
+    End Property
+    
 #End Region
 
 #Region "Procedimientos"
@@ -39,10 +62,25 @@
         usuario = EntityTablas.SelectUsuario(IdU)
         USUARIOTextBox.Text = usuario.USUARIO
         CONTRASENATextBox.Text = usuario.CONTRASENA
+        If Not usuario.IDENTIDAD Is Nothing Then
+            IDENTIDADTexbox.Text = usuario.IDENTIDAD
+            IDENTIDADTexbox.Enabled = False
+        Else
+            IDENTIDADTexbox.Text = usuario.IDENTIDAD
+            IDENTIDADTexbox.Enabled = True
+        End If
         NOMBRETextBox.Text = usuario.NOMBRE
         APELLIDOSTextBox.Text = usuario.APELLIDOS
+        TITULOTextBox.Text = usuario.TITULO
+        If Not usuario.VINCULAR_CON Is Nothing Then
+            _vinculadoCon = usuario.VINCULAR_CON
+            txtVincular.Text = usuario.USUARIOS2.USUARIO
+        Else
+            txtVincular.Text = ""
+        End If
         ESTADOCheckBox.Checked = IIf(usuario.ESTADO = 1, True, False)
         cboOficinas.SelectedValue = usuario.IDDETALLE_SUCURSAL_OFICINA
+        cboPuestos.SelectedValue = usuario.IDPUESTO
         CargarPerfilesUsuario(IdU)
 
     End Sub
@@ -50,8 +88,12 @@
     Private Sub LimpiarForm()
         USUARIOTextBox.Text = Nothing
         CONTRASENATextBox.Text = Nothing
+        IDENTIDADTexbox.Text = Nothing
         NOMBRETextBox.Text = Nothing
         APELLIDOSTextBox.Text = Nothing
+        TITULOTextBox.Text = Nothing
+        _vinculadoCon = Nothing
+        txtVincular.Text = Nothing
         ESTADOCheckBox.Checked = False
 
         cboOficinas.SelectedValue = -1
@@ -71,6 +113,12 @@
                 cboOficinas.Focus()
                 Return False
             End If
+        End If
+
+        If IDENTIDADTexbox.Text.Trim = "" Then
+            MsgBox("Ingrese el numero de identidad", MsgBoxStyle.Exclamation, "Identidad")
+            IDENTIDADTexbox.Focus()
+            Return False
         End If
 
         If USUARIOTextBox.Text.Trim = "" Then
@@ -110,16 +158,19 @@
         EntityTablas.CargarCombos(cboOficinas, IdSucursal)
 
         If EsNuevo Then 'Nuevo usuario
+            USUARIOTextBox.Enabled = True
             lblAccion.Text = "Agregando nuevo usuario"
             cboOficinas.SelectedValue = -1
             LimpiarForm() 'Se limpian los controles en caso de que el form ya haya visualizado info de otro usuario cuando EsNuevo = False
             btnAgregarP.Enabled = False 'No puede agregar perfil hasta que se haya agregado el usuario
             CONTRASENATextBox.Enabled = True 'Se habilita el txt contraseña en caso que haya quedado inhabilitado al editar un usuario
+            IDENTIDADTexbox.Enabled = True
             btnOK.Text = "Agregar usuario"
         Else 'No es nuevo usuario
             lblAccion.Text = "Editando información del usuario"
             'lblOficina.Visible = False
             'cboOficina.Visible = False
+            USUARIOTextBox.Enabled = False
             CargarDatosUsuario(_idUsuario) ' Carga los datos del usuario y las oficinas de la sucursal
             btnAgregarP.Enabled = True 'Se habilita el boton para agregar perfiles (En caso de que haya quedado deshabilitado al intentar agregar un nuevo usuario)
             CONTRASENATextBox.Enabled = False
@@ -161,7 +212,8 @@
                 Exit Sub
             End If
 
-            EntityTablas.ActualizarUsuario(IdUsuario, USUARIOTextBox.Text, NOMBRETextBox.Text, APELLIDOSTextBox.Text, IIf(ESTADOCheckBox.Checked, 1, 0))
+            EntityTablas.ActualizarUsuario(IdUsuario, IDENTIDADTexbox.Text, NOMBRETextBox.Text, APELLIDOSTextBox.Text, _
+                                           TITULOTextBox.Text, _vinculadoCon, IIf(ESTADOCheckBox.Checked, 1, 0))
             MsgBox("Se actualizó la información del usuario", MsgBoxStyle.Information, "Usuario actualizado")
 
         End If
@@ -190,11 +242,36 @@
     End Sub
 
     Private Sub USUARIOTextBox_Leave(sender As Object, e As EventArgs) Handles USUARIOTextBox.Leave
-        If EntityTablas.VerificarUsuario(USUARIOTextBox.Text) = False Then
-            MsgBox("Usuario ya existe")
-            'USUARIOTextBox.Text = ""
+        If EsNuevo Then
+            If EntityTablas.VerificarUsuario(USUARIOTextBox.Text) = False Then
+                MsgBox("Usuario ya existe")
+                'USUARIOTextBox.Text = ""
+                USUARIOTextBox.Focus()
+                Exit Sub
+            End If
         End If
     End Sub
 
+
+
+    Private Sub btnBuscarUsuario_Click(sender As Object, e As EventArgs) Handles btnBuscarUsuario.Click
+        With frmUsuariosSucursalObt
+            .Sucursal1 = EntityTablas.fidSucursal(cboOficinas.SelectedValue)
+            .StartPosition = FormStartPosition.CenterScreen
+            .ShowDialog()
+        End With
+        txtVincular.Text = usuarioVinculado
+    End Sub
+
+
+    Private Sub IDENTIDADTexbox_TextChanged(sender As Object, e As EventArgs) Handles IDENTIDADTexbox.TextChanged
+        If IDENTIDADTexbox.Text.Length = 13 Then
+            EntityTablas.BuscaNombre(NOMBRETextBox, APELLIDOSTextBox, IDENTIDADTexbox.Text)
+        End If
+    End Sub
+
+    Private Sub cboOficinas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboOficinas.SelectedIndexChanged
+        EntityTablas.CargarCombos(cboPuestos, cboOficinas.SelectedValue)
+    End Sub
 
 End Class
