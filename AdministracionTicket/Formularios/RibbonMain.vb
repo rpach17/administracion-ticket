@@ -97,7 +97,7 @@
         End With
     End Sub
 
-    Private Sub BarButtonItem13_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem13.ItemClick
+    Private Sub BarButtonItem13_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs)
         With frmCrearFormularios
             .MdiParent = Me
             .Show()
