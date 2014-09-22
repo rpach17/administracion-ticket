@@ -40,7 +40,6 @@ Partial Class RibbonMain
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
         Me.lblInfoUbicacion = New DevExpress.XtraBars.BarStaticItem()
         Me.BarButtonItem12 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem13 = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -59,7 +58,7 @@ Partial Class RibbonMain
         '
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu1
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarStaticItem1, Me.lblInfoConexion, Me.BarStaticItem2, Me.lblInfoUbicacion, Me.BarButtonItem12, Me.BarButtonItem13})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarStaticItem1, Me.lblInfoConexion, Me.BarStaticItem2, Me.lblInfoUbicacion, Me.BarButtonItem12})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
         Me.RibbonControl.MaxItemId = 19
         Me.RibbonControl.Name = "RibbonControl"
@@ -203,12 +202,6 @@ Partial Class RibbonMain
         Me.BarButtonItem12.LargeGlyph = Global.AdministracionTicket.My.Resources.Resources.cog
         Me.BarButtonItem12.Name = "BarButtonItem12"
         '
-        'BarButtonItem13
-        '
-        Me.BarButtonItem13.Caption = "BarButtonItem13"
-        Me.BarButtonItem13.Id = 18
-        Me.BarButtonItem13.Name = "BarButtonItem13"
-        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1, Me.RibbonPageGroup2})
@@ -228,7 +221,6 @@ Partial Class RibbonMain
         '
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem4)
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem5)
-        Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem13)
         Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
         Me.RibbonPageGroup2.Text = "Usuarios"
         '
@@ -312,7 +304,6 @@ Partial Class RibbonMain
     Friend WithEvents BarStaticItem2 As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents lblInfoUbicacion As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents BarButtonItem12 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButtonItem13 As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
