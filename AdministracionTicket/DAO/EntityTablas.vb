@@ -583,26 +583,30 @@
 
 #Region "Inicio de sesión"
     Public Shared Function Login(ByVal user As String, ByVal pass As String) As Boolean
-        Dim usu = (From users In ctx.USUARIOS
+        Try
+            Dim usu = (From users In ctx.USUARIOS
                    From per In users.PERFILES
                    Where users.USUARIO = user AndAlso users.CONTRASENA = pass AndAlso users.ESTADO = 1 AndAlso per.IDPERFIL = My.Settings.IDPerfil
                    Select users).ToList()
 
-        If usu.Count = 1 Then
-            For Each u In usu
-                With SesionActiva
-                    .IdUsuario = u.IDUSUARIO
-                    .Nombre = String.Format("{0} {1}", u.NOMBRE, u.APELLIDOS)
-                    .Usuario = u.USUARIO
-                    .Sucursal = u.DETALLE_SUCURSAL_OFICINA.SUCURSALES.NOMBRE
-                    .Oficina = u.DETALLE_SUCURSAL_OFICINA.OFICINAS.NOMBRE_OFICINA
-                    .IdSucursalOficina = u.IDDETALLE_SUCURSAL_OFICINA
-                End With
-            Next
-            Return True
-        Else
+            If usu.Count = 1 Then
+                For Each u In usu
+                    With SesionActiva
+                        .IdUsuario = u.IDUSUARIO
+                        .Nombre = String.Format("{0} {1}", u.NOMBRE, u.APELLIDOS)
+                        .Usuario = u.USUARIO
+                        .Sucursal = u.DETALLE_SUCURSAL_OFICINA.SUCURSALES.NOMBRE
+                        .Oficina = u.DETALLE_SUCURSAL_OFICINA.OFICINAS.NOMBRE_OFICINA
+                        .IdSucursalOficina = u.IDDETALLE_SUCURSAL_OFICINA
+                    End With
+                Next
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
             Return False
-        End If
+        End Try
     End Function
 #End Region
 

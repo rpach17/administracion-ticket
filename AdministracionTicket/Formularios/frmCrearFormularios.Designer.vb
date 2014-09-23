@@ -29,6 +29,7 @@ Partial Class frmCrearFormularios
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.txtIdComboBox = New System.Windows.Forms.TextBox()
+        Me.btnNuevoCampo = New System.Windows.Forms.Button()
         Me.btnAgregarCampo = New System.Windows.Forms.Button()
         Me.btnAsignarDatosCampo = New System.Windows.Forms.Button()
         Me.chkSoloLectura = New System.Windows.Forms.CheckBox()
@@ -47,6 +48,7 @@ Partial Class frmCrearFormularios
         Me.txtMascara = New System.Windows.Forms.TextBox()
         Me.txtEtiqueta = New System.Windows.Forms.TextBox()
         Me.txtNombreCampo = New System.Windows.Forms.TextBox()
+        Me.dgvCampos = New System.Windows.Forms.DataGridView()
         Me.btnNuevoForm = New System.Windows.Forms.Button()
         Me.btnGuardarForm = New System.Windows.Forms.Button()
         Me.cboFormPadre = New System.Windows.Forms.ComboBox()
@@ -54,8 +56,6 @@ Partial Class frmCrearFormularios
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtTitulo = New System.Windows.Forms.TextBox()
-        Me.dgvCampos = New System.Windows.Forms.DataGridView()
-        Me.btnNuevoCampo = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.panelCampos.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,14 +171,25 @@ Partial Class frmCrearFormularios
         '
         'txtIdComboBox
         '
-        Me.txtIdComboBox.Location = New System.Drawing.Point(322, 95)
+        Me.txtIdComboBox.Location = New System.Drawing.Point(313, 95)
         Me.txtIdComboBox.Name = "txtIdComboBox"
         Me.txtIdComboBox.Size = New System.Drawing.Size(88, 20)
         Me.txtIdComboBox.TabIndex = 10
+        Me.txtIdComboBox.Visible = False
+        '
+        'btnNuevoCampo
+        '
+        Me.btnNuevoCampo.Location = New System.Drawing.Point(277, 176)
+        Me.btnNuevoCampo.Name = "btnNuevoCampo"
+        Me.btnNuevoCampo.Size = New System.Drawing.Size(143, 33)
+        Me.btnNuevoCampo.TabIndex = 9
+        Me.btnNuevoCampo.Text = "Nuevo campo"
+        Me.btnNuevoCampo.UseVisualStyleBackColor = True
+        Me.btnNuevoCampo.Visible = False
         '
         'btnAgregarCampo
         '
-        Me.btnAgregarCampo.Location = New System.Drawing.Point(137, 176)
+        Me.btnAgregarCampo.Location = New System.Drawing.Point(128, 176)
         Me.btnAgregarCampo.Name = "btnAgregarCampo"
         Me.btnAgregarCampo.Size = New System.Drawing.Size(143, 33)
         Me.btnAgregarCampo.TabIndex = 9
@@ -187,7 +198,7 @@ Partial Class frmCrearFormularios
         '
         'btnAsignarDatosCampo
         '
-        Me.btnAsignarDatosCampo.Location = New System.Drawing.Point(322, 15)
+        Me.btnAsignarDatosCampo.Location = New System.Drawing.Point(313, 15)
         Me.btnAsignarDatosCampo.Name = "btnAsignarDatosCampo"
         Me.btnAsignarDatosCampo.Size = New System.Drawing.Size(110, 23)
         Me.btnAsignarDatosCampo.TabIndex = 1
@@ -198,7 +209,7 @@ Partial Class frmCrearFormularios
         'chkSoloLectura
         '
         Me.chkSoloLectura.AutoSize = True
-        Me.chkSoloLectura.Location = New System.Drawing.Point(322, 68)
+        Me.chkSoloLectura.Location = New System.Drawing.Point(313, 68)
         Me.chkSoloLectura.Name = "chkSoloLectura"
         Me.chkSoloLectura.Size = New System.Drawing.Size(82, 17)
         Me.chkSoloLectura.TabIndex = 8
@@ -208,7 +219,7 @@ Partial Class frmCrearFormularios
         'chkRequerido
         '
         Me.chkRequerido.AutoSize = True
-        Me.chkRequerido.Location = New System.Drawing.Point(322, 45)
+        Me.chkRequerido.Location = New System.Drawing.Point(313, 45)
         Me.chkRequerido.Name = "chkRequerido"
         Me.chkRequerido.Size = New System.Drawing.Size(75, 17)
         Me.chkRequerido.TabIndex = 7
@@ -217,14 +228,14 @@ Partial Class frmCrearFormularios
         '
         'numOrden
         '
-        Me.numOrden.Location = New System.Drawing.Point(252, 95)
+        Me.numOrden.Location = New System.Drawing.Point(243, 95)
         Me.numOrden.Name = "numOrden"
         Me.numOrden.Size = New System.Drawing.Size(65, 20)
         Me.numOrden.TabIndex = 4
         '
         'numLogitud
         '
-        Me.numLogitud.Location = New System.Drawing.Point(137, 95)
+        Me.numLogitud.Location = New System.Drawing.Point(128, 95)
         Me.numLogitud.Name = "numLogitud"
         Me.numLogitud.Size = New System.Drawing.Size(65, 20)
         Me.numLogitud.TabIndex = 4
@@ -234,7 +245,7 @@ Partial Class frmCrearFormularios
         '
         Me.cboValidacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboValidacion.FormattingEnabled = True
-        Me.cboValidacion.Location = New System.Drawing.Point(137, 121)
+        Me.cboValidacion.Location = New System.Drawing.Point(128, 121)
         Me.cboValidacion.Name = "cboValidacion"
         Me.cboValidacion.Size = New System.Drawing.Size(179, 21)
         Me.cboValidacion.TabIndex = 5
@@ -242,7 +253,7 @@ Partial Class frmCrearFormularios
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(210, 99)
+        Me.Label10.Location = New System.Drawing.Point(201, 99)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(36, 13)
         Me.Label10.TabIndex = 1
@@ -252,7 +263,7 @@ Partial Class frmCrearFormularios
         '
         Me.cboTiposCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboTiposCampo.FormattingEnabled = True
-        Me.cboTiposCampo.Location = New System.Drawing.Point(137, 16)
+        Me.cboTiposCampo.Location = New System.Drawing.Point(128, 16)
         Me.cboTiposCampo.Name = "cboTiposCampo"
         Me.cboTiposCampo.Size = New System.Drawing.Size(179, 21)
         Me.cboTiposCampo.TabIndex = 0
@@ -260,7 +271,7 @@ Partial Class frmCrearFormularios
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(84, 98)
+        Me.Label6.Location = New System.Drawing.Point(75, 98)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(48, 13)
         Me.Label6.TabIndex = 1
@@ -269,7 +280,7 @@ Partial Class frmCrearFormularios
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(74, 124)
+        Me.Label8.Location = New System.Drawing.Point(65, 124)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(56, 13)
         Me.Label8.TabIndex = 1
@@ -278,7 +289,7 @@ Partial Class frmCrearFormularios
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(84, 151)
+        Me.Label9.Location = New System.Drawing.Point(75, 151)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(48, 13)
         Me.Label9.TabIndex = 1
@@ -287,7 +298,7 @@ Partial Class frmCrearFormularios
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(84, 72)
+        Me.Label5.Location = New System.Drawing.Point(75, 72)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(46, 13)
         Me.Label5.TabIndex = 1
@@ -296,7 +307,7 @@ Partial Class frmCrearFormularios
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(52, 19)
+        Me.Label7.Location = New System.Drawing.Point(43, 19)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(78, 13)
         Me.Label7.TabIndex = 1
@@ -305,7 +316,7 @@ Partial Class frmCrearFormularios
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(35, 46)
+        Me.Label4.Location = New System.Drawing.Point(26, 46)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(96, 13)
         Me.Label4.TabIndex = 1
@@ -313,14 +324,14 @@ Partial Class frmCrearFormularios
         '
         'txtMascara
         '
-        Me.txtMascara.Location = New System.Drawing.Point(137, 148)
+        Me.txtMascara.Location = New System.Drawing.Point(128, 148)
         Me.txtMascara.Name = "txtMascara"
         Me.txtMascara.Size = New System.Drawing.Size(295, 20)
         Me.txtMascara.TabIndex = 6
         '
         'txtEtiqueta
         '
-        Me.txtEtiqueta.Location = New System.Drawing.Point(137, 69)
+        Me.txtEtiqueta.Location = New System.Drawing.Point(128, 69)
         Me.txtEtiqueta.Name = "txtEtiqueta"
         Me.txtEtiqueta.Size = New System.Drawing.Size(179, 20)
         Me.txtEtiqueta.TabIndex = 3
@@ -328,10 +339,23 @@ Partial Class frmCrearFormularios
         'txtNombreCampo
         '
         Me.txtNombreCampo.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
-        Me.txtNombreCampo.Location = New System.Drawing.Point(137, 43)
+        Me.txtNombreCampo.Location = New System.Drawing.Point(128, 43)
         Me.txtNombreCampo.Name = "txtNombreCampo"
         Me.txtNombreCampo.Size = New System.Drawing.Size(179, 20)
         Me.txtNombreCampo.TabIndex = 2
+        '
+        'dgvCampos
+        '
+        Me.dgvCampos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvCampos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvCampos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvCampos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvCampos.Location = New System.Drawing.Point(0, 0)
+        Me.dgvCampos.MultiSelect = False
+        Me.dgvCampos.Name = "dgvCampos"
+        Me.dgvCampos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvCampos.Size = New System.Drawing.Size(370, 219)
+        Me.dgvCampos.TabIndex = 0
         '
         'btnNuevoForm
         '
@@ -402,29 +426,6 @@ Partial Class frmCrearFormularios
         Me.txtTitulo.Name = "txtTitulo"
         Me.txtTitulo.Size = New System.Drawing.Size(389, 23)
         Me.txtTitulo.TabIndex = 0
-        '
-        'dgvCampos
-        '
-        Me.dgvCampos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dgvCampos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvCampos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCampos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvCampos.Location = New System.Drawing.Point(0, 0)
-        Me.dgvCampos.MultiSelect = False
-        Me.dgvCampos.Name = "dgvCampos"
-        Me.dgvCampos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvCampos.Size = New System.Drawing.Size(370, 219)
-        Me.dgvCampos.TabIndex = 0
-        '
-        'btnNuevoCampo
-        '
-        Me.btnNuevoCampo.Location = New System.Drawing.Point(286, 176)
-        Me.btnNuevoCampo.Name = "btnNuevoCampo"
-        Me.btnNuevoCampo.Size = New System.Drawing.Size(143, 33)
-        Me.btnNuevoCampo.TabIndex = 9
-        Me.btnNuevoCampo.Text = "Nuevo campo"
-        Me.btnNuevoCampo.UseVisualStyleBackColor = True
-        Me.btnNuevoCampo.Visible = False
         '
         'frmCrearFormularios
         '
