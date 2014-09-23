@@ -127,8 +127,16 @@
     Private Sub cboTiposCampo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTiposCampo.SelectedIndexChanged
         If cboTiposCampo.Text = "Lista desplegable" Then
             btnAsignarDatosCampo.Visible = True
+            numLogitud.Enabled = False
+            cboValidacion.Enabled = False
+            txtMascara.Enabled = False
+            chkSoloLectura.Enabled = False
         Else
             btnAsignarDatosCampo.Visible = False
+            numLogitud.Enabled = True
+            cboValidacion.Enabled = True
+            txtMascara.Enabled = True
+            chkSoloLectura.Enabled = True
         End If
     End Sub
 
