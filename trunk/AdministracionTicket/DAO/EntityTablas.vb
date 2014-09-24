@@ -1074,8 +1074,8 @@
     Public Shared Sub CargarFormsSalto(grid As DataGridView, IdP As Integer)
         Dim forms = (From fr In ctx.FORMULARIOS
                      Where fr.IDSALTO = IdP
-                     Order By fr.IDFORMULARIO
-                     Select fr.IDFORMULARIO, fr.TITULO).ToList
+                     Order By fr.ACTIVO Descending
+                     Select fr.IDFORMULARIO, fr.TITULO, ACTIVO = If(fr.ACTIVO = 1, True, False)).ToList
 
         grid.DataSource = forms
         grid.Columns(0).Visible = False

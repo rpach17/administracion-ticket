@@ -194,6 +194,8 @@
                                          IdCbo, _
                                          IdCampo)
 
+            EntityTablas.CargarCamposGrid(dgvCampos, idf)
+            BuscarEnGrid(dgvCampos, 0, IdCampo)
             MsgBox("Campo actualizado", MsgBoxStyle.Information, "Formulario")
         End If
     End Sub
