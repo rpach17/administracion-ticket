@@ -68,18 +68,21 @@
 
     Private Sub dgvGrupoSaltos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGrupoSaltos.CellClick
         '        MsgBox(String.Format("Este es id del grupo de saltos {0}", ObtenerDatoGrid(dgvGrupoSaltos)))
-        Try
-            frmSaltos.Close()
-        Catch ex As Exception
 
-        End Try
-        With frmSaltos
-            .MdiParent = RibbonMain
-            .NombreGestion1 = ObtenerDatoGrid(dgvGrupoSaltos, 1)
-            .Ido1 = cboOficina.SelectedValue
-            .Idg1 = ObtenerDatoGrid(dgvGrupoSaltos)
-            .Show()
-            .Focus()
-        End With
+        If e.ColumnIndex = 3 Then
+            Try
+                frmSaltos.Close()
+            Catch ex As Exception
+
+            End Try
+            With frmSaltos
+                .MdiParent = RibbonMain
+                .NombreGestion1 = ObtenerDatoGrid(dgvGrupoSaltos, 1)
+                .Ido1 = cboOficina.SelectedValue
+                .Idg1 = ObtenerDatoGrid(dgvGrupoSaltos)
+                .Show()
+                .Focus()
+            End With
+        End If
     End Sub
 End Class

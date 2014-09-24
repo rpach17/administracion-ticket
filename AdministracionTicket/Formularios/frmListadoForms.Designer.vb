@@ -69,7 +69,10 @@ Partial Class frmListadoForms
         Me.dgvForms.BackgroundColor = System.Drawing.SystemColors.ButtonFace
         Me.dgvForms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvForms.Location = New System.Drawing.Point(55, 60)
+        Me.dgvForms.MultiSelect = False
         Me.dgvForms.Name = "dgvForms"
+        Me.dgvForms.ReadOnly = True
+        Me.dgvForms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvForms.Size = New System.Drawing.Size(561, 273)
         Me.dgvForms.TabIndex = 0
         '
