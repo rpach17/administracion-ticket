@@ -92,7 +92,7 @@
         End If
 
         If Editar Then
-            EntityTablas.ActualizaFormulario(txtTitulo.Text, chkActivo.Checked, chkEsGrid.Checked, cboFormPadre.SelectedValue, idf)
+            EntityTablas.ActualizaFormulario(txtTitulo.Text, chkActivo.Checked, chkEsGrid.Checked, IIf(chkEsGrid.Checked, cboFormPadre.SelectedValue, Nothing), idf)
             MsgBox("Formulario guardado", MsgBoxStyle.Information, "Formulario")
         Else
             Try

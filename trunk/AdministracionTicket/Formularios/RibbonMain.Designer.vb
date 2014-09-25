@@ -251,6 +251,8 @@ Partial Class RibbonMain
         '
         'XtraTabManager
         '
+        Me.XtraTabManager.AppearancePage.HeaderActive.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.XtraTabManager.AppearancePage.HeaderActive.Options.UseFont = True
         Me.XtraTabManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover
         Me.XtraTabManager.MdiParent = Me
         '

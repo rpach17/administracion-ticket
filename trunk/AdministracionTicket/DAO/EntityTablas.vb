@@ -1089,7 +1089,7 @@
         Return datos
     End Function
 
-    Public Shared Sub ActualizaFormulario(titulo As String, activo As Boolean, grid As Boolean, frmPadre As Integer, idf As Integer)
+    Public Shared Sub ActualizaFormulario(titulo As String, activo As Boolean, grid As Boolean, frmPadre As Integer?, idf As Integer)
         Dim frm = (From f In ctx.FORMULARIOS Where f.IDFORMULARIO = idf).SingleOrDefault
         Try
             frm.TITULO = titulo
