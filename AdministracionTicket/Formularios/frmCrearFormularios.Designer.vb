@@ -56,6 +56,9 @@ Partial Class frmCrearFormularios
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtTitulo = New System.Windows.Forms.TextBox()
+        Me.btnSubir = New System.Windows.Forms.Button()
+        Me.OpenF = New System.Windows.Forms.OpenFileDialog()
+        Me.lblArchivo = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.panelCampos.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,9 +84,9 @@ Partial Class frmCrearFormularios
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.txtTitulo)
-        Me.Panel1.Location = New System.Drawing.Point(12, 12)
+        Me.Panel1.Location = New System.Drawing.Point(12, 15)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(876, 454)
+        Me.Panel1.Size = New System.Drawing.Size(876, 478)
         Me.Panel1.TabIndex = 0
         '
         'chkActivo
@@ -117,7 +120,7 @@ Partial Class frmCrearFormularios
         Me.panelCampos.Controls.Add(Me.SplitContainer1)
         Me.panelCampos.Location = New System.Drawing.Point(25, 180)
         Me.panelCampos.Name = "panelCampos"
-        Me.panelCampos.Size = New System.Drawing.Size(827, 257)
+        Me.panelCampos.Size = New System.Drawing.Size(827, 277)
         Me.panelCampos.TabIndex = 5
         '
         'Label3
@@ -141,6 +144,8 @@ Partial Class frmCrearFormularios
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.lblArchivo)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnSubir)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtIdComboBox)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnNuevoCampo)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnAgregarCampo)
@@ -165,13 +170,13 @@ Partial Class frmCrearFormularios
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.dgvCampos)
-        Me.SplitContainer1.Size = New System.Drawing.Size(827, 219)
+        Me.SplitContainer1.Size = New System.Drawing.Size(827, 239)
         Me.SplitContainer1.SplitterDistance = 453
         Me.SplitContainer1.TabIndex = 0
         '
         'txtIdComboBox
         '
-        Me.txtIdComboBox.Location = New System.Drawing.Point(313, 95)
+        Me.txtIdComboBox.Location = New System.Drawing.Point(313, 122)
         Me.txtIdComboBox.Name = "txtIdComboBox"
         Me.txtIdComboBox.Size = New System.Drawing.Size(88, 20)
         Me.txtIdComboBox.TabIndex = 10
@@ -209,7 +214,7 @@ Partial Class frmCrearFormularios
         'chkSoloLectura
         '
         Me.chkSoloLectura.AutoSize = True
-        Me.chkSoloLectura.Location = New System.Drawing.Point(313, 68)
+        Me.chkSoloLectura.Location = New System.Drawing.Point(313, 91)
         Me.chkSoloLectura.Name = "chkSoloLectura"
         Me.chkSoloLectura.Size = New System.Drawing.Size(82, 17)
         Me.chkSoloLectura.TabIndex = 8
@@ -219,7 +224,7 @@ Partial Class frmCrearFormularios
         'chkRequerido
         '
         Me.chkRequerido.AutoSize = True
-        Me.chkRequerido.Location = New System.Drawing.Point(313, 45)
+        Me.chkRequerido.Location = New System.Drawing.Point(313, 68)
         Me.chkRequerido.Name = "chkRequerido"
         Me.chkRequerido.Size = New System.Drawing.Size(75, 17)
         Me.chkRequerido.TabIndex = 7
@@ -354,7 +359,7 @@ Partial Class frmCrearFormularios
         Me.dgvCampos.MultiSelect = False
         Me.dgvCampos.Name = "dgvCampos"
         Me.dgvCampos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvCampos.Size = New System.Drawing.Size(370, 219)
+        Me.dgvCampos.Size = New System.Drawing.Size(370, 239)
         Me.dgvCampos.TabIndex = 0
         '
         'btnNuevoForm
@@ -427,11 +432,34 @@ Partial Class frmCrearFormularios
         Me.txtTitulo.Size = New System.Drawing.Size(389, 23)
         Me.txtTitulo.TabIndex = 0
         '
+        'btnSubir
+        '
+        Me.btnSubir.Location = New System.Drawing.Point(312, 15)
+        Me.btnSubir.Name = "btnSubir"
+        Me.btnSubir.Size = New System.Drawing.Size(29, 23)
+        Me.btnSubir.TabIndex = 11
+        Me.btnSubir.Text = "..."
+        Me.btnSubir.UseVisualStyleBackColor = True
+        Me.btnSubir.Visible = False
+        '
+        'OpenF
+        '
+        Me.OpenF.FileName = "OpenFileDialog1"
+        '
+        'lblArchivo
+        '
+        Me.lblArchivo.Location = New System.Drawing.Point(313, 43)
+        Me.lblArchivo.Name = "lblArchivo"
+        Me.lblArchivo.ReadOnly = True
+        Me.lblArchivo.Size = New System.Drawing.Size(123, 20)
+        Me.lblArchivo.TabIndex = 12
+        Me.lblArchivo.Visible = False
+        '
         'frmCrearFormularios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(899, 478)
+        Me.ClientSize = New System.Drawing.Size(899, 505)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmCrearFormularios"
         Me.Text = "Crear formulario"
@@ -483,4 +511,7 @@ Partial Class frmCrearFormularios
     Friend WithEvents txtIdComboBox As System.Windows.Forms.TextBox
     Friend WithEvents dgvCampos As System.Windows.Forms.DataGridView
     Friend WithEvents btnNuevoCampo As System.Windows.Forms.Button
+    Friend WithEvents btnSubir As System.Windows.Forms.Button
+    Friend WithEvents OpenF As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents lblArchivo As System.Windows.Forms.TextBox
 End Class

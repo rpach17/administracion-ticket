@@ -131,12 +131,26 @@
             cboValidacion.Enabled = False
             txtMascara.Enabled = False
             chkSoloLectura.Enabled = False
+            chkRequerido.Enabled = False
+            btnSubir.Visible = False
+            lblArchivo.Visible = False
+        ElseIf cboTiposCampo.Text = "Archivo de descarga" Then
+            btnAsignarDatosCampo.Visible = False
+            numLogitud.Enabled = False
+            cboValidacion.Enabled = False
+            txtMascara.Enabled = False
+            chkSoloLectura.Enabled = False
+            btnSubir.Visible = True
+            lblArchivo.Visible = True
+            lblArchivo.Text = "Archivo de Word"
         Else
             btnAsignarDatosCampo.Visible = False
             numLogitud.Enabled = True
             cboValidacion.Enabled = True
             txtMascara.Enabled = True
             chkSoloLectura.Enabled = True
+            btnSubir.Visible = False
+            lblArchivo.Visible = False
         End If
     End Sub
 
@@ -282,4 +296,16 @@
         LimpiarControles(txtNombreCampo, txtEtiqueta, txtIdComboBox, cboTiposCampo, cboValidacion, txtMascara, chkRequerido, chkSoloLectura)
         cboTiposCampo.Focus()
     End Sub
+
+    Private Sub btnSubir_Click(sender As Object, e As EventArgs) Handles btnSubir.Click
+        OpenF.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
+        OpenF.Filter = "Archivos de Word| *.doc; *.docx"
+        OpenF.FileName = "Seleccione un archivo"
+
+        If OpenF.ShowDialog = Windows.Forms.DialogResult.OK Then
+            lblArchivo.Visible = True
+            lblArchivo.Text = OpenF.FileName
+        End If
+    End Sub
+
 End Class
