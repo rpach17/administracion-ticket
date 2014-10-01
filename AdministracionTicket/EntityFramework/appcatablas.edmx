@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="ModeloTablas.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ModeloTablasStoreContainer">
+          <EntitySet Name="ARCHIVOS" EntityType="ModeloTablas.Store.ARCHIVOS" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="BENEFICIARIO" EntityType="ModeloTablas.Store.BENEFICIARIO" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="CAMPOS_FORM" EntityType="ModeloTablas.Store.CAMPOS_FORM" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="DEPARTAMENTOS" EntityType="ModeloTablas.Store.DEPARTAMENTOS" store:Type="Tables" Schema="APPCA" />
@@ -47,6 +48,10 @@
           <EntitySet Name="USUARIOS" EntityType="ModeloTablas.Store.USUARIOS" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="VALIDACIONES" EntityType="ModeloTablas.Store.VALIDACIONES" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="VENTANILLAS" EntityType="ModeloTablas.Store.VENTANILLAS" store:Type="Tables" Schema="APPCA" />
+          <AssociationSet Name="ARCHIVOS_FK1" Association="ModeloTablas.Store.ARCHIVOS_FK1">
+            <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
+            <End Role="ARCHIVOS" EntitySet="ARCHIVOS" />
+          </AssociationSet>
           <AssociationSet Name="CAMPOS_FORM_FK1" Association="ModeloTablas.Store.CAMPOS_FORM_FK1">
             <End Role="FORMULARIOS" EntitySet="FORMULARIOS" />
             <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
@@ -232,6 +237,14 @@
             <End Role="VENTANILLAS" EntitySet="VENTANILLAS" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ARCHIVOS">
+          <Key>
+            <PropertyRef Name="IDARCHIVO" />
+          </Key>
+          <Property Name="IDARCHIVO" Type="number" Nullable="false" />
+          <Property Name="IDCAMPO_FORM" Type="number" />
+          <Property Name="ARCHIVO" Type="blob" />
+        </EntityType>
         <EntityType Name="BENEFICIARIO">
           <Key>
             <PropertyRef Name="IDBENEFICIARIO" />
@@ -246,17 +259,17 @@
             <PropertyRef Name="IDCAMPO_FORM" />
           </Key>
           <Property Name="IDCAMPO_FORM" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="IDFORMULARIO" Type="number" />
-          <Property Name="NOMBRE_CAMPO" Type="varchar2" MaxLength="35" />
-          <Property Name="ETIQUETA" Type="varchar2" MaxLength="45" />
-          <Property Name="IDTIPO_CAMPO" Type="number" />
-          <Property Name="LONGITUD" Type="number" />
+          <Property Name="IDFORMULARIO" Type="number" Nullable="false" />
+          <Property Name="NOMBRE_CAMPO" Type="varchar2" Nullable="false" MaxLength="35" />
+          <Property Name="ETIQUETA" Type="varchar2" Nullable="false" MaxLength="45" />
+          <Property Name="IDTIPO_CAMPO" Type="number" Nullable="false" />
+          <Property Name="LONGITUD" Type="number" Nullable="false" />
           <Property Name="IDVALIDACION" Type="number" />
           <Property Name="MASCARA" Type="varchar2" MaxLength="100" />
-          <Property Name="REQUERIDO" Type="number" />
-          <Property Name="SOLO_LECTURA" Type="number" />
+          <Property Name="REQUERIDO" Type="number" Nullable="false" />
+          <Property Name="SOLO_LECTURA" Type="number" Nullable="false" />
           <Property Name="IDCOMBOBOX" Type="number" />
-          <Property Name="ORDEN" Type="number" />
+          <Property Name="ORDEN" Type="number" Nullable="false" />
         </EntityType>
         <EntityType Name="DEPARTAMENTOS">
           <Key>
@@ -442,7 +455,7 @@
             <PropertyRef Name="IDLISTA_DESPLEGABLE" />
           </Key>
           <Property Name="IDLISTA_DESPLEGABLE" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="35" />
+          <Property Name="DESCRIPCION" Type="nvarchar2" MaxLength="150" />
         </EntityType>
         <EntityType Name="MUNICIPIOS">
           <Key>
@@ -533,14 +546,14 @@
           <Property Name="NUMERO_SALTO" Type="number" Nullable="false" />
           <Property Name="IDGRUPO_SALTOS" Type="number" Nullable="false" />
           <Property Name="IDPUESTO" Type="number" />
-          <Property Name="DECISION" Type="number" />
+          <Property Name="DECISION" Type="number" Nullable="false" />
           <Property Name="IDSALTOV" Type="number" />
           <Property Name="IDSALTOF" Type="number" />
-          <Property Name="ULTIMOSALTO" Type="number" />
+          <Property Name="ULTIMOSALTO" Type="number" Nullable="false" />
           <Property Name="MINUTOS" Type="number" />
           <Property Name="DESCRIPCION_DECISION" Type="varchar2" MaxLength="60" />
           <Property Name="DESCRIPCION_SALTO" Type="varchar2" MaxLength="50" />
-          <Property Name="ESCANEAR" Type="number" />
+          <Property Name="ESCANEAR" Type="number" Nullable="false" />
         </EntityType>
         <EntityType Name="SUCURSALES">
           <Key>
@@ -627,8 +640,20 @@
           <Property Name="IDDETALLE_SUCURSAL_OFICINA" Type="number" Nullable="false" />
           <Property Name="NUMERO_VENTANILLA" Type="number" Nullable="false" />
         </EntityType>
+        <Association Name="ARCHIVOS_FK1">
+          <End Role="CAMPOS_FORM" Type="ModeloTablas.Store.CAMPOS_FORM" Multiplicity="0..1" />
+          <End Role="ARCHIVOS" Type="ModeloTablas.Store.ARCHIVOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAMPOS_FORM">
+              <PropertyRef Name="IDCAMPO_FORM" />
+            </Principal>
+            <Dependent Role="ARCHIVOS">
+              <PropertyRef Name="IDCAMPO_FORM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="CAMPOS_FORM_FK1">
-          <End Role="FORMULARIOS" Type="ModeloTablas.Store.FORMULARIOS" Multiplicity="0..1" />
+          <End Role="FORMULARIOS" Type="ModeloTablas.Store.FORMULARIOS" Multiplicity="1" />
           <End Role="CAMPOS_FORM" Type="ModeloTablas.Store.CAMPOS_FORM" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FORMULARIOS">
@@ -640,7 +665,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="CAMPOS_FORM_FK2">
-          <End Role="TIPOS_CAMPOS" Type="ModeloTablas.Store.TIPOS_CAMPOS" Multiplicity="0..1" />
+          <End Role="TIPOS_CAMPOS" Type="ModeloTablas.Store.TIPOS_CAMPOS" Multiplicity="1" />
           <End Role="CAMPOS_FORM" Type="ModeloTablas.Store.CAMPOS_FORM" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TIPOS_CAMPOS">
@@ -1387,6 +1412,11 @@
           <AssociationSet Name="DETALLE_LISTA_DESPLEGABLE_FK1" Association="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1">
             <End Role="LISTA_DESPLEGABLE" EntitySet="LISTA_DESPLEGABLE" />
             <End Role="DETALLE_LISTA_DESPLEGABLE" EntitySet="DETALLE_LISTA_DESPLEGABLE" />
+          </AssociationSet>
+          <EntitySet Name="ARCHIVOS" EntityType="ModeloTablas.ARCHIVOS" />
+          <AssociationSet Name="ARCHIVOS_FK1" Association="ModeloTablas.ARCHIVOS_FK1">
+            <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
+            <End Role="ARCHIVOS" EntitySet="ARCHIVOS" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BENEFICIARIO">
@@ -2215,6 +2245,7 @@
           <NavigationProperty Name="FORMULARIOS" Relationship="ModeloTablas.CAMPOS_FORM_FK1" FromRole="CAMPOS_FORM" ToRole="FORMULARIOS" />
           <NavigationProperty Name="TIPOS_CAMPOS" Relationship="ModeloTablas.CAMPOS_FORM_FK2" FromRole="CAMPOS_FORM" ToRole="TIPOS_CAMPOS" />
           <NavigationProperty Name="VALIDACIONES" Relationship="ModeloTablas.CAMPOS_FORM_FK3" FromRole="CAMPOS_FORM" ToRole="VALIDACIONES" />
+          <NavigationProperty Name="ARCHIVOS" Relationship="ModeloTablas.ARCHIVOS_FK1" FromRole="CAMPOS_FORM" ToRole="ARCHIVOS" />
         </EntityType>
         <Association Name="CAMPOS_FORM_FK1">
           <End Type="ModeloTablas.FORMULARIOS" Role="FORMULARIOS" Multiplicity="0..1" />
@@ -2279,6 +2310,27 @@
             </Principal>
             <Dependent Role="DETALLE_LISTA_DESPLEGABLE">
               <PropertyRef Name="IDLISTA_DESPLEGABLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ARCHIVOS">
+          <Key>
+            <PropertyRef Name="IDARCHIVO" />
+          </Key>
+          <Property Type="Decimal" Name="IDARCHIVO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDCAMPO_FORM" Precision="38" Scale="0" />
+          <Property Type="Binary" Name="ARCHIVO" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="CAMPOS_FORM" Relationship="ModeloTablas.ARCHIVOS_FK1" FromRole="ARCHIVOS" ToRole="CAMPOS_FORM" />
+        </EntityType>
+        <Association Name="ARCHIVOS_FK1">
+          <End Type="ModeloTablas.CAMPOS_FORM" Role="CAMPOS_FORM" Multiplicity="0..1" />
+          <End Type="ModeloTablas.ARCHIVOS" Role="ARCHIVOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAMPOS_FORM">
+              <PropertyRef Name="IDCAMPO_FORM" />
+            </Principal>
+            <Dependent Role="ARCHIVOS">
+              <PropertyRef Name="IDCAMPO_FORM" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2718,6 +2770,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ARCHIVOS">
+            <EntityTypeMapping TypeName="ModeloTablas.ARCHIVOS">
+              <MappingFragment StoreEntitySet="ARCHIVOS">
+                <ScalarProperty Name="ARCHIVO" ColumnName="ARCHIVO" />
+                <ScalarProperty Name="IDCAMPO_FORM" ColumnName="IDCAMPO_FORM" />
+                <ScalarProperty Name="IDARCHIVO" ColumnName="IDARCHIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2756,7 +2817,7 @@
         <EntityTypeShape EntityType="ModeloTablas.MUNICIPIOS" Width="1.5" PointX="10.909347915514069" PointY="27.591118840310312" />
         <EntityTypeShape EntityType="ModeloTablas.OFICINAS" Width="1.5" PointX="0.22366922545417642" PointY="16.21841008226313" />
         <EntityTypeShape EntityType="ModeloTablas.PAIS" Width="1.5" PointX="0.5" PointY="28.125" />
-        <EntityTypeShape EntityType="ModeloTablas.PERFILES" Width="1.5" PointX="2.6775381894211927" PointY="6.9668472888725095" />
+        <EntityTypeShape EntityType="ModeloTablas.PERFILES" Width="1.5" PointX="2.25" PointY="11.875" />
         <EntityTypeShape EntityType="ModeloTablas.PROPIETARIO" Width="1.5" PointX="10.538170208473769" PointY="30.637802481016983" />
         <EntityTypeShape EntityType="ModeloTablas.PUESTO" Width="1.5" PointX="3.8397807347773485" PointY="6.7606182278881866" />
         <EntityTypeShape EntityType="ModeloTablas.RECEPCION_REQUISITOS" Width="1.5" PointX="1.5602702989989288" PointY="5.7075137820595474" />
@@ -2818,6 +2879,8 @@
         <EntityTypeShape EntityType="ModeloTablas.DETALLE_LISTA_DESPLEGABLE" Width="1.5" PointX="22.125" PointY="30.125" />
         <EntityTypeShape EntityType="ModeloTablas.LISTA_DESPLEGABLE" Width="1.5" PointX="25.125" PointY="31.625" />
         <AssociationConnector Association="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1" />
+        <EntityTypeShape EntityType="ModeloTablas.ARCHIVOS" Width="1.5" PointX="17" PointY="31.625" />
+        <AssociationConnector Association="ModeloTablas.ARCHIVOS_FK1" />
       </Diagram>
     </Diagrams>
   </Designer>

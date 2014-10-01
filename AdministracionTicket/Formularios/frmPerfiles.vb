@@ -193,12 +193,16 @@
                 Exit Sub
             End If
             IdUsuario = EntityTablas.AgregarUsuario(New USUARIOS() With {.USUARIO = USUARIOTextBox.Text, _
-                                                                 .CONTRASENA = SHA1(CONTRASENATextBox.Text), _
-                                                                 .NOMBRE = NOMBRETextBox.Text, _
-                                                                 .APELLIDOS = APELLIDOSTextBox.Text, _
-                                                                 .ESTADO = IIf(ESTADOCheckBox.Checked = True, Convert.ToDecimal(Val(1)), Convert.ToDecimal(Val(0))), _
-                                                                 .IDDETALLE_SUCURSAL_OFICINA = cboOficinas.SelectedValue
-                                                                })
+                                                                         .CONTRASENA = SHA1(CONTRASENATextBox.Text), _
+                                                                         .IDPUESTO = cboPuestos.SelectedValue, _
+                                                                         .IDENTIDAD = IDENTIDADTexbox.Text, _
+                                                                         .NOMBRE = NOMBRETextBox.Text, _
+                                                                         .APELLIDOS = APELLIDOSTextBox.Text, _
+                                                                         .TITULO = TITULOTextBox.Text, _
+                                                                         .VINCULAR_CON = VinculadoCon, _
+                                                                         .ESTADO = IIf(ESTADOCheckBox.Checked = True, Convert.ToDecimal(Val(1)), Convert.ToDecimal(Val(0))), _
+                                                                         .IDDETALLE_SUCURSAL_OFICINA = cboOficinas.SelectedValue
+                                                                        })
 
             Dim m As String = String.Format("El usuario ha sido agregado correctamente.{0}{0}Proceda a asignar los perfiles necesarios al usuario.", vbCrLf)
             MsgBox(m, MsgBoxStyle.Information, "Usuario agregado")

@@ -501,7 +501,7 @@
 
 
     Public Shared Sub ActualizarUsuario(ByVal idu As Integer, ByVal identidad As String, ByVal nombre As String, ByVal apellidos As String, _
-                                        ByVal titulo As String, ByVal vinculado As Integer, ByVal estado As Integer)
+                                        ByVal titulo As String, ByVal vinculado As Integer?, ByVal estado As Integer)
         Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList Where u.IDUSUARIO = idu).SingleOrDefault
         Try
             With user
@@ -974,7 +974,7 @@
         cbo.SelectedValue = -1
     End Sub
 
-    Public Shared Sub CargarTiposcampos(cbo As COMBOBOX)
+    Public Shared Sub CargarTiposcampos(cbo As ComboBox)
         Dim campos = (From cam In ctx.TIPOS_CAMPOS
                       Order By cam.DESCRIPCION
                       Select cam.IDTIPO_CAMPO, cam.DESCRIPCION).ToList

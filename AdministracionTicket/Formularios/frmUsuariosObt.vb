@@ -40,7 +40,8 @@
     End Sub
     
     Private Sub dgvUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsuarios.CellContentClick
-        frmPerfiles.VinculadoCon = ObtenerDatoGrid(dgvUsuarios)
+        Dim idUsuario As Integer = ObtenerDatoGrid(dgvUsuarios)
+        frmPerfiles.VinculadoCon = idUsuario
         frmPerfiles.usuarioVinculado = ObtenerDatoGrid(dgvUsuarios, 1)
         Close()
     End Sub
