@@ -1078,7 +1078,7 @@
                      Select fr.IDFORMULARIO, fr.TITULO, ACTIVO = If(fr.ACTIVO = 1, True, False)).ToList
 
         grid.DataSource = forms
-        grid.Columns(0).Visible = False
+        'grid.Columns(0).Visible = False
     End Sub
 
     Public Shared Function LlenarFrmForm(idf As Integer) As FORMULARIOS
