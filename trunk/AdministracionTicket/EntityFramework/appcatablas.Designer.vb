@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("446fabdb-3f24-481f-9f97-aa48a7b09c92")>
+<Assembly: EdmSchemaAttribute("0ee9f16b-e5b4-4542-a0cb-4236f309bfab")>
 #Region "Metadatos de relaciones en EDM"
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DEPARTAMENTOS_FK1", "PAIS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(PAIS), "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DEPARTAMENTOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "MUNICIPIOS_FK1", "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(DEPARTAMENTOS), "MUNICIPIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(MUNICIPIOS), True)>
@@ -61,6 +61,7 @@ Imports System.Xml.Serialization
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "CAMPOS_FORM_FK2", "TIPOS_CAMPOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(TIPOS_CAMPOS), "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(CAMPOS_FORM), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "CAMPOS_FORM_FK3", "VALIDACIONES", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(VALIDACIONES), "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(CAMPOS_FORM), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DETALLE_LISTA_DESPLEGABLE_FK1", "LISTA_DESPLEGABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(LISTA_DESPLEGABLE), "DETALLE_LISTA_DESPLEGABLE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DETALLE_LISTA_DESPLEGABLE), True)>
+<Assembly: EdmRelationshipAttribute("ModeloTablas", "ARCHIVOS_FK1", "CAMPOS_FORM", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(CAMPOS_FORM), "ARCHIVOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(ARCHIVOS), True)>
 
 #End Region
 
@@ -616,6 +617,20 @@ Public Partial Class EntidadesTablas
 
     Private _LISTA_DESPLEGABLE As ObjectSet(Of LISTA_DESPLEGABLE)
 
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    Public ReadOnly Property ARCHIVOS() As ObjectSet(Of ARCHIVOS)
+        Get
+            If (_ARCHIVOS Is Nothing) Then
+                _ARCHIVOS = MyBase.CreateObjectSet(Of ARCHIVOS)("ARCHIVOS")
+            End If
+            Return _ARCHIVOS
+        End Get
+    End Property
+
+    Private _ARCHIVOS As ObjectSet(Of ARCHIVOS)
+
     #End Region
 
     #Region "Métodos AddTo"
@@ -872,6 +887,13 @@ Public Partial Class EntidadesTablas
         MyBase.AddObject("LISTA_DESPLEGABLE", lISTA_DESPLEGABLE)
     End Sub
 
+    ''' <summary>
+    ''' Método desusado para agregar un nuevo objeto al EntitySet ARCHIVOS. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
+    ''' </summary>
+    Public Sub AddToARCHIVOS(ByVal aRCHIVOS As ARCHIVOS)
+        MyBase.AddObject("ARCHIVOS", aRCHIVOS)
+    End Sub
+
     #End Region
 
 End Class
@@ -879,6 +901,146 @@ End Class
 #End Region
 
 #Region "Entidades"
+
+''' <summary>
+''' No hay documentación de metadatos disponible.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="ModeloTablas", Name:="ARCHIVOS")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class ARCHIVOS
+    Inherits EntityObject
+    #Region "Método de generador"
+
+    ''' <summary>
+    ''' Crear un nuevo objeto ARCHIVOS.
+    ''' </summary>
+    ''' <param name="iDARCHIVO">Valor inicial de la propiedad IDARCHIVO.</param>
+    Public Shared Function CreateARCHIVOS(iDARCHIVO As Global.System.Decimal) As ARCHIVOS
+        Dim aRCHIVOS as ARCHIVOS = New ARCHIVOS
+        aRCHIVOS.IDARCHIVO = iDARCHIVO
+        Return aRCHIVOS
+    End Function
+
+    #End Region
+
+    #Region "Propiedades primitivas"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property IDARCHIVO() As Global.System.Decimal
+        Get
+            Return _IDARCHIVO
+        End Get
+        Set
+            If (_IDARCHIVO <> Value) Then
+                OnIDARCHIVOChanging(value)
+                ReportPropertyChanging("IDARCHIVO")
+                _IDARCHIVO = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("IDARCHIVO")
+                OnIDARCHIVOChanged()
+            End If
+        End Set
+    End Property
+
+    Private _IDARCHIVO As Global.System.Decimal
+    Private Partial Sub OnIDARCHIVOChanging(value As Global.System.Decimal)
+    End Sub
+
+    Private Partial Sub OnIDARCHIVOChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property IDCAMPO_FORM() As Nullable(Of Global.System.Decimal)
+        Get
+            Return _IDCAMPO_FORM
+        End Get
+        Set
+            OnIDCAMPO_FORMChanging(value)
+            ReportPropertyChanging("IDCAMPO_FORM")
+            _IDCAMPO_FORM = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("IDCAMPO_FORM")
+            OnIDCAMPO_FORMChanged()
+        End Set
+    End Property
+
+    Private _IDCAMPO_FORM As Nullable(Of Global.System.Decimal)
+    Private Partial Sub OnIDCAMPO_FORMChanging(value As Nullable(Of Global.System.Decimal))
+    End Sub
+
+    Private Partial Sub OnIDCAMPO_FORMChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property ARCHIVO() As Global.System.Byte()
+        Get
+                Return StructuralObject.GetValidValue(_ARCHIVO)
+        End Get
+        Set
+            OnARCHIVOChanging(value)
+            ReportPropertyChanging("ARCHIVO")
+            _ARCHIVO = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("ARCHIVO")
+            OnARCHIVOChanged()
+        End Set
+    End Property
+
+    Private _ARCHIVO As Global.System.Byte()
+    Private Partial Sub OnARCHIVOChanging(value As Global.System.Byte())
+    End Sub
+
+    Private Partial Sub OnARCHIVOChanged()
+    End Sub
+
+    #End Region
+
+    #Region "Propiedades de navegación"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "ARCHIVOS_FK1", "CAMPOS_FORM")>
+    Public Property CAMPOS_FORM() As CAMPOS_FORM
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of CAMPOS_FORM)("ModeloTablas.ARCHIVOS_FK1", "CAMPOS_FORM").Value
+        End Get
+        Set
+            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of CAMPOS_FORM)("ModeloTablas.ARCHIVOS_FK1", "CAMPOS_FORM").Value = value
+        End Set
+    End Property
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <BrowsableAttribute(False)>
+    <DataMemberAttribute()>
+    Public Property CAMPOS_FORMReference() As EntityReference(Of CAMPOS_FORM)
+        Get
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of CAMPOS_FORM)("ModeloTablas.ARCHIVOS_FK1", "CAMPOS_FORM")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of CAMPOS_FORM)("ModeloTablas.ARCHIVOS_FK1", "CAMPOS_FORM", value)
+            End If
+        End Set
+    End Property
+
+    #End Region
+
+End Class
 
 ''' <summary>
 ''' No hay documentación de metadatos disponible.
@@ -1429,6 +1591,24 @@ Public Partial Class CAMPOS_FORM
         Set
             If (Not value Is Nothing)
                 CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of VALIDACIONES)("ModeloTablas.CAMPOS_FORM_FK3", "VALIDACIONES", value)
+            End If
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <XmlIgnoreAttribute()>
+    <SoapIgnoreAttribute()>
+    <DataMemberAttribute()>
+    <EdmRelationshipNavigationPropertyAttribute("ModeloTablas", "ARCHIVOS_FK1", "ARCHIVOS")>
+     Public Property ARCHIVOS() As EntityCollection(Of ARCHIVOS)
+        Get
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of ARCHIVOS)("ModeloTablas.ARCHIVOS_FK1", "ARCHIVOS")
+        End Get
+        Set
+            If (Not value Is Nothing)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of ARCHIVOS)("ModeloTablas.ARCHIVOS_FK1", "ARCHIVOS", value)
             End If
         End Set
     End Property
