@@ -4,9 +4,11 @@
         For Each ctrl As Control In Objetos
             If TypeOf (ctrl) Is TextBox Then
                 Dim txtCtrl As TextBox = DirectCast(ctrl, TextBox)
+                txtCtrl.Enabled = True
                 txtCtrl.Text = Nothing
             ElseIf TypeOf (ctrl) Is CheckBox Then
                 Dim chkCtrl As CheckBox = DirectCast(ctrl, CheckBox)
+                chkCtrl.Enabled = True
                 chkCtrl.Checked = False
             ElseIf TypeOf (ctrl) Is ComboBox Then
                 Dim cbo As ComboBox = DirectCast(ctrl, ComboBox)

@@ -46,7 +46,8 @@ Partial Class frmSucursalesBusqueda
         '
         'dgvSucursales
         '
-        Me.dgvSucursales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvSucursales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvSucursales.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.dgvSucursales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSucursales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvSucursales.Location = New System.Drawing.Point(0, 0)
@@ -95,6 +96,8 @@ Partial Class frmSucursalesBusqueda
         Me.ClientSize = New System.Drawing.Size(392, 460)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "frmSucursalesBusqueda"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sucursales"

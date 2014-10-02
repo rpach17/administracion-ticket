@@ -2,14 +2,17 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
   <Profiles />
   <Settings>
-    <Setting Name="CadenaAPPCATablas" Type="System.String" Scope="User">
-      <Value Profile="(Default)">metadata=res://*/EntityFramework.appcatablas.csdl|res://*/EntityFramework.appcatablas.ssdl|res://*/EntityFramework.appcatablas.msl;provider=Oracle.DataAccess.Client;provider connection string="DATA SOURCE=oracle;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA"</Value>
-    </Setting>
     <Setting Name="IDPerfil" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="MiConexion" Type="System.String" Scope="User">
       <Value Profile="(Default)">DATA SOURCE=oracle;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA</Value>
+    </Setting>
+    <Setting Name="CadenaAPPCATablas" Type="System.String" Scope="User">
+      <Value Profile="(Default)">metadata=res://*/EntityFramework.appcatablas.csdl|res://*/EntityFramework.appcatablas.ssdl|res://*/EntityFramework.appcatablas.msl;provider=Oracle.DataAccess.Client;provider connection string="DATA SOURCE=localhost;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA"</Value>
+    </Setting>
+    <Setting Name="URLForm" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
