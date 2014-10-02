@@ -24,6 +24,7 @@
           <EntitySet Name="EMPRESAS" EntityType="ModeloTablas.Store.EMPRESAS" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="ERRORES_GESTIONES" EntityType="ModeloTablas.Store.ERRORES_GESTIONES" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="ESTADOS_CIVILES" EntityType="ModeloTablas.Store.ESTADOS_CIVILES" store:Type="Tables" Schema="APPCA" />
+          <EntitySet Name="FORM_URL" EntityType="ModeloTablas.Store.FORM_URL" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="FORMULARIOS" EntityType="ModeloTablas.Store.FORMULARIOS" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="GESTIONES" EntityType="ModeloTablas.Store.GESTIONES" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="GESTIONES_VENTANILLAS" EntityType="ModeloTablas.Store.GESTIONES_VENTANILLAS" store:Type="Tables" Schema="APPCA" />
@@ -401,6 +402,13 @@
           </Key>
           <Property Name="IDESTADO_CIVIL" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ESTADO_CIVIL" Type="varchar2" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FORM_URL">
+          <Key>
+            <PropertyRef Name="IDURL" />
+          </Key>
+          <Property Name="IDURL" Type="number" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="200" />
         </EntityType>
         <EntityType Name="FORMULARIOS">
           <Key>
@@ -1430,6 +1438,7 @@
             <End Role="PUESTO" EntitySet="PUESTO" />
             <End Role="SALTOS" EntitySet="SALTOS" />
           </AssociationSet>
+          <EntitySet Name="FORM_URL" EntityType="ModeloTablas.FORM_URL" />
         </EntityContainer>
         <EntityType Name="BENEFICIARIO">
           <Key>
@@ -2356,6 +2365,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="FORM_URL">
+          <Key>
+            <PropertyRef Name="IDURL" />
+          </Key>
+          <Property Type="Decimal" Name="IDURL" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="String" Name="DIRECCION" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2812,6 +2828,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="FORM_URL">
+            <EntityTypeMapping TypeName="ModeloTablas.FORM_URL">
+              <MappingFragment StoreEntitySet="FORM_URL">
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="IDURL" ColumnName="IDURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2906,7 +2930,7 @@
         <EntityTypeShape EntityType="ModeloTablas.ARCHIVOS" Width="1.5" PointX="17" PointY="31.625" />
         <EntityTypeShape EntityType="ModeloTablas.CAMPOS_FORM" Width="1.5" PointX="14.375" PointY="30.125" />
         <EntityTypeShape EntityType="ModeloTablas.SALTOS" Width="1.5" PointX="19.875" PointY="6.75" />
-        <EntityTypeShape EntityType="ModeloTablas.SESIONESUSUSARIOS" Width="1.5" PointX="17.625" PointY="37.75" />
+        <EntityTypeShape EntityType="ModeloTablas.SESIONESUSUSARIOS" Width="1.5" PointX="4.875" PointY="33.75" />
         <AssociationConnector Association="ModeloTablas.ARCHIVOS_FK1" />
         <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK1" />
         <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK2" />
@@ -2915,6 +2939,7 @@
         <AssociationConnector Association="ModeloTablas.FORMULARIOS_FK1" />
         <AssociationConnector Association="ModeloTablas.SALTOS_FK1" />
         <AssociationConnector Association="ModeloTablas.SALTOS_FK2" />
+        <EntityTypeShape EntityType="ModeloTablas.FORM_URL" Width="1.5" PointX="7" PointY="33.75" />
       </Diagram>
     </Diagrams>
   </Designer>
