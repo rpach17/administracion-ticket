@@ -40,6 +40,7 @@
           <EntitySet Name="REQUISITOS" EntityType="ModeloTablas.Store.REQUISITOS" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="RESPONSABLE" EntityType="ModeloTablas.Store.RESPONSABLE" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="SALTOS" EntityType="ModeloTablas.Store.SALTOS" store:Type="Tables" Schema="APPCA" />
+          <EntitySet Name="SESIONESUSUSARIOS" EntityType="ModeloTablas.Store.SESIONESUSUSARIOS" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="SUCURSALES" EntityType="ModeloTablas.Store.SUCURSALES" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="TIPO_DOC" EntityType="ModeloTablas.Store.TIPO_DOC" store:Type="Tables" Schema="APPCA" />
           <EntitySet Name="TIPO_REPRESENTANTE" EntityType="ModeloTablas.Store.TIPO_REPRESENTANTE" store:Type="Tables" Schema="APPCA" />
@@ -258,7 +259,7 @@
           <Key>
             <PropertyRef Name="IDCAMPO_FORM" />
           </Key>
-          <Property Name="IDCAMPO_FORM" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDCAMPO_FORM" Type="number" Nullable="false" />
           <Property Name="IDFORMULARIO" Type="number" Nullable="false" />
           <Property Name="NOMBRE_CAMPO" Type="varchar2" Nullable="false" MaxLength="35" />
           <Property Name="ETIQUETA" Type="varchar2" Nullable="false" MaxLength="45" />
@@ -554,6 +555,16 @@
           <Property Name="DESCRIPCION_DECISION" Type="varchar2" MaxLength="60" />
           <Property Name="DESCRIPCION_SALTO" Type="varchar2" MaxLength="50" />
           <Property Name="ESCANEAR" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SESIONESUSUSARIOS">
+          <Key>
+            <PropertyRef Name="IDSESION" />
+          </Key>
+          <Property Name="IDSESION" Type="number" Nullable="false" />
+          <Property Name="IDUSUARIO" Type="number" />
+          <Property Name="IDVENTANILLA" Type="number" />
+          <Property Name="FECHAHORA" Type="date" />
+          <Property Name="HORAFIN" Type="date" />
         </EntityType>
         <EntityType Name="SUCURSALES">
           <Key>
@@ -1371,7 +1382,38 @@
             <End Role="ESTADOS_CIVILES" EntitySet="ESTADOS_CIVILES" />
             <End Role="PROPIETARIO" EntitySet="PROPIETARIO" />
           </AssociationSet>
+          <EntitySet Name="DETALLE_SEGUIMIENTO" EntityType="ModeloTablas.DETALLE_SEGUIMIENTO" />
+          <AssociationSet Name="DETALLE_TRAMITE_FK1" Association="ModeloTablas.DETALLE_TRAMITE_FK1">
+            <End Role="TRAMITES" EntitySet="TRAMITES" />
+            <End Role="DETALLE_SEGUIMIENTO" EntitySet="DETALLE_SEGUIMIENTO" />
+          </AssociationSet>
+          <EntitySet Name="VALIDACIONES" EntityType="ModeloTablas.VALIDACIONES" />
+          <EntitySet Name="DETALLE_LISTA_DESPLEGABLE" EntityType="ModeloTablas.DETALLE_LISTA_DESPLEGABLE" />
+          <EntitySet Name="LISTA_DESPLEGABLE" EntityType="ModeloTablas.LISTA_DESPLEGABLE" />
+          <AssociationSet Name="DETALLE_LISTA_DESPLEGABLE_FK1" Association="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1">
+            <End Role="LISTA_DESPLEGABLE" EntitySet="LISTA_DESPLEGABLE" />
+            <End Role="DETALLE_LISTA_DESPLEGABLE" EntitySet="DETALLE_LISTA_DESPLEGABLE" />
+          </AssociationSet>
+          <EntitySet Name="ARCHIVOS" EntityType="ModeloTablas.ARCHIVOS" />
+          <EntitySet Name="CAMPOS_FORM" EntityType="ModeloTablas.CAMPOS_FORM" />
           <EntitySet Name="SALTOS" EntityType="ModeloTablas.SALTOS" />
+          <EntitySet Name="SESIONESUSUSARIOS" EntityType="ModeloTablas.SESIONESUSUSARIOS" />
+          <AssociationSet Name="ARCHIVOS_FK1" Association="ModeloTablas.ARCHIVOS_FK1">
+            <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
+            <End Role="ARCHIVOS" EntitySet="ARCHIVOS" />
+          </AssociationSet>
+          <AssociationSet Name="CAMPOS_FORM_FK1" Association="ModeloTablas.CAMPOS_FORM_FK1">
+            <End Role="FORMULARIOS" EntitySet="FORMULARIOS" />
+            <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
+          </AssociationSet>
+          <AssociationSet Name="CAMPOS_FORM_FK2" Association="ModeloTablas.CAMPOS_FORM_FK2">
+            <End Role="TIPOS_CAMPOS" EntitySet="TIPOS_CAMPOS" />
+            <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
+          </AssociationSet>
+          <AssociationSet Name="CAMPOS_FORM_FK3" Association="ModeloTablas.CAMPOS_FORM_FK3">
+            <End Role="VALIDACIONES" EntitySet="VALIDACIONES" />
+            <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
+          </AssociationSet>
           <AssociationSet Name="DETALLE_USUARIO_SALTOS_FK2" Association="ModeloTablas.DETALLE_USUARIO_SALTOS_FK2">
             <End Role="SALTOS" EntitySet="SALTOS" />
             <End Role="DETALLE_USUARIO_SALTOS" EntitySet="DETALLE_USUARIO_SALTOS" />
@@ -1387,36 +1429,6 @@
           <AssociationSet Name="SALTOS_FK2" Association="ModeloTablas.SALTOS_FK2">
             <End Role="PUESTO" EntitySet="PUESTO" />
             <End Role="SALTOS" EntitySet="SALTOS" />
-          </AssociationSet>
-          <EntitySet Name="DETALLE_SEGUIMIENTO" EntityType="ModeloTablas.DETALLE_SEGUIMIENTO" />
-          <AssociationSet Name="DETALLE_TRAMITE_FK1" Association="ModeloTablas.DETALLE_TRAMITE_FK1">
-            <End Role="TRAMITES" EntitySet="TRAMITES" />
-            <End Role="DETALLE_SEGUIMIENTO" EntitySet="DETALLE_SEGUIMIENTO" />
-          </AssociationSet>
-          <EntitySet Name="VALIDACIONES" EntityType="ModeloTablas.VALIDACIONES" />
-          <EntitySet Name="CAMPOS_FORM" EntityType="ModeloTablas.CAMPOS_FORM" />
-          <AssociationSet Name="CAMPOS_FORM_FK1" Association="ModeloTablas.CAMPOS_FORM_FK1">
-            <End Role="FORMULARIOS" EntitySet="FORMULARIOS" />
-            <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
-          </AssociationSet>
-          <AssociationSet Name="CAMPOS_FORM_FK2" Association="ModeloTablas.CAMPOS_FORM_FK2">
-            <End Role="TIPOS_CAMPOS" EntitySet="TIPOS_CAMPOS" />
-            <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
-          </AssociationSet>
-          <AssociationSet Name="CAMPOS_FORM_FK3" Association="ModeloTablas.CAMPOS_FORM_FK3">
-            <End Role="VALIDACIONES" EntitySet="VALIDACIONES" />
-            <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
-          </AssociationSet>
-          <EntitySet Name="DETALLE_LISTA_DESPLEGABLE" EntityType="ModeloTablas.DETALLE_LISTA_DESPLEGABLE" />
-          <EntitySet Name="LISTA_DESPLEGABLE" EntityType="ModeloTablas.LISTA_DESPLEGABLE" />
-          <AssociationSet Name="DETALLE_LISTA_DESPLEGABLE_FK1" Association="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1">
-            <End Role="LISTA_DESPLEGABLE" EntitySet="LISTA_DESPLEGABLE" />
-            <End Role="DETALLE_LISTA_DESPLEGABLE" EntitySet="DETALLE_LISTA_DESPLEGABLE" />
-          </AssociationSet>
-          <EntitySet Name="ARCHIVOS" EntityType="ModeloTablas.ARCHIVOS" />
-          <AssociationSet Name="ARCHIVOS_FK1" Association="ModeloTablas.ARCHIVOS_FK1">
-            <End Role="CAMPOS_FORM" EntitySet="CAMPOS_FORM" />
-            <End Role="ARCHIVOS" EntitySet="ARCHIVOS" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BENEFICIARIO">
@@ -1526,8 +1538,8 @@
           <NavigationProperty Name="FORMULARIOS1" Relationship="ModeloTablas.FORMULARIOS_FK2" FromRole="FORMULARIOS" ToRole="FORMULARIOS1" />
           <NavigationProperty Name="FORMULARIOS2" Relationship="ModeloTablas.FORMULARIOS_FK2" FromRole="FORMULARIOS1" ToRole="FORMULARIOS" />
           <Property Type="Decimal" Name="ACTIVO" Precision="38" Scale="0" />
-          <NavigationProperty Name="SALTOS" Relationship="ModeloTablas.FORMULARIOS_FK1" FromRole="FORMULARIOS" ToRole="SALTOS" />
           <NavigationProperty Name="CAMPOS_FORM" Relationship="ModeloTablas.CAMPOS_FORM_FK1" FromRole="FORMULARIOS" ToRole="CAMPOS_FORM" />
+          <NavigationProperty Name="SALTOS" Relationship="ModeloTablas.FORMULARIOS_FK1" FromRole="FORMULARIOS" ToRole="SALTOS" />
         </EntityType>
         <EntityType Name="GESTIONES">
           <Key>
@@ -2122,6 +2134,101 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="DETALLE_SEGUIMIENTO">
+          <Key>
+            <PropertyRef Name="IDDETALLE_SEGUIMIENTO" />
+          </Key>
+          <Property Type="Decimal" Name="IDDETALLE_SEGUIMIENTO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDTRAMITE" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDSALTO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDUSUARIO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="DateTime" Name="FECHA_RECEPCION" Nullable="false" />
+          <Property Type="DateTime" Name="FECHA_ENTREGA" />
+          <Property Type="Decimal" Name="DESTINO" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDUSUARIO_DESTINO" Precision="38" Scale="0" />
+          <NavigationProperty Name="TRAMITES" Relationship="ModeloTablas.DETALLE_TRAMITE_FK1" FromRole="DETALLE_SEGUIMIENTO" ToRole="TRAMITES" />
+        </EntityType>
+        <Association Name="DETALLE_TRAMITE_FK1">
+          <End Type="ModeloTablas.TRAMITES" Role="TRAMITES" Multiplicity="1" />
+          <End Type="ModeloTablas.DETALLE_SEGUIMIENTO" Role="DETALLE_SEGUIMIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAMITES">
+              <PropertyRef Name="IDTRAMITE" />
+            </Principal>
+            <Dependent Role="DETALLE_SEGUIMIENTO">
+              <PropertyRef Name="IDTRAMITE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VALIDACIONES">
+          <Key>
+            <PropertyRef Name="IDVALIDACION" />
+          </Key>
+          <Property Type="Decimal" Name="IDVALIDACION" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="String" Name="VALIDACION" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="35" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CAMPOS_FORM" Relationship="ModeloTablas.CAMPOS_FORM_FK3" FromRole="VALIDACIONES" ToRole="CAMPOS_FORM" />
+        </EntityType>
+        <EntityType Name="DETALLE_LISTA_DESPLEGABLE">
+          <Key>
+            <PropertyRef Name="IDDETALLE_LISTA" />
+          </Key>
+          <Property Type="Decimal" Name="IDDETALLE_LISTA" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Decimal" Name="IDLISTA_DESPLEGABLE" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="VALOR" Precision="38" Scale="0" />
+          <Property Type="String" Name="TEXTO" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LISTA_DESPLEGABLE" Relationship="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1" FromRole="DETALLE_LISTA_DESPLEGABLE" ToRole="LISTA_DESPLEGABLE" />
+        </EntityType>
+        <EntityType Name="LISTA_DESPLEGABLE">
+          <Key>
+            <PropertyRef Name="IDLISTA_DESPLEGABLE" />
+          </Key>
+          <Property Type="Decimal" Name="IDLISTA_DESPLEGABLE" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DETALLE_LISTA_DESPLEGABLE" Relationship="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1" FromRole="LISTA_DESPLEGABLE" ToRole="DETALLE_LISTA_DESPLEGABLE" />
+        </EntityType>
+        <Association Name="DETALLE_LISTA_DESPLEGABLE_FK1">
+          <End Type="ModeloTablas.LISTA_DESPLEGABLE" Role="LISTA_DESPLEGABLE" Multiplicity="1" />
+          <End Type="ModeloTablas.DETALLE_LISTA_DESPLEGABLE" Role="DETALLE_LISTA_DESPLEGABLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LISTA_DESPLEGABLE">
+              <PropertyRef Name="IDLISTA_DESPLEGABLE" />
+            </Principal>
+            <Dependent Role="DETALLE_LISTA_DESPLEGABLE">
+              <PropertyRef Name="IDLISTA_DESPLEGABLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ARCHIVOS">
+          <Key>
+            <PropertyRef Name="IDARCHIVO" />
+          </Key>
+          <Property Type="Decimal" Name="IDARCHIVO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDCAMPO_FORM" Precision="38" Scale="0" />
+          <Property Type="Binary" Name="ARCHIVO" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="CAMPOS_FORM" Relationship="ModeloTablas.ARCHIVOS_FK1" FromRole="ARCHIVOS" ToRole="CAMPOS_FORM" />
+        </EntityType>
+        <EntityType Name="CAMPOS_FORM">
+          <Key>
+            <PropertyRef Name="IDCAMPO_FORM" />
+          </Key>
+          <Property Type="Decimal" Name="IDCAMPO_FORM" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDFORMULARIO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="String" Name="NOMBRE_CAMPO" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ETIQUETA" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IDTIPO_CAMPO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="LONGITUD" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDVALIDACION" Precision="38" Scale="0" />
+          <Property Type="String" Name="MASCARA" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="REQUERIDO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="SOLO_LECTURA" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDCOMBOBOX" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ORDEN" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="ARCHIVOS" Relationship="ModeloTablas.ARCHIVOS_FK1" FromRole="CAMPOS_FORM" ToRole="ARCHIVOS" />
+          <NavigationProperty Name="FORMULARIOS" Relationship="ModeloTablas.CAMPOS_FORM_FK1" FromRole="CAMPOS_FORM" ToRole="FORMULARIOS" />
+          <NavigationProperty Name="TIPOS_CAMPOS" Relationship="ModeloTablas.CAMPOS_FORM_FK2" FromRole="CAMPOS_FORM" ToRole="TIPOS_CAMPOS" />
+          <NavigationProperty Name="VALIDACIONES" Relationship="ModeloTablas.CAMPOS_FORM_FK3" FromRole="CAMPOS_FORM" ToRole="VALIDACIONES" />
+        </EntityType>
         <EntityType Name="SALTOS">
           <Key>
             <PropertyRef Name="IDSALTO" />
@@ -2130,19 +2237,77 @@
           <Property Type="Decimal" Name="NUMERO_SALTO" Nullable="false" Precision="38" Scale="0" />
           <Property Type="Decimal" Name="IDGRUPO_SALTOS" Nullable="false" Precision="38" Scale="0" />
           <Property Type="Decimal" Name="IDPUESTO" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="DECISION" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="DECISION" Nullable="false" Precision="38" Scale="0" />
           <Property Type="Decimal" Name="IDSALTOV" Precision="38" Scale="0" />
           <Property Type="Decimal" Name="IDSALTOF" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="ULTIMOSALTO" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ULTIMOSALTO" Nullable="false" Precision="38" Scale="0" />
           <Property Type="Decimal" Name="MINUTOS" Precision="38" Scale="0" />
           <Property Type="String" Name="DESCRIPCION_DECISION" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="DESCRIPCION_SALTO" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="ESCANEAR" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ESCANEAR" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="DETALLE_USUARIO_SALTOS" Relationship="ModeloTablas.DETALLE_USUARIO_SALTOS_FK2" FromRole="SALTOS" ToRole="DETALLE_USUARIO_SALTOS" />
           <NavigationProperty Name="FORMULARIOS" Relationship="ModeloTablas.FORMULARIOS_FK1" FromRole="SALTOS" ToRole="FORMULARIOS" />
           <NavigationProperty Name="GRUPO_SALTOS" Relationship="ModeloTablas.SALTOS_FK1" FromRole="SALTOS" ToRole="GRUPO_SALTOS" />
           <NavigationProperty Name="PUESTO" Relationship="ModeloTablas.SALTOS_FK2" FromRole="SALTOS" ToRole="PUESTO" />
         </EntityType>
+        <EntityType Name="SESIONESUSUSARIOS">
+          <Key>
+            <PropertyRef Name="IDSESION" />
+          </Key>
+          <Property Type="Decimal" Name="IDSESION" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDUSUARIO" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDVENTANILLA" Precision="38" Scale="0" />
+          <Property Type="DateTime" Name="FECHAHORA" />
+          <Property Type="DateTime" Name="HORAFIN" />
+        </EntityType>
+        <Association Name="ARCHIVOS_FK1">
+          <End Type="ModeloTablas.CAMPOS_FORM" Role="CAMPOS_FORM" Multiplicity="0..1" />
+          <End Type="ModeloTablas.ARCHIVOS" Role="ARCHIVOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAMPOS_FORM">
+              <PropertyRef Name="IDCAMPO_FORM" />
+            </Principal>
+            <Dependent Role="ARCHIVOS">
+              <PropertyRef Name="IDCAMPO_FORM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAMPOS_FORM_FK1">
+          <End Type="ModeloTablas.FORMULARIOS" Role="FORMULARIOS" Multiplicity="1" />
+          <End Type="ModeloTablas.CAMPOS_FORM" Role="CAMPOS_FORM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORMULARIOS">
+              <PropertyRef Name="IDFORMULARIO" />
+            </Principal>
+            <Dependent Role="CAMPOS_FORM">
+              <PropertyRef Name="IDFORMULARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAMPOS_FORM_FK2">
+          <End Type="ModeloTablas.TIPOS_CAMPOS" Role="TIPOS_CAMPOS" Multiplicity="1" />
+          <End Type="ModeloTablas.CAMPOS_FORM" Role="CAMPOS_FORM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOS_CAMPOS">
+              <PropertyRef Name="IDTIPO_CAMPO" />
+            </Principal>
+            <Dependent Role="CAMPOS_FORM">
+              <PropertyRef Name="IDTIPO_CAMPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAMPOS_FORM_FK3">
+          <End Type="ModeloTablas.VALIDACIONES" Role="VALIDACIONES" Multiplicity="0..1" />
+          <End Type="ModeloTablas.CAMPOS_FORM" Role="CAMPOS_FORM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VALIDACIONES">
+              <PropertyRef Name="IDVALIDACION" />
+            </Principal>
+            <Dependent Role="CAMPOS_FORM">
+              <PropertyRef Name="IDVALIDACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="DETALLE_USUARIO_SALTOS_FK2">
           <End Type="ModeloTablas.SALTOS" Role="SALTOS" Multiplicity="1" />
           <End Type="ModeloTablas.DETALLE_USUARIO_SALTOS" Role="DETALLE_USUARIO_SALTOS" Multiplicity="*" />
@@ -2188,149 +2353,6 @@
             </Principal>
             <Dependent Role="SALTOS">
               <PropertyRef Name="IDPUESTO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="DETALLE_SEGUIMIENTO">
-          <Key>
-            <PropertyRef Name="IDDETALLE_SEGUIMIENTO" />
-          </Key>
-          <Property Type="Decimal" Name="IDDETALLE_SEGUIMIENTO" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDTRAMITE" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDSALTO" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDUSUARIO" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="DateTime" Name="FECHA_RECEPCION" Nullable="false" />
-          <Property Type="DateTime" Name="FECHA_ENTREGA" />
-          <Property Type="Decimal" Name="DESTINO" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDUSUARIO_DESTINO" Precision="38" Scale="0" />
-          <NavigationProperty Name="TRAMITES" Relationship="ModeloTablas.DETALLE_TRAMITE_FK1" FromRole="DETALLE_SEGUIMIENTO" ToRole="TRAMITES" />
-        </EntityType>
-        <Association Name="DETALLE_TRAMITE_FK1">
-          <End Type="ModeloTablas.TRAMITES" Role="TRAMITES" Multiplicity="1" />
-          <End Type="ModeloTablas.DETALLE_SEGUIMIENTO" Role="DETALLE_SEGUIMIENTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TRAMITES">
-              <PropertyRef Name="IDTRAMITE" />
-            </Principal>
-            <Dependent Role="DETALLE_SEGUIMIENTO">
-              <PropertyRef Name="IDTRAMITE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="VALIDACIONES">
-          <Key>
-            <PropertyRef Name="IDVALIDACION" />
-          </Key>
-          <Property Type="Decimal" Name="IDVALIDACION" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="String" Name="VALIDACION" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DESCRIPCION" MaxLength="35" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CAMPOS_FORM" Relationship="ModeloTablas.CAMPOS_FORM_FK3" FromRole="VALIDACIONES" ToRole="CAMPOS_FORM" />
-        </EntityType>
-        <EntityType Name="CAMPOS_FORM">
-          <Key>
-            <PropertyRef Name="IDCAMPO_FORM" />
-          </Key>
-          <Property Type="Decimal" Name="IDCAMPO_FORM" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Decimal" Name="IDFORMULARIO" Precision="38" Scale="0" />
-          <Property Type="String" Name="NOMBRE_CAMPO" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ETIQUETA" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IDTIPO_CAMPO" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="LONGITUD" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDVALIDACION" Precision="38" Scale="0" />
-          <Property Type="String" Name="MASCARA" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="REQUERIDO" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="SOLO_LECTURA" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDCOMBOBOX" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="ORDEN" Precision="38" Scale="0" />
-          <NavigationProperty Name="FORMULARIOS" Relationship="ModeloTablas.CAMPOS_FORM_FK1" FromRole="CAMPOS_FORM" ToRole="FORMULARIOS" />
-          <NavigationProperty Name="TIPOS_CAMPOS" Relationship="ModeloTablas.CAMPOS_FORM_FK2" FromRole="CAMPOS_FORM" ToRole="TIPOS_CAMPOS" />
-          <NavigationProperty Name="VALIDACIONES" Relationship="ModeloTablas.CAMPOS_FORM_FK3" FromRole="CAMPOS_FORM" ToRole="VALIDACIONES" />
-          <NavigationProperty Name="ARCHIVOS" Relationship="ModeloTablas.ARCHIVOS_FK1" FromRole="CAMPOS_FORM" ToRole="ARCHIVOS" />
-        </EntityType>
-        <Association Name="CAMPOS_FORM_FK1">
-          <End Type="ModeloTablas.FORMULARIOS" Role="FORMULARIOS" Multiplicity="0..1" />
-          <End Type="ModeloTablas.CAMPOS_FORM" Role="CAMPOS_FORM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FORMULARIOS">
-              <PropertyRef Name="IDFORMULARIO" />
-            </Principal>
-            <Dependent Role="CAMPOS_FORM">
-              <PropertyRef Name="IDFORMULARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CAMPOS_FORM_FK2">
-          <End Type="ModeloTablas.TIPOS_CAMPOS" Role="TIPOS_CAMPOS" Multiplicity="0..1" />
-          <End Type="ModeloTablas.CAMPOS_FORM" Role="CAMPOS_FORM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPOS_CAMPOS">
-              <PropertyRef Name="IDTIPO_CAMPO" />
-            </Principal>
-            <Dependent Role="CAMPOS_FORM">
-              <PropertyRef Name="IDTIPO_CAMPO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CAMPOS_FORM_FK3">
-          <End Type="ModeloTablas.VALIDACIONES" Role="VALIDACIONES" Multiplicity="0..1" />
-          <End Type="ModeloTablas.CAMPOS_FORM" Role="CAMPOS_FORM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VALIDACIONES">
-              <PropertyRef Name="IDVALIDACION" />
-            </Principal>
-            <Dependent Role="CAMPOS_FORM">
-              <PropertyRef Name="IDVALIDACION" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="DETALLE_LISTA_DESPLEGABLE">
-          <Key>
-            <PropertyRef Name="IDDETALLE_LISTA" />
-          </Key>
-          <Property Type="Decimal" Name="IDDETALLE_LISTA" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Decimal" Name="IDLISTA_DESPLEGABLE" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="VALOR" Precision="38" Scale="0" />
-          <Property Type="String" Name="TEXTO" MaxLength="60" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LISTA_DESPLEGABLE" Relationship="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1" FromRole="DETALLE_LISTA_DESPLEGABLE" ToRole="LISTA_DESPLEGABLE" />
-        </EntityType>
-        <EntityType Name="LISTA_DESPLEGABLE">
-          <Key>
-            <PropertyRef Name="IDLISTA_DESPLEGABLE" />
-          </Key>
-          <Property Type="Decimal" Name="IDLISTA_DESPLEGABLE" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="DESCRIPCION" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DETALLE_LISTA_DESPLEGABLE" Relationship="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1" FromRole="LISTA_DESPLEGABLE" ToRole="DETALLE_LISTA_DESPLEGABLE" />
-        </EntityType>
-        <Association Name="DETALLE_LISTA_DESPLEGABLE_FK1">
-          <End Type="ModeloTablas.LISTA_DESPLEGABLE" Role="LISTA_DESPLEGABLE" Multiplicity="1" />
-          <End Type="ModeloTablas.DETALLE_LISTA_DESPLEGABLE" Role="DETALLE_LISTA_DESPLEGABLE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LISTA_DESPLEGABLE">
-              <PropertyRef Name="IDLISTA_DESPLEGABLE" />
-            </Principal>
-            <Dependent Role="DETALLE_LISTA_DESPLEGABLE">
-              <PropertyRef Name="IDLISTA_DESPLEGABLE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="ARCHIVOS">
-          <Key>
-            <PropertyRef Name="IDARCHIVO" />
-          </Key>
-          <Property Type="Decimal" Name="IDARCHIVO" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDCAMPO_FORM" Precision="38" Scale="0" />
-          <Property Type="Binary" Name="ARCHIVO" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="CAMPOS_FORM" Relationship="ModeloTablas.ARCHIVOS_FK1" FromRole="ARCHIVOS" ToRole="CAMPOS_FORM" />
-        </EntityType>
-        <Association Name="ARCHIVOS_FK1">
-          <End Type="ModeloTablas.CAMPOS_FORM" Role="CAMPOS_FORM" Multiplicity="0..1" />
-          <End Type="ModeloTablas.ARCHIVOS" Role="ARCHIVOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAMPOS_FORM">
-              <PropertyRef Name="IDCAMPO_FORM" />
-            </Principal>
-            <Dependent Role="ARCHIVOS">
-              <PropertyRef Name="IDCAMPO_FORM" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2693,24 +2715,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SALTOS">
-            <EntityTypeMapping TypeName="ModeloTablas.SALTOS">
-              <MappingFragment StoreEntitySet="SALTOS">
-                <ScalarProperty Name="ESCANEAR" ColumnName="ESCANEAR" />
-                <ScalarProperty Name="DESCRIPCION_SALTO" ColumnName="DESCRIPCION_SALTO" />
-                <ScalarProperty Name="DESCRIPCION_DECISION" ColumnName="DESCRIPCION_DECISION" />
-                <ScalarProperty Name="MINUTOS" ColumnName="MINUTOS" />
-                <ScalarProperty Name="ULTIMOSALTO" ColumnName="ULTIMOSALTO" />
-                <ScalarProperty Name="IDSALTOF" ColumnName="IDSALTOF" />
-                <ScalarProperty Name="IDSALTOV" ColumnName="IDSALTOV" />
-                <ScalarProperty Name="DECISION" ColumnName="DECISION" />
-                <ScalarProperty Name="IDPUESTO" ColumnName="IDPUESTO" />
-                <ScalarProperty Name="IDGRUPO_SALTOS" ColumnName="IDGRUPO_SALTOS" />
-                <ScalarProperty Name="NUMERO_SALTO" ColumnName="NUMERO_SALTO" />
-                <ScalarProperty Name="IDSALTO" ColumnName="IDSALTO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="DETALLE_SEGUIMIENTO">
             <EntityTypeMapping TypeName="ModeloTablas.DETALLE_SEGUIMIENTO">
               <MappingFragment StoreEntitySet="DETALLE_SEGUIMIENTO">
@@ -2731,24 +2735,6 @@
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="VALIDACION" ColumnName="VALIDACION" />
                 <ScalarProperty Name="IDVALIDACION" ColumnName="IDVALIDACION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CAMPOS_FORM">
-            <EntityTypeMapping TypeName="ModeloTablas.CAMPOS_FORM">
-              <MappingFragment StoreEntitySet="CAMPOS_FORM">
-                <ScalarProperty Name="ORDEN" ColumnName="ORDEN" />
-                <ScalarProperty Name="IDCOMBOBOX" ColumnName="IDCOMBOBOX" />
-                <ScalarProperty Name="SOLO_LECTURA" ColumnName="SOLO_LECTURA" />
-                <ScalarProperty Name="REQUERIDO" ColumnName="REQUERIDO" />
-                <ScalarProperty Name="MASCARA" ColumnName="MASCARA" />
-                <ScalarProperty Name="IDVALIDACION" ColumnName="IDVALIDACION" />
-                <ScalarProperty Name="LONGITUD" ColumnName="LONGITUD" />
-                <ScalarProperty Name="IDTIPO_CAMPO" ColumnName="IDTIPO_CAMPO" />
-                <ScalarProperty Name="ETIQUETA" ColumnName="ETIQUETA" />
-                <ScalarProperty Name="NOMBRE_CAMPO" ColumnName="NOMBRE_CAMPO" />
-                <ScalarProperty Name="IDFORMULARIO" ColumnName="IDFORMULARIO" />
-                <ScalarProperty Name="IDCAMPO_FORM" ColumnName="IDCAMPO_FORM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2776,6 +2762,53 @@
                 <ScalarProperty Name="ARCHIVO" ColumnName="ARCHIVO" />
                 <ScalarProperty Name="IDCAMPO_FORM" ColumnName="IDCAMPO_FORM" />
                 <ScalarProperty Name="IDARCHIVO" ColumnName="IDARCHIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAMPOS_FORM">
+            <EntityTypeMapping TypeName="ModeloTablas.CAMPOS_FORM">
+              <MappingFragment StoreEntitySet="CAMPOS_FORM">
+                <ScalarProperty Name="ORDEN" ColumnName="ORDEN" />
+                <ScalarProperty Name="IDCOMBOBOX" ColumnName="IDCOMBOBOX" />
+                <ScalarProperty Name="SOLO_LECTURA" ColumnName="SOLO_LECTURA" />
+                <ScalarProperty Name="REQUERIDO" ColumnName="REQUERIDO" />
+                <ScalarProperty Name="MASCARA" ColumnName="MASCARA" />
+                <ScalarProperty Name="IDVALIDACION" ColumnName="IDVALIDACION" />
+                <ScalarProperty Name="LONGITUD" ColumnName="LONGITUD" />
+                <ScalarProperty Name="IDTIPO_CAMPO" ColumnName="IDTIPO_CAMPO" />
+                <ScalarProperty Name="ETIQUETA" ColumnName="ETIQUETA" />
+                <ScalarProperty Name="NOMBRE_CAMPO" ColumnName="NOMBRE_CAMPO" />
+                <ScalarProperty Name="IDFORMULARIO" ColumnName="IDFORMULARIO" />
+                <ScalarProperty Name="IDCAMPO_FORM" ColumnName="IDCAMPO_FORM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALTOS">
+            <EntityTypeMapping TypeName="ModeloTablas.SALTOS">
+              <MappingFragment StoreEntitySet="SALTOS">
+                <ScalarProperty Name="ESCANEAR" ColumnName="ESCANEAR" />
+                <ScalarProperty Name="DESCRIPCION_SALTO" ColumnName="DESCRIPCION_SALTO" />
+                <ScalarProperty Name="DESCRIPCION_DECISION" ColumnName="DESCRIPCION_DECISION" />
+                <ScalarProperty Name="MINUTOS" ColumnName="MINUTOS" />
+                <ScalarProperty Name="ULTIMOSALTO" ColumnName="ULTIMOSALTO" />
+                <ScalarProperty Name="IDSALTOF" ColumnName="IDSALTOF" />
+                <ScalarProperty Name="IDSALTOV" ColumnName="IDSALTOV" />
+                <ScalarProperty Name="DECISION" ColumnName="DECISION" />
+                <ScalarProperty Name="IDPUESTO" ColumnName="IDPUESTO" />
+                <ScalarProperty Name="IDGRUPO_SALTOS" ColumnName="IDGRUPO_SALTOS" />
+                <ScalarProperty Name="NUMERO_SALTO" ColumnName="NUMERO_SALTO" />
+                <ScalarProperty Name="IDSALTO" ColumnName="IDSALTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SESIONESUSUSARIOS">
+            <EntityTypeMapping TypeName="ModeloTablas.SESIONESUSUSARIOS">
+              <MappingFragment StoreEntitySet="SESIONESUSUSARIOS">
+                <ScalarProperty Name="HORAFIN" ColumnName="HORAFIN" />
+                <ScalarProperty Name="FECHAHORA" ColumnName="FECHAHORA" />
+                <ScalarProperty Name="IDVENTANILLA" ColumnName="IDVENTANILLA" />
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="IDSESION" ColumnName="IDSESION" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2864,23 +2897,24 @@
         <AssociationConnector Association="ModeloTablas.GESTIONES_VENTANILLAS" />
         <EntityTypeShape EntityType="ModeloTablas.ESTADOS_CIVILES" Width="1.5" PointX="2.1439956362098433" PointY="31.973166018711947" />
         <AssociationConnector Association="ModeloTablas.PROPIETARIO_FK3" />
-        <EntityTypeShape EntityType="ModeloTablas.SALTOS" Width="1.5" PointX="28.5" PointY="31.125" />
-        <AssociationConnector Association="ModeloTablas.DETALLE_USUARIO_SALTOS_FK2" />
-        <AssociationConnector Association="ModeloTablas.FORMULARIOS_FK1" />
-        <AssociationConnector Association="ModeloTablas.SALTOS_FK1" />
-        <AssociationConnector Association="ModeloTablas.SALTOS_FK2" />
         <EntityTypeShape EntityType="ModeloTablas.DETALLE_SEGUIMIENTO" Width="1.5" PointX="11.096219747837736" PointY="1.3912372744601393" />
         <AssociationConnector Association="ModeloTablas.DETALLE_TRAMITE_FK1" />
         <EntityTypeShape EntityType="ModeloTablas.VALIDACIONES" Width="1.5" PointX="18.875" PointY="30.375" />
-        <EntityTypeShape EntityType="ModeloTablas.CAMPOS_FORM" Width="1.5" PointX="14.875" PointY="28.75" />
-        <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK1" />
-        <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK2" />
-        <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK3" />
         <EntityTypeShape EntityType="ModeloTablas.DETALLE_LISTA_DESPLEGABLE" Width="1.5" PointX="22.125" PointY="30.125" />
         <EntityTypeShape EntityType="ModeloTablas.LISTA_DESPLEGABLE" Width="1.5" PointX="25.125" PointY="31.625" />
         <AssociationConnector Association="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1" />
         <EntityTypeShape EntityType="ModeloTablas.ARCHIVOS" Width="1.5" PointX="17" PointY="31.625" />
+        <EntityTypeShape EntityType="ModeloTablas.CAMPOS_FORM" Width="1.5" PointX="14.375" PointY="30.125" />
+        <EntityTypeShape EntityType="ModeloTablas.SALTOS" Width="1.5" PointX="19.875" PointY="6.75" />
+        <EntityTypeShape EntityType="ModeloTablas.SESIONESUSUSARIOS" Width="1.5" PointX="17.625" PointY="37.75" />
         <AssociationConnector Association="ModeloTablas.ARCHIVOS_FK1" />
+        <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK1" />
+        <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK2" />
+        <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK3" />
+        <AssociationConnector Association="ModeloTablas.DETALLE_USUARIO_SALTOS_FK2" />
+        <AssociationConnector Association="ModeloTablas.FORMULARIOS_FK1" />
+        <AssociationConnector Association="ModeloTablas.SALTOS_FK1" />
+        <AssociationConnector Association="ModeloTablas.SALTOS_FK2" />
       </Diagram>
     </Diagrams>
   </Designer>
