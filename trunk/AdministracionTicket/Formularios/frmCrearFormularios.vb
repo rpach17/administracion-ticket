@@ -1,4 +1,6 @@
-﻿Public Class frmCrearFormularios
+﻿Imports System.IO
+
+Public Class frmCrearFormularios
     Dim NuevoCampo As Boolean
     Dim IdCampo As Integer
     Dim IdCbo As Object
@@ -54,6 +56,7 @@
 
     Private Sub frmCrearFormularios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         EntityTablas.CargarFormsPadres(cboFormPadre, IdSalto)
+        NuevoCampo = True
 
         If Editar Then
             Dim frm As FORMULARIOS = EntityTablas.LlenarFrmForm(idf)
@@ -140,9 +143,8 @@
             cboValidacion.Enabled = False
             txtMascara.Enabled = False
             chkSoloLectura.Enabled = False
+            chkRequerido.Enabled = False
             btnSubir.Visible = True
-            lblArchivo.Visible = True
-            lblArchivo.Text = "Archivo de Word"
         Else
             btnAsignarDatosCampo.Visible = False
             numLogitud.Enabled = True
@@ -166,28 +168,43 @@
                 IdCbo = Convert.ToDecimal(txtIdComboBox.Text)
             End If
 
-            Dim msj As String = EntityTablas.AgregarCampos(New CAMPOS_FORM With _
-                   {
-                       .IDFORMULARIO = Convert.ToDecimal(idf),
-                       .NOMBRE_CAMPO = txtNombreCampo.Text,
-                       .ETIQUETA = txtEtiqueta.Text,
-                       .IDTIPO_CAMPO = Convert.ToDecimal(cboTiposCampo.SelectedValue),
-                       .IDVALIDACION = IIf(cboValidacion.Text = "", Nothing, Convert.ToDecimal(cboValidacion.SelectedValue)),
-                       .LONGITUD = Convert.ToDecimal(numLogitud.Value),
-                       .MASCARA = txtMascara.Text,
-                       .ORDEN = Convert.ToDecimal(numOrden.Value),
-                       .REQUERIDO = IIf(chkRequerido.Checked, Convert.ToDecimal(1), Convert.ToDecimal(0)),
-                       .SOLO_LECTURA = IIf(chkRequerido.Checked, Convert.ToDecimal(1), Convert.ToDecimal(0)),
-                       .IDCOMBOBOX = IdCbo
-                   })
+            Dim idc As Object = EntityTablas.AgregarCampos(New CAMPOS_FORM With _
+            {
+                .IDFORMULARIO = Convert.ToDecimal(idf),
+                .NOMBRE_CAMPO = txtNombreCampo.Text,
+                .ETIQUETA = txtEtiqueta.Text,
+                .IDTIPO_CAMPO = Convert.ToDecimal(cboTiposCampo.SelectedValue),
+                .IDVALIDACION = IIf(cboValidacion.Text = "", Nothing, Convert.ToDecimal(cboValidacion.SelectedValue)),
+                .LONGITUD = Convert.ToDecimal(numLogitud.Value),
+                .MASCARA = txtMascara.Text,
+                .ORDEN = Convert.ToDecimal(numOrden.Value),
+                .REQUERIDO = IIf(chkRequerido.Checked, Convert.ToDecimal(1), Convert.ToDecimal(0)),
+                .SOLO_LECTURA = IIf(chkRequerido.Checked, Convert.ToDecimal(1), Convert.ToDecimal(0)),
+                .IDCOMBOBOX = IdCbo
+            })
 
-            If msj = "OK" Then
+            If Convert.ToDecimal(idc) > 0 Then
+
+                If cboTiposCampo.Text = "Archivo de descarga" Then
+                    Try
+                        Using fs As New FileStream(lblArchivo.Text, FileMode.Open, FileAccess.Read)
+                            Dim datos(fs.Length) As Byte
+                            fs.Read(datos, 0, fs.Length)
+                            fs.Close()
+
+                            EntityTablas.GuardarArchivo(New ARCHIVOS With {.IDCAMPO_FORM = Convert.ToDecimal(idc), .ARCHIVO = datos})
+                        End Using
+                    Catch ex As Exception
+
+                    End Try
+                End If
+
                 EntityTablas.CargarCamposGrid(dgvCampos, idf)
                 LimpiarControles(txtNombreCampo, txtEtiqueta, txtIdComboBox, cboTiposCampo, cboValidacion, txtMascara, chkRequerido, chkSoloLectura)
                 numOrden.Value += 1
                 cboTiposCampo.Focus()
             Else
-                MsgBox(msj)
+                MsgBox(idc.ToString)
             End If
         Else
             If txtIdComboBox.Text = "" Then
@@ -207,6 +224,20 @@
                                          IIf(chkSoloLectura.Checked, 1, 0), _
                                          IdCbo, _
                                          IdCampo)
+
+            ' Actualizar el archivo del campo "descargable"
+            If cboTiposCampo.Text = "Archivo de descarga" Then
+                Try
+                    Using fs As New FileStream(lblArchivo.Text, FileMode.Open, FileAccess.Read)
+                        Dim datos(fs.Length) As Byte
+                        fs.Read(datos, 0, fs.Length)
+                        fs.Close()
+
+                        EntityTablas.ActualizarArchivo(datos, IdCampo)
+                    End Using
+                Catch ex As Exception
+                End Try
+            End If
 
             EntityTablas.CargarCamposGrid(dgvCampos, idf)
             BuscarEnGrid(dgvCampos, 0, IdCampo)
@@ -305,6 +336,7 @@
         If OpenF.ShowDialog = Windows.Forms.DialogResult.OK Then
             lblArchivo.Visible = True
             lblArchivo.Text = OpenF.FileName
+            lblArchivo.Select(lblArchivo.Text.Length, 0)
         End If
     End Sub
 

@@ -151,6 +151,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>appcavistas.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmConfigURL.Designer.vb">
+      <DependentUpon>frmConfigURL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmConfigURL.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmUsuariosObt.Designer.vb">
       <DependentUpon>frmUsuariosObt.vb</DependentUpon>
     </Compile>
@@ -326,6 +332,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\frmConfigURL.resx">
+      <DependentUpon>frmConfigURL.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmUsuariosObt.resx">
       <DependentUpon>frmUsuariosObt.vb</DependentUpon>
     </EmbeddedResource>
@@ -570,6 +579,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfield_rename.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

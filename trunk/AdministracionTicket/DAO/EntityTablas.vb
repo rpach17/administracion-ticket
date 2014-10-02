@@ -996,11 +996,11 @@
         cbo.SelectedValue = -1
     End Sub
 
-    Public Shared Function AgregarCampos(ByVal campos As CAMPOS_FORM) As String
+    Public Shared Function AgregarCampos(ByVal campos As CAMPOS_FORM) As Object
         Try
             ctx.CAMPOS_FORM.AddObject(campos)
             ctx.SaveChanges()
-            Return "OK"
+            Return campos.IDCAMPO_FORM
         Catch ex As Exception
             Return ex.InnerException.ToString
         End Try
@@ -1078,7 +1078,7 @@
                      Select fr.IDFORMULARIO, fr.TITULO, ACTIVO = If(fr.ACTIVO = 1, True, False)).ToList
 
         grid.DataSource = forms
-        'grid.Columns(0).Visible = False
+        grid.Columns(0).Visible = False
     End Sub
 
     Public Shared Function LlenarFrmForm(idf As Integer) As FORMULARIOS
@@ -1132,6 +1132,42 @@
         End Try
     End Sub
 
+    Public Shared Sub GuardarArchivo(ByVal archi As ARCHIVOS)
+        Try
+            ctx.ARCHIVOS.AddObject(archi)
+            ctx.SaveChanges()
+        Catch ex As Exception
+            'Return ex.Message.ToString
+        End Try
+    End Sub
 
+    Public Shared Sub ActualizarArchivo(archi As Byte(), idc As Integer)
+        Dim campo = (From c In ctx.ARCHIVOS Where c.IDCAMPO_FORM = idc).SingleOrDefault
+        Try
+            campo.ARCHIVO = archi
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Function ObtenerURL(id As Integer) As String
+        Dim url = (From u In ctx.FORM_URL
+                   Where u.IDURL = id
+                   Select u.DIRECCION).SingleOrDefault
+
+        Return url.ToString
+    End Function
+
+    Public Shared Sub ActualizarURL(dir As String, id As Integer)
+        Dim url = (From u In ctx.FORM_URL Where u.IDURL = id Select u).SingleOrDefault
+
+        Try
+            url.DIRECCION = dir
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 #End Region
 End Class

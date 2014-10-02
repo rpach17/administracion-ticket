@@ -55,6 +55,6 @@
             .Focus()
         End With
 
-        Close()
+        'Close()
     End Sub
 End Class
