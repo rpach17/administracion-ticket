@@ -28,6 +28,8 @@ Partial Class frmCrearFormularios
         Me.panelCampos = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.lblArchivo = New System.Windows.Forms.TextBox()
+        Me.btnSubir = New System.Windows.Forms.Button()
         Me.txtIdComboBox = New System.Windows.Forms.TextBox()
         Me.btnNuevoCampo = New System.Windows.Forms.Button()
         Me.btnAgregarCampo = New System.Windows.Forms.Button()
@@ -56,9 +58,8 @@ Partial Class frmCrearFormularios
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtTitulo = New System.Windows.Forms.TextBox()
-        Me.btnSubir = New System.Windows.Forms.Button()
         Me.OpenF = New System.Windows.Forms.OpenFileDialog()
-        Me.lblArchivo = New System.Windows.Forms.TextBox()
+        Me.btnAgregarSQL = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.panelCampos.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,6 +145,7 @@ Partial Class frmCrearFormularios
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnAgregarSQL)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblArchivo)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnSubir)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtIdComboBox)
@@ -173,6 +175,25 @@ Partial Class frmCrearFormularios
         Me.SplitContainer1.Size = New System.Drawing.Size(827, 239)
         Me.SplitContainer1.SplitterDistance = 453
         Me.SplitContainer1.TabIndex = 0
+        '
+        'lblArchivo
+        '
+        Me.lblArchivo.Location = New System.Drawing.Point(313, 43)
+        Me.lblArchivo.Name = "lblArchivo"
+        Me.lblArchivo.ReadOnly = True
+        Me.lblArchivo.Size = New System.Drawing.Size(123, 20)
+        Me.lblArchivo.TabIndex = 12
+        Me.lblArchivo.Visible = False
+        '
+        'btnSubir
+        '
+        Me.btnSubir.Location = New System.Drawing.Point(312, 15)
+        Me.btnSubir.Name = "btnSubir"
+        Me.btnSubir.Size = New System.Drawing.Size(29, 23)
+        Me.btnSubir.TabIndex = 11
+        Me.btnSubir.Text = "..."
+        Me.btnSubir.UseVisualStyleBackColor = True
+        Me.btnSubir.Visible = False
         '
         'txtIdComboBox
         '
@@ -432,28 +453,19 @@ Partial Class frmCrearFormularios
         Me.txtTitulo.Size = New System.Drawing.Size(389, 23)
         Me.txtTitulo.TabIndex = 0
         '
-        'btnSubir
-        '
-        Me.btnSubir.Location = New System.Drawing.Point(312, 15)
-        Me.btnSubir.Name = "btnSubir"
-        Me.btnSubir.Size = New System.Drawing.Size(29, 23)
-        Me.btnSubir.TabIndex = 11
-        Me.btnSubir.Text = "..."
-        Me.btnSubir.UseVisualStyleBackColor = True
-        Me.btnSubir.Visible = False
-        '
         'OpenF
         '
         Me.OpenF.FileName = "OpenFileDialog1"
         '
-        'lblArchivo
+        'btnAgregarSQL
         '
-        Me.lblArchivo.Location = New System.Drawing.Point(313, 43)
-        Me.lblArchivo.Name = "lblArchivo"
-        Me.lblArchivo.ReadOnly = True
-        Me.lblArchivo.Size = New System.Drawing.Size(123, 20)
-        Me.lblArchivo.TabIndex = 12
-        Me.lblArchivo.Visible = False
+        Me.btnAgregarSQL.Location = New System.Drawing.Point(313, 15)
+        Me.btnAgregarSQL.Name = "btnAgregarSQL"
+        Me.btnAgregarSQL.Size = New System.Drawing.Size(88, 23)
+        Me.btnAgregarSQL.TabIndex = 13
+        Me.btnAgregarSQL.Text = "Agregar SQL"
+        Me.btnAgregarSQL.UseVisualStyleBackColor = True
+        Me.btnAgregarSQL.Visible = False
         '
         'frmCrearFormularios
         '
@@ -514,4 +526,5 @@ Partial Class frmCrearFormularios
     Friend WithEvents btnSubir As System.Windows.Forms.Button
     Friend WithEvents OpenF As System.Windows.Forms.OpenFileDialog
     Friend WithEvents lblArchivo As System.Windows.Forms.TextBox
+    Friend WithEvents btnAgregarSQL As System.Windows.Forms.Button
 End Class

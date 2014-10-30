@@ -36,29 +36,27 @@
         frmSucursalesBusqueda.ShowDialog()
         txtSucursal.Text = Sucursal
         EntityTablas.CargarSucursalesOfi(cboOficina, IdSucursal)
-
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         If txtDescripcion.Text.Length > 5 Then
             EntityTablas.AgregarGrupoSalto(New GRUPO_SALTOS With _
-                                           {
-                                           .DESCRIPCION = txtDescripcion.Text,
-                                           .ACTIVO = IIf(chkActivo.Checked, 1, 0),
-                                           .IDDETALLE_SUCURSAL_OFICINA = cboOficina.SelectedValue,
-            .IDGESTION = IdGestion
-                                       })
+            {
+                .DESCRIPCION = txtDescripcion.Text,
+                .ACTIVO = IIf(chkActivo.Checked, 1, 0),
+                .IDDETALLE_SUCURSAL_OFICINA = cboOficina.SelectedValue,
+                .IDGESTION = cboGestiones.SelectedValue
+            })
         Else
             MsgBox("Le falta una descripción")
         End If
-        EntityTablas.CargarGrupoSaltos(dgvGrupoSaltos, IdGestion, cboOficina.SelectedValue)
+        EntityTablas.CargarGrupoSaltos(dgvGrupoSaltos, cboGestiones.SelectedValue, cboOficina.SelectedValue)
     End Sub
 
     Private Sub cboOficina_SelectedValueChanged(sender As Object, e As EventArgs) Handles cboOficina.SelectedIndexChanged
         Try
             EntityTablas.CargarCboGestiones(cboGestiones, cboOficina.SelectedValue)
         Catch ex As Exception
-
         End Try
     End Sub
 
@@ -73,8 +71,8 @@
             Try
                 frmSaltos.Close()
             Catch ex As Exception
-
             End Try
+
             With frmSaltos
                 .MdiParent = RibbonMain
                 .NombreGestion1 = ObtenerDatoGrid(dgvGrupoSaltos, 1)

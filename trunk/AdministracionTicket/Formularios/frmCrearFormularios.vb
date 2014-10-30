@@ -4,6 +4,7 @@ Public Class frmCrearFormularios
     Dim NuevoCampo As Boolean
     Dim IdCampo As Integer
     Dim IdCbo As Object
+    Public SQLQuery As String = ""
 
     Dim Editar As Boolean
     Public Property Editar1 As Boolean
@@ -137,6 +138,16 @@ Public Class frmCrearFormularios
             chkRequerido.Enabled = False
             btnSubir.Visible = False
             lblArchivo.Visible = False
+            btnAgregarSQL.Visible = False
+        ElseIf cboTiposCampo.Text = "Lista desplegable con SQL" Then
+            numLogitud.Enabled = False
+            cboValidacion.Enabled = False
+            txtMascara.Enabled = False
+            chkSoloLectura.Enabled = False
+            chkRequerido.Enabled = False
+            btnSubir.Visible = False
+            lblArchivo.Visible = False
+            btnAgregarSQL.Visible = True
         ElseIf cboTiposCampo.Text = "Archivo de descarga" Then
             btnAsignarDatosCampo.Visible = False
             numLogitud.Enabled = False
@@ -145,6 +156,7 @@ Public Class frmCrearFormularios
             chkSoloLectura.Enabled = False
             chkRequerido.Enabled = False
             btnSubir.Visible = True
+            btnAgregarSQL.Visible = False
         Else
             btnAsignarDatosCampo.Visible = False
             numLogitud.Enabled = True
@@ -153,6 +165,7 @@ Public Class frmCrearFormularios
             chkSoloLectura.Enabled = True
             btnSubir.Visible = False
             lblArchivo.Visible = False
+            btnAgregarSQL.Visible = False
         End If
     End Sub
 
@@ -180,7 +193,8 @@ Public Class frmCrearFormularios
                 .ORDEN = Convert.ToDecimal(numOrden.Value),
                 .REQUERIDO = IIf(chkRequerido.Checked, Convert.ToDecimal(1), Convert.ToDecimal(0)),
                 .SOLO_LECTURA = IIf(chkRequerido.Checked, Convert.ToDecimal(1), Convert.ToDecimal(0)),
-                .IDCOMBOBOX = IdCbo
+                .IDCOMBOBOX = IdCbo,
+                .SQL_QUERY = SQLQuery
             })
 
             If Convert.ToDecimal(idc) > 0 Then
@@ -223,7 +237,8 @@ Public Class frmCrearFormularios
                                          IIf(chkRequerido.Checked, 1, 0), _
                                          IIf(chkSoloLectura.Checked, 1, 0), _
                                          IdCbo, _
-                                         IdCampo)
+                                         IdCampo,
+                                         SQLQuery)
 
             ' Actualizar el archivo del campo "descargable"
             If cboTiposCampo.Text = "Archivo de descarga" Then
@@ -298,6 +313,7 @@ Public Class frmCrearFormularios
         numOrden.Value = campo.ORDEN
         chkRequerido.Checked = IIf(campo.REQUERIDO = 1, True, False)
         chkSoloLectura.Checked = IIf(campo.SOLO_LECTURA = 1, True, False)
+        SQLQuery = campo.SQL_QUERY
 
         If campo.MASCARA IsNot Nothing Then
             txtMascara.Text = campo.MASCARA
@@ -322,6 +338,8 @@ Public Class frmCrearFormularios
     End Sub
 
     Private Sub btnNuevoCampo_Click(sender As Object, e As EventArgs) Handles btnNuevoCampo.Click
+        frmSQL.txtSQL.Text = ""
+        SQLQuery = ""
         btnNuevoCampo.Visible = False
         NuevoCampo = True
         LimpiarControles(txtNombreCampo, txtEtiqueta, txtIdComboBox, cboTiposCampo, cboValidacion, txtMascara, chkRequerido, chkSoloLectura)
@@ -340,4 +358,10 @@ Public Class frmCrearFormularios
         End If
     End Sub
 
+    Private Sub btnAgregarSQL_Click(sender As Object, e As EventArgs) Handles btnAgregarSQL.Click
+        With frmSQL
+            .txtSQL.Text = SQLQuery
+            .ShowDialog()
+        End With
+    End Sub
 End Class
