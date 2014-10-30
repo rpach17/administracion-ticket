@@ -735,7 +735,8 @@
 
     Public Shared Sub AgregarSalto(ByVal salto As SALTOS)
         Dim paso As Integer = (From p In ctx.SALTOS.ToList()
-                   Where p.NUMERO_SALTO = salto.NUMERO_SALTO AndAlso p.GRUPO_SALTOS.IDGESTION = salto.GRUPO_SALTOS.IDGESTION).Count()
+                               Where p.NUMERO_SALTO = salto.NUMERO_SALTO _
+                               AndAlso p.IDGRUPO_SALTOS = salto.IDGRUPO_SALTOS).Count()
 
         If paso < 1 Then
             Try
@@ -1110,7 +1111,7 @@
         Return datos
     End Function
 
-    Public Shared Sub ActualizarCampo(tipoCampo As Decimal, nombreCampo As String, etiqueta As String, longi As Decimal, orden As Decimal, val As Decimal?, mascara As String, requerido As Decimal, soloLectura As Decimal, IdCombo As Decimal?, IdCampo As Decimal)
+    Public Shared Sub ActualizarCampo(tipoCampo As Decimal, nombreCampo As String, etiqueta As String, longi As Decimal, orden As Decimal, val As Decimal?, mascara As String, requerido As Decimal, soloLectura As Decimal, IdCombo As Decimal?, IdCampo As Decimal, sqlquey As String)
         Dim campo = (From c In ctx.CAMPOS_FORM Where c.IDCAMPO_FORM = IdCampo).SingleOrDefault
         Try
             With campo
@@ -1124,6 +1125,7 @@
                 .REQUERIDO = requerido
                 .SOLO_LECTURA = soloLectura
                 .IDCOMBOBOX = IdCombo
+                .SQL_QUERY = sqlquey
             End With
 
             ctx.SaveChanges()
