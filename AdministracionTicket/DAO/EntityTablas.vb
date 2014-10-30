@@ -1184,7 +1184,7 @@
                     Join f In ctx.FORMULARIOS On s.IDSALTO Equals f.IDSALTO
                     Where gs.IDGRUPO_SALTOS = grupoSalto AndAlso f.ACTIVO = 1
                     Select f.IDFORMULARIO, Descripcion = s.DESCRIPCION_SALTO + " " + f.TITULO).ToList
-
+        'un comentario
         cbo.DataSource = form
         cbo.ValueMember = "IDFORMULARIO"
         cbo.DisplayMember = "Descripcion"
