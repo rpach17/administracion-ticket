@@ -28,6 +28,7 @@ Partial Class frmCrearFormularios
         Me.panelCampos = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.btnAgregarSQL = New System.Windows.Forms.Button()
         Me.lblArchivo = New System.Windows.Forms.TextBox()
         Me.btnSubir = New System.Windows.Forms.Button()
         Me.txtIdComboBox = New System.Windows.Forms.TextBox()
@@ -42,7 +43,7 @@ Partial Class frmCrearFormularios
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cboTiposCampo = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lblNombreCombobox = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -59,7 +60,7 @@ Partial Class frmCrearFormularios
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtTitulo = New System.Windows.Forms.TextBox()
         Me.OpenF = New System.Windows.Forms.OpenFileDialog()
-        Me.btnAgregarSQL = New System.Windows.Forms.Button()
+        Me.cboComboForm = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.panelCampos.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,6 +146,7 @@ Partial Class frmCrearFormularios
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.cboComboForm)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnAgregarSQL)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblArchivo)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnSubir)
@@ -160,7 +162,7 @@ Partial Class frmCrearFormularios
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label10)
         Me.SplitContainer1.Panel1.Controls.Add(Me.cboTiposCampo)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label6)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label8)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.lblNombreCombobox)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label9)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label5)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label7)
@@ -175,6 +177,16 @@ Partial Class frmCrearFormularios
         Me.SplitContainer1.Size = New System.Drawing.Size(827, 239)
         Me.SplitContainer1.SplitterDistance = 453
         Me.SplitContainer1.TabIndex = 0
+        '
+        'btnAgregarSQL
+        '
+        Me.btnAgregarSQL.Location = New System.Drawing.Point(313, 15)
+        Me.btnAgregarSQL.Name = "btnAgregarSQL"
+        Me.btnAgregarSQL.Size = New System.Drawing.Size(88, 23)
+        Me.btnAgregarSQL.TabIndex = 13
+        Me.btnAgregarSQL.Text = "Agregar SQL"
+        Me.btnAgregarSQL.UseVisualStyleBackColor = True
+        Me.btnAgregarSQL.Visible = False
         '
         'lblArchivo
         '
@@ -303,14 +315,14 @@ Partial Class frmCrearFormularios
         Me.Label6.TabIndex = 1
         Me.Label6.Text = "Longitud"
         '
-        'Label8
+        'lblNombreCombobox
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(65, 124)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(56, 13)
-        Me.Label8.TabIndex = 1
-        Me.Label8.Text = "Validación"
+        Me.lblNombreCombobox.AutoSize = True
+        Me.lblNombreCombobox.Location = New System.Drawing.Point(65, 124)
+        Me.lblNombreCombobox.Name = "lblNombreCombobox"
+        Me.lblNombreCombobox.Size = New System.Drawing.Size(56, 13)
+        Me.lblNombreCombobox.TabIndex = 1
+        Me.lblNombreCombobox.Text = "Validación"
         '
         'Label9
         '
@@ -457,15 +469,15 @@ Partial Class frmCrearFormularios
         '
         Me.OpenF.FileName = "OpenFileDialog1"
         '
-        'btnAgregarSQL
+        'cboComboForm
         '
-        Me.btnAgregarSQL.Location = New System.Drawing.Point(313, 15)
-        Me.btnAgregarSQL.Name = "btnAgregarSQL"
-        Me.btnAgregarSQL.Size = New System.Drawing.Size(88, 23)
-        Me.btnAgregarSQL.TabIndex = 13
-        Me.btnAgregarSQL.Text = "Agregar SQL"
-        Me.btnAgregarSQL.UseVisualStyleBackColor = True
-        Me.btnAgregarSQL.Visible = False
+        Me.cboComboForm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboComboForm.FormattingEnabled = True
+        Me.cboComboForm.Location = New System.Drawing.Point(128, 121)
+        Me.cboComboForm.Name = "cboComboForm"
+        Me.cboComboForm.Size = New System.Drawing.Size(179, 21)
+        Me.cboComboForm.TabIndex = 14
+        Me.cboComboForm.Visible = False
         '
         'frmCrearFormularios
         '
@@ -506,7 +518,7 @@ Partial Class frmCrearFormularios
     Friend WithEvents cboValidacion As System.Windows.Forms.ComboBox
     Friend WithEvents cboTiposCampo As System.Windows.Forms.ComboBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents lblNombreCombobox As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -527,4 +539,5 @@ Partial Class frmCrearFormularios
     Friend WithEvents OpenF As System.Windows.Forms.OpenFileDialog
     Friend WithEvents lblArchivo As System.Windows.Forms.TextBox
     Friend WithEvents btnAgregarSQL As System.Windows.Forms.Button
+    Friend WithEvents cboComboForm As System.Windows.Forms.ComboBox
 End Class
