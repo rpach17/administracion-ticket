@@ -148,6 +148,8 @@ Public Class frmCrearFormularios
             btnSubir.Visible = False
             lblArchivo.Visible = False
             btnAgregarSQL.Visible = True
+            cboComboForm.Visible = False
+            lblNombreCombobox.Text = "Validación"
         ElseIf cboTiposCampo.Text = "Archivo de descarga" Then
             btnAsignarDatosCampo.Visible = False
             numLogitud.Enabled = False
@@ -157,6 +159,8 @@ Public Class frmCrearFormularios
             chkRequerido.Enabled = False
             btnSubir.Visible = True
             btnAgregarSQL.Visible = False
+            cboComboForm.Visible = True
+            lblNombreCombobox.Text = "Formulario"
         Else
             btnAsignarDatosCampo.Visible = False
             numLogitud.Enabled = True
@@ -166,6 +170,8 @@ Public Class frmCrearFormularios
             btnSubir.Visible = False
             lblArchivo.Visible = False
             btnAgregarSQL.Visible = False
+            cboComboForm.Visible = False
+            lblNombreCombobox.Text = "Validación"
         End If
     End Sub
 
