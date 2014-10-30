@@ -308,7 +308,8 @@
                 cbo.SelectedValue = -1
             Case "cboPuestos"
                 Dim puestos = (From p In ctx.PUESTO
-                               Where p.IDOFICINA = ID
+                               Join o In ctx.DETALLE_SUCURSAL_OFICINA On p.IDOFICINA Equals o.IDOFICINA
+                               Where o.IDDETALLE_SUCURSAL_OFICINA = ID
                                Select p.IDPUESTO, p.NOMBRE_PUESTO).ToList
                 cbo.DataSource = puestos
                 cbo.DisplayMember = "NOMBRE_PUESTO"
@@ -1170,6 +1171,24 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Public Shared Sub CargarFormulario(cbo As ComboBox, ByVal idSalto As Integer)
+        Dim grupoSalto As Integer = (From gs In ctx.GRUPO_SALTOS
+                                    Join s In ctx.SALTOS On gs.IDGRUPO_SALTOS Equals s.IDGRUPO_SALTOS
+                                    Where s.IDSALTO = idSalto
+                                    Select gs.IDGRUPO_SALTOS).FirstOrDefault
+
+        Dim form = (From gs In ctx.GRUPO_SALTOS
+                    Join s In ctx.SALTOS On gs.IDGRUPO_SALTOS Equals s.IDGRUPO_SALTOS
+                    Join f In ctx.FORMULARIOS On s.IDSALTO Equals f.IDSALTO
+                    Where gs.IDGRUPO_SALTOS = grupoSalto AndAlso f.ACTIVO = 1
+                    Select f.IDFORMULARIO, Descripcion = s.DESCRIPCION_SALTO + " " + f.TITULO).ToList
+
+        cbo.DataSource = form
+        cbo.ValueMember = "IDFORMULARIO"
+        cbo.DisplayMember = "Descripcion"
+        cbo.SelectedValue = -1
     End Sub
 #End Region
 End Class

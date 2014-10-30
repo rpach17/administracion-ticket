@@ -201,7 +201,8 @@
                                                                          .TITULO = TITULOTextBox.Text, _
                                                                          .VINCULAR_CON = VinculadoCon, _
                                                                          .ESTADO = IIf(ESTADOCheckBox.Checked = True, Convert.ToDecimal(Val(1)), Convert.ToDecimal(Val(0))), _
-                                                                         .IDDETALLE_SUCURSAL_OFICINA = cboOficinas.SelectedValue
+                                                                         .IDDETALLE_SUCURSAL_OFICINA = cboOficinas.SelectedValue, _
+                                                                         .LABORANDO = 1
                                                                         })
 
             Dim m As String = String.Format("El usuario ha sido agregado correctamente.{0}{0}Proceda a asignar los perfiles necesarios al usuario.", vbCrLf)
@@ -277,5 +278,6 @@
     Private Sub cboOficinas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboOficinas.SelectedIndexChanged
         EntityTablas.CargarCombos(cboPuestos, cboOficinas.SelectedValue)
     End Sub
+
 
 End Class
