@@ -1173,7 +1173,7 @@
         End Try
     End Sub
 
-    Public Shared Sub CargarFormulario(cbo As ComboBox, ByVal idSalto As Integer)
+    Public Shared Sub CargarFormularios(cbo As ComboBox, ByVal idSalto As Integer)
         Dim grupoSalto As Integer = (From gs In ctx.GRUPO_SALTOS
                                     Join s In ctx.SALTOS On gs.IDGRUPO_SALTOS Equals s.IDGRUPO_SALTOS
                                     Where s.IDSALTO = idSalto
