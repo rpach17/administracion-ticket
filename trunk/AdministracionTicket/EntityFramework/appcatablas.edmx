@@ -243,8 +243,9 @@
             <PropertyRef Name="IDARCHIVO" />
           </Key>
           <Property Name="IDARCHIVO" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="IDCAMPO_FORM" Type="number" Nullable="false" />
+          <Property Name="IDCAMPO_FORM" Type="number" />
           <Property Name="ARCHIVO" Type="blob" />
+          <Property Name="IDFORMULARIO" Type="number" />
         </EntityType>
         <EntityType Name="BENEFICIARIO">
           <Key>
@@ -555,14 +556,14 @@
           <Property Name="NUMERO_SALTO" Type="number" Nullable="false" />
           <Property Name="IDGRUPO_SALTOS" Type="number" Nullable="false" />
           <Property Name="IDPUESTO" Type="number" />
-          <Property Name="DECISION" Type="number" />
+          <Property Name="DECISION" Type="number" Nullable="false" />
           <Property Name="IDSALTOV" Type="number" />
           <Property Name="IDSALTOF" Type="number" />
-          <Property Name="ULTIMOSALTO" Type="number" />
+          <Property Name="ULTIMOSALTO" Type="number" Nullable="false" />
           <Property Name="MINUTOS" Type="number" />
           <Property Name="DESCRIPCION_DECISION" Type="varchar2" MaxLength="60" />
           <Property Name="DESCRIPCION_SALTO" Type="varchar2" MaxLength="50" />
-          <Property Name="ESCANEAR" Type="number" />
+          <Property Name="ESCANEAR" Type="number" Nullable="false" />
         </EntityType>
         <EntityType Name="SUCURSALES">
           <Key>
@@ -650,7 +651,7 @@
           <Property Name="NUMERO_VENTANILLA" Type="number" Nullable="false" />
         </EntityType>
         <Association Name="ARCHIVOS_FK1">
-          <End Role="CAMPOS_FORM" Type="ModeloTablas.Store.CAMPOS_FORM" Multiplicity="1" />
+          <End Role="CAMPOS_FORM" Type="ModeloTablas.Store.CAMPOS_FORM" Multiplicity="0..1" />
           <End Role="ARCHIVOS" Type="ModeloTablas.Store.ARCHIVOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CAMPOS_FORM">
@@ -1388,23 +1389,6 @@
           <EntitySet Name="VALIDACIONES" EntityType="ModeloTablas.VALIDACIONES" />
           <EntitySet Name="LISTA_DESPLEGABLE" EntityType="ModeloTablas.LISTA_DESPLEGABLE" />
           <EntitySet Name="ARCHIVOS" EntityType="ModeloTablas.ARCHIVOS" />
-          <EntitySet Name="SALTOS" EntityType="ModeloTablas.SALTOS" />
-          <AssociationSet Name="DETALLE_USUARIO_SALTOS_FK2" Association="ModeloTablas.DETALLE_USUARIO_SALTOS_FK2">
-            <End Role="SALTOS" EntitySet="SALTOS" />
-            <End Role="DETALLE_USUARIO_SALTOS" EntitySet="DETALLE_USUARIO_SALTOS" />
-          </AssociationSet>
-          <AssociationSet Name="FORMULARIOS_FK1" Association="ModeloTablas.FORMULARIOS_FK1">
-            <End Role="SALTOS" EntitySet="SALTOS" />
-            <End Role="FORMULARIOS" EntitySet="FORMULARIOS" />
-          </AssociationSet>
-          <AssociationSet Name="SALTOS_FK1" Association="ModeloTablas.SALTOS_FK1">
-            <End Role="GRUPO_SALTOS" EntitySet="GRUPO_SALTOS" />
-            <End Role="SALTOS" EntitySet="SALTOS" />
-          </AssociationSet>
-          <AssociationSet Name="SALTOS_FK2" Association="ModeloTablas.SALTOS_FK2">
-            <End Role="PUESTO" EntitySet="PUESTO" />
-            <End Role="SALTOS" EntitySet="SALTOS" />
-          </AssociationSet>
           <EntitySet Name="FORM_URL" EntityType="ModeloTablas.FORM_URL" />
           <EntitySet Name="CAMPOS_FORM" EntityType="ModeloTablas.CAMPOS_FORM" />
           <AssociationSet Name="ARCHIVOS_FK1" Association="ModeloTablas.ARCHIVOS_FK1">
@@ -1427,6 +1411,23 @@
           <AssociationSet Name="DETALLE_LISTA_DESPLEGABLE_FK1" Association="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1">
             <End Role="LISTA_DESPLEGABLE" EntitySet="LISTA_DESPLEGABLE" />
             <End Role="DETALLE_LISTA_DESPLEGABLE" EntitySet="DETALLE_LISTA_DESPLEGABLE" />
+          </AssociationSet>
+          <EntitySet Name="SALTOS" EntityType="ModeloTablas.SALTOS" />
+          <AssociationSet Name="DETALLE_USUARIO_SALTOS_FK2" Association="ModeloTablas.DETALLE_USUARIO_SALTOS_FK2">
+            <End Role="SALTOS" EntitySet="SALTOS" />
+            <End Role="DETALLE_USUARIO_SALTOS" EntitySet="DETALLE_USUARIO_SALTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FORMULARIOS_FK1" Association="ModeloTablas.FORMULARIOS_FK1">
+            <End Role="SALTOS" EntitySet="SALTOS" />
+            <End Role="FORMULARIOS" EntitySet="FORMULARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="SALTOS_FK1" Association="ModeloTablas.SALTOS_FK1">
+            <End Role="GRUPO_SALTOS" EntitySet="GRUPO_SALTOS" />
+            <End Role="SALTOS" EntitySet="SALTOS" />
+          </AssociationSet>
+          <AssociationSet Name="SALTOS_FK2" Association="ModeloTablas.SALTOS_FK2">
+            <End Role="PUESTO" EntitySet="PUESTO" />
+            <End Role="SALTOS" EntitySet="SALTOS" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BENEFICIARIO">
@@ -1536,8 +1537,8 @@
           <NavigationProperty Name="FORMULARIOS1" Relationship="ModeloTablas.FORMULARIOS_FK2" FromRole="FORMULARIOS" ToRole="FORMULARIOS1" />
           <NavigationProperty Name="FORMULARIOS2" Relationship="ModeloTablas.FORMULARIOS_FK2" FromRole="FORMULARIOS1" ToRole="FORMULARIOS" />
           <Property Type="Decimal" Name="ACTIVO" Precision="38" Scale="0" />
-          <NavigationProperty Name="SALTOS" Relationship="ModeloTablas.FORMULARIOS_FK1" FromRole="FORMULARIOS" ToRole="SALTOS" />
           <NavigationProperty Name="CAMPOS_FORM" Relationship="ModeloTablas.CAMPOS_FORM_FK1" FromRole="FORMULARIOS" ToRole="CAMPOS_FORM" />
+          <NavigationProperty Name="SALTOS" Relationship="ModeloTablas.FORMULARIOS_FK1" FromRole="FORMULARIOS" ToRole="SALTOS" />
         </EntityType>
         <EntityType Name="GESTIONES">
           <Key>
@@ -2183,76 +2184,8 @@
           <Property Type="Decimal" Name="IDCAMPO_FORM" Precision="38" Scale="0" Nullable="false" />
           <Property Type="Binary" Name="ARCHIVO" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="CAMPOS_FORM" Relationship="ModeloTablas.ARCHIVOS_FK1" FromRole="ARCHIVOS" ToRole="CAMPOS_FORM" />
+          <Property Type="Decimal" Name="IDFORMULARIO" Precision="38" Scale="0" />
         </EntityType>
-        <EntityType Name="SALTOS">
-          <Key>
-            <PropertyRef Name="IDSALTO" />
-          </Key>
-          <Property Type="Decimal" Name="IDSALTO" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Decimal" Name="NUMERO_SALTO" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDGRUPO_SALTOS" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDPUESTO" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="DECISION" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDSALTOV" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="IDSALTOF" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="ULTIMOSALTO" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="MINUTOS" Precision="38" Scale="0" />
-          <Property Type="String" Name="DESCRIPCION_DECISION" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DESCRIPCION_SALTO" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="ESCANEAR" Precision="38" Scale="0" />
-          <NavigationProperty Name="DETALLE_USUARIO_SALTOS" Relationship="ModeloTablas.DETALLE_USUARIO_SALTOS_FK2" FromRole="SALTOS" ToRole="DETALLE_USUARIO_SALTOS" />
-          <NavigationProperty Name="FORMULARIOS" Relationship="ModeloTablas.FORMULARIOS_FK1" FromRole="SALTOS" ToRole="FORMULARIOS" />
-          <NavigationProperty Name="GRUPO_SALTOS" Relationship="ModeloTablas.SALTOS_FK1" FromRole="SALTOS" ToRole="GRUPO_SALTOS" />
-          <NavigationProperty Name="PUESTO" Relationship="ModeloTablas.SALTOS_FK2" FromRole="SALTOS" ToRole="PUESTO" />
-        </EntityType>
-        <Association Name="DETALLE_USUARIO_SALTOS_FK2">
-          <End Type="ModeloTablas.SALTOS" Role="SALTOS" Multiplicity="1" />
-          <End Type="ModeloTablas.DETALLE_USUARIO_SALTOS" Role="DETALLE_USUARIO_SALTOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SALTOS">
-              <PropertyRef Name="IDSALTO" />
-            </Principal>
-            <Dependent Role="DETALLE_USUARIO_SALTOS">
-              <PropertyRef Name="IDSALTO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FORMULARIOS_FK1">
-          <End Type="ModeloTablas.SALTOS" Role="SALTOS" Multiplicity="0..1" />
-          <End Type="ModeloTablas.FORMULARIOS" Role="FORMULARIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SALTOS">
-              <PropertyRef Name="IDSALTO" />
-            </Principal>
-            <Dependent Role="FORMULARIOS">
-              <PropertyRef Name="IDSALTO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SALTOS_FK1">
-          <End Type="ModeloTablas.GRUPO_SALTOS" Role="GRUPO_SALTOS" Multiplicity="1" />
-          <End Type="ModeloTablas.SALTOS" Role="SALTOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GRUPO_SALTOS">
-              <PropertyRef Name="IDGRUPO_SALTOS" />
-            </Principal>
-            <Dependent Role="SALTOS">
-              <PropertyRef Name="IDGRUPO_SALTOS" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SALTOS_FK2">
-          <End Type="ModeloTablas.PUESTO" Role="PUESTO" Multiplicity="0..1" />
-          <End Type="ModeloTablas.SALTOS" Role="SALTOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PUESTO">
-              <PropertyRef Name="IDPUESTO" />
-            </Principal>
-            <Dependent Role="SALTOS">
-              <PropertyRef Name="IDPUESTO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="FORM_URL">
           <Key>
             <PropertyRef Name="IDURL" />
@@ -2349,6 +2282,75 @@
             </Principal>
             <Dependent Role="DETALLE_LISTA_DESPLEGABLE">
               <PropertyRef Name="IDLISTA_DESPLEGABLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SALTOS">
+          <Key>
+            <PropertyRef Name="IDSALTO" />
+          </Key>
+          <Property Type="Decimal" Name="IDSALTO" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Decimal" Name="NUMERO_SALTO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDGRUPO_SALTOS" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDPUESTO" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="DECISION" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDSALTOV" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="IDSALTOF" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="ULTIMOSALTO" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="MINUTOS" Precision="38" Scale="0" />
+          <Property Type="String" Name="DESCRIPCION_DECISION" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DESCRIPCION_SALTO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="ESCANEAR" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="DETALLE_USUARIO_SALTOS" Relationship="ModeloTablas.DETALLE_USUARIO_SALTOS_FK2" FromRole="SALTOS" ToRole="DETALLE_USUARIO_SALTOS" />
+          <NavigationProperty Name="FORMULARIOS" Relationship="ModeloTablas.FORMULARIOS_FK1" FromRole="SALTOS" ToRole="FORMULARIOS" />
+          <NavigationProperty Name="GRUPO_SALTOS" Relationship="ModeloTablas.SALTOS_FK1" FromRole="SALTOS" ToRole="GRUPO_SALTOS" />
+          <NavigationProperty Name="PUESTO" Relationship="ModeloTablas.SALTOS_FK2" FromRole="SALTOS" ToRole="PUESTO" />
+        </EntityType>
+        <Association Name="DETALLE_USUARIO_SALTOS_FK2">
+          <End Type="ModeloTablas.SALTOS" Role="SALTOS" Multiplicity="1" />
+          <End Type="ModeloTablas.DETALLE_USUARIO_SALTOS" Role="DETALLE_USUARIO_SALTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALTOS">
+              <PropertyRef Name="IDSALTO" />
+            </Principal>
+            <Dependent Role="DETALLE_USUARIO_SALTOS">
+              <PropertyRef Name="IDSALTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FORMULARIOS_FK1">
+          <End Type="ModeloTablas.SALTOS" Role="SALTOS" Multiplicity="0..1" />
+          <End Type="ModeloTablas.FORMULARIOS" Role="FORMULARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALTOS">
+              <PropertyRef Name="IDSALTO" />
+            </Principal>
+            <Dependent Role="FORMULARIOS">
+              <PropertyRef Name="IDSALTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SALTOS_FK1">
+          <End Type="ModeloTablas.GRUPO_SALTOS" Role="GRUPO_SALTOS" Multiplicity="1" />
+          <End Type="ModeloTablas.SALTOS" Role="SALTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO_SALTOS">
+              <PropertyRef Name="IDGRUPO_SALTOS" />
+            </Principal>
+            <Dependent Role="SALTOS">
+              <PropertyRef Name="IDGRUPO_SALTOS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SALTOS_FK2">
+          <End Type="ModeloTablas.PUESTO" Role="PUESTO" Multiplicity="0..1" />
+          <End Type="ModeloTablas.SALTOS" Role="SALTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PUESTO">
+              <PropertyRef Name="IDPUESTO" />
+            </Principal>
+            <Dependent Role="SALTOS">
+              <PropertyRef Name="IDPUESTO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2745,27 +2747,10 @@
           <EntitySetMapping Name="ARCHIVOS">
             <EntityTypeMapping TypeName="ModeloTablas.ARCHIVOS">
               <MappingFragment StoreEntitySet="ARCHIVOS">
+                <ScalarProperty Name="IDFORMULARIO" ColumnName="IDFORMULARIO" />
                 <ScalarProperty Name="ARCHIVO" ColumnName="ARCHIVO" />
                 <ScalarProperty Name="IDCAMPO_FORM" ColumnName="IDCAMPO_FORM" />
                 <ScalarProperty Name="IDARCHIVO" ColumnName="IDARCHIVO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SALTOS">
-            <EntityTypeMapping TypeName="ModeloTablas.SALTOS">
-              <MappingFragment StoreEntitySet="SALTOS">
-                <ScalarProperty Name="ESCANEAR" ColumnName="ESCANEAR" />
-                <ScalarProperty Name="DESCRIPCION_SALTO" ColumnName="DESCRIPCION_SALTO" />
-                <ScalarProperty Name="DESCRIPCION_DECISION" ColumnName="DESCRIPCION_DECISION" />
-                <ScalarProperty Name="MINUTOS" ColumnName="MINUTOS" />
-                <ScalarProperty Name="ULTIMOSALTO" ColumnName="ULTIMOSALTO" />
-                <ScalarProperty Name="IDSALTOF" ColumnName="IDSALTOF" />
-                <ScalarProperty Name="IDSALTOV" ColumnName="IDSALTOV" />
-                <ScalarProperty Name="DECISION" ColumnName="DECISION" />
-                <ScalarProperty Name="IDPUESTO" ColumnName="IDPUESTO" />
-                <ScalarProperty Name="IDGRUPO_SALTOS" ColumnName="IDGRUPO_SALTOS" />
-                <ScalarProperty Name="NUMERO_SALTO" ColumnName="NUMERO_SALTO" />
-                <ScalarProperty Name="IDSALTO" ColumnName="IDSALTO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2803,6 +2788,24 @@
                 <ScalarProperty Name="VALOR" ColumnName="VALOR" />
                 <ScalarProperty Name="IDLISTA_DESPLEGABLE" ColumnName="IDLISTA_DESPLEGABLE" />
                 <ScalarProperty Name="IDDETALLE_LISTA" ColumnName="IDDETALLE_LISTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALTOS">
+            <EntityTypeMapping TypeName="ModeloTablas.SALTOS">
+              <MappingFragment StoreEntitySet="SALTOS">
+                <ScalarProperty Name="ESCANEAR" ColumnName="ESCANEAR" />
+                <ScalarProperty Name="DESCRIPCION_SALTO" ColumnName="DESCRIPCION_SALTO" />
+                <ScalarProperty Name="DESCRIPCION_DECISION" ColumnName="DESCRIPCION_DECISION" />
+                <ScalarProperty Name="MINUTOS" ColumnName="MINUTOS" />
+                <ScalarProperty Name="ULTIMOSALTO" ColumnName="ULTIMOSALTO" />
+                <ScalarProperty Name="IDSALTOF" ColumnName="IDSALTOF" />
+                <ScalarProperty Name="IDSALTOV" ColumnName="IDSALTOV" />
+                <ScalarProperty Name="DECISION" ColumnName="DECISION" />
+                <ScalarProperty Name="IDPUESTO" ColumnName="IDPUESTO" />
+                <ScalarProperty Name="IDGRUPO_SALTOS" ColumnName="IDGRUPO_SALTOS" />
+                <ScalarProperty Name="NUMERO_SALTO" ColumnName="NUMERO_SALTO" />
+                <ScalarProperty Name="IDSALTO" ColumnName="IDSALTO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2896,11 +2899,6 @@
         <EntityTypeShape EntityType="ModeloTablas.VALIDACIONES" Width="1.5" PointX="18.875" PointY="30.375" />
         <EntityTypeShape EntityType="ModeloTablas.LISTA_DESPLEGABLE" Width="1.5" PointX="25.125" PointY="31.625" />
         <EntityTypeShape EntityType="ModeloTablas.ARCHIVOS" Width="1.5" PointX="17" PointY="31.625" />
-        <EntityTypeShape EntityType="ModeloTablas.SALTOS" Width="1.5" PointX="19.875" PointY="6.75" />
-        <AssociationConnector Association="ModeloTablas.DETALLE_USUARIO_SALTOS_FK2" />
-        <AssociationConnector Association="ModeloTablas.FORMULARIOS_FK1" />
-        <AssociationConnector Association="ModeloTablas.SALTOS_FK1" />
-        <AssociationConnector Association="ModeloTablas.SALTOS_FK2" />
         <EntityTypeShape EntityType="ModeloTablas.FORM_URL" Width="1.5" PointX="7" PointY="33.75" />
         <EntityTypeShape EntityType="ModeloTablas.CAMPOS_FORM" Width="1.5" PointX="9.6580482635917377" PointY="30.685822292550384" />
         <AssociationConnector Association="ModeloTablas.ARCHIVOS_FK1" />
@@ -2909,6 +2907,11 @@
         <AssociationConnector Association="ModeloTablas.CAMPOS_FORM_FK3" />
         <EntityTypeShape EntityType="ModeloTablas.DETALLE_LISTA_DESPLEGABLE" Width="1.5" PointX="1.0869562072152998" PointY="28.159764064550291" />
         <AssociationConnector Association="ModeloTablas.DETALLE_LISTA_DESPLEGABLE_FK1" />
+        <EntityTypeShape EntityType="ModeloTablas.SALTOS" Width="1.5" PointX="9.125" PointY="5" />
+        <AssociationConnector Association="ModeloTablas.DETALLE_USUARIO_SALTOS_FK2" />
+        <AssociationConnector Association="ModeloTablas.FORMULARIOS_FK1" />
+        <AssociationConnector Association="ModeloTablas.SALTOS_FK1" />
+        <AssociationConnector Association="ModeloTablas.SALTOS_FK2" />
       </Diagram>
     </Diagrams>
   </Designer>
