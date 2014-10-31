@@ -315,6 +315,12 @@
     <Compile Include="Formularios\frmVentanillas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmVincularMarcadores.Designer.vb">
+      <DependentUpon>frmVincularMarcadores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmVincularMarcadores.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\RibbonMain.Designer.vb">
       <DependentUpon>RibbonMain.vb</DependentUpon>
     </Compile>
@@ -418,6 +424,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmVentanillas.resx">
       <DependentUpon>frmVentanillas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmVincularMarcadores.resx">
+      <DependentUpon>frmVincularMarcadores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\RibbonMain.resx">
       <DependentUpon>RibbonMain.vb</DependentUpon>

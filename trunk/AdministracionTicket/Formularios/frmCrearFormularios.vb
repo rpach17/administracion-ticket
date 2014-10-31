@@ -160,6 +160,7 @@ Public Class frmCrearFormularios
             btnSubir.Visible = True
             btnAgregarSQL.Visible = False
             cboComboForm.Visible = True
+            EntityTablas.CargarFormularios(cboComboForm, IdSalto)
             lblNombreCombobox.Text = "Formulario"
         Else
             btnAsignarDatosCampo.Visible = False
@@ -198,7 +199,7 @@ Public Class frmCrearFormularios
                 .MASCARA = txtMascara.Text,
                 .ORDEN = Convert.ToDecimal(numOrden.Value),
                 .REQUERIDO = IIf(chkRequerido.Checked, Convert.ToDecimal(1), Convert.ToDecimal(0)),
-                .SOLO_LECTURA = IIf(chkRequerido.Checked, Convert.ToDecimal(1), Convert.ToDecimal(0)),
+                .SOLO_LECTURA = IIf(chkSoloLectura.Checked, Convert.ToDecimal(1), Convert.ToDecimal(0)),
                 .IDCOMBOBOX = IdCbo,
                 .SQL_QUERY = SQLQuery
             })
@@ -206,14 +207,31 @@ Public Class frmCrearFormularios
             If Convert.ToDecimal(idc) > 0 Then
 
                 If cboTiposCampo.Text = "Archivo de descarga" Then
+                    If cboComboForm.Text = "" Then
+                        Exit Sub
+                    End If
+
                     Try
+                        Dim ida As Integer
                         Using fs As New FileStream(lblArchivo.Text, FileMode.Open, FileAccess.Read)
                             Dim datos(fs.Length) As Byte
                             fs.Read(datos, 0, fs.Length)
                             fs.Close()
 
-                            EntityTablas.GuardarArchivo(New ARCHIVOS With {.IDCAMPO_FORM = Convert.ToDecimal(idc), .ARCHIVO = datos})
+                            ida = EntityTablas.GuardarArchivo(New ARCHIVOS With
+                            {
+                                .IDCAMPO_FORM = Convert.ToDecimal(idc),
+                                .ARCHIVO = datos,
+                                .IDFORMULARIO = cboComboForm.SelectedValue
+                            })
                         End Using
+
+                        ' Formulario para vincular los marcadores con los campos
+                        With frmVincularMarcadores
+                            .IdArchivo1 = ida
+                            .IdForm1 = cboComboForm.SelectedValue
+                            .ShowDialog()
+                        End With
                     Catch ex As Exception
 
                     End Try
@@ -248,15 +266,30 @@ Public Class frmCrearFormularios
 
             ' Actualizar el archivo del campo "descargable"
             If cboTiposCampo.Text = "Archivo de descarga" Then
+                If cboComboForm.Text = "" Then
+                    Exit Sub
+                End If
+
                 Try
+                    Dim ida As Integer
                     Using fs As New FileStream(lblArchivo.Text, FileMode.Open, FileAccess.Read)
                         Dim datos(fs.Length) As Byte
                         fs.Read(datos, 0, fs.Length)
                         fs.Close()
 
-                        EntityTablas.ActualizarArchivo(datos, IdCampo)
+                        ida = EntityTablas.ActualizarArchivo(datos, IdCampo, cboComboForm.SelectedValue)
                     End Using
+
+                    With frmVincularMarcadores
+                        .IdArchivo1 = ida
+                        .IdForm1 = cboComboForm.SelectedValue
+                        .ShowDialog()
+                    End With
+
                 Catch ex As Exception
+                    MsgBox("Cierre el documento si está abierto para poderlo guardar", MsgBoxStyle.Exclamation, "Documento abierto")
+                    Process.Start(lblArchivo.Text)
+                    Exit Sub
                 End Try
             End If
 

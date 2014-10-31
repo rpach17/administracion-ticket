@@ -1135,24 +1135,30 @@
         End Try
     End Sub
 
-    Public Shared Sub GuardarArchivo(ByVal archi As ARCHIVOS)
+    Public Shared Function GuardarArchivo(ByVal archi As ARCHIVOS) As Integer
         Try
             ctx.ARCHIVOS.AddObject(archi)
             ctx.SaveChanges()
+            Return archi.IDARCHIVO
         Catch ex As Exception
-            'Return ex.Message.ToString
+            MsgBox(ex.Message)
+            Return 0
         End Try
-    End Sub
+    End Function
 
-    Public Shared Sub ActualizarArchivo(archi As Byte(), idc As Integer)
+    Public Shared Function ActualizarArchivo(archi As Byte(), idc As Integer, idf As Integer) As Integer
         Dim campo = (From c In ctx.ARCHIVOS Where c.IDCAMPO_FORM = idc).SingleOrDefault
         Try
             campo.ARCHIVO = archi
+            campo.IDFORMULARIO = idf
             ctx.SaveChanges()
+            Return campo.IDARCHIVO
+
         Catch ex As Exception
             MsgBox(ex.Message)
+            Return 0
         End Try
-    End Sub
+    End Function
 
     Public Shared Function ObtenerURL(id As Integer) As String
         Dim url = (From u In ctx.FORM_URL
@@ -1171,6 +1177,43 @@
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Public Shared Sub CargarComboCampos(cbo As ComboBox, idf As Integer)
+        Dim campos = (From ca In ctx.CAMPOS_FORM Where ca.IDFORMULARIO = idf Select ca.IDCAMPO_FORM, ca.ETIQUETA).ToList
+        cbo.DataSource = campos
+        cbo.ValueMember = "IDCAMPO_FORM"
+        cbo.DisplayMember = "ETIQUETA"
+        cbo.SelectedValue = -1
+    End Sub
+
+    Public Shared Sub AgregarMarcadores(marcador As MARCADORES)
+        Try
+            ctx.MARCADORES.AddObject(marcador)
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub EliminarMarcador(idm As Integer)
+        Try
+            Dim marcador = (From ma In ctx.MARCADORES Where ma.IDMARCADOR = idm).SingleOrDefault
+            ctx.MARCADORES.DeleteObject(marcador)
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub CargarGridMarcadores(grid As DataGridView, ida As Integer)
+        Dim campos = (From ca In ctx.MARCADORES
+                      Join cf In ctx.CAMPOS_FORM On ca.IDCAMPO_FORM Equals cf.IDCAMPO_FORM
+                      Where ca.IDARCHIVO = ida
+                      Select ca.IDMARCADOR, cf.ETIQUETA, ca.MARCADOR).ToList
+
+        grid.DataSource = campos
+        grid.Columns(0).Visible = False
     End Sub
 
     Public Shared Sub CargarFormularios(cbo As ComboBox, ByVal idSalto As Integer)

@@ -114,8 +114,7 @@
                 .IDSALTOV = CDec(If(cboPasoSi.Text = Nothing, -1, cboPasoSi.SelectedValue)), _
                 .IDSALTOF = CDec(If(cboPasoNo.Text = Nothing, -1, cboPasoNo.SelectedValue)), _
                 .DESCRIPCION_DECISION = txtDecision.Text,
-                .DESCRIPCION_SALTO = txtDescripcionPaso.Text,
-                .ESCANEAR = 0
+                .DESCRIPCION_SALTO = txtDescripcionPaso.Text
             })
 
             '.IDSALTOV = If(cboPasoSi.Text = Nothing, -1, cboPasoSi.SelectedValue), _
