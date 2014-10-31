@@ -28,6 +28,7 @@ Partial Class frmCrearFormularios
         Me.panelCampos = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.cboComboForm = New System.Windows.Forms.ComboBox()
         Me.btnAgregarSQL = New System.Windows.Forms.Button()
         Me.lblArchivo = New System.Windows.Forms.TextBox()
         Me.btnSubir = New System.Windows.Forms.Button()
@@ -60,7 +61,6 @@ Partial Class frmCrearFormularios
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtTitulo = New System.Windows.Forms.TextBox()
         Me.OpenF = New System.Windows.Forms.OpenFileDialog()
-        Me.cboComboForm = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.panelCampos.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -178,6 +178,16 @@ Partial Class frmCrearFormularios
         Me.SplitContainer1.SplitterDistance = 453
         Me.SplitContainer1.TabIndex = 0
         '
+        'cboComboForm
+        '
+        Me.cboComboForm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboComboForm.FormattingEnabled = True
+        Me.cboComboForm.Location = New System.Drawing.Point(128, 121)
+        Me.cboComboForm.Name = "cboComboForm"
+        Me.cboComboForm.Size = New System.Drawing.Size(295, 21)
+        Me.cboComboForm.TabIndex = 14
+        Me.cboComboForm.Visible = False
+        '
         'btnAgregarSQL
         '
         Me.btnAgregarSQL.Location = New System.Drawing.Point(313, 15)
@@ -209,9 +219,9 @@ Partial Class frmCrearFormularios
         '
         'txtIdComboBox
         '
-        Me.txtIdComboBox.Location = New System.Drawing.Point(313, 122)
+        Me.txtIdComboBox.Location = New System.Drawing.Point(401, 89)
         Me.txtIdComboBox.Name = "txtIdComboBox"
-        Me.txtIdComboBox.Size = New System.Drawing.Size(88, 20)
+        Me.txtIdComboBox.Size = New System.Drawing.Size(36, 20)
         Me.txtIdComboBox.TabIndex = 10
         Me.txtIdComboBox.Visible = False
         '
@@ -468,16 +478,6 @@ Partial Class frmCrearFormularios
         'OpenF
         '
         Me.OpenF.FileName = "OpenFileDialog1"
-        '
-        'cboComboForm
-        '
-        Me.cboComboForm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboComboForm.FormattingEnabled = True
-        Me.cboComboForm.Location = New System.Drawing.Point(128, 121)
-        Me.cboComboForm.Name = "cboComboForm"
-        Me.cboComboForm.Size = New System.Drawing.Size(179, 21)
-        Me.cboComboForm.TabIndex = 14
-        Me.cboComboForm.Visible = False
         '
         'frmCrearFormularios
         '
