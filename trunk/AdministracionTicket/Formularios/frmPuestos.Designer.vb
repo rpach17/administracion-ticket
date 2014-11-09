@@ -125,6 +125,7 @@ Partial Class frmPuestos
         '
         'dgvPuestos
         '
+        Me.dgvPuestos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPuestos.Location = New System.Drawing.Point(15, 97)
         Me.dgvPuestos.Name = "dgvPuestos"
