@@ -105,7 +105,7 @@ Partial Class frmListasDesplegables
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(294, 29)
+        Me.Button1.Location = New System.Drawing.Point(371, 28)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(87, 22)
         Me.Button1.TabIndex = 5
@@ -114,7 +114,7 @@ Partial Class frmListasDesplegables
         '
         'btnAgregarOpcion
         '
-        Me.btnAgregarOpcion.Location = New System.Drawing.Point(189, 29)
+        Me.btnAgregarOpcion.Location = New System.Drawing.Point(266, 28)
         Me.btnAgregarOpcion.Name = "btnAgregarOpcion"
         Me.btnAgregarOpcion.Size = New System.Drawing.Size(103, 22)
         Me.btnAgregarOpcion.TabIndex = 5
@@ -136,7 +136,7 @@ Partial Class frmListasDesplegables
         '
         Me.txtTexto.Location = New System.Drawing.Point(83, 30)
         Me.txtTexto.Name = "txtTexto"
-        Me.txtTexto.Size = New System.Drawing.Size(100, 20)
+        Me.txtTexto.Size = New System.Drawing.Size(177, 20)
         Me.txtTexto.TabIndex = 3
         '
         'Label3
@@ -152,7 +152,7 @@ Partial Class frmListasDesplegables
         '
         Me.txtValor.Location = New System.Drawing.Point(83, 8)
         Me.txtValor.Name = "txtValor"
-        Me.txtValor.Size = New System.Drawing.Size(100, 20)
+        Me.txtValor.Size = New System.Drawing.Size(286, 20)
         Me.txtValor.TabIndex = 1
         '
         'Label2

@@ -115,6 +115,12 @@
             End If
         End If
 
+        If cboPuestos.Text = "" Then
+            MsgBox("Seleccione el puesto del funcionario", MsgBoxStyle.Exclamation, "Puesto")
+            cboPuestos.Focus()
+            Return False
+        End If
+
         If IDENTIDADTexbox.Text.Trim = "" Then
             MsgBox("Ingrese el numero de identidad", MsgBoxStyle.Exclamation, "Identidad")
             IDENTIDADTexbox.Focus()
@@ -217,7 +223,7 @@
                 Exit Sub
             End If
 
-            EntityTablas.ActualizarUsuario(IdUsuario, IDENTIDADTexbox.Text, NOMBRETextBox.Text, APELLIDOSTextBox.Text, _
+            EntityTablas.ActualizarUsuario(IdUsuario, IDENTIDADTexbox.Text, cboPuestos.SelectedValue, NOMBRETextBox.Text, APELLIDOSTextBox.Text, _
                                            TITULOTextBox.Text, _vinculadoCon, IIf(ESTADOCheckBox.Checked, 1, 0))
             MsgBox("Se actualizó la información del usuario", MsgBoxStyle.Information, "Usuario actualizado")
 

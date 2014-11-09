@@ -501,12 +501,13 @@
     End Function
 
 
-    Public Shared Sub ActualizarUsuario(ByVal idu As Integer, ByVal identidad As String, ByVal nombre As String, ByVal apellidos As String, _
+    Public Shared Sub ActualizarUsuario(ByVal idu As Integer, ByVal identidad As String, ByVal idPuesto As Integer, ByVal nombre As String, ByVal apellidos As String, _
                                         ByVal titulo As String, ByVal vinculado As Integer?, ByVal estado As Integer)
         Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList Where u.IDUSUARIO = idu).SingleOrDefault
         Try
             With user
                 .IDENTIDAD = identidad
+                .IDPUESTO = idPuesto
                 .NOMBRE = nombre
                 .APELLIDOS = apellidos
                 .TITULO = titulo

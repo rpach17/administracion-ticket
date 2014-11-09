@@ -86,7 +86,7 @@ Partial Class frmSaltos
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1276, 48)
-        Me.ToolStrip1.TabIndex = 3
+        Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
         'Nuevo
@@ -186,7 +186,7 @@ Partial Class frmSaltos
         Me.Panel1.Location = New System.Drawing.Point(12, 64)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1253, 459)
-        Me.Panel1.TabIndex = 4
+        Me.Panel1.TabIndex = 1
         '
         'Panel3
         '
@@ -212,7 +212,7 @@ Partial Class frmSaltos
         Me.dgvUsuarios.RowHeadersVisible = False
         Me.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvUsuarios.Size = New System.Drawing.Size(233, 398)
-        Me.dgvUsuarios.TabIndex = 34
+        Me.dgvUsuarios.TabIndex = 0
         '
         'Panel2
         '
@@ -238,7 +238,7 @@ Partial Class frmSaltos
         Me.dgvAsigUser.RowHeadersVisible = False
         Me.dgvAsigUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.dgvAsigUser.Size = New System.Drawing.Size(250, 398)
-        Me.dgvAsigUser.TabIndex = 34
+        Me.dgvAsigUser.TabIndex = 0
         '
         'idUsuario
         '
@@ -313,7 +313,7 @@ Partial Class frmSaltos
         Me.dgvPasos.RowHeadersVisible = False
         Me.dgvPasos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPasos.Size = New System.Drawing.Size(287, 400)
-        Me.dgvPasos.TabIndex = 33
+        Me.dgvPasos.TabIndex = 1
         '
         'GroupBox1
         '
@@ -339,7 +339,7 @@ Partial Class frmSaltos
         Me.GroupBox1.Location = New System.Drawing.Point(24, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(428, 446)
-        Me.GroupBox1.TabIndex = 32
+        Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Información del paso"
         '
@@ -351,7 +351,7 @@ Partial Class frmSaltos
         Me.Label5.Location = New System.Drawing.Point(145, 255)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(128, 20)
-        Me.Label5.TabIndex = 13
+        Me.Label5.TabIndex = 5
         Me.Label5.Text = "¿Tiene desición?"
         '
         'txtDescripcionPaso
@@ -359,7 +359,7 @@ Partial Class frmSaltos
         Me.txtDescripcionPaso.Location = New System.Drawing.Point(160, 66)
         Me.txtDescripcionPaso.Name = "txtDescripcionPaso"
         Me.txtDescripcionPaso.Size = New System.Drawing.Size(262, 29)
-        Me.txtDescripcionPaso.TabIndex = 25
+        Me.txtDescripcionPaso.TabIndex = 1
         '
         'Label4
         '
@@ -376,7 +376,7 @@ Partial Class frmSaltos
         Me.txtDecision.Location = New System.Drawing.Point(82, 406)
         Me.txtDecision.Name = "txtDecision"
         Me.txtDecision.Size = New System.Drawing.Size(307, 29)
-        Me.txtDecision.TabIndex = 25
+        Me.txtDecision.TabIndex = 8
         '
         'Label3
         '
@@ -405,7 +405,7 @@ Partial Class frmSaltos
         Me.txtNumPaso.Location = New System.Drawing.Point(160, 36)
         Me.txtNumPaso.Name = "txtNumPaso"
         Me.txtNumPaso.Size = New System.Drawing.Size(63, 26)
-        Me.txtNumPaso.TabIndex = 4
+        Me.txtNumPaso.TabIndex = 0
         Me.txtNumPaso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
@@ -426,7 +426,7 @@ Partial Class frmSaltos
         Me.cboPuesto.Location = New System.Drawing.Point(160, 100)
         Me.cboPuesto.Name = "cboPuesto"
         Me.cboPuesto.Size = New System.Drawing.Size(262, 28)
-        Me.cboPuesto.TabIndex = 5
+        Me.cboPuesto.TabIndex = 2
         '
         'Label2
         '
@@ -445,7 +445,7 @@ Partial Class frmSaltos
         Me.chkUltimoPaso.Location = New System.Drawing.Point(160, 131)
         Me.chkUltimoPaso.Name = "chkUltimoPaso"
         Me.chkUltimoPaso.Size = New System.Drawing.Size(132, 24)
-        Me.chkUltimoPaso.TabIndex = 18
+        Me.chkUltimoPaso.TabIndex = 3
         Me.chkUltimoPaso.Text = "Es último paso"
         Me.chkUltimoPaso.UseVisualStyleBackColor = True
         '
@@ -457,7 +457,7 @@ Partial Class frmSaltos
         Me.cboPasoSi.Location = New System.Drawing.Point(340, 371)
         Me.cboPasoSi.Name = "cboPasoSi"
         Me.cboPasoSi.Size = New System.Drawing.Size(49, 28)
-        Me.cboPasoSi.TabIndex = 17
+        Me.cboPasoSi.TabIndex = 7
         '
         'txtDuracion
         '
@@ -466,7 +466,7 @@ Partial Class frmSaltos
         Me.txtDuracion.Location = New System.Drawing.Point(160, 155)
         Me.txtDuracion.Name = "txtDuracion"
         Me.txtDuracion.Size = New System.Drawing.Size(63, 26)
-        Me.txtDuracion.TabIndex = 20
+        Me.txtDuracion.TabIndex = 4
         Me.txtDuracion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblSi
@@ -519,7 +519,7 @@ Partial Class frmSaltos
         Me.cboPasoNo.Location = New System.Drawing.Point(38, 371)
         Me.cboPasoNo.Name = "cboPasoNo"
         Me.cboPasoNo.Size = New System.Drawing.Size(49, 28)
-        Me.cboPasoNo.TabIndex = 8
+        Me.cboPasoNo.TabIndex = 6
         '
         'frmSaltos
         '
