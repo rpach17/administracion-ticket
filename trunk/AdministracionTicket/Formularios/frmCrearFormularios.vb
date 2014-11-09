@@ -188,6 +188,12 @@ Public Class frmCrearFormularios
                 IdCbo = Convert.ToDecimal(txtIdComboBox.Text)
             End If
 
+            If cboTiposCampo.Text = "Archivo de descarga" Then
+                If cboComboForm.Text = "" Then
+                    Exit Sub
+                End If
+            End If
+
             Dim idc As Object = EntityTablas.AgregarCampos(New CAMPOS_FORM With _
             {
                 .IDFORMULARIO = Convert.ToDecimal(idf),
