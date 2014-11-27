@@ -333,6 +333,7 @@
           <Property Name="FECHA_ENTREGA" Type="date" />
           <Property Name="DESTINO" Type="number" />
           <Property Name="IDUSUARIO_DESTINO" Type="number" />
+          <Property Name="FECHA_PROCESO" Type="date" />
         </EntityType>
         <EntityType Name="DETALLE_SUCURSAL_OFICINA">
           <Key>
@@ -663,6 +664,9 @@
           <Property Name="IDDETALLE_SUCURSAL_OFICINA" Type="number" Nullable="false" />
           <Property Name="NUMERO_VENTANILLA" Type="number" Nullable="false" />
         </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'APPCA.V_UBICACION' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
         <Association Name="ARCHIVOS_FK1">
           <End Role="CAMPOS_FORM" Type="ModeloTablas.Store.CAMPOS_FORM" Multiplicity="1" />
           <End Role="ARCHIVOS" Type="ModeloTablas.Store.ARCHIVOS" Multiplicity="*" />
@@ -2176,6 +2180,7 @@
           <Property Type="Decimal" Name="DESTINO" Precision="38" Scale="0" />
           <Property Type="Decimal" Name="IDUSUARIO_DESTINO" Precision="38" Scale="0" />
           <NavigationProperty Name="TRAMITES" Relationship="ModeloTablas.DETALLE_TRAMITE_FK1" FromRole="DETALLE_SEGUIMIENTO" ToRole="TRAMITES" />
+          <Property Type="DateTime" Name="FECHA_PROCESO" Precision="0" />
         </EntityType>
         <Association Name="DETALLE_TRAMITE_FK1">
           <End Type="ModeloTablas.TRAMITES" Role="TRAMITES" Multiplicity="1" />
@@ -2768,6 +2773,7 @@
           <EntitySetMapping Name="DETALLE_SEGUIMIENTO">
             <EntityTypeMapping TypeName="ModeloTablas.DETALLE_SEGUIMIENTO">
               <MappingFragment StoreEntitySet="DETALLE_SEGUIMIENTO">
+                <ScalarProperty Name="FECHA_PROCESO" ColumnName="FECHA_PROCESO" />
                 <ScalarProperty Name="IDUSUARIO_DESTINO" ColumnName="IDUSUARIO_DESTINO" />
                 <ScalarProperty Name="DESTINO" ColumnName="DESTINO" />
                 <ScalarProperty Name="FECHA_ENTREGA" ColumnName="FECHA_ENTREGA" />

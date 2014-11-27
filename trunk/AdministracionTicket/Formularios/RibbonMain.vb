@@ -1,4 +1,6 @@
-﻿Public Class RibbonMain
+﻿Imports DevExpress.XtraReports.UI
+
+Public Class RibbonMain
     Sub GestionarPanel()
         If XtraTabManager.Pages.Count = 0 Then
             ClientPanel.Visible = True
@@ -99,5 +101,22 @@
 
     Private Sub BarButtonItem13_ItemClick1(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem13.ItemClick
         frmConfigURL.ShowDialog()
+    End Sub
+
+
+    'Private Sub BarButtonItem14_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem14.ItemClick
+    'Using report As New rptUbicacion
+    '    Using pr As New ReportPrintTool(report)
+    '        pr.ShowPreviewDialog()
+    '    End Using
+    'End Using
+    'End Sub
+
+    Private Sub BarButtonItem14_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem14.ItemClick
+        With frmAtencionXOficina
+            .MdiParent = Me
+            .Show()
+            .Focus()
+        End With
     End Sub
 End Class
