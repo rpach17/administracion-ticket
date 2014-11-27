@@ -14,5 +14,8 @@
     <Setting Name="URLForm" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="CadenaAPPCAVistas" Type="System.String" Scope="User">
+      <Value Profile="(Default)">metadata=res://*/EntityFramework.appcavistas.csdl|res://*/EntityFramework.appcavistas.ssdl|res://*/EntityFramework.appcavistas.msl;provider=Oracle.DataAccess.Client;provider connection string="DATA SOURCE=localhost;PASSWORD=miclave;PERSIST SECURITY INFO=True;USER ID=APPCA"</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

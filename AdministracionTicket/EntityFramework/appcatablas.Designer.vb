@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("a3b39661-062f-47f9-8d45-a86cdd135066")>
+<Assembly: EdmSchemaAttribute("47dc8ad4-ba89-427f-9fb6-4a51e407f0aa")>
 #Region "Metadatos de relaciones en EDM"
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "DEPARTAMENTOS_FK1", "PAIS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(PAIS), "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(DEPARTAMENTOS), True)>
 <Assembly: EdmRelationshipAttribute("ModeloTablas", "MUNICIPIOS_FK1", "DEPARTAMENTOS", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, GetType(DEPARTAMENTOS), "MUNICIPIOS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(MUNICIPIOS), True)>
@@ -2523,6 +2523,31 @@ Public Partial Class DETALLE_SEGUIMIENTO
     End Sub
 
     Private Partial Sub OnIDUSUARIO_DESTINOChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property FECHA_PROCESO() As Nullable(Of Global.System.DateTime)
+        Get
+            Return _FECHA_PROCESO
+        End Get
+        Set
+            OnFECHA_PROCESOChanging(value)
+            ReportPropertyChanging("FECHA_PROCESO")
+            _FECHA_PROCESO = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("FECHA_PROCESO")
+            OnFECHA_PROCESOChanged()
+        End Set
+    End Property
+
+    Private _FECHA_PROCESO As Nullable(Of Global.System.DateTime)
+    Private Partial Sub OnFECHA_PROCESOChanging(value As Nullable(Of Global.System.DateTime))
+    End Sub
+
+    Private Partial Sub OnFECHA_PROCESOChanged()
     End Sub
 
     #End Region

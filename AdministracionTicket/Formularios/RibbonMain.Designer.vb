@@ -40,30 +40,32 @@ Partial Class RibbonMain
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
         Me.lblInfoUbicacion = New DevExpress.XtraBars.BarStaticItem()
         Me.BarButtonItem12 = New DevExpress.XtraBars.BarButtonItem()
+        Me.PopupMenu2 = New DevExpress.XtraBars.PopupMenu(Me.components)
         Me.BarButtonItem13 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem14 = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.ClientPanel = New DevExpress.XtraEditors.PanelControl()
         Me.XtraTabManager = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
-        Me.PopupMenu2 = New DevExpress.XtraBars.PopupMenu(Me.components)
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientPanel, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabManager, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PopupMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RibbonControl
         '
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu1
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarStaticItem1, Me.lblInfoConexion, Me.BarStaticItem2, Me.lblInfoUbicacion, Me.BarButtonItem12, Me.BarButtonItem13})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarStaticItem1, Me.lblInfoConexion, Me.BarStaticItem2, Me.lblInfoUbicacion, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 20
+        Me.RibbonControl.MaxItemId = 21
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
@@ -207,6 +209,12 @@ Partial Class RibbonMain
         Me.BarButtonItem12.LargeGlyph = Global.AdministracionTicket.My.Resources.Resources.cog
         Me.BarButtonItem12.Name = "BarButtonItem12"
         '
+        'PopupMenu2
+        '
+        Me.PopupMenu2.ItemLinks.Add(Me.BarButtonItem13)
+        Me.PopupMenu2.Name = "PopupMenu2"
+        Me.PopupMenu2.Ribbon = Me.RibbonControl
+        '
         'BarButtonItem13
         '
         Me.BarButtonItem13.Caption = "Configurar URL de formulario"
@@ -214,9 +222,16 @@ Partial Class RibbonMain
         Me.BarButtonItem13.Id = 19
         Me.BarButtonItem13.Name = "BarButtonItem13"
         '
+        'BarButtonItem14
+        '
+        Me.BarButtonItem14.Caption = "Listado"
+        Me.BarButtonItem14.Id = 20
+        Me.BarButtonItem14.LargeGlyph = Global.AdministracionTicket.My.Resources.Resources.report_magnify
+        Me.BarButtonItem14.Name = "BarButtonItem14"
+        '
         'RibbonPage1
         '
-        Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1, Me.RibbonPageGroup2})
+        Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1, Me.RibbonPageGroup2, Me.RibbonPageGroup3})
         Me.RibbonPage1.Name = "RibbonPage1"
         Me.RibbonPage1.Text = "Menú"
         '
@@ -235,6 +250,14 @@ Partial Class RibbonMain
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem5)
         Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
         Me.RibbonPageGroup2.Text = "Usuarios"
+        '
+        'RibbonPageGroup3
+        '
+        Me.RibbonPageGroup3.AllowTextClipping = False
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem14)
+        Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
+        Me.RibbonPageGroup3.ShowCaptionButton = False
+        Me.RibbonPageGroup3.Text = "Reportes"
         '
         'RibbonStatusBar
         '
@@ -268,12 +291,6 @@ Partial Class RibbonMain
         Me.XtraTabManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover
         Me.XtraTabManager.MdiParent = Me
         '
-        'PopupMenu2
-        '
-        Me.PopupMenu2.ItemLinks.Add(Me.BarButtonItem13)
-        Me.PopupMenu2.Name = "PopupMenu2"
-        Me.PopupMenu2.Ribbon = Me.RibbonControl
-        '
         'RibbonMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -292,9 +309,9 @@ Partial Class RibbonMain
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientPanel, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XtraTabManager, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PopupMenu2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -327,6 +344,8 @@ Partial Class RibbonMain
     Friend WithEvents BarButtonItem12 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents PopupMenu2 As DevExpress.XtraBars.PopupMenu
     Friend WithEvents BarButtonItem13 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem14 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup3 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 
 
 End Class

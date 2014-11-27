@@ -17,6 +17,11 @@
             My.Settings.CadenaAPPCATablas = "metadata=res://*/EntityFramework.appcatablas.csdl|res://*/EntityFramework.appcatablas.ssdl|" _
                 & "res://*/EntityFramework.appcatablas.msl;provider=Oracle.DataAccess.Client;provider connection string= '" & _cadena & "'"
             My.Settings.Save()
+
+            My.Settings.CadenaAPPCAVistas = "metadata=res://*/EntityFramework.appcavistas.csdl|res://*/EntityFramework.appcavistas.ssdl|" _
+               & "res://*/EntityFramework.appcavistas.msl;provider=Oracle.DataAccess.Client;provider connection string= '" & _cadena & "'"
+            My.Settings.Save()
+
             MsgBox("Nueva configuración guardada", MsgBoxStyle.Information, "OK")
             frmLogin.Show()
             Close()

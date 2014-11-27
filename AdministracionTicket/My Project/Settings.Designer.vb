@@ -104,6 +104,21 @@ Namespace My
                 Me("URLForm") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("metadata=res://*/EntityFramework.appcavistas.csdl|res://*/EntityFramework.appcavi"& _ 
+            "stas.ssdl|res://*/EntityFramework.appcavistas.msl;provider=Oracle.DataAccess.Cli"& _ 
+            "ent;provider connection string=""DATA SOURCE=localhost;PASSWORD=miclave;PERSIST S"& _ 
+            "ECURITY INFO=True;USER ID=APPCA""")>  _
+        Public Property CadenaAPPCAVistas() As String
+            Get
+                Return CType(Me("CadenaAPPCAVistas"),String)
+            End Get
+            Set
+                Me("CadenaAPPCAVistas") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
