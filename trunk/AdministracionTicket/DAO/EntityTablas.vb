@@ -924,46 +924,48 @@
 
 #Region "Crear formularios"
     Public Shared Function AgregarFormulario(ByVal form As FORMULARIOS) As Object
-        Dim activo As Integer = (From fr In ctx.FORMULARIOS
-                                Where fr.IDSALTO = form.IDSALTO AndAlso fr.ACTIVO = 1).Count()
+        Try
+            ctx.FORMULARIOS.AddObject(form)
+            ctx.SaveChanges()
+            Return form.IDFORMULARIO 'Después de SaveChanges(), EntityFramework carga el objeto 'ges' con los datos y así retornamos el ID recien agregado
+        Catch ex As Exception
+            Return ex.Message.ToString
+        End Try
 
-        If activo < 1 Then
-            Try
-                ctx.FORMULARIOS.AddObject(form)
-                ctx.SaveChanges()
-                Return form.IDFORMULARIO 'Después de SaveChanges(), EntityFramework carga el objeto 'ges' con los datos y así retornamos el ID recien agregado
-            Catch ex As Exception
-                Return ex.Message.ToString
-            End Try
-        ElseIf form.ACTIVO = 1 Then
-            Try
-                Dim forms = (From frm In ctx.FORMULARIOS
-                                Where frm.IDSALTO = form.IDSALTO
-                                Select frm).ToList()
+        'Dim activo As Integer = (From fr In ctx.FORMULARIOS
+        '                        Where fr.IDSALTO = form.IDSALTO AndAlso fr.ACTIVO = 1).Count()
 
-                Try
-                    For Each f In forms
-                        f.ACTIVO = 0
-                    Next
+        'If activo < 1 Then
 
-                    ctx.FORMULARIOS.AddObject(form)
-                    ctx.SaveChanges()
-                    Return form.IDFORMULARIO
-                Catch ex As Exception
-                    Return ex.Message.ToString
-                End Try
-            Catch ex As Exception
-                Return ex.Message.ToString
-            End Try
-        Else
-            Try
-                ctx.FORMULARIOS.AddObject(form)
-                ctx.SaveChanges()
-                Return form.IDFORMULARIO
-            Catch ex As UpdateException
-                Return ex.Message
-            End Try
-        End If
+        'ElseIf form.ACTIVO = 1 Then
+        '    Try
+        '        Dim forms = (From frm In ctx.FORMULARIOS
+        '                        Where frm.IDSALTO = form.IDSALTO
+        '                        Select frm).ToList()
+
+        '        Try
+        '            For Each f In forms
+        '                f.ACTIVO = 0
+        '            Next
+
+        '            ctx.FORMULARIOS.AddObject(form)
+        '            ctx.SaveChanges()
+        '            Return form.IDFORMULARIO
+        '        Catch ex As Exception
+        '            Return ex.Message.ToString
+        '        End Try
+        '    Catch ex As Exception
+        '        Return ex.Message.ToString
+        '    End Try
+        'Else
+        '    Try
+        '        ctx.FORMULARIOS.AddObject(form)
+        '        ctx.SaveChanges()
+        '        Return form.IDFORMULARIO
+        '    Catch ex As UpdateException
+        '        Return ex.Message
+        '    End Try
+        'End If
     End Function
 
     Public Shared Sub CargarFormsPadres(cbo As ComboBox, IdP As Integer)
