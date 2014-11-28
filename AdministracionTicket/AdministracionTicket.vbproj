@@ -169,6 +169,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>appcavistas.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmAtencionXOficina.Designer.vb">
       <DependentUpon>frmAtencionXOficina.vb</DependentUpon>
     </Compile>
@@ -380,6 +386,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmAtencionXOficina.resx">
       <DependentUpon>frmAtencionXOficina.vb</DependentUpon>
     </EmbeddedResource>
@@ -506,6 +515,8 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\ATENCION_X_OFICINA.datasource" />
+    <None Include="My Project\DataSources\DEPTO_MUNIC.datasource" />
     <None Include="My Project\DataSources\Entidades.datasource" />
     <None Include="My Project\DataSources\EntidadesInsert.datasource" />
     <None Include="My Project\DataSources\EntidadesTablas.datasource" />

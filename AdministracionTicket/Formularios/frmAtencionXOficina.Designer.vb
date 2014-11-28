@@ -108,6 +108,7 @@ Partial Class frmAtencionXOficina
         Me.PrintPreviewBarCheckItem15 = New DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem()
         Me.PrintPreviewBarCheckItem16 = New DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem()
         Me.PrintPreviewBarCheckItem17 = New DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -127,6 +128,7 @@ Partial Class frmAtencionXOficina
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.CheckBox1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnGenerar)
         Me.SplitContainer1.Panel1.Controls.Add(Me.GroupBox1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label4)
@@ -141,7 +143,7 @@ Partial Class frmAtencionXOficina
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DocumentViewer1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1132, 384)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1132, 380)
         Me.SplitContainer1.SplitterDistance = 346
         Me.SplitContainer1.TabIndex = 0
         '
@@ -169,7 +171,7 @@ Partial Class frmAtencionXOficina
         '
         'pickerHasta
         '
-        Me.pickerHasta.CustomFormat = "dd/MM/yy"
+        Me.pickerHasta.CustomFormat = "dd/MM/yyyy"
         Me.pickerHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.pickerHasta.Location = New System.Drawing.Point(77, 61)
         Me.pickerHasta.Name = "pickerHasta"
@@ -187,7 +189,7 @@ Partial Class frmAtencionXOficina
         '
         'pickerDesde
         '
-        Me.pickerDesde.CustomFormat = "dd/MM/yy"
+        Me.pickerDesde.CustomFormat = "dd/MM/yyyy"
         Me.pickerDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.pickerDesde.Location = New System.Drawing.Point(77, 36)
         Me.pickerDesde.Name = "pickerDesde"
@@ -281,7 +283,7 @@ Partial Class frmAtencionXOficina
         Me.DocumentViewer1.IsMetric = True
         Me.DocumentViewer1.Location = New System.Drawing.Point(0, 0)
         Me.DocumentViewer1.Name = "DocumentViewer1"
-        Me.DocumentViewer1.Size = New System.Drawing.Size(782, 384)
+        Me.DocumentViewer1.Size = New System.Drawing.Size(782, 380)
         Me.DocumentViewer1.TabIndex = 0
         '
         'DocumentViewerBarManager1
@@ -764,22 +766,22 @@ Partial Class frmAtencionXOficina
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 437)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1132, 24)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 433)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1132, 28)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 53)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 384)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 380)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(1132, 53)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 384)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 380)
         '
         'PrintPreviewBarCheckItem1
         '
@@ -953,6 +955,16 @@ Partial Class frmAtencionXOficina
         Me.PrintPreviewBarCheckItem17.Id = 56
         Me.PrintPreviewBarCheckItem17.Name = "PrintPreviewBarCheckItem17"
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(53, 271)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(64, 17)
+        Me.CheckBox1.TabIndex = 12
+        Me.CheckBox1.Text = "Reporte"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'frmAtencionXOficina
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1063,4 +1075,5 @@ Partial Class frmAtencionXOficina
     Friend WithEvents PrintPreviewBarCheckItem15 As DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem
     Friend WithEvents PrintPreviewBarCheckItem16 As DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem
     Friend WithEvents PrintPreviewBarCheckItem17 As DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 End Class

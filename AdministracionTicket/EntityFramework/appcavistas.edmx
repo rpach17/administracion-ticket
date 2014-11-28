@@ -6,67 +6,57 @@
     <edmx:StorageModels>
     <Schema Namespace="ModeloVistas.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ModeloVistasStoreContainer">
-          <EntitySet Name="V_ATENCIONXOFICINA" EntityType="ModeloVistas.Store.V_ATENCIONXOFICINA" store:Type="Views" store:Schema="APPCA" store:Name="V_ATENCIONXOFICINA">
-            <DefiningQuery>SELECT 
-      "V_ATENCIONXOFICINA"."DEPARTAMENTO" AS "DEPARTAMENTO", 
-      "V_ATENCIONXOFICINA"."MUNICIPIO" AS "MUNICIPIO", 
-      "V_ATENCIONXOFICINA"."SUCURSAL" AS "SUCURSAL", 
-      "V_ATENCIONXOFICINA"."OFICINA" AS "OFICINA", 
-      "V_ATENCIONXOFICINA"."NOMBRE_EMPLEADO" AS "NOMBRE_EMPLEADO", 
-      "V_ATENCIONXOFICINA"."GESTION" AS "GESTION", 
-      "V_ATENCIONXOFICINA"."IDDETALLE_SUCURSAL_OFICINA" AS "IDDETALLE_SUCURSAL_OFICINA", 
-      "V_ATENCIONXOFICINA"."FECHAHORA_PETICION" AS "FECHAHORA_PETICION", 
-      "V_ATENCIONXOFICINA"."GESTIONES_ATENDIDAS" AS "GESTIONES_ATENDIDAS", 
-      "V_ATENCIONXOFICINA"."PROMEDIO_ESPERA" AS "PROMEDIO_ESPERA", 
-      "V_ATENCIONXOFICINA"."PROMEDIO_ATENCION" AS "PROMEDIO_ATENCION"
-      FROM "APPCA"."V_ATENCIONXOFICINA" "V_ATENCIONXOFICINA"</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="COMODIN" EntityType="ModeloVistas.Store.COMODIN" store:Type="Tables" Schema="APPCA" />
         </EntityContainer>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'APPCA.V_ATENCIONXOFICINA' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
-        <EntityType Name="V_ATENCIONXOFICINA">
+        <EntityType Name="COMODIN">
           <Key>
-            <PropertyRef Name="SUCURSAL" />
-            <PropertyRef Name="IDDETALLE_SUCURSAL_OFICINA" />
-            <PropertyRef Name="FECHAHORA_PETICION" />
+            <PropertyRef Name="IDCOMODIN" />
           </Key>
-          <Property Name="DEPARTAMENTO" Type="varchar2" MaxLength="33" />
-          <Property Name="MUNICIPIO" Type="varchar2" MaxLength="33" />
-          <Property Name="SUCURSAL" Type="varchar2" Nullable="false" MaxLength="30" />
-          <Property Name="OFICINA" Type="varchar2" MaxLength="30" />
-          <Property Name="NOMBRE_EMPLEADO" Type="varchar2" MaxLength="71" />
-          <Property Name="GESTION" Type="varchar2" MaxLength="60" />
-          <Property Name="IDDETALLE_SUCURSAL_OFICINA" Type="number" Nullable="false" />
-          <Property Name="FECHAHORA_PETICION" Type="date" Nullable="false" />
-          <Property Name="GESTIONES_ATENDIDAS" Type="number" />
-          <Property Name="PROMEDIO_ESPERA" Type="number" />
-          <Property Name="PROMEDIO_ATENCION" Type="number" />
+          <Property Name="IDCOMODIN" Type="varchar2" Nullable="false" MaxLength="20" />
         </EntityType>
+        <Function Name="SP_RTE_ATENCIONXOFICINA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="APPCA">
+          <Parameter Name="VIDDETALLE_SUCURSAL_OFICINA" Type="number" Mode="In" />
+          <Parameter Name="DESDE" Type="nvarchar2" Mode="In" />
+          <Parameter Name="HASTA" Type="nvarchar2" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ModeloVistas" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="EntidadesVistas" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="V_ATENCIONXOFICINA" EntityType="ModeloVistas.V_ATENCIONXOFICINA" />
+          <EntitySet Name="ATENCION_X_OFICINAConjunto" EntityType="ModeloVistas.ATENCION_X_OFICINA" />
+          <EntitySet Name="COMODIN" EntityType="ModeloVistas.COMODIN" />
+          <FunctionImport Name="SP_RTE_ATENCIONXOFICINA">
+            <Parameter Name="VIDDETALLE_SUCURSAL_OFICINA" Mode="In" Type="Decimal" />
+            <Parameter Name="DESDE" Mode="In" Type="String" />
+            <Parameter Name="HASTA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_RTE_ATENCIONXOFICINA1" EntitySet="ATENCION_X_OFICINAConjunto" ReturnType="Collection(ModeloVistas.ATENCION_X_OFICINA)">
+            <Parameter Name="VIDDETALLE_SUCURSAL_OFICINA" Mode="In" Type="Decimal" />
+            <Parameter Name="DESDE" Mode="In" Type="String" />
+            <Parameter Name="HASTA" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
-        <EntityType Name="V_ATENCIONXOFICINA">
+        <EntityType Name="ATENCION_X_OFICINA">
           <Key>
-            <PropertyRef Name="SUCURSAL" />
-            <PropertyRef Name="IDDETALLE_SUCURSAL_OFICINA" />
-            <PropertyRef Name="FECHAHORA_PETICION" />
+            <PropertyRef Name="NUMFILA" />
           </Key>
-          <Property Type="String" Name="DEPARTAMENTO" MaxLength="33" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="MUNICIPIO" MaxLength="33" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="SUCURSAL" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="OFICINA" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NOMBRE_EMPLEADO" MaxLength="71" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="GESTION" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IDDETALLE_SUCURSAL_OFICINA" Nullable="false" Precision="38" Scale="0" />
-          <Property Type="DateTime" Name="FECHAHORA_PETICION" Nullable="false" Precision="0" />
-          <Property Type="Decimal" Name="GESTIONES_ATENDIDAS" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="PROMEDIO_ESPERA" Precision="38" Scale="0" />
-          <Property Type="Decimal" Name="PROMEDIO_ATENCION" Precision="38" Scale="0" />
+          <Property Type="Int32" Name="NUMFILA" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DEPARTAMENTO" Nullable="false" />
+          <Property Type="String" Name="MUNICIPIO" Nullable="false" />
+          <Property Type="String" Name="SUCURSAL" Nullable="false" />
+          <Property Type="String" Name="OFICINA" Nullable="false" />
+          <Property Type="String" Name="NOMBRE_EMPLEADO" Nullable="false" />
+          <Property Type="String" Name="GESTION" Nullable="false" />
+          <Property Type="Int32" Name="GESTIONES_ATENDIDAS" Nullable="false" />
+          <Property Type="Decimal" Name="PROMEDIO_ESPERA" Nullable="false" />
+          <Property Type="Decimal" Name="PROMEDIO_ATENCION" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMODIN">
+          <Key>
+            <PropertyRef Name="IDCOMODIN" />
+          </Key>
+          <Property Type="String" Name="IDCOMODIN" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -74,23 +64,15 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModeloVistasStoreContainer" CdmEntityContainer="EntidadesVistas">
-          <EntitySetMapping Name="V_ATENCIONXOFICINA">
-            <EntityTypeMapping TypeName="ModeloVistas.V_ATENCIONXOFICINA">
-              <MappingFragment StoreEntitySet="V_ATENCIONXOFICINA">
-                <ScalarProperty Name="PROMEDIO_ATENCION" ColumnName="PROMEDIO_ATENCION" />
-                <ScalarProperty Name="PROMEDIO_ESPERA" ColumnName="PROMEDIO_ESPERA" />
-                <ScalarProperty Name="GESTIONES_ATENDIDAS" ColumnName="GESTIONES_ATENDIDAS" />
-                <ScalarProperty Name="FECHAHORA_PETICION" ColumnName="FECHAHORA_PETICION" />
-                <ScalarProperty Name="IDDETALLE_SUCURSAL_OFICINA" ColumnName="IDDETALLE_SUCURSAL_OFICINA" />
-                <ScalarProperty Name="GESTION" ColumnName="GESTION" />
-                <ScalarProperty Name="NOMBRE_EMPLEADO" ColumnName="NOMBRE_EMPLEADO" />
-                <ScalarProperty Name="OFICINA" ColumnName="OFICINA" />
-                <ScalarProperty Name="SUCURSAL" ColumnName="SUCURSAL" />
-                <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
-                <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+          <EntitySetMapping Name="COMODIN">
+            <EntityTypeMapping TypeName="ModeloVistas.COMODIN">
+              <MappingFragment StoreEntitySet="COMODIN">
+                <ScalarProperty Name="IDCOMODIN" ColumnName="IDCOMODIN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_RTE_ATENCIONXOFICINA" FunctionName="ModeloVistas.Store.SP_RTE_ATENCIONXOFICINA" />
+          <FunctionImportMapping FunctionImportName="SP_RTE_ATENCIONXOFICINA1" FunctionName="ModeloVistas.Store.SP_RTE_ATENCIONXOFICINA" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -112,7 +94,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="appcavistas">
-        <EntityTypeShape EntityType="ModeloVistas.V_ATENCIONXOFICINA" Width="2.5" PointX="0.875" PointY="0.625" />
+        <EntityTypeShape EntityType="ModeloVistas.ATENCION_X_OFICINA" Width="2.25" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="ModeloVistas.COMODIN" Width="1.5" PointX="3.625" PointY="0.5" />
       </Diagram>
     </Diagrams>
   </Designer>

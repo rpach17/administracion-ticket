@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("06501caa-c930-46da-8390-2a02c34d8fb7")>
+<Assembly: EdmSchemaAttribute("78555ad2-f363-4c6a-8fbb-b3f0640aa103")>
 #Region "Contextos"
 
 ''' <summary>
@@ -70,27 +70,148 @@ Public Partial Class EntidadesVistas
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    Public ReadOnly Property V_ATENCIONXOFICINA() As ObjectSet(Of V_ATENCIONXOFICINA)
+    Public ReadOnly Property ATENCION_X_OFICINAConjunto() As ObjectSet(Of ATENCION_X_OFICINA)
         Get
-            If (_V_ATENCIONXOFICINA Is Nothing) Then
-                _V_ATENCIONXOFICINA = MyBase.CreateObjectSet(Of V_ATENCIONXOFICINA)("V_ATENCIONXOFICINA")
+            If (_ATENCION_X_OFICINAConjunto Is Nothing) Then
+                _ATENCION_X_OFICINAConjunto = MyBase.CreateObjectSet(Of ATENCION_X_OFICINA)("ATENCION_X_OFICINAConjunto")
             End If
-            Return _V_ATENCIONXOFICINA
+            Return _ATENCION_X_OFICINAConjunto
         End Get
     End Property
 
-    Private _V_ATENCIONXOFICINA As ObjectSet(Of V_ATENCIONXOFICINA)
+    Private _ATENCION_X_OFICINAConjunto As ObjectSet(Of ATENCION_X_OFICINA)
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    Public ReadOnly Property COMODIN() As ObjectSet(Of COMODIN)
+        Get
+            If (_COMODIN Is Nothing) Then
+                _COMODIN = MyBase.CreateObjectSet(Of COMODIN)("COMODIN")
+            End If
+            Return _COMODIN
+        End Get
+    End Property
+
+    Private _COMODIN As ObjectSet(Of COMODIN)
 
     #End Region
 
     #Region "Métodos AddTo"
 
     ''' <summary>
-    ''' Método desusado para agregar un nuevo objeto al EntitySet V_ATENCIONXOFICINA. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
+    ''' Método desusado para agregar un nuevo objeto al EntitySet ATENCION_X_OFICINAConjunto. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
     ''' </summary>
-    Public Sub AddToV_ATENCIONXOFICINA(ByVal v_ATENCIONXOFICINA As V_ATENCIONXOFICINA)
-        MyBase.AddObject("V_ATENCIONXOFICINA", v_ATENCIONXOFICINA)
+    Public Sub AddToATENCION_X_OFICINAConjunto(ByVal aTENCION_X_OFICINA As ATENCION_X_OFICINA)
+        MyBase.AddObject("ATENCION_X_OFICINAConjunto", aTENCION_X_OFICINA)
     End Sub
+
+    ''' <summary>
+    ''' Método desusado para agregar un nuevo objeto al EntitySet COMODIN. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
+    ''' </summary>
+    Public Sub AddToCOMODIN(ByVal cOMODIN As COMODIN)
+        MyBase.AddObject("COMODIN", cOMODIN)
+    End Sub
+
+    #End Region
+
+    #Region "Importaciones de funciones"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    ''' <param name="vIDDETALLE_SUCURSAL_OFICINA">No hay documentación de metadatos disponible.</param>
+    ''' <param name="dESDE">No hay documentación de metadatos disponible.</param>
+    ''' <param name="hASTA">No hay documentación de metadatos disponible.</param>
+    Public Function SP_RTE_ATENCIONXOFICINA(vIDDETALLE_SUCURSAL_OFICINA As Nullable(Of Global.System.Decimal), dESDE As Global.System.String, hASTA As Global.System.String) As Integer
+        Dim vIDDETALLE_SUCURSAL_OFICINAParameter As ObjectParameter
+        If (vIDDETALLE_SUCURSAL_OFICINA.HasValue)
+            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", vIDDETALLE_SUCURSAL_OFICINA)
+        Else
+            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", GetType(Global.System.Decimal))
+        End If
+
+        Dim dESDEParameter As ObjectParameter
+        If (dESDE IsNot Nothing)
+            dESDEParameter = New ObjectParameter("DESDE", dESDE)
+        Else
+            dESDEParameter = New ObjectParameter("DESDE", GetType(Global.System.String))
+        End If
+
+        Dim hASTAParameter As ObjectParameter
+        If (hASTA IsNot Nothing)
+            hASTAParameter = New ObjectParameter("HASTA", hASTA)
+        Else
+            hASTAParameter = New ObjectParameter("HASTA", GetType(Global.System.String))
+        End If
+
+        Return MyBase.ExecuteFunction("SP_RTE_ATENCIONXOFICINA", vIDDETALLE_SUCURSAL_OFICINAParameter, dESDEParameter, hASTAParameter)
+
+    End Function
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    ''' <param name="vIDDETALLE_SUCURSAL_OFICINA">No hay documentación de metadatos disponible.</param>
+    ''' <param name="dESDE">No hay documentación de metadatos disponible.</param>
+    ''' <param name="hASTA">No hay documentación de metadatos disponible.</param>
+    Public Function SP_RTE_ATENCIONXOFICINA1(vIDDETALLE_SUCURSAL_OFICINA As Nullable(Of Global.System.Decimal), dESDE As Global.System.String, hASTA As Global.System.String) As ObjectResult(Of ATENCION_X_OFICINA)
+        Dim vIDDETALLE_SUCURSAL_OFICINAParameter As ObjectParameter
+        If (vIDDETALLE_SUCURSAL_OFICINA.HasValue)
+            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", vIDDETALLE_SUCURSAL_OFICINA)
+        Else
+            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", GetType(Global.System.Decimal))
+        End If
+
+        Dim dESDEParameter As ObjectParameter
+        If (dESDE IsNot Nothing)
+            dESDEParameter = New ObjectParameter("DESDE", dESDE)
+        Else
+            dESDEParameter = New ObjectParameter("DESDE", GetType(Global.System.String))
+        End If
+
+        Dim hASTAParameter As ObjectParameter
+        If (hASTA IsNot Nothing)
+            hASTAParameter = New ObjectParameter("HASTA", hASTA)
+        Else
+            hASTAParameter = New ObjectParameter("HASTA", GetType(Global.System.String))
+        End If
+
+        Return MyBase.ExecuteFunction(Of ATENCION_X_OFICINA)("SP_RTE_ATENCIONXOFICINA1", vIDDETALLE_SUCURSAL_OFICINAParameter, dESDEParameter, hASTAParameter)
+
+    End Function
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    ''' <param name="mergeOption"></param>
+    ''' <param name="vIDDETALLE_SUCURSAL_OFICINA">No hay documentación de metadatos disponible.</param>
+    ''' <param name="dESDE">No hay documentación de metadatos disponible.</param>
+    ''' <param name="hASTA">No hay documentación de metadatos disponible.</param>
+    Public Function SP_RTE_ATENCIONXOFICINA1(vIDDETALLE_SUCURSAL_OFICINA As Nullable(Of Global.System.Decimal), dESDE As Global.System.String, hASTA As Global.System.String, mergeOption As MergeOption) As ObjectResult(Of ATENCION_X_OFICINA)
+        Dim vIDDETALLE_SUCURSAL_OFICINAParameter As ObjectParameter
+        If (vIDDETALLE_SUCURSAL_OFICINA.HasValue)
+            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", vIDDETALLE_SUCURSAL_OFICINA)
+        Else
+            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", GetType(Global.System.Decimal))
+        End If
+
+        Dim dESDEParameter As ObjectParameter
+        If (dESDE IsNot Nothing)
+            dESDEParameter = New ObjectParameter("DESDE", dESDE)
+        Else
+            dESDEParameter = New ObjectParameter("DESDE", GetType(Global.System.String))
+        End If
+
+        Dim hASTAParameter As ObjectParameter
+        If (hASTA IsNot Nothing)
+            hASTAParameter = New ObjectParameter("HASTA", hASTA)
+        Else
+            hASTAParameter = New ObjectParameter("HASTA", GetType(Global.System.String))
+        End If
+
+        Return MyBase.ExecuteFunction(Of ATENCION_X_OFICINA)("SP_RTE_ATENCIONXOFICINA1", mergeOption, vIDDETALLE_SUCURSAL_OFICINAParameter, dESDEParameter, hASTAParameter)
+
+    End Function
 
     #End Region
 
@@ -103,25 +224,39 @@ End Class
 ''' <summary>
 ''' No hay documentación de metadatos disponible.
 ''' </summary>
-<EdmEntityTypeAttribute(NamespaceName:="ModeloVistas", Name:="V_ATENCIONXOFICINA")>
+<EdmEntityTypeAttribute(NamespaceName:="ModeloVistas", Name:="ATENCION_X_OFICINA")>
 <Serializable()>
 <DataContractAttribute(IsReference:=True)>
-Public Partial Class V_ATENCIONXOFICINA
+Public Partial Class ATENCION_X_OFICINA
     Inherits EntityObject
     #Region "Método de generador"
 
     ''' <summary>
-    ''' Crear un nuevo objeto V_ATENCIONXOFICINA.
+    ''' Crear un nuevo objeto ATENCION_X_OFICINA.
     ''' </summary>
+    ''' <param name="nUMFILA">Valor inicial de la propiedad NUMFILA.</param>
+    ''' <param name="dEPARTAMENTO">Valor inicial de la propiedad DEPARTAMENTO.</param>
+    ''' <param name="mUNICIPIO">Valor inicial de la propiedad MUNICIPIO.</param>
     ''' <param name="sUCURSAL">Valor inicial de la propiedad SUCURSAL.</param>
-    ''' <param name="iDDETALLE_SUCURSAL_OFICINA">Valor inicial de la propiedad IDDETALLE_SUCURSAL_OFICINA.</param>
-    ''' <param name="fECHAHORA_PETICION">Valor inicial de la propiedad FECHAHORA_PETICION.</param>
-    Public Shared Function CreateV_ATENCIONXOFICINA(sUCURSAL As Global.System.String, iDDETALLE_SUCURSAL_OFICINA As Global.System.Decimal, fECHAHORA_PETICION As Global.System.DateTime) As V_ATENCIONXOFICINA
-        Dim v_ATENCIONXOFICINA as V_ATENCIONXOFICINA = New V_ATENCIONXOFICINA
-        v_ATENCIONXOFICINA.SUCURSAL = sUCURSAL
-        v_ATENCIONXOFICINA.IDDETALLE_SUCURSAL_OFICINA = iDDETALLE_SUCURSAL_OFICINA
-        v_ATENCIONXOFICINA.FECHAHORA_PETICION = fECHAHORA_PETICION
-        Return v_ATENCIONXOFICINA
+    ''' <param name="oFICINA">Valor inicial de la propiedad OFICINA.</param>
+    ''' <param name="nOMBRE_EMPLEADO">Valor inicial de la propiedad NOMBRE_EMPLEADO.</param>
+    ''' <param name="gESTION">Valor inicial de la propiedad GESTION.</param>
+    ''' <param name="gESTIONES_ATENDIDAS">Valor inicial de la propiedad GESTIONES_ATENDIDAS.</param>
+    ''' <param name="pROMEDIO_ESPERA">Valor inicial de la propiedad PROMEDIO_ESPERA.</param>
+    ''' <param name="pROMEDIO_ATENCION">Valor inicial de la propiedad PROMEDIO_ATENCION.</param>
+    Public Shared Function CreateATENCION_X_OFICINA(nUMFILA As Global.System.Int32, dEPARTAMENTO As Global.System.String, mUNICIPIO As Global.System.String, sUCURSAL As Global.System.String, oFICINA As Global.System.String, nOMBRE_EMPLEADO As Global.System.String, gESTION As Global.System.String, gESTIONES_ATENDIDAS As Global.System.Int32, pROMEDIO_ESPERA As Global.System.Decimal, pROMEDIO_ATENCION As Global.System.Decimal) As ATENCION_X_OFICINA
+        Dim aTENCION_X_OFICINA as ATENCION_X_OFICINA = New ATENCION_X_OFICINA
+        aTENCION_X_OFICINA.NUMFILA = nUMFILA
+        aTENCION_X_OFICINA.DEPARTAMENTO = dEPARTAMENTO
+        aTENCION_X_OFICINA.MUNICIPIO = mUNICIPIO
+        aTENCION_X_OFICINA.SUCURSAL = sUCURSAL
+        aTENCION_X_OFICINA.OFICINA = oFICINA
+        aTENCION_X_OFICINA.NOMBRE_EMPLEADO = nOMBRE_EMPLEADO
+        aTENCION_X_OFICINA.GESTION = gESTION
+        aTENCION_X_OFICINA.GESTIONES_ATENDIDAS = gESTIONES_ATENDIDAS
+        aTENCION_X_OFICINA.PROMEDIO_ESPERA = pROMEDIO_ESPERA
+        aTENCION_X_OFICINA.PROMEDIO_ATENCION = pROMEDIO_ATENCION
+        Return aTENCION_X_OFICINA
     End Function
 
     #End Region
@@ -131,7 +266,34 @@ Public Partial Class V_ATENCIONXOFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property NUMFILA() As Global.System.Int32
+        Get
+            Return _NUMFILA
+        End Get
+        Set
+            If (_NUMFILA <> Value) Then
+                OnNUMFILAChanging(value)
+                ReportPropertyChanging("NUMFILA")
+                _NUMFILA = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("NUMFILA")
+                OnNUMFILAChanged()
+            End If
+        End Set
+    End Property
+
+    Private _NUMFILA As Global.System.Int32
+    Private Partial Sub OnNUMFILAChanging(value As Global.System.Int32)
+    End Sub
+
+    Private Partial Sub OnNUMFILAChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
     Public Property DEPARTAMENTO() As Global.System.String
         Get
@@ -140,7 +302,7 @@ Public Partial Class V_ATENCIONXOFICINA
         Set
             OnDEPARTAMENTOChanging(value)
             ReportPropertyChanging("DEPARTAMENTO")
-            _DEPARTAMENTO = StructuralObject.SetValidValue(value, true)
+            _DEPARTAMENTO = StructuralObject.SetValidValue(value, false)
             ReportPropertyChanged("DEPARTAMENTO")
             OnDEPARTAMENTOChanged()
         End Set
@@ -156,7 +318,7 @@ Public Partial Class V_ATENCIONXOFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
     Public Property MUNICIPIO() As Global.System.String
         Get
@@ -165,7 +327,7 @@ Public Partial Class V_ATENCIONXOFICINA
         Set
             OnMUNICIPIOChanging(value)
             ReportPropertyChanging("MUNICIPIO")
-            _MUNICIPIO = StructuralObject.SetValidValue(value, true)
+            _MUNICIPIO = StructuralObject.SetValidValue(value, false)
             ReportPropertyChanged("MUNICIPIO")
             OnMUNICIPIOChanged()
         End Set
@@ -181,20 +343,18 @@ Public Partial Class V_ATENCIONXOFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
     Public Property SUCURSAL() As Global.System.String
         Get
             Return _SUCURSAL
         End Get
         Set
-            If (_SUCURSAL <> Value) Then
-                OnSUCURSALChanging(value)
-                ReportPropertyChanging("SUCURSAL")
-                _SUCURSAL = StructuralObject.SetValidValue(value, false)
-                ReportPropertyChanged("SUCURSAL")
-                OnSUCURSALChanged()
-            End If
+            OnSUCURSALChanging(value)
+            ReportPropertyChanging("SUCURSAL")
+            _SUCURSAL = StructuralObject.SetValidValue(value, false)
+            ReportPropertyChanged("SUCURSAL")
+            OnSUCURSALChanged()
         End Set
     End Property
 
@@ -208,7 +368,7 @@ Public Partial Class V_ATENCIONXOFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
     Public Property OFICINA() As Global.System.String
         Get
@@ -217,7 +377,7 @@ Public Partial Class V_ATENCIONXOFICINA
         Set
             OnOFICINAChanging(value)
             ReportPropertyChanging("OFICINA")
-            _OFICINA = StructuralObject.SetValidValue(value, true)
+            _OFICINA = StructuralObject.SetValidValue(value, false)
             ReportPropertyChanged("OFICINA")
             OnOFICINAChanged()
         End Set
@@ -233,7 +393,7 @@ Public Partial Class V_ATENCIONXOFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
     Public Property NOMBRE_EMPLEADO() As Global.System.String
         Get
@@ -242,7 +402,7 @@ Public Partial Class V_ATENCIONXOFICINA
         Set
             OnNOMBRE_EMPLEADOChanging(value)
             ReportPropertyChanging("NOMBRE_EMPLEADO")
-            _NOMBRE_EMPLEADO = StructuralObject.SetValidValue(value, true)
+            _NOMBRE_EMPLEADO = StructuralObject.SetValidValue(value, false)
             ReportPropertyChanged("NOMBRE_EMPLEADO")
             OnNOMBRE_EMPLEADOChanged()
         End Set
@@ -258,7 +418,7 @@ Public Partial Class V_ATENCIONXOFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
     Public Property GESTION() As Global.System.String
         Get
@@ -267,7 +427,7 @@ Public Partial Class V_ATENCIONXOFICINA
         Set
             OnGESTIONChanging(value)
             ReportPropertyChanging("GESTION")
-            _GESTION = StructuralObject.SetValidValue(value, true)
+            _GESTION = StructuralObject.SetValidValue(value, false)
             ReportPropertyChanged("GESTION")
             OnGESTIONChanged()
         End Set
@@ -283,63 +443,9 @@ Public Partial Class V_ATENCIONXOFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
-    Public Property IDDETALLE_SUCURSAL_OFICINA() As Global.System.Decimal
-        Get
-            Return _IDDETALLE_SUCURSAL_OFICINA
-        End Get
-        Set
-            If (_IDDETALLE_SUCURSAL_OFICINA <> Value) Then
-                OnIDDETALLE_SUCURSAL_OFICINAChanging(value)
-                ReportPropertyChanging("IDDETALLE_SUCURSAL_OFICINA")
-                _IDDETALLE_SUCURSAL_OFICINA = StructuralObject.SetValidValue(value)
-                ReportPropertyChanged("IDDETALLE_SUCURSAL_OFICINA")
-                OnIDDETALLE_SUCURSAL_OFICINAChanged()
-            End If
-        End Set
-    End Property
-
-    Private _IDDETALLE_SUCURSAL_OFICINA As Global.System.Decimal
-    Private Partial Sub OnIDDETALLE_SUCURSAL_OFICINAChanging(value As Global.System.Decimal)
-    End Sub
-
-    Private Partial Sub OnIDDETALLE_SUCURSAL_OFICINAChanged()
-    End Sub
-
-    ''' <summary>
-    ''' No hay documentación de metadatos disponible.
-    ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
-    <DataMemberAttribute()>
-    Public Property FECHAHORA_PETICION() As Global.System.DateTime
-        Get
-            Return _FECHAHORA_PETICION
-        End Get
-        Set
-            If (_FECHAHORA_PETICION <> Value) Then
-                OnFECHAHORA_PETICIONChanging(value)
-                ReportPropertyChanging("FECHAHORA_PETICION")
-                _FECHAHORA_PETICION = StructuralObject.SetValidValue(value)
-                ReportPropertyChanged("FECHAHORA_PETICION")
-                OnFECHAHORA_PETICIONChanged()
-            End If
-        End Set
-    End Property
-
-    Private _FECHAHORA_PETICION As Global.System.DateTime
-    Private Partial Sub OnFECHAHORA_PETICIONChanging(value As Global.System.DateTime)
-    End Sub
-
-    Private Partial Sub OnFECHAHORA_PETICIONChanged()
-    End Sub
-
-    ''' <summary>
-    ''' No hay documentación de metadatos disponible.
-    ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
-    <DataMemberAttribute()>
-    Public Property GESTIONES_ATENDIDAS() As Nullable(Of Global.System.Decimal)
+    Public Property GESTIONES_ATENDIDAS() As Global.System.Int32
         Get
             Return _GESTIONES_ATENDIDAS
         End Get
@@ -352,8 +458,8 @@ Public Partial Class V_ATENCIONXOFICINA
         End Set
     End Property
 
-    Private _GESTIONES_ATENDIDAS As Nullable(Of Global.System.Decimal)
-    Private Partial Sub OnGESTIONES_ATENDIDASChanging(value As Nullable(Of Global.System.Decimal))
+    Private _GESTIONES_ATENDIDAS As Global.System.Int32
+    Private Partial Sub OnGESTIONES_ATENDIDASChanging(value As Global.System.Int32)
     End Sub
 
     Private Partial Sub OnGESTIONES_ATENDIDASChanged()
@@ -362,9 +468,9 @@ Public Partial Class V_ATENCIONXOFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
-    Public Property PROMEDIO_ESPERA() As Nullable(Of Global.System.Decimal)
+    Public Property PROMEDIO_ESPERA() As Global.System.Decimal
         Get
             Return _PROMEDIO_ESPERA
         End Get
@@ -377,8 +483,8 @@ Public Partial Class V_ATENCIONXOFICINA
         End Set
     End Property
 
-    Private _PROMEDIO_ESPERA As Nullable(Of Global.System.Decimal)
-    Private Partial Sub OnPROMEDIO_ESPERAChanging(value As Nullable(Of Global.System.Decimal))
+    Private _PROMEDIO_ESPERA As Global.System.Decimal
+    Private Partial Sub OnPROMEDIO_ESPERAChanging(value As Global.System.Decimal)
     End Sub
 
     Private Partial Sub OnPROMEDIO_ESPERAChanged()
@@ -387,9 +493,9 @@ Public Partial Class V_ATENCIONXOFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
-    Public Property PROMEDIO_ATENCION() As Nullable(Of Global.System.Decimal)
+    Public Property PROMEDIO_ATENCION() As Global.System.Decimal
         Get
             Return _PROMEDIO_ATENCION
         End Get
@@ -402,11 +508,66 @@ Public Partial Class V_ATENCIONXOFICINA
         End Set
     End Property
 
-    Private _PROMEDIO_ATENCION As Nullable(Of Global.System.Decimal)
-    Private Partial Sub OnPROMEDIO_ATENCIONChanging(value As Nullable(Of Global.System.Decimal))
+    Private _PROMEDIO_ATENCION As Global.System.Decimal
+    Private Partial Sub OnPROMEDIO_ATENCIONChanging(value As Global.System.Decimal)
     End Sub
 
     Private Partial Sub OnPROMEDIO_ATENCIONChanged()
+    End Sub
+
+    #End Region
+
+End Class
+
+''' <summary>
+''' No hay documentación de metadatos disponible.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="ModeloVistas", Name:="COMODIN")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class COMODIN
+    Inherits EntityObject
+    #Region "Método de generador"
+
+    ''' <summary>
+    ''' Crear un nuevo objeto COMODIN.
+    ''' </summary>
+    ''' <param name="iDCOMODIN">Valor inicial de la propiedad IDCOMODIN.</param>
+    Public Shared Function CreateCOMODIN(iDCOMODIN As Global.System.String) As COMODIN
+        Dim cOMODIN as COMODIN = New COMODIN
+        cOMODIN.IDCOMODIN = iDCOMODIN
+        Return cOMODIN
+    End Function
+
+    #End Region
+
+    #Region "Propiedades primitivas"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property IDCOMODIN() As Global.System.String
+        Get
+            Return _IDCOMODIN
+        End Get
+        Set
+            If (_IDCOMODIN <> Value) Then
+                OnIDCOMODINChanging(value)
+                ReportPropertyChanging("IDCOMODIN")
+                _IDCOMODIN = StructuralObject.SetValidValue(value, false)
+                ReportPropertyChanged("IDCOMODIN")
+                OnIDCOMODINChanged()
+            End If
+        End Set
+    End Property
+
+    Private _IDCOMODIN As Global.System.String
+    Private Partial Sub OnIDCOMODINChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnIDCOMODINChanged()
     End Sub
 
     #End Region
