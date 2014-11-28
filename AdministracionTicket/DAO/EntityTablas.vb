@@ -502,7 +502,7 @@
 
 
     Public Shared Sub ActualizarUsuario(ByVal idu As Integer, ByVal identidad As String, ByVal idPuesto As Integer, ByVal nombre As String, ByVal apellidos As String, _
-                                        ByVal titulo As String, ByVal vinculado As Integer?, ByVal estado As Integer)
+                                        ByVal titulo As String, ByVal vinculado As Integer?, ByVal estado As Integer, ByVal idso As Integer)
         Dim user As USUARIOS = (From u In ctx.USUARIOS.ToList Where u.IDUSUARIO = idu).SingleOrDefault
         Try
             With user
@@ -513,6 +513,7 @@
                 .TITULO = titulo
                 .VINCULAR_CON = vinculado
                 .ESTADO = estado
+                .IDDETALLE_SUCURSAL_OFICINA = idso
             End With
             ctx.SaveChanges()
         Catch ex As Exception

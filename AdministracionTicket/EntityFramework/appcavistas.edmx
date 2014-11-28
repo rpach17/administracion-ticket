@@ -49,8 +49,8 @@
           <Property Type="String" Name="NOMBRE_EMPLEADO" Nullable="false" />
           <Property Type="String" Name="GESTION" Nullable="false" />
           <Property Type="Int32" Name="GESTIONES_ATENDIDAS" Nullable="false" />
-          <Property Type="Decimal" Name="PROMEDIO_ESPERA" Nullable="false" />
-          <Property Type="Decimal" Name="PROMEDIO_ATENCION" Nullable="false" />
+          <Property Type="Decimal" Name="PROMEDIO_ESPERA" Nullable="true" />
+          <Property Type="Decimal" Name="PROMEDIO_ATENCION" Nullable="true" />
         </EntityType>
         <EntityType Name="COMODIN">
           <Key>

@@ -8,5 +8,10 @@
         Dim ctx As New EntidadesVistas(My.Settings.CadenaAPPCAVistas)
         Dim datos = ctx.SP_RTE_ATENCIONXOFICINA1(idso, finicio, ffin)
         BindingSource1.DataSource = datos
+
+        lblDesde.Text = finicio
+        lblHasta.Text = ffin
     End Sub
+
+ 
 End Class
