@@ -28,6 +28,14 @@ Public Class RibbonMain
             .Focus()
         End With
     End Sub
+    Private Sub BarButtonItem15_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem15.ItemClick
+        With frmConfig
+            .MdiParent = Me
+            .Show()
+            .Focus()
+        End With
+    End Sub
+
 
     Private Sub BarButtonItem7_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem7.ItemClick
         With frmAgregarSucursal
