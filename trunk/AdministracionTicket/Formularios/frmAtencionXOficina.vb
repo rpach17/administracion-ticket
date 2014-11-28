@@ -28,15 +28,21 @@ Public Class frmAtencionXOficina
     End Sub
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
-        Dim reporte As rptAtencionXOficina
-
-        If cboOficina.SelectedValue Is Nothing Then
-            reporte = New rptAtencionXOficina()
-        Else
-            reporte = New rptAtencionXOficina(cboOficina.SelectedValue)
+        If cboOficina.Text = "" Then
+            Exit Sub
         End If
 
-        DocumentViewer1.DocumentSource = reporte
-        reporte.CreateDocument(False)
+        If CheckBox1.Checked Then
+            Dim reporte As New rptAtencionXOficina(cboOficina.SelectedValue, pickerDesde.Value.ToShortDateString, pickerHasta.Value.ToShortDateString)
+            DocumentViewer1.DocumentSource = reporte
+            reporte.CreateDocument(False)
+        Else
+            With Form1
+                .idso = cboOficina.SelectedValue
+                .finicio = pickerDesde.Value.ToShortDateString
+                .ffin = pickerHasta.Value.ToShortDateString
+                .ShowDialog()
+            End With
+        End If
     End Sub
 End Class
