@@ -224,7 +224,7 @@
             End If
 
             EntityTablas.ActualizarUsuario(IdUsuario, IDENTIDADTexbox.Text, cboPuestos.SelectedValue, NOMBRETextBox.Text, APELLIDOSTextBox.Text, _
-                                           TITULOTextBox.Text, _vinculadoCon, IIf(ESTADOCheckBox.Checked, 1, 0))
+                                           TITULOTextBox.Text, _vinculadoCon, IIf(ESTADOCheckBox.Checked, 1, 0), cboOficinas.SelectedValue)
             MsgBox("Se actualizó la información del usuario", MsgBoxStyle.Information, "Usuario actualizado")
 
         End If

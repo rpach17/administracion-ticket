@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("78555ad2-f363-4c6a-8fbb-b3f0640aa103")>
+<Assembly: EdmSchemaAttribute("2e3d9689-9f3e-4b62-9625-245959feb8ad")>
 #Region "Contextos"
 
 ''' <summary>
@@ -242,9 +242,7 @@ Public Partial Class ATENCION_X_OFICINA
     ''' <param name="nOMBRE_EMPLEADO">Valor inicial de la propiedad NOMBRE_EMPLEADO.</param>
     ''' <param name="gESTION">Valor inicial de la propiedad GESTION.</param>
     ''' <param name="gESTIONES_ATENDIDAS">Valor inicial de la propiedad GESTIONES_ATENDIDAS.</param>
-    ''' <param name="pROMEDIO_ESPERA">Valor inicial de la propiedad PROMEDIO_ESPERA.</param>
-    ''' <param name="pROMEDIO_ATENCION">Valor inicial de la propiedad PROMEDIO_ATENCION.</param>
-    Public Shared Function CreateATENCION_X_OFICINA(nUMFILA As Global.System.Int32, dEPARTAMENTO As Global.System.String, mUNICIPIO As Global.System.String, sUCURSAL As Global.System.String, oFICINA As Global.System.String, nOMBRE_EMPLEADO As Global.System.String, gESTION As Global.System.String, gESTIONES_ATENDIDAS As Global.System.Int32, pROMEDIO_ESPERA As Global.System.Decimal, pROMEDIO_ATENCION As Global.System.Decimal) As ATENCION_X_OFICINA
+    Public Shared Function CreateATENCION_X_OFICINA(nUMFILA As Global.System.Int32, dEPARTAMENTO As Global.System.String, mUNICIPIO As Global.System.String, sUCURSAL As Global.System.String, oFICINA As Global.System.String, nOMBRE_EMPLEADO As Global.System.String, gESTION As Global.System.String, gESTIONES_ATENDIDAS As Global.System.Int32) As ATENCION_X_OFICINA
         Dim aTENCION_X_OFICINA as ATENCION_X_OFICINA = New ATENCION_X_OFICINA
         aTENCION_X_OFICINA.NUMFILA = nUMFILA
         aTENCION_X_OFICINA.DEPARTAMENTO = dEPARTAMENTO
@@ -254,8 +252,6 @@ Public Partial Class ATENCION_X_OFICINA
         aTENCION_X_OFICINA.NOMBRE_EMPLEADO = nOMBRE_EMPLEADO
         aTENCION_X_OFICINA.GESTION = gESTION
         aTENCION_X_OFICINA.GESTIONES_ATENDIDAS = gESTIONES_ATENDIDAS
-        aTENCION_X_OFICINA.PROMEDIO_ESPERA = pROMEDIO_ESPERA
-        aTENCION_X_OFICINA.PROMEDIO_ATENCION = pROMEDIO_ATENCION
         Return aTENCION_X_OFICINA
     End Function
 
@@ -468,9 +464,9 @@ Public Partial Class ATENCION_X_OFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
     <DataMemberAttribute()>
-    Public Property PROMEDIO_ESPERA() As Global.System.Decimal
+    Public Property PROMEDIO_ESPERA() As Nullable(Of Global.System.Decimal)
         Get
             Return _PROMEDIO_ESPERA
         End Get
@@ -483,8 +479,8 @@ Public Partial Class ATENCION_X_OFICINA
         End Set
     End Property
 
-    Private _PROMEDIO_ESPERA As Global.System.Decimal
-    Private Partial Sub OnPROMEDIO_ESPERAChanging(value As Global.System.Decimal)
+    Private _PROMEDIO_ESPERA As Nullable(Of Global.System.Decimal)
+    Private Partial Sub OnPROMEDIO_ESPERAChanging(value As Nullable(Of Global.System.Decimal))
     End Sub
 
     Private Partial Sub OnPROMEDIO_ESPERAChanged()
@@ -493,9 +489,9 @@ Public Partial Class ATENCION_X_OFICINA
     ''' <summary>
     ''' No hay documentación de metadatos disponible.
     ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
     <DataMemberAttribute()>
-    Public Property PROMEDIO_ATENCION() As Global.System.Decimal
+    Public Property PROMEDIO_ATENCION() As Nullable(Of Global.System.Decimal)
         Get
             Return _PROMEDIO_ATENCION
         End Get
@@ -508,8 +504,8 @@ Public Partial Class ATENCION_X_OFICINA
         End Set
     End Property
 
-    Private _PROMEDIO_ATENCION As Global.System.Decimal
-    Private Partial Sub OnPROMEDIO_ATENCIONChanging(value As Global.System.Decimal)
+    Private _PROMEDIO_ATENCION As Nullable(Of Global.System.Decimal)
+    Private Partial Sub OnPROMEDIO_ATENCIONChanging(value As Nullable(Of Global.System.Decimal))
     End Sub
 
     Private Partial Sub OnPROMEDIO_ATENCIONChanged()
