@@ -33,14 +33,16 @@ Public Class frmAtencionXOficina
         End If
 
         If CheckBox1.Checked Then
-            Dim reporte As New rptAtencionXOficina(cboOficina.SelectedValue, pickerDesde.Value.ToShortDateString, pickerHasta.Value.ToShortDateString)
+            Dim reporte As New rptAtencionXOficina(cboOficina.SelectedValue, pickerDesde.Text, pickerHasta.Text)
             DocumentViewer1.DocumentSource = reporte
             reporte.CreateDocument(False)
         Else
             With Form1
                 .idso = cboOficina.SelectedValue
-                .finicio = pickerDesde.Value.ToShortDateString
-                .ffin = pickerHasta.Value.ToShortDateString
+                .finicio = pickerDesde.Text
+                .ffin = pickerHasta.Text
+                '.finicio = pickerDesde.Value.ToShortDateString
+                '.ffin = pickerHasta.Value.ToShortDateString
                 .ShowDialog()
             End With
         End If
