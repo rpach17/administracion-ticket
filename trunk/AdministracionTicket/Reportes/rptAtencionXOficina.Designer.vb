@@ -398,7 +398,7 @@ Partial Public Class rptAtencionXOficina
         '
         'BindingSource1
         '
-        Me.BindingSource1.DataSource = GetType(AdministracionTicket.ATENCION_X_OFICINA)
+        'Me.BindingSource1.DataSource = GetType(AdministracionTicket.ATENCION_X_OFICINA)
         '
         'GroupFooter1
         '

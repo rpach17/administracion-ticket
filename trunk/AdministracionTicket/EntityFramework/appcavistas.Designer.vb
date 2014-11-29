@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("426e12fd-ca08-4b84-8cd1-1a15f5e2745e")>
+<Assembly: EdmSchemaAttribute("316033ce-83f4-4595-8c28-f1537eb7fa2d")>
 #Region "Contextos"
 
 ''' <summary>
@@ -133,106 +133,6 @@ Public Partial Class EntidadesVistas
     Public Sub AddToV_ATENCIONXOFICINA(ByVal v_ATENCIONXOFICINA As V_ATENCIONXOFICINA)
         MyBase.AddObject("V_ATENCIONXOFICINA", v_ATENCIONXOFICINA)
     End Sub
-
-    #End Region
-
-    #Region "Importaciones de funciones"
-
-    ''' <summary>
-    ''' No hay documentación de metadatos disponible.
-    ''' </summary>
-    ''' <param name="vIDDETALLE_SUCURSAL_OFICINA">No hay documentación de metadatos disponible.</param>
-    ''' <param name="dESDE">No hay documentación de metadatos disponible.</param>
-    ''' <param name="hASTA">No hay documentación de metadatos disponible.</param>
-    Public Function SP_RTE_ATENCIONXOFICINA(vIDDETALLE_SUCURSAL_OFICINA As Nullable(Of Global.System.Decimal), dESDE As Global.System.String, hASTA As Global.System.String) As Integer
-        Dim vIDDETALLE_SUCURSAL_OFICINAParameter As ObjectParameter
-        If (vIDDETALLE_SUCURSAL_OFICINA.HasValue)
-            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", vIDDETALLE_SUCURSAL_OFICINA)
-        Else
-            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", GetType(Global.System.Decimal))
-        End If
-
-        Dim dESDEParameter As ObjectParameter
-        If (dESDE IsNot Nothing)
-            dESDEParameter = New ObjectParameter("DESDE", dESDE)
-        Else
-            dESDEParameter = New ObjectParameter("DESDE", GetType(Global.System.String))
-        End If
-
-        Dim hASTAParameter As ObjectParameter
-        If (hASTA IsNot Nothing)
-            hASTAParameter = New ObjectParameter("HASTA", hASTA)
-        Else
-            hASTAParameter = New ObjectParameter("HASTA", GetType(Global.System.String))
-        End If
-
-        Return MyBase.ExecuteFunction("SP_RTE_ATENCIONXOFICINA", vIDDETALLE_SUCURSAL_OFICINAParameter, dESDEParameter, hASTAParameter)
-
-    End Function
-
-    ''' <summary>
-    ''' No hay documentación de metadatos disponible.
-    ''' </summary>
-    ''' <param name="vIDDETALLE_SUCURSAL_OFICINA">No hay documentación de metadatos disponible.</param>
-    ''' <param name="dESDE">No hay documentación de metadatos disponible.</param>
-    ''' <param name="hASTA">No hay documentación de metadatos disponible.</param>
-    Public Function SP_RTE_ATENCIONXOFICINA1(vIDDETALLE_SUCURSAL_OFICINA As Nullable(Of Global.System.Decimal), dESDE As Global.System.String, hASTA As Global.System.String) As ObjectResult(Of ATENCION_X_OFICINA)
-        Dim vIDDETALLE_SUCURSAL_OFICINAParameter As ObjectParameter
-        If (vIDDETALLE_SUCURSAL_OFICINA.HasValue)
-            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", vIDDETALLE_SUCURSAL_OFICINA)
-        Else
-            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", GetType(Global.System.Decimal))
-        End If
-
-        Dim dESDEParameter As ObjectParameter
-        If (dESDE IsNot Nothing)
-            dESDEParameter = New ObjectParameter("DESDE", dESDE)
-        Else
-            dESDEParameter = New ObjectParameter("DESDE", GetType(Global.System.String))
-        End If
-
-        Dim hASTAParameter As ObjectParameter
-        If (hASTA IsNot Nothing)
-            hASTAParameter = New ObjectParameter("HASTA", hASTA)
-        Else
-            hASTAParameter = New ObjectParameter("HASTA", GetType(Global.System.String))
-        End If
-
-        Return MyBase.ExecuteFunction(Of ATENCION_X_OFICINA)("SP_RTE_ATENCIONXOFICINA1", vIDDETALLE_SUCURSAL_OFICINAParameter, dESDEParameter, hASTAParameter)
-
-    End Function
-    ''' <summary>
-    ''' No hay documentación de metadatos disponible.
-    ''' </summary>
-    ''' <param name="mergeOption"></param>
-    ''' <param name="vIDDETALLE_SUCURSAL_OFICINA">No hay documentación de metadatos disponible.</param>
-    ''' <param name="dESDE">No hay documentación de metadatos disponible.</param>
-    ''' <param name="hASTA">No hay documentación de metadatos disponible.</param>
-    Public Function SP_RTE_ATENCIONXOFICINA1(vIDDETALLE_SUCURSAL_OFICINA As Nullable(Of Global.System.Decimal), dESDE As Global.System.String, hASTA As Global.System.String, mergeOption As MergeOption) As ObjectResult(Of ATENCION_X_OFICINA)
-        Dim vIDDETALLE_SUCURSAL_OFICINAParameter As ObjectParameter
-        If (vIDDETALLE_SUCURSAL_OFICINA.HasValue)
-            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", vIDDETALLE_SUCURSAL_OFICINA)
-        Else
-            vIDDETALLE_SUCURSAL_OFICINAParameter = New ObjectParameter("VIDDETALLE_SUCURSAL_OFICINA", GetType(Global.System.Decimal))
-        End If
-
-        Dim dESDEParameter As ObjectParameter
-        If (dESDE IsNot Nothing)
-            dESDEParameter = New ObjectParameter("DESDE", dESDE)
-        Else
-            dESDEParameter = New ObjectParameter("DESDE", GetType(Global.System.String))
-        End If
-
-        Dim hASTAParameter As ObjectParameter
-        If (hASTA IsNot Nothing)
-            hASTAParameter = New ObjectParameter("HASTA", hASTA)
-        Else
-            hASTAParameter = New ObjectParameter("HASTA", GetType(Global.System.String))
-        End If
-
-        Return MyBase.ExecuteFunction(Of ATENCION_X_OFICINA)("SP_RTE_ATENCIONXOFICINA1", mergeOption, vIDDETALLE_SUCURSAL_OFICINAParameter, dESDEParameter, hASTAParameter)
-
-    End Function
 
     #End Region
 

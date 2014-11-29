@@ -30,19 +30,22 @@
         cbo.SelectedValue = -1
     End Sub
 
-    Shared Sub reporteAtencion(ByVal idso As Integer, ByVal finicio As Date, ByVal ffin As Date)
+    Shared Sub reporteAtencion(grid As DataGridView, ByVal idso As Integer, ByVal finicio As Date, ByVal ffin As Date)
         Dim datos = (From d In ctxVistas.V_ATENCIONXOFICINA
-                       Where d.IDDETALLE_SUCURSAL_OFICINA = 1 And d.FECHAHORA_PETICION >= finicio And d.FECHAHORA_PETICION <= ffin
+                       Where d.IDDETALLE_SUCURSAL_OFICINA = 1 And d.FECHAHORA_PETICION >= finicio And d.FECHAHORA_PETICION <= ffin And d.PROMEDIO_ESPERA IsNot Nothing And d.PROMEDIO_ATENCION IsNot Nothing
                        Group By d.DEPARTAMENTO, d.MUNICIPIO, d.SUCURSAL, d.OFICINA, d.NOMBRE_EMPLEADO, d.GESTION
-                       Into promedioEspera = Average(d.PROMEDIO_ESPERA), promedioAtencion = Average(d.PROMEDIO_ATENCION), cantidad = Count(d.DEPARTAMENTO)
-                       Select DEPARTAMENTO, MUNICIPIO, SUCURSAL, OFICINA, NOMBRE_EMPLEADO, GESTION, cantidad, promedioEspera, promedioAtencion).ToList()
+                       Into promedioEspera = Average(d.PROMEDIO_ESPERA), promedioAtencion = Average(d.PROMEDIO_ATENCION)
+                       Select New With {DEPARTAMENTO, MUNICIPIO, SUCURSAL, OFICINA, NOMBRE_EMPLEADO, GESTION, promedioAtencion, promedioEspera}).ToList()
 
-        Dim lista As List(Of ATENCION_X_OFICINA)
-        Dim id As Integer = 0
-        For Each r In datos
-            lista.Add(id)
-            id += 1
-        Next
+
+
+        grid.DataSource = datos
+        'Dim lista As List(Of ATENCION_X_OFICINA)
+        'Dim id As Integer = 0
+        'For Each r In datos
+        '    lista.
+        '    id += 1
+        'Next
 
     End Sub
 
