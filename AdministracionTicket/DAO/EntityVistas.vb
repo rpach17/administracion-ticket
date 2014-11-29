@@ -30,5 +30,20 @@
         cbo.SelectedValue = -1
     End Sub
 
+    Shared Sub reporteAtencion(ByVal idso As Integer, ByVal finicio As Date, ByVal ffin As Date)
+        Dim datos = (From d In ctxVistas.V_ATENCIONXOFICINA
+                       Where d.IDDETALLE_SUCURSAL_OFICINA = 1 And d.FECHAHORA_PETICION >= finicio And d.FECHAHORA_PETICION <= ffin
+                       Group By d.DEPARTAMENTO, d.MUNICIPIO, d.SUCURSAL, d.OFICINA, d.NOMBRE_EMPLEADO, d.GESTION
+                       Into promedioEspera = Average(d.PROMEDIO_ESPERA), promedioAtencion = Average(d.PROMEDIO_ATENCION), cantidad = Count(d.DEPARTAMENTO)
+                       Select DEPARTAMENTO, MUNICIPIO, SUCURSAL, OFICINA, NOMBRE_EMPLEADO, GESTION, cantidad, promedioEspera, promedioAtencion).ToList()
+
+        Dim lista As List(Of ATENCION_X_OFICINA)
+        Dim id As Integer = 0
+        For Each r In datos
+            lista.Add(id)
+            id += 1
+        Next
+
+    End Sub
 
 End Class
