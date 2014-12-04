@@ -45,7 +45,6 @@ Public Class Form1
                             .PROMEDIO_ESPERA = reader("PROMEDIO_ESPERA"),
                             .PROMEDIO_ATENCION = reader("PROMEDIO_ATENCION")
                         }
-
                         lista.Add(objeto)
                     End While
                     reader.Close()
