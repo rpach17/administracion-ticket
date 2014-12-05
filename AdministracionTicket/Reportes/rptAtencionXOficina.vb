@@ -4,7 +4,7 @@ Imports Oracle.DataAccess.Client
 Public Class rptAtencionXOficina
     Dim cnn As New OracleConnection(My.Settings.MiConexion)
 
-    Public Sub New(Optional idso As Decimal = 0, Optional finicio As String = Nothing, Optional ffin As String = Nothing)
+    Public Sub New(Optional idso As Decimal = 0, Optional finicio As String = Nothing, Optional ffin As String = Nothing, Optional ffinM As String = Nothing)
         ' Llamada necesaria para el diseñador.
         InitializeComponent()
 
@@ -12,12 +12,14 @@ Public Class rptAtencionXOficina
         lblDesde.Text = finicio
         lblHasta.Text = ffin
 
+
+
         Try
             Using myCMD As New OracleCommand() With {.Connection = cnn, .CommandText = "SP_RTE_ATENCIONXOFICINA", .CommandType = CommandType.StoredProcedure}
 
                 myCMD.Parameters.Add("VIDDETALLE_SUCURSAL_OFICINA", OracleDbType.Int32, 10, Nothing, ParameterDirection.Input).Value = idso
                 myCMD.Parameters.Add("DESDE", OracleDbType.NVarchar2, Nothing, ParameterDirection.Input).Value = finicio
-                myCMD.Parameters.Add("HASTA", OracleDbType.NVarchar2, Nothing, ParameterDirection.Input).Value = ffin
+                myCMD.Parameters.Add("HASTA", OracleDbType.NVarchar2, Nothing, ParameterDirection.Input).Value = ffinM
 
                 Dim refCursor As OracleParameter = New OracleParameter With
                 {
