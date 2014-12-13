@@ -55,6 +55,7 @@ Partial Class RibbonMain
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.ClientPanel = New DevExpress.XtraEditors.PanelControl()
         Me.XtraTabManager = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
+        Me.BarButtonItem18 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,9 +68,9 @@ Partial Class RibbonMain
         '
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu1
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarStaticItem1, Me.lblInfoConexion, Me.BarStaticItem2, Me.lblInfoUbicacion, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BarButtonItem16, Me.BarButtonItem17})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarStaticItem1, Me.lblInfoConexion, Me.BarStaticItem2, Me.lblInfoUbicacion, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BarButtonItem16, Me.BarButtonItem17, Me.BarButtonItem18})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 24
+        Me.RibbonControl.MaxItemId = 25
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
@@ -287,6 +288,7 @@ Partial Class RibbonMain
         Me.RibbonPageGroup4.AllowTextClipping = False
         Me.RibbonPageGroup4.ItemLinks.Add(Me.BarButtonItem16)
         Me.RibbonPageGroup4.ItemLinks.Add(Me.BarButtonItem17)
+        Me.RibbonPageGroup4.ItemLinks.Add(Me.BarButtonItem18)
         Me.RibbonPageGroup4.Name = "RibbonPageGroup4"
         Me.RibbonPageGroup4.Text = "Reportes"
         '
@@ -321,6 +323,13 @@ Partial Class RibbonMain
         Me.XtraTabManager.AppearancePage.HeaderActive.Options.UseFont = True
         Me.XtraTabManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover
         Me.XtraTabManager.MdiParent = Me
+        '
+        'BarButtonItem18
+        '
+        Me.BarButtonItem18.Caption = "Trámites entregados"
+        Me.BarButtonItem18.Id = 24
+        Me.BarButtonItem18.LargeGlyph = Global.AdministracionTicket.My.Resources.Resources.report_magnify
+        Me.BarButtonItem18.Name = "BarButtonItem18"
         '
         'RibbonMain
         '
@@ -381,6 +390,7 @@ Partial Class RibbonMain
     Friend WithEvents RibbonPageGroup4 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarButtonItem16 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem17 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem18 As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
