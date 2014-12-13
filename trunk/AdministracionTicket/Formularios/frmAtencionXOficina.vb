@@ -32,10 +32,9 @@ Public Class frmAtencionXOficina
             Exit Sub
         End If
 
-        pickerHasta2.Value = pickerHasta.Value.AddDays(1)
 
         'If CheckBox1.Checked Then
-        Dim reporte As New rptAtencionXOficina(cboOficina.SelectedValue, pickerDesde.Text, pickerHasta.Text, pickerHasta2.Text)
+        Dim reporte As New rptAtencionXOficina(cboOficina.SelectedValue, pickerDesde.Text, pickerHasta.Text)
         DocumentViewer1.DocumentSource = reporte
         reporte.CreateDocument(False)
         'Else

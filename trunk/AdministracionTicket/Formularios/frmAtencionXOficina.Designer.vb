@@ -27,7 +27,6 @@ Partial Class frmAtencionXOficina
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.btnGenerar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.pickerHasta2 = New System.Windows.Forms.DateTimePicker()
         Me.pickerHasta = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.pickerDesde = New System.Windows.Forms.DateTimePicker()
@@ -157,7 +156,6 @@ Partial Class frmAtencionXOficina
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.pickerHasta2)
         Me.GroupBox1.Controls.Add(Me.pickerHasta)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.pickerDesde)
@@ -168,15 +166,6 @@ Partial Class frmAtencionXOficina
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Rango"
-        '
-        'pickerHasta2
-        '
-        Me.pickerHasta2.CustomFormat = "dd/MM/yyyy"
-        Me.pickerHasta2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.pickerHasta2.Location = New System.Drawing.Point(77, 111)
-        Me.pickerHasta2.Name = "pickerHasta2"
-        Me.pickerHasta2.Size = New System.Drawing.Size(199, 20)
-        Me.pickerHasta2.TabIndex = 12
         '
         'pickerHasta
         '
@@ -1074,5 +1063,4 @@ Partial Class frmAtencionXOficina
     Friend WithEvents PrintPreviewBarCheckItem15 As DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem
     Friend WithEvents PrintPreviewBarCheckItem16 As DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem
     Friend WithEvents PrintPreviewBarCheckItem17 As DevExpress.XtraPrinting.Preview.PrintPreviewBarCheckItem
-    Friend WithEvents pickerHasta2 As System.Windows.Forms.DateTimePicker
 End Class
