@@ -222,7 +222,7 @@ Partial Public Class rptTramitesEntregados
         Me.XrLabel1.StylePriority.UseBorders = False
         Me.XrLabel1.StylePriority.UseFont = False
         Me.XrLabel1.StylePriority.UseTextAlignment = False
-        Me.XrLabel1.Text = "Reporte de atenciones"
+        Me.XrLabel1.Text = "Reporte de trámites entregados"
         Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel6
