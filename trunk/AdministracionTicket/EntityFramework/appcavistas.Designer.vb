@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("316033ce-83f4-4595-8c28-f1537eb7fa2d")>
+<Assembly: EdmSchemaAttribute("955251b2-7af0-4e16-81f4-8e3f7c9f18e7")>
 #Region "Contextos"
 
 ''' <summary>
@@ -109,6 +109,20 @@ Public Partial Class EntidadesVistas
 
     Private _V_ATENCIONXOFICINA As ObjectSet(Of V_ATENCIONXOFICINA)
 
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    Public ReadOnly Property TRAMITES_RECIBIDOSConjunto() As ObjectSet(Of TRAMITES_RECIBIDOS)
+        Get
+            If (_TRAMITES_RECIBIDOSConjunto Is Nothing) Then
+                _TRAMITES_RECIBIDOSConjunto = MyBase.CreateObjectSet(Of TRAMITES_RECIBIDOS)("TRAMITES_RECIBIDOSConjunto")
+            End If
+            Return _TRAMITES_RECIBIDOSConjunto
+        End Get
+    End Property
+
+    Private _TRAMITES_RECIBIDOSConjunto As ObjectSet(Of TRAMITES_RECIBIDOS)
+
     #End Region
 
     #Region "Métodos AddTo"
@@ -132,6 +146,13 @@ Public Partial Class EntidadesVistas
     ''' </summary>
     Public Sub AddToV_ATENCIONXOFICINA(ByVal v_ATENCIONXOFICINA As V_ATENCIONXOFICINA)
         MyBase.AddObject("V_ATENCIONXOFICINA", v_ATENCIONXOFICINA)
+    End Sub
+
+    ''' <summary>
+    ''' Método desusado para agregar un nuevo objeto al EntitySet TRAMITES_RECIBIDOSConjunto. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet(Of T) asociada.
+    ''' </summary>
+    Public Sub AddToTRAMITES_RECIBIDOSConjunto(ByVal tRAMITES_RECIBIDOS As TRAMITES_RECIBIDOS)
+        MyBase.AddObject("TRAMITES_RECIBIDOSConjunto", tRAMITES_RECIBIDOS)
     End Sub
 
     #End Region
@@ -485,6 +506,169 @@ Public Partial Class COMODIN
     End Sub
 
     Private Partial Sub OnIDCOMODINChanged()
+    End Sub
+
+    #End Region
+
+End Class
+
+''' <summary>
+''' No hay documentación de metadatos disponible.
+''' </summary>
+<EdmEntityTypeAttribute(NamespaceName:="ModeloVistas", Name:="TRAMITES_RECIBIDOS")>
+<Serializable()>
+<DataContractAttribute(IsReference:=True)>
+Public Partial Class TRAMITES_RECIBIDOS
+    Inherits EntityObject
+    #Region "Método de generador"
+
+    ''' <summary>
+    ''' Crear un nuevo objeto TRAMITES_RECIBIDOS.
+    ''' </summary>
+    ''' <param name="nUMFILA">Valor inicial de la propiedad NUMFILA.</param>
+    ''' <param name="nUM_RECIBO">Valor inicial de la propiedad NUM_RECIBO.</param>
+    ''' <param name="mONTO_RECIBO">Valor inicial de la propiedad MONTO_RECIBO.</param>
+    ''' <param name="cODIGOTRAMITE">Valor inicial de la propiedad CODIGOTRAMITE.</param>
+    ''' <param name="nOMBRE">Valor inicial de la propiedad NOMBRE.</param>
+    Public Shared Function CreateTRAMITES_RECIBIDOS(nUMFILA As Global.System.Int32, nUM_RECIBO As Global.System.String, mONTO_RECIBO As Global.System.String, cODIGOTRAMITE As Global.System.String, nOMBRE As Global.System.String) As TRAMITES_RECIBIDOS
+        Dim tRAMITES_RECIBIDOS as TRAMITES_RECIBIDOS = New TRAMITES_RECIBIDOS
+        tRAMITES_RECIBIDOS.NUMFILA = nUMFILA
+        tRAMITES_RECIBIDOS.NUM_RECIBO = nUM_RECIBO
+        tRAMITES_RECIBIDOS.MONTO_RECIBO = mONTO_RECIBO
+        tRAMITES_RECIBIDOS.CODIGOTRAMITE = cODIGOTRAMITE
+        tRAMITES_RECIBIDOS.NOMBRE = nOMBRE
+        Return tRAMITES_RECIBIDOS
+    End Function
+
+    #End Region
+
+    #Region "Propiedades primitivas"
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property NUMFILA() As Global.System.Int32
+        Get
+            Return _NUMFILA
+        End Get
+        Set
+            If (_NUMFILA <> Value) Then
+                OnNUMFILAChanging(value)
+                ReportPropertyChanging("NUMFILA")
+                _NUMFILA = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("NUMFILA")
+                OnNUMFILAChanged()
+            End If
+        End Set
+    End Property
+
+    Private _NUMFILA As Global.System.Int32
+    Private Partial Sub OnNUMFILAChanging(value As Global.System.Int32)
+    End Sub
+
+    Private Partial Sub OnNUMFILAChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property NUM_RECIBO() As Global.System.String
+        Get
+            Return _NUM_RECIBO
+        End Get
+        Set
+            OnNUM_RECIBOChanging(value)
+            ReportPropertyChanging("NUM_RECIBO")
+            _NUM_RECIBO = StructuralObject.SetValidValue(value, false)
+            ReportPropertyChanged("NUM_RECIBO")
+            OnNUM_RECIBOChanged()
+        End Set
+    End Property
+
+    Private _NUM_RECIBO As Global.System.String
+    Private Partial Sub OnNUM_RECIBOChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnNUM_RECIBOChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property MONTO_RECIBO() As Global.System.String
+        Get
+            Return _MONTO_RECIBO
+        End Get
+        Set
+            OnMONTO_RECIBOChanging(value)
+            ReportPropertyChanging("MONTO_RECIBO")
+            _MONTO_RECIBO = StructuralObject.SetValidValue(value, false)
+            ReportPropertyChanged("MONTO_RECIBO")
+            OnMONTO_RECIBOChanged()
+        End Set
+    End Property
+
+    Private _MONTO_RECIBO As Global.System.String
+    Private Partial Sub OnMONTO_RECIBOChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnMONTO_RECIBOChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property CODIGOTRAMITE() As Global.System.String
+        Get
+            Return _CODIGOTRAMITE
+        End Get
+        Set
+            OnCODIGOTRAMITEChanging(value)
+            ReportPropertyChanging("CODIGOTRAMITE")
+            _CODIGOTRAMITE = StructuralObject.SetValidValue(value, false)
+            ReportPropertyChanged("CODIGOTRAMITE")
+            OnCODIGOTRAMITEChanged()
+        End Set
+    End Property
+
+    Private _CODIGOTRAMITE As Global.System.String
+    Private Partial Sub OnCODIGOTRAMITEChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnCODIGOTRAMITEChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No hay documentación de metadatos disponible.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property NOMBRE() As Global.System.String
+        Get
+            Return _NOMBRE
+        End Get
+        Set
+            OnNOMBREChanging(value)
+            ReportPropertyChanging("NOMBRE")
+            _NOMBRE = StructuralObject.SetValidValue(value, false)
+            ReportPropertyChanged("NOMBRE")
+            OnNOMBREChanged()
+        End Set
+    End Property
+
+    Private _NOMBRE As Global.System.String
+    Private Partial Sub OnNOMBREChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnNOMBREChanged()
     End Sub
 
     #End Region

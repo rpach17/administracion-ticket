@@ -182,10 +182,16 @@
     <Compile Include="Formularios\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmAtencionXOficina.Designer.vb">
+    <Compile Include="Reportes\Formularios\frmTramitesRecibidos.Designer.vb">
+      <DependentUpon>frmTramitesRecibidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Formularios\frmTramitesRecibidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Formularios\frmAtencionXOficina.Designer.vb">
       <DependentUpon>frmAtencionXOficina.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmAtencionXOficina.vb">
+    <Compile Include="Reportes\Formularios\frmAtencionXOficina.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmConfigURL.Designer.vb">
@@ -391,12 +397,21 @@
     <Compile Include="Reportes\rptAtencionXOficina.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\rptTramitesRecibidos.Designer.vb">
+      <DependentUpon>rptTramitesRecibidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\rptTramitesRecibidos.vb">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Formularios\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmAtencionXOficina.resx">
+    <EmbeddedResource Include="Reportes\Formularios\frmTramitesRecibidos.resx">
+      <DependentUpon>frmTramitesRecibidos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Formularios\frmAtencionXOficina.resx">
       <DependentUpon>frmAtencionXOficina.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmConfigURL.resx">
@@ -499,6 +514,9 @@
     <EmbeddedResource Include="Reportes\rptAtencionXOficina.resx">
       <DependentUpon>rptAtencionXOficina.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptTramitesRecibidos.resx">
+      <DependentUpon>rptTramitesRecibidos.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="AdministracionTicket_TemporaryKey.pfx" />
@@ -529,6 +547,7 @@
     <None Include="My Project\DataSources\EntidadesTablas.datasource" />
     <None Include="My Project\DataSources\EntidadesVistas.datasource" />
     <None Include="My Project\DataSources\GESTIONES.datasource" />
+    <None Include="My Project\DataSources\TRAMITES_RECIBIDOS.datasource" />
     <None Include="My Project\DataSources\V_ATENCIONXOFICINA.datasource" />
     <None Include="My Project\DataSources\V_UBICACION.datasource" />
     <None Include="My Project\Settings.settings">

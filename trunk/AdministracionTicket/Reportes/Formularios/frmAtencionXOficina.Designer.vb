@@ -25,6 +25,7 @@ Partial Class frmAtencionXOficina
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAtencionXOficina))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.btnGenerar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.pickerHasta = New System.Windows.Forms.DateTimePicker()
@@ -141,9 +142,19 @@ Partial Class frmAtencionXOficina
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DocumentViewer1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1132, 380)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1132, 384)
         Me.SplitContainer1.SplitterDistance = 346
         Me.SplitContainer1.TabIndex = 0
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(53, 271)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(64, 17)
+        Me.CheckBox1.TabIndex = 12
+        Me.CheckBox1.Text = "Reporte"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'btnGenerar
         '
@@ -281,7 +292,7 @@ Partial Class frmAtencionXOficina
         Me.DocumentViewer1.IsMetric = True
         Me.DocumentViewer1.Location = New System.Drawing.Point(0, 0)
         Me.DocumentViewer1.Name = "DocumentViewer1"
-        Me.DocumentViewer1.Size = New System.Drawing.Size(782, 380)
+        Me.DocumentViewer1.Size = New System.Drawing.Size(782, 384)
         Me.DocumentViewer1.TabIndex = 0
         '
         'DocumentViewerBarManager1
@@ -764,22 +775,22 @@ Partial Class frmAtencionXOficina
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 433)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1132, 28)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 437)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1132, 24)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 53)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 380)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 384)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(1132, 53)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 380)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 384)
         '
         'PrintPreviewBarCheckItem1
         '

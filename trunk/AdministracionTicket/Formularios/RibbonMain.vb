@@ -111,7 +111,6 @@ Public Class RibbonMain
         frmConfigURL.ShowDialog()
     End Sub
 
-
     'Private Sub BarButtonItem14_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem14.ItemClick
     'Using report As New rptUbicacion
     '    Using pr As New ReportPrintTool(report)
@@ -119,8 +118,8 @@ Public Class RibbonMain
     '    End Using
     'End Using
     'End Sub
-
-    Private Sub BarButtonItem14_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem14.ItemClick
+   
+    Private Sub BarButtonItem16_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem16.ItemClick
         With frmAtencionXOficina
             .MdiParent = Me
             .Show()
