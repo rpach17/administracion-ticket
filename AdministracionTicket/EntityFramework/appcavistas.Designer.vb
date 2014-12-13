@@ -18,7 +18,7 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("3352fb29-5fab-4bee-aa94-00e38b1927a7")>
+<Assembly: EdmSchemaAttribute("1bf909f6-3a63-4c71-9c08-2bf9c9dba980")>
 #Region "Contextos"
 
 ''' <summary>
@@ -549,14 +549,12 @@ Public Partial Class TRAMITES_ENTREGADOS
     ''' <param name="nUMFILA">Valor inicial de la propiedad NUMFILA.</param>
     ''' <param name="nUM_RECIBO">Valor inicial de la propiedad NUM_RECIBO.</param>
     ''' <param name="mONTO_RECIBO">Valor inicial de la propiedad MONTO_RECIBO.</param>
-    ''' <param name="cODIGOTRAMITE">Valor inicial de la propiedad CODIGOTRAMITE.</param>
     ''' <param name="nOMBRE">Valor inicial de la propiedad NOMBRE.</param>
-    Public Shared Function CreateTRAMITES_ENTREGADOS(nUMFILA As Global.System.Int32, nUM_RECIBO As Global.System.String, mONTO_RECIBO As Global.System.String, cODIGOTRAMITE As Global.System.String, nOMBRE As Global.System.String) As TRAMITES_ENTREGADOS
+    Public Shared Function CreateTRAMITES_ENTREGADOS(nUMFILA As Global.System.Int32, nUM_RECIBO As Global.System.String, mONTO_RECIBO As Global.System.String, nOMBRE As Global.System.String) As TRAMITES_ENTREGADOS
         Dim tRAMITES_ENTREGADOS as TRAMITES_ENTREGADOS = New TRAMITES_ENTREGADOS
         tRAMITES_ENTREGADOS.NUMFILA = nUMFILA
         tRAMITES_ENTREGADOS.NUM_RECIBO = nUM_RECIBO
         tRAMITES_ENTREGADOS.MONTO_RECIBO = mONTO_RECIBO
-        tRAMITES_ENTREGADOS.CODIGOTRAMITE = cODIGOTRAMITE
         tRAMITES_ENTREGADOS.NOMBRE = nOMBRE
         Return tRAMITES_ENTREGADOS
     End Function
@@ -647,31 +645,6 @@ Public Partial Class TRAMITES_ENTREGADOS
     ''' </summary>
     <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
-    Public Property CODIGOTRAMITE() As Global.System.String
-        Get
-            Return _CODIGOTRAMITE
-        End Get
-        Set
-            OnCODIGOTRAMITEChanging(value)
-            ReportPropertyChanging("CODIGOTRAMITE")
-            _CODIGOTRAMITE = StructuralObject.SetValidValue(value, false)
-            ReportPropertyChanged("CODIGOTRAMITE")
-            OnCODIGOTRAMITEChanged()
-        End Set
-    End Property
-
-    Private _CODIGOTRAMITE As Global.System.String
-    Private Partial Sub OnCODIGOTRAMITEChanging(value As Global.System.String)
-    End Sub
-
-    Private Partial Sub OnCODIGOTRAMITEChanged()
-    End Sub
-
-    ''' <summary>
-    ''' No hay documentación de metadatos disponible.
-    ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
-    <DataMemberAttribute()>
     Public Property NOMBRE() As Global.System.String
         Get
             Return _NOMBRE
@@ -712,14 +685,12 @@ Public Partial Class TRAMITES_RECIBIDOS
     ''' <param name="nUMFILA">Valor inicial de la propiedad NUMFILA.</param>
     ''' <param name="nUM_RECIBO">Valor inicial de la propiedad NUM_RECIBO.</param>
     ''' <param name="mONTO_RECIBO">Valor inicial de la propiedad MONTO_RECIBO.</param>
-    ''' <param name="cODIGOTRAMITE">Valor inicial de la propiedad CODIGOTRAMITE.</param>
     ''' <param name="nOMBRE">Valor inicial de la propiedad NOMBRE.</param>
-    Public Shared Function CreateTRAMITES_RECIBIDOS(nUMFILA As Global.System.Int32, nUM_RECIBO As Global.System.String, mONTO_RECIBO As Global.System.String, cODIGOTRAMITE As Global.System.String, nOMBRE As Global.System.String) As TRAMITES_RECIBIDOS
+    Public Shared Function CreateTRAMITES_RECIBIDOS(nUMFILA As Global.System.Int32, nUM_RECIBO As Global.System.String, mONTO_RECIBO As Global.System.String, nOMBRE As Global.System.String) As TRAMITES_RECIBIDOS
         Dim tRAMITES_RECIBIDOS as TRAMITES_RECIBIDOS = New TRAMITES_RECIBIDOS
         tRAMITES_RECIBIDOS.NUMFILA = nUMFILA
         tRAMITES_RECIBIDOS.NUM_RECIBO = nUM_RECIBO
         tRAMITES_RECIBIDOS.MONTO_RECIBO = mONTO_RECIBO
-        tRAMITES_RECIBIDOS.CODIGOTRAMITE = cODIGOTRAMITE
         tRAMITES_RECIBIDOS.NOMBRE = nOMBRE
         Return tRAMITES_RECIBIDOS
     End Function
@@ -803,31 +774,6 @@ Public Partial Class TRAMITES_RECIBIDOS
     End Sub
 
     Private Partial Sub OnMONTO_RECIBOChanged()
-    End Sub
-
-    ''' <summary>
-    ''' No hay documentación de metadatos disponible.
-    ''' </summary>
-    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
-    <DataMemberAttribute()>
-    Public Property CODIGOTRAMITE() As Global.System.String
-        Get
-            Return _CODIGOTRAMITE
-        End Get
-        Set
-            OnCODIGOTRAMITEChanging(value)
-            ReportPropertyChanging("CODIGOTRAMITE")
-            _CODIGOTRAMITE = StructuralObject.SetValidValue(value, false)
-            ReportPropertyChanged("CODIGOTRAMITE")
-            OnCODIGOTRAMITEChanged()
-        End Set
-    End Property
-
-    Private _CODIGOTRAMITE As Global.System.String
-    Private Partial Sub OnCODIGOTRAMITEChanging(value As Global.System.String)
-    End Sub
-
-    Private Partial Sub OnCODIGOTRAMITEChanged()
     End Sub
 
     ''' <summary>

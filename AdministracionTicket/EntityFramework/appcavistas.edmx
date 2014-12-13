@@ -104,7 +104,6 @@
           <Property Type="Int32" Name="NUMFILA" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="NUM_RECIBO" Nullable="false" />
           <Property Type="String" Name="MONTO_RECIBO" Nullable="false" />
-          <Property Type="String" Name="CODIGOTRAMITE" Nullable="false" />
           <Property Type="String" Name="NOMBRE" Nullable="false" />
         </EntityType>
         <EntityType Name="TRAMITES_ENTREGADOS">
@@ -114,7 +113,6 @@
           <Property Type="Int32" Name="NUMFILA" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="NUM_RECIBO" Nullable="false" />
           <Property Type="String" Name="MONTO_RECIBO" Nullable="false" />
-          <Property Type="String" Name="CODIGOTRAMITE" Nullable="false" />
           <Property Type="String" Name="NOMBRE" Nullable="false" />
         </EntityType>
         </Schema>
