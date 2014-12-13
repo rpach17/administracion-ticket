@@ -964,7 +964,7 @@ Partial Class frmTramitesEntregados
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
         Me.Name = "frmTramitesEntregados"
-        Me.Text = "Reporte de trámites recibidos"
+        Me.Text = "Reporte de trámites entregados"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()
         Me.SplitContainer1.Panel2.ResumeLayout(False)

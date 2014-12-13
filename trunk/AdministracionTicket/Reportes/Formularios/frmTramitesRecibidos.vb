@@ -32,19 +32,19 @@ Public Class frmTramitesRecibidos
             Exit Sub
         End If
 
-        If CheckBox1.Checked Then
-            Dim reporte As New rptTramitesRecibidos(cboOficina.SelectedValue, pickerDesde.Text, pickerHasta.Text)
-            DocumentViewer1.DocumentSource = reporte
-            reporte.CreateDocument(False)
-        Else
-            With Form1
-                .idso = cboOficina.SelectedValue
-                .finicio = pickerDesde.Text
-                .ffin = pickerHasta.Text
-                '.finicio = pickerDesde.Value.ToShortDateString
-                '.ffin = pickerHasta.Value.ToShortDateString
-                .ShowDialog()
-            End With
+        'If CheckBox1.Checked Then
+        Dim reporte As New rptTramitesRecibidos(cboDepto.Text, cboMunic.Text, cboSucursal.Text, cboOficina.Text, cboOficina.SelectedValue, pickerDesde.Text, pickerHasta.Text)
+        DocumentViewer1.DocumentSource = reporte
+        reporte.CreateDocument(False)
+        'Else
+        'With Form1
+        '    .idso = cboOficina.SelectedValue
+        '    .finicio = pickerDesde.Text
+        '    .ffin = pickerHasta.Text
+        '    '.finicio = pickerDesde.Value.ToShortDateString
+        '    '.ffin = pickerHasta.Value.ToShortDateString
+        '    .ShowDialog()
+        'End With
         End If
     End Sub
 End Class

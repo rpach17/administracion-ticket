@@ -4,13 +4,18 @@ Imports Oracle.DataAccess.Client
 Public Class rptTramitesRecibidos
     Dim cnn As New OracleConnection(My.Settings.MiConexion)
 
-    Public Sub New(Optional idso As Decimal = 0, Optional finicio As String = Nothing, Optional ffin As String = Nothing)
+    Public Sub New(depto As String, munic As String, suc As String, ofi As String, Optional idso As Decimal = 0, Optional finicio As String = Nothing, Optional ffin As String = Nothing)
 
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         lblDesde.Text = finicio
         lblHasta.Text = ffin
+
+        lblDepto.Text = depto
+        lblMunic.Text = munic
+        lblSuc.Text = suc
+        lblOfi = ofi
 
         Try
             Using myCMD As New OracleCommand() With {.Connection = cnn, .CommandText = "SP_RTE_TRAMITES_RECIBIDOS", .CommandType = CommandType.StoredProcedure}
