@@ -4,7 +4,7 @@ Imports Oracle.DataAccess.Client
 Public Class rptAtencionXOficina
     Dim cnn As New OracleConnection(My.Settings.MiConexion)
 
-    Public Sub New(Optional idso As Decimal = 0, Optional finicio As String = Nothing, Optional ffin As String = Nothing, Optional ffinM As String = Nothing)
+    Public Sub New(Optional idso As Decimal = 0, Optional finicio As String = Nothing, Optional ffin As String = Nothing)
         ' Llamada necesaria para el diseñador.
         InitializeComponent()
 
@@ -19,7 +19,7 @@ Public Class rptAtencionXOficina
 
                 myCMD.Parameters.Add("VIDDETALLE_SUCURSAL_OFICINA", OracleDbType.Int32, 10, Nothing, ParameterDirection.Input).Value = idso
                 myCMD.Parameters.Add("DESDE", OracleDbType.NVarchar2, Nothing, ParameterDirection.Input).Value = finicio
-                myCMD.Parameters.Add("HASTA", OracleDbType.NVarchar2, Nothing, ParameterDirection.Input).Value = ffinM
+                myCMD.Parameters.Add("HASTA", OracleDbType.NVarchar2, Nothing, ParameterDirection.Input).Value = ffin
 
                 Dim refCursor As OracleParameter = New OracleParameter With
                 {
