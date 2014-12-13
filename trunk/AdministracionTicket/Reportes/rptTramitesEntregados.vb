@@ -47,7 +47,6 @@ Public Class rptTramitesEntregados
                             .NUMFILA = reader("NUMFILA").ToString,
                             .NUM_RECIBO = reader("NUM_RECIBO").ToString,
                             .MONTO_RECIBO = reader("MONTO_RECIBO").ToString,
-                            .CODIGOTRAMITE = reader("CODIGOTRAMITE").ToString,
                             .NOMBRE = reader("NOMBRE").ToString
                         }
 

@@ -15,7 +15,7 @@ Public Class rptTramitesRecibidos
         lblDepto.Text = depto
         lblMunic.Text = munic
         lblSuc.Text = suc
-        lblOfi = ofi
+        lblOfi.Text = ofi
 
         Try
             Using myCMD As New OracleCommand() With {.Connection = cnn, .CommandText = "SP_RTE_TRAMITES_RECIBIDOS", .CommandType = CommandType.StoredProcedure}
@@ -46,7 +46,6 @@ Public Class rptTramitesRecibidos
                             .NUMFILA = reader("NUMFILA").ToString,
                             .NUM_RECIBO = reader("NUM_RECIBO").ToString,
                             .MONTO_RECIBO = reader("MONTO_RECIBO").ToString,
-                            .CODIGOTRAMITE = reader("CODIGOTRAMITE").ToString,
                             .NOMBRE = reader("NOMBRE").ToString
                         }
 

@@ -31,6 +31,7 @@ Partial Public Class rptTramitesRecibidos
         Me.XrTableCell8 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand()
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand()
+        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo()
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand()
         Me.XrTable1 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow1 = New DevExpress.XtraReports.UI.XRTableRow()
@@ -58,7 +59,6 @@ Partial Public Class rptTramitesRecibidos
         Me.XrTableCell9 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell12 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell11 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo()
         CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,7 +106,6 @@ Partial Public Class rptTramitesRecibidos
         Me.XrTableCell6.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "MONTO_RECIBO", "Lps. {0:n2}")})
         Me.XrTableCell6.Name = "XrTableCell6"
         Me.XrTableCell6.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 5, 0, 0, 100.0!)
-        Me.XrTableCell6.ProcessDuplicates = DevExpress.XtraReports.UI.ValueSuppressType.MergeByValue
         Me.XrTableCell6.StylePriority.UseBorders = False
         Me.XrTableCell6.StylePriority.UsePadding = False
         Me.XrTableCell6.StylePriority.UseTextAlignment = False
@@ -138,6 +137,16 @@ Partial Public Class rptTramitesRecibidos
         Me.BottomMargin.Name = "BottomMargin"
         Me.BottomMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrPageInfo1
+        '
+        Me.XrPageInfo1.Format = "Página {0} de {1}"
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 10.00001!)
+        Me.XrPageInfo1.Name = "XrPageInfo1"
+        Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(650.0!, 23.0!)
+        Me.XrPageInfo1.StylePriority.UseTextAlignment = False
+        Me.XrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
         '
         'ReportHeader
         '
@@ -421,16 +430,6 @@ Partial Public Class rptTramitesRecibidos
         Me.XrTableCell11.Summary = XrSummary3
         Me.XrTableCell11.Text = "XrTableCell11"
         Me.XrTableCell11.Weight = 2.5192311448317306R
-        '
-        'XrPageInfo1
-        '
-        Me.XrPageInfo1.Format = "Página {0} de {1}"
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 10.00001!)
-        Me.XrPageInfo1.Name = "XrPageInfo1"
-        Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(650.0!, 23.0!)
-        Me.XrPageInfo1.StylePriority.UseTextAlignment = False
-        Me.XrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
         '
         'rptTramitesRecibidos
         '

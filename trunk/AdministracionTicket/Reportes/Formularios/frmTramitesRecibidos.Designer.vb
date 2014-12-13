@@ -22,7 +22,6 @@ Partial Class frmTramitesRecibidos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTramitesRecibidos))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.btnGenerar = New System.Windows.Forms.Button()
@@ -40,7 +39,7 @@ Partial Class frmTramitesRecibidos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cboDepto = New System.Windows.Forms.ComboBox()
         Me.DocumentViewer1 = New DevExpress.XtraPrinting.Preview.DocumentViewer()
-        Me.DocumentViewerBarManager1 = New DevExpress.XtraPrinting.Preview.DocumentViewerBarManager(Me.components)
+        Me.DocumentViewerBarManager1 = New DevExpress.XtraPrinting.Preview.DocumentViewerBarManager()
         Me.PreviewBar1 = New DevExpress.XtraPrinting.Preview.PreviewBar()
         Me.PrintPreviewBarItem2 = New DevExpress.XtraPrinting.Preview.PrintPreviewBarItem()
         Me.PrintPreviewBarItem3 = New DevExpress.XtraPrinting.Preview.PrintPreviewBarItem()
@@ -141,7 +140,7 @@ Partial Class frmTramitesRecibidos
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DocumentViewer1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1132, 384)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1132, 380)
         Me.SplitContainer1.SplitterDistance = 346
         Me.SplitContainer1.TabIndex = 0
         '
@@ -281,7 +280,7 @@ Partial Class frmTramitesRecibidos
         Me.DocumentViewer1.IsMetric = True
         Me.DocumentViewer1.Location = New System.Drawing.Point(0, 0)
         Me.DocumentViewer1.Name = "DocumentViewer1"
-        Me.DocumentViewer1.Size = New System.Drawing.Size(782, 384)
+        Me.DocumentViewer1.Size = New System.Drawing.Size(782, 380)
         Me.DocumentViewer1.TabIndex = 0
         '
         'DocumentViewerBarManager1
@@ -764,22 +763,22 @@ Partial Class frmTramitesRecibidos
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 437)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1132, 24)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 433)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1132, 28)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 53)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 384)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 380)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(1132, 53)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 384)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 380)
         '
         'PrintPreviewBarCheckItem1
         '
