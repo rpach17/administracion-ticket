@@ -5,6 +5,8 @@ Public Class Form1
     Public idso As Decimal
     Public finicio As String
     Public ffin As String
+    Public frmDesde As String = ""
+
     Dim cnn As New OracleConnection(My.Settings.MiConexion)
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load

@@ -33,7 +33,7 @@ Public Class frmTramitesRecibidos
         End If
 
         If CheckBox1.Checked Then
-            Dim reporte As New rptAtencionXOficina(cboOficina.SelectedValue, pickerDesde.Text, pickerHasta.Text)
+            Dim reporte As New rptTramitesRecibidos(cboOficina.SelectedValue, pickerDesde.Text, pickerHasta.Text)
             DocumentViewer1.DocumentSource = reporte
             reporte.CreateDocument(False)
         Else

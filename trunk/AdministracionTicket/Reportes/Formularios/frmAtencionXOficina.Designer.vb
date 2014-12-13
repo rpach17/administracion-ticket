@@ -25,7 +25,7 @@ Partial Class frmAtencionXOficina
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAtencionXOficina))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        'Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.btnGenerar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.pickerHasta = New System.Windows.Forms.DateTimePicker()
@@ -148,13 +148,13 @@ Partial Class frmAtencionXOficina
         '
         'CheckBox1
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(53, 271)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(64, 17)
-        Me.CheckBox1.TabIndex = 12
-        Me.CheckBox1.Text = "Reporte"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        'Me.CheckBox1.AutoSize = True
+        'Me.CheckBox1.Location = New System.Drawing.Point(53, 271)
+        'Me.CheckBox1.Name = "CheckBox1"
+        'Me.CheckBox1.Size = New System.Drawing.Size(64, 17)
+        'Me.CheckBox1.TabIndex = 12
+        'Me.CheckBox1.Text = "Reporte"
+        'Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'btnGenerar
         '

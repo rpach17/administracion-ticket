@@ -45,6 +45,7 @@ Partial Class RibbonMain
         Me.BarButtonItem13 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem14 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem16 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem17 = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -54,7 +55,6 @@ Partial Class RibbonMain
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.ClientPanel = New DevExpress.XtraEditors.PanelControl()
         Me.XtraTabManager = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
-        Me.BarButtonItem17 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -247,6 +247,13 @@ Partial Class RibbonMain
         Me.BarButtonItem16.LargeGlyph = Global.AdministracionTicket.My.Resources.Resources.report_magnify
         Me.BarButtonItem16.Name = "BarButtonItem16"
         '
+        'BarButtonItem17
+        '
+        Me.BarButtonItem17.Caption = "Tramites recibidos"
+        Me.BarButtonItem17.Id = 23
+        Me.BarButtonItem17.LargeGlyph = Global.AdministracionTicket.My.Resources.Resources.report_magnify
+        Me.BarButtonItem17.Name = "BarButtonItem17"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1, Me.RibbonPageGroup2})
@@ -314,13 +321,6 @@ Partial Class RibbonMain
         Me.XtraTabManager.AppearancePage.HeaderActive.Options.UseFont = True
         Me.XtraTabManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover
         Me.XtraTabManager.MdiParent = Me
-        '
-        'BarButtonItem17
-        '
-        Me.BarButtonItem17.Caption = "Tramites recibidos"
-        Me.BarButtonItem17.Id = 23
-        Me.BarButtonItem17.LargeGlyph = Global.AdministracionTicket.My.Resources.Resources.report_magnify
-        Me.BarButtonItem17.Name = "BarButtonItem17"
         '
         'RibbonMain
         '
