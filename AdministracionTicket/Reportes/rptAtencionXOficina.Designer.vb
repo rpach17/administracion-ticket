@@ -205,7 +205,7 @@ Partial Public Class rptAtencionXOficina
             Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTableCell7.Name = "XrTableCell7"
         Me.XrTableCell7.StylePriority.UseBorders = False
-        Me.XrTableCell7.Text = "G. ATENTIDAS"
+        Me.XrTableCell7.Text = "G. ATENDIDAS"
         Me.XrTableCell7.Weight = 0.50961538461538469R
         '
         'XrTableCell8
