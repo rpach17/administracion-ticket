@@ -920,6 +920,57 @@
         End Try
     End Sub
 
+    Public Shared Sub CargarErrores(ByVal combo As ComboBox, ByVal codTramite As String)
+        Dim errores = (From e In ctx.ERRORES_GESTIONES
+                       Join tr In ctx.TRAMITES On e.GESTIONES.IDGESTION Equals tr.GESTIONES.IDGESTION
+                       Where tr.CODIGOTRAMITE = codTramite
+                       Select e).ToList()
+
+        combo.DisplayMember = "DESCRIPCION"
+        combo.ValueMember = "IDERROR"
+        combo.DataSource = errores
+    End Sub
+
+    Public Shared Sub AsignarErrorTramite(ByVal codTramite As String, ByVal idError As Integer)
+        Dim tramite = (From t In ctx.TRAMITES Where t.CODIGOTRAMITE = codTramite).SingleOrDefault()
+
+        Dim saltos = (From gs In ctx.GRUPO_SALTOS
+                      Join s In ctx.SALTOS On gs.IDGRUPO_SALTOS Equals s.IDGRUPO_SALTOS
+                       Where gs.ACTIVO = 1 And gs.IDGESTION = tramite.IDGESTION And s.ULTIMOSALTO = 1
+                       Select s).FirstOrDefault
+
+        Dim seguimiento = (From s In ctx.DETALLE_SEGUIMIENTO
+                           Where s.TRAMITES.IDTRAMITE = tramite.IDTRAMITE
+                           Order By s.IDDETALLE_SEGUIMIENTO Descending).FirstOrDefault
+
+        Dim eg As ERRORES_GESTIONES = (From e In ctx.ERRORES_GESTIONES Where e.IDERROR = idError Select e).FirstOrDefault
+
+        Dim query = ctx.ExecuteStoreQuery(Of Date)("select sysdate from dual")
+        Dim fecha As DateTime = query.First
+
+        Try
+            With seguimiento
+                .FECHA_ENTREGA = fecha
+                .DESTINO = saltos.IDSALTO
+                .IDUSUARIO_DESTINO = 0
+                .FECHA_PROCESO = fecha
+            End With
+
+            With tramite
+                .ACTIVO = 0
+            End With
+
+            tramite.ERRORES_GESTIONES.Add(eg)
+
+            ctx.SaveChanges()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+
+    End Sub
+
+
 #End Region
 
 #Region "Crear formularios"

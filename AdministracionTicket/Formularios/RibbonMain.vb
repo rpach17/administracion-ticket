@@ -142,4 +142,12 @@ Public Class RibbonMain
             .Focus()
         End With
     End Sub
+
+    Private Sub BarButtonItem19_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem19.ItemClick
+        With frmTramitesFinalizar
+            .MdiParent = Me
+            .Show()
+            .Focus()
+        End With
+    End Sub
 End Class

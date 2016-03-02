@@ -182,6 +182,12 @@
     <Compile Include="Formularios\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmTramitesFinalizar.designer.vb">
+      <DependentUpon>frmTramitesFinalizar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmTramitesFinalizar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\rptTramitesEntregados.Designer.vb">
       <DependentUpon>rptTramitesEntregados.vb</DependentUpon>
     </Compile>
@@ -420,6 +426,9 @@
     <EmbeddedResource Include="Formularios\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmTramitesFinalizar.resx">
+      <DependentUpon>frmTramitesFinalizar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptTramitesEntregados.resx">
       <DependentUpon>rptTramitesEntregados.vb</DependentUpon>
     </EmbeddedResource>
@@ -537,7 +546,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="AdministracionTicket_TemporaryKey.pfx" />
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -974,16 +982,7 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="mfc71.dll" />
-    <Content Include="msvcr71.dll" />
-    <Content Include="oci.dll" />
-    <Content Include="ocijdbc11.dll" />
-    <Content Include="ociw32.dll" />
-    <Content Include="orannzsbb11.dll" />
-    <Content Include="oraocci11.dll" />
-    <Content Include="oraociei11.dll" />
-    <Content Include="oraociicus11.dll" />
-    <Content Include="OraOps11w.dll" />
+    <None Include="Resources\file_delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
